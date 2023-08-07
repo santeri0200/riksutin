@@ -7,7 +7,7 @@ const settings = {
   hideToska: false,
   disableToska: true,
   color: '#107eab',
-  header: 'Curre',
+  header: 'Riksutin',
   headerFontColor: 'white',
   dryrun: !inProduction || inStaging,
 }
@@ -24,7 +24,7 @@ const sendEmail = async (targets: string[], text: string, subject: string) => {
 
   const mail = {
     template: {
-      from: 'Curre',
+      from: 'Riksutin',
       text,
     },
     emails,

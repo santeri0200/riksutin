@@ -51,7 +51,7 @@ if (!inProduction) {
       protocol: 'udp',
       hostName: os.hostname(),
       additional: {
-        app: 'curre',
+        app: 'riksutin',
         environment: 'production',
       },
     })
