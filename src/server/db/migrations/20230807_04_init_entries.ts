@@ -3,15 +3,33 @@ import { DataTypes } from 'sequelize'
 import { Migration } from '../connection'
 
 export const up: Migration = async ({ context: queryInterface }) => {
-  await queryInterface.createTable('surveys', {
+  await queryInterface.createTable('entries', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    survey_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    data: {
+      type: DataTypes.JSONB,
+      allowNull: false,
+    },
+    session_token: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: '',
+    },
+    reminder_sent: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
     created_at: {
       type: DataTypes.DATE,
@@ -25,5 +43,5 @@ export const up: Migration = async ({ context: queryInterface }) => {
 }
 
 export const down: Migration = async ({ context: queryInterface }) => {
-  await queryInterface.dropTable('surveys')
+  await queryInterface.dropTable('entries')
 }

@@ -3,23 +3,26 @@ import { DataTypes } from 'sequelize'
 import { Migration } from '../connection'
 
 export const up: Migration = async ({ context: queryInterface }) => {
-  await queryInterface.createTable('results', {
+  await queryInterface.createTable('surveys', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    option_label: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
-    is_selected: {
+    title: {
       type: DataTypes.JSONB,
       allowNull: false,
+      defaultValue: {},
     },
-    data: {
+    text: {
       type: DataTypes.JSONB,
       allowNull: false,
+      defaultValue: {},
     },
     created_at: {
       type: DataTypes.DATE,
@@ -33,5 +36,5 @@ export const up: Migration = async ({ context: queryInterface }) => {
 }
 
 export const down: Migration = async ({ context: queryInterface }) => {
-  await queryInterface.dropTable('results')
+  await queryInterface.dropTable('surveys')
 }
