@@ -14,6 +14,7 @@ import resultRouter from './result'
 import summaryRouter from './summary'
 import entryRouter from './entry'
 import userRouter from './user'
+import loginRouter from './login'
 import openaiRouter from './openai'
 import courseRouter from './course'
 import questionRouter from './question'
@@ -41,6 +42,7 @@ router.use('/results', resultRouter)
 router.use('/summary', summaryRouter)
 router.use('/entries', entryRouter)
 router.use('/users', userRouter)
+router.use('/login', loginRouter)
 router.use('/openai', openaiRouter)
 router.use('/courses', courseRouter)
 

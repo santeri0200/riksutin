@@ -1,19 +1,27 @@
+import path from 'path'
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'express-async-errors'
 import express from 'express'
-import path from 'path'
+import session from 'express-session'
+import passport from 'passport'
 
+import { PORT } from './util/config'
+import logger from './util/logger'
 import router from './routes'
-
+import setupAuthentication from './util/openid'
 import { connectToDatabase } from './db/connection'
 import seed from './db/seeders'
-
 import scheduleMailerCronJobs from './mailer/mailerCronJobs'
 
-import logger from './util/logger'
-import { PORT } from './util/config'
-
 const app = express()
+
+app.use(
+  session({ secret: 'PLACEHOLDER', resave: false, saveUninitialized: true })
+)
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(['/api', '/public/api'], (req, res, next) => router(req, res, next))
 app.use(['/api', '/public/api'], (_, res) => res.sendStatus(404))
@@ -29,6 +37,8 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test') {
 app.listen(PORT, async () => {
   await connectToDatabase()
   await seed()
+
+  await setupAuthentication()
 
   await scheduleMailerCronJobs()
 

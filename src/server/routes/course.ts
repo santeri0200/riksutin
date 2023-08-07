@@ -68,6 +68,8 @@ const mockCourse = {
 }
 
 courseRouter.get('/teacher', async (req: RequestWithUser, res: any) => {
+  return res.send([mockCourse])
+
   const { id } = req.user
 
   if (inE2EMode) return res.send([mockCourse])
