@@ -1,4 +1,4 @@
-import { inDevelopment, inE2EMode } from '../../config'
+import { inProduction } from '../../config'
 
 const parseIamGroups = (iamGroups: string) =>
   iamGroups?.split(';').filter(Boolean) ?? []
@@ -19,7 +19,7 @@ const mockHeaders = {
 }
 
 const userMiddleware = (req: any, _res: any, next: any) => {
-  const headers = inDevelopment || inE2EMode ? mockHeaders : req.headers
+  const headers = inProduction ? req.headers : mockHeaders
 
   const {
     uid: username,
