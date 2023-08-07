@@ -2,7 +2,7 @@ FROM node:latest
 
 ENV TZ="Europe/Helsinki"
 
-WORKDIR /usr/src/app
+WORKDIR /opt/app-root/src
 
 # Setup
 COPY package* ./

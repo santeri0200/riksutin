@@ -12,7 +12,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DATABASE=postgres
     volumes:
-      - ./:/usr/src/app
+      - ./:/opt/app-root/src
     ports:
       - 3000:3000
       - 8000:8000
