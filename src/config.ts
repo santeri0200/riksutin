@@ -19,7 +19,7 @@ export const SESSION_TOKEN = 'curre_session_token'
 
 // eslint-disable-next-line no-nested-ternary
 export const FULL_URL = inProduction
-  ? 'https://curre.helsinki.fi'
+  ? 'https://riksutin.ext.ocp-prod-0.k8s.it.helsinki.fi'
   : inStaging
-  ? 'https://toska-staging.cs.helsinki.fi/kliksutin'
+  ? 'https://toska-staging.cs.helsinki.fi/riksutin'
   : 'http://localhost:3000'
