@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "lib": ["es2022", "dom"],
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "strict": true,
+    "target": "es2022",
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@backend/*": ["src/server/*"],
+      "@frontend/*": ["src/client/*"]
+    }
+  },
+  "include": ["src/**/*", "types/@unfuck-utf8-headers-middleware.d..ts"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
