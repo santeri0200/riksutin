@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import { Handlers as SentryHandlers } from '@sentry/node'
 
-import shibbolethMiddleware from '../middeware/shibboleth'
+import { inDevelopment, inE2EMode } from 'src/config'
 import userMiddleware from '../middeware/user'
 import initializeSentry from '../util/sentry'
 import errorHandler from '../middeware/error'
@@ -29,10 +29,11 @@ router.use(SentryHandlers.tracingHandler())
 router.use(cors())
 router.use(express.json())
 
-router.use(shibbolethMiddleware)
-router.use(userMiddleware)
+if (inDevelopment || inE2EMode) router.use(userMiddleware)
 
 router.use(accessLogger)
+
+router.get('/ping', (_, res) => res.send('pong'))
 
 router.use('/faculties', facultyRouter)
 router.use('/surveys', surveyRouter)
