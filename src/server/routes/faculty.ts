@@ -17,7 +17,7 @@ const mockFaculty = [
 
 const facultyRouter = express.Router()
 
-facultyRouter.get('/', async (req, res) => {
+facultyRouter.get('/', async (_, res) => {
   if (inE2EMode) return res.send(mockFaculty)
 
   const organisationData = (await getOrganisationData()) || []
@@ -28,7 +28,7 @@ facultyRouter.get('/', async (req, res) => {
 })
 
 facultyRouter.get('/user', async (req: RequestWithUser, res: any) => {
-  const { id, iamGroups = [] } = req.user
+  const { id, iamGroups = [] } = req.user || {}
 
   if (inE2EMode) return res.send(mockFaculty)
 
