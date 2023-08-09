@@ -13,18 +13,29 @@ import {
   OIDC_CLIENT_SECRET,
   OIDC_REDIRECT_URI,
 } from './config'
+import { UserInfo } from '../types'
+import { User } from '../db/models'
 
 const params = {
   claims: {
     id_token: {
       uid: { essential: true },
+      hyPersonSisuId: { essential: true },
     },
     userinfo: {
-      name: { essential: true },
       email: { essential: true },
+      hyGroupCn: { essential: true },
+      preferredLanguage: null,
+      given_name: null,
+      family_name: null,
     },
   },
 }
+
+const checkAdmin = (iamGroups: string[]) =>
+  iamGroups.some((iamGroup) =>
+    ['hy-ypa-opa-ote', 'grp-toska'].includes(iamGroup)
+  )
 
 const getClient = async () => {
   const issuer = await Issuer.discover(OIDC_ISSUER)
@@ -39,29 +50,57 @@ const getClient = async () => {
   return client
 }
 
-// Access token and user params are first received here
 const verifyLogin = async (
-  tokenSet: TokenSet,
+  _tokenSet: TokenSet,
   userinfo: UserinfoResponse<UnknownObject, UnknownObject>,
   done: (err: any, user?: unknown) => void
 ) => {
-  console.log('tokenSet', tokenSet.claims())
-  console.log('userinfo', userinfo)
+  const {
+    uid: username,
+    hyPersonSisuId: id,
+    email,
+    hyGroupCn: iamGroups,
+    preferredLanguage: language,
+    given_name: firstName,
+    family_name: lastName,
+  } = userinfo as unknown as UserInfo
 
-  return done(null, userinfo)
+  const user = {
+    username,
+    id: id || username,
+    email,
+    iamGroups,
+    language,
+    firstName,
+    lastName,
+    isAdmin: checkAdmin(iamGroups),
+  }
+
+  const [updatedUser] = await User.upsert({
+    ...user,
+    lastLoggedIn: new Date(),
+  })
+
+  done(null, updatedUser)
 }
 
 const setupAuthentication = async () => {
   const client = await getClient()
 
   passport.serializeUser((user: any, done) => {
-    // return the user id here
-    done(null, user)
+    console.log(user)
+
+    const { id, isAdmin } = user as User
+
+    return done(null, { id, isAdmin })
   })
 
-  passport.deserializeUser((user: any, done) => {
-    // get the user from the database here
-    done(null, user)
+  passport.deserializeUser(async ({ id }: { id: string }, done) => {
+    const user = await User.findByPk(id)
+
+    if (!user) return done(new Error('User not found'))
+
+    return done(null, user)
   })
 
   passport.use('oidc', new Strategy({ client, params }, verifyLogin))
