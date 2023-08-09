@@ -4,15 +4,20 @@ import { Box } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import { SnackbarProvider } from 'notistack'
 
+import { FULL_URL } from '../config'
 import { useTheme } from './theme'
-
+import useLoggedInUser from './hooks/useLoggedInUser'
 import { ResultDataProvider } from './contexts/ResultDataContext'
-
 import Footer from './components/Footer'
 import NavBar from './components/NavBar/NavBar'
 
 const App = () => {
   const theme = useTheme()
+
+  const { user, isLoading } = useLoggedInUser()
+
+  if (isLoading) return null
+  if (!user?.id) window.location.href = `${FULL_URL}/api/login`
 
   return (
     <ThemeProvider theme={theme}>
