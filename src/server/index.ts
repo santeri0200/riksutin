@@ -6,7 +6,7 @@ import express from 'express'
 import session from 'express-session'
 import passport from 'passport'
 
-import { PORT } from './util/config'
+import { PORT, SESSION_SECRET } from './util/config'
 import logger from './util/logger'
 import router from './routes'
 import setupAuthentication from './util/openid'
@@ -17,7 +17,7 @@ import scheduleMailerCronJobs from './mailer/mailerCronJobs'
 const app = express()
 
 app.use(
-  session({ secret: 'PLACEHOLDER', resave: false, saveUninitialized: true })
+  session({ secret: SESSION_SECRET, resave: false, saveUninitialized: true })
 )
 
 app.use(passport.initialize())
