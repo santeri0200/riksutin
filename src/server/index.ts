@@ -7,6 +7,7 @@ import session from 'express-session'
 import passport from 'passport'
 
 import { PORT, SESSION_SECRET } from './util/config'
+import { redisStore } from './util/redis'
 import logger from './util/logger'
 import router from './routes'
 import setupAuthentication from './util/oidc'
@@ -17,7 +18,12 @@ import scheduleMailerCronJobs from './mailer/mailerCronJobs'
 const app = express()
 
 app.use(
-  session({ secret: SESSION_SECRET, resave: false, saveUninitialized: true })
+  session({
+    store: redisStore,
+    resave: false,
+    saveUninitialized: false,
+    secret: SESSION_SECRET,
+  })
 )
 
 app.use(passport.initialize())
