@@ -17,7 +17,10 @@ const App = () => {
   const { user, isLoading } = useLoggedInUser()
 
   if (isLoading) return null
-  if (!user?.id) window.location.href = `${FULL_URL}/api/login`
+  if (!user?.id) {
+    window.location.href = `${FULL_URL}/api/login`
+    return null
+  }
 
   return (
     <ThemeProvider theme={theme}>
