@@ -9,7 +9,7 @@ const initializeSentry = (router: Express) => {
   if (!inProduction || inStaging || inE2EMode) return
 
   initSentry({
-    dsn: 'https://df9acc7c370a4a7396e99888a8f3eadb@sentry.cs.helsinki.fi/15',
+    dsn: 'https://144f4b59d562a36afcdca13de964eb9a@toska.cs.helsinki.fi/3',
     release: GIT_SHA,
     integrations: [
       new Integrations.Http({ tracing: true }),
