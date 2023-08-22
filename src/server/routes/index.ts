@@ -34,6 +34,9 @@ if (inDevelopment || inE2EMode) router.use(userMiddleware)
 router.use(accessLogger)
 
 router.get('/ping', (_, res) => res.send('pong'))
+router.get('/error', () => {
+  throw new Error('Test error')
+})
 
 router.use('/faculties', facultyRouter)
 router.use('/surveys', surveyRouter)
