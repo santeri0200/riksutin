@@ -65,7 +65,7 @@ const InteractiveForm = () => {
 
   usePersistForm({ value: watch(), sessionStorageKey: FORM_DATA_KEY })
 
-  if (isLoading) return null
+  if (!survey || isLoading) return null
 
   return (
     <Box sx={formStyles.formWrapper}>
@@ -86,6 +86,7 @@ const InteractiveForm = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <RenderSurvey
+              questions={survey.Questions}
               control={control}
               watch={watch}
               isSubmitted={isSubmitted}
@@ -97,7 +98,7 @@ const InteractiveForm = () => {
           )}
         </Grid>
         <Grid item sm={12} md={5} xl={4}>
-          <Recommendations watch={watch} />
+          <Recommendations />
         </Grid>
       </Grid>
     </Box>

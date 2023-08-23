@@ -10,9 +10,7 @@ import ShowMore from '../Common/ShowMore'
 
 import styles from '../../styles'
 
-import { InputProps } from '../../types'
-
-const Recommendations = ({ watch }: InputProps) => {
+const Recommendations = () => {
   const { t } = useTranslation()
   const { survey } = useSurvey()
   const { recommendations, isSuccess: recommendationsFetched } =
@@ -20,8 +18,7 @@ const Recommendations = ({ watch }: InputProps) => {
 
   const { recommendationStyles, cardStyles } = styles
 
-  if (!recommendationsFetched || !recommendations || !survey || !watch)
-    return null
+  if (!recommendationsFetched || !recommendations || !survey) return null
 
   return (
     <Box sx={recommendationStyles.recommendationContainer}>
