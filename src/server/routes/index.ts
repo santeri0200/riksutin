@@ -3,10 +3,10 @@ import cors from 'cors'
 import { Handlers as SentryHandlers } from '@sentry/node'
 
 import { inDevelopment, inE2EMode } from '../../config'
-import userMiddleware from '../middeware/user'
+import userMiddleware from '../middleware/user'
 import initializeSentry from '../util/sentry'
-import errorHandler from '../middeware/error'
-import accessLogger from '../middeware/access'
+import errorHandler from '../middleware/error'
+import accessLogger from '../middleware/access'
 import facultyRouter from './faculty'
 import surveyRouter from './survey'
 import recommendationRouter from './recommendation'
@@ -15,7 +15,6 @@ import summaryRouter from './summary'
 import entryRouter from './entry'
 import userRouter from './user'
 import loginRouter from './login'
-import openaiRouter from './openai'
 import courseRouter from './course'
 import questionRouter from './question'
 
@@ -47,7 +46,6 @@ router.use('/summary', summaryRouter)
 router.use('/entries', entryRouter)
 router.use('/users', userRouter)
 router.use('/login', loginRouter)
-router.use('/openai', openaiRouter)
 router.use('/courses', courseRouter)
 
 router.use(SentryHandlers.errorHandler())

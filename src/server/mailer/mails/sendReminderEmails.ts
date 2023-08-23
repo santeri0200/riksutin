@@ -1,18 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Op } from 'sequelize'
 import { Entry, User } from '../../db/models'
 
 import logger from '../../util/logger'
-import { getCourse } from '../../util/importer'
+import { getCourseFromImporter } from '../../util/importer'
 
-import { Course } from '../../types'
-
-interface EntryWithUser extends Entry {
-  User: User
-}
-
-interface UpcomingCoursesWithEntries extends EntryWithUser {
-  courseData: Course
-}
+import { EntryWithUser, UpcomingCoursesWithEntries } from '../../types'
+import generateReminderEmail from '../templates/reminder'
+import sendEmail from '../pate'
 
 type PositiveInteger<T extends number> = `${T}` extends
   | '0'
@@ -43,23 +37,34 @@ const getUpcomingCoursesWithEntries = (entries: Entry[]) =>
       const courseId = entry.data.course
 
       if (!courseId) {
-        logger.warn(`Course ID not found in the entry ID: ${entry.id}`)
+        logger.info(`Course ID not found for the entry ID: ${entry.id}`)
         return null
       }
 
-      const course = await getCourse(courseId)
+      const course = await getCourseFromImporter(courseId)
 
-      const startDate = course.activityPeriod?.startDate
+      if (!course) {
+        logger.info(`Course not found for the course ID: ${courseId}`)
+        return null
+      }
+
+      const startDate = new Date() // course.activityPeriod?.startDate
+      startDate.setDate(startDate.getDate() + 7)
 
       if (!startDate) {
-        logger.warn(`Course start date not found in the course ID: ${courseId}`)
+        logger.info(
+          `Course start date not found for the course ID: ${courseId}`
+        )
         return null
       }
 
       if (isStartingInXMonths(startDate, 1)) {
         // Clone the entry object and add the course property to it
-        Object.assign(entry, { courseData: course })
-        return entry as UpcomingCoursesWithEntries
+        const entryWithCourseData = {
+          ...entry,
+          courseData: course,
+        }
+        return entryWithCourseData
       }
 
       return null
@@ -72,8 +77,10 @@ const sendReminderEmails = async (surveyId: number) => {
     include: User,
     where: {
       surveyId,
-      reminderSent: false,
+      [Op.and]: [{ receiveReminder: true }, { reminderSent: false }],
     },
+    raw: true,
+    nest: true,
   })) as EntryWithUser[]
 
   const upcoming = await getUpcomingCoursesWithEntries(newEntries)
@@ -82,15 +89,29 @@ const sendReminderEmails = async (surveyId: number) => {
     (entry): entry is UpcomingCoursesWithEntries => entry !== null
   )
 
-  const emails = entriesToRemind.map((entry) => {
-    const email = {
-      to: entry.User.email,
-      subject: `Curre reminder for ${entry?.courseData.name.en}`,
-      text: 'This is a reminder email',
-    }
+  entriesToRemind.forEach(async (entry) => {
+    const targets = [entry.User.email]
+    const subject = 'Curre muistutus'
+    const text = generateReminderEmail(entry)
 
-    return email
+    await Entry.update(
+      {
+        reminderSent: true,
+        reminderSentAt: new Date(),
+      },
+      {
+        where: {
+          id: entry.id,
+        },
+      }
+    )
+
+    await sendEmail(targets, subject, text)
   })
+
+  logger.info(
+    `Succesfully sent reminder emails for ${entriesToRemind.length} people`
+  )
 }
 
 export default sendReminderEmails

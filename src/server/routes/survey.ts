@@ -1,26 +1,22 @@
 import express from 'express'
 
-import { Survey, Question } from '../db/models'
+import adminHandler from '../middleware/admin'
+import { getSurvey, updateSurvey } from '../services/survey'
 
 const surveyRouter = express.Router()
-
-const sortByPriority = (a: Question, b: Question) => a.priority - b.priority
 
 surveyRouter.get('/:name', async (req, res) => {
   const { name } = req.params
 
-  const survey = await Survey.findOne({
-    where: {
-      name,
-    },
-    include: {
-      model: Question,
-    },
-  })
+  const survey = await getSurvey(name)
 
-  if (!survey) throw new Error('Survey not found')
+  return res.send(survey)
+})
 
-  survey.Questions = survey.Questions.sort(sortByPriority)
+surveyRouter.put('/:name', adminHandler, async (req, res) => {
+  const { name } = req.params
+
+  const survey = await updateSurvey(name, req.body)
 
   return res.send(survey)
 })
