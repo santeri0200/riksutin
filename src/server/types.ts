@@ -89,19 +89,6 @@ export type Visibility = {
   options?: string[]
 }
 
-/** Represents a subtool of a tool. Visibility controls when to render a subtool based on a question selection id eg. "isCourseMooc" */
-export interface Subtool {
-  label: string
-  title: Locales
-  visibility: Visibility
-}
-
-/** Represents a tool that has a common label eg. "moodle" and alse subtools that link to this type of tool. Subtools may be empty and they are rendered based on the visibility field */
-export interface ToolType {
-  recommendationLabel: string
-  subtools: Subtool[]
-}
-
 export type ChoiceType = SingleChoiceType[] | MultipleChoiceType[]
 
 export type PossibleChoiceTypes = 'singleChoice' | 'multipleChoice' | 'info'

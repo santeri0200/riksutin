@@ -44,7 +44,7 @@ const NewRecommendationForm = ({
     resolver: zodResolver(NewRecommendationZod),
     defaultValues: {
       label: '',
-      type: 'teaching',
+      type: recommendationTypes[0].id,
       title: {
         fi: '',
         sv: '',
