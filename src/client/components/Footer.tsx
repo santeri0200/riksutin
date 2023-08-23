@@ -4,9 +4,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import styles from '../styles'
 
 import toskaColor from '../assets/toscalogo_color.svg'
-import Markdown from './Common/Markdown'
-
-const supportEmail = 'opetusteknologia@helsinki.fi'
+import { supportEmail } from '../../config'
 
 const Footer = () => {
   const { t } = useTranslation()
@@ -56,13 +54,6 @@ const Footer = () => {
           >
             {t('footer:licenseLinkText')}
           </Link>
-        </Box>
-
-        <Box sx={footerStyles.surveyText}>
-          <Markdown>
-            [Kerrothan mielipiteesi Curresta lyhyen palautelomakkeen
-            muodossa.](https://forms.office.com/e/TWvNdLb48z)
-          </Markdown>
         </Box>
 
         <Box sx={footerStyles.imageBox}>
