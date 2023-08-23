@@ -1,5 +1,7 @@
-import { DimensionSelectionData, Locales, Question } from '@backend/types'
+import { Locales, Question } from '@backend/types'
 import { Control, UseFormWatch, UseFormRegister } from 'react-hook-form'
+
+import { FORM_DATA_KEY } from '../config'
 
 export interface Faculty {
   code: string
@@ -23,27 +25,11 @@ export interface FormValues {
   faculty: string
 }
 
-export type SurveySave = 'curre_local_save'
+export type SurveySave = typeof FORM_DATA_KEY
 
 export interface PersistForm {
   value: FormValues
   sessionStorageKey: SurveySave
-}
-
-/** Represents the recommendation data that has rawRecommendationdata and Recommendationdata by tool names eg. "moodle" into one bigger entity that has all the subtools, dimensions and texts needed */
-export interface MergedRecommendationData {
-  subtools: string[]
-  dimensions: string[]
-  id: number
-  label: string
-  title: Locales
-  text: Locales
-}
-
-/** Represents the recommendation data that is processed and ready to be used */
-export interface RecommendationData {
-  label: string
-  dimensions: string[]
 }
 
 /** Represents the recommendation data that is fetched form database API /recommendations/{surveyID} */
@@ -53,13 +39,14 @@ export interface Recommendation {
   type: string
   title: Locales
   text: Locales
-  dimensions: string[]
 }
 
-/** List of selected tools or non selected tools if no dimensionSelection is provided */
-export interface SelectedTools {
-  mergedRecommendationData: MergedRecommendationData[]
-  dimensionSelections?: DimensionSelectionData[]
+export interface Dimension {
+  id: string
+  label: string
+  color: string
+  title: Locales
+  text: Locales
 }
 
 export interface Survey {

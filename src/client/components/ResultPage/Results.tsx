@@ -9,12 +9,10 @@ import RenderResults from './RenderResults'
 import SurveyButtons from '../Common/SurveyButtons'
 import SendSummaryEmail from './SendSummaryEmail'
 import ProceedToContact from './ProceedToContact'
-import CompactDimensionChips from '../Chip/CompactDimensionChips'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 
 import { getResultArray } from '../../util/results'
-import { getSelectedDimensionsFromResultData } from '../../util/dimensions'
 import styles from '../../styles'
 
 const { cardStyles, resultStyles } = styles
@@ -31,18 +29,28 @@ const Results = ({
 
   if (!survey || !resultData) return null
 
-  const dimensionSelections = getSelectedDimensionsFromResultData(
-    survey,
-    resultData
-  )
+  const dimensionSelections = [
+    {
+      id: 'allDimensions',
+      label: 'allDimensions',
+      color: '#000000',
+      title: {
+        fi: 'Kaikki',
+        sv: 'All',
+        en: 'All',
+      },
+      text: {
+        fi: 'Kaikki',
+        sv: 'All',
+        en: 'All',
+      },
+    },
+  ]
 
   const resultArrays = getResultArray(resultData)
 
-  // Dimensions are the first of the selections
-  const dimensions = resultArrays[0]
-
   // Rest of the selections and empty values filtered
-  const resultArray = resultArrays.slice(1).filter(([x]) => x !== '')
+  const resultArray = resultArrays.filter(([x]) => x !== '')
 
   const onNavigateBack = () => {
     sessionStorage.setItem('curre-session-location', 'form')
@@ -66,10 +74,6 @@ const Results = ({
             >
               {t('results:title')}
             </Typography>
-            <CompactDimensionChips
-              dimensions={dimensions}
-              dimensionSelections={dimensionSelections}
-            />
           </Container>
 
           <RenderResults

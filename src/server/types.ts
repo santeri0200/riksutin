@@ -102,26 +102,9 @@ export interface ToolType {
   subtools: Subtool[]
 }
 
-/** Represents the dimension data that has the dimensions common name as id, label and texts are for visible rendering as Locales and data includes tools eg. "moodle" and their respective subtools */
-export interface DimensionSelectionData {
-  id: string
-  label: string
-  color: string
-  title: Locales
-  text: Locales
-  data?: ToolType[]
-}
+export type ChoiceType = SingleChoiceType[] | MultipleChoiceType[]
 
-export type ChoiceType =
-  | SingleChoiceType[]
-  | MultipleChoiceType[]
-  | DimensionSelectionData[]
-
-export type PossibleChoiceTypes =
-  | 'singleChoice'
-  | 'multipleChoice'
-  | 'dimensions'
-  | 'info'
+export type PossibleChoiceTypes = 'singleChoice' | 'multipleChoice' | 'info'
 
 export interface OptionData {
   type: PossibleChoiceTypes

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Box } from '@mui/material'
 import { Locales } from '@backend/types'
@@ -14,7 +13,6 @@ import styles from '../../styles'
 
 const HelloBanner = () => {
   const { i18n } = useTranslation()
-  const location = useLocation()
   const { survey, isLoading: surveyIsLoading } = useSurvey()
   const { user, isLoading: userIsLoading } = useLoggedInUser()
   const { language } = i18n

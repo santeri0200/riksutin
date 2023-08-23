@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { Outlet, useParams } from 'react-router-dom'
 import { Box, Button } from '@mui/material'
 
-import { Locales } from '@backend/types'
-
 import useSurvey from '../../../hooks/useSurvey'
 import useResults from '../../../hooks/useResults'
 
@@ -16,22 +14,17 @@ import {
 } from '../Select'
 import NewResultForm from './NewResultForm'
 
-import { sortDimensions, allSelection } from '../config'
-import { getDimensions } from '../../../util/dimensions'
+import { allSelection } from '../config'
 
 const RenderEditResults = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { questionId } = useParams()
   const { survey } = useSurvey()
   const { results, isSuccess: resultsFetched } = useResults(survey?.id)
 
   const [openForm, setOpenForm] = useState(false)
 
-  const language = i18n.language as keyof Locales
-
   if (!resultsFetched || !results || !survey) return null
-
-  const dimensions = getDimensions(survey)
 
   const selectedQuestion = survey.Questions.find(
     (question) => question.id === Number(questionId)
@@ -44,8 +37,7 @@ const RenderEditResults = () => {
     optionIds.includes(optionLabel)
   )
 
-  const sortedDimensions = sortDimensions(dimensions, language)
-  const dimensionSelections = [allSelection].concat(sortedDimensions)
+  const dimensionSelections = [allSelection]
 
   const nonSelectedOptions = options.filter((option) => {
     const filteredOptionLabels = filteredResults.map((res) => res.optionLabel)

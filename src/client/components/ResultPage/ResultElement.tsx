@@ -1,9 +1,10 @@
 import React from 'react'
 import { Box, Container } from '@mui/material'
 
-import { DimensionSelectionData, Locales, Result } from '@backend/types'
+import { Locales, Result } from '@backend/types'
 
 import Markdown from '../Common/Markdown'
+import { Dimension } from '../../types'
 
 const ResultElement = ({
   language,
@@ -12,27 +13,9 @@ const ResultElement = ({
 }: {
   language: keyof Locales
   resultData: Result | undefined
-  dimensionSelections: DimensionSelectionData[] | undefined | null
+  dimensionSelections: Dimension[]
 }) => {
   if (!resultData || !dimensionSelections) return null
-
-  const allDimensions: DimensionSelectionData = {
-    id: 'allDimensions',
-    label: 'allDimensions',
-    color: '#000000',
-    title: {
-      fi: 'Kaikki',
-      sv: 'All',
-      en: 'All',
-    },
-    text: {
-      fi: 'Kaikki',
-      sv: 'All',
-      en: 'All',
-    },
-  }
-
-  const dimensions = [allDimensions, ...dimensionSelections]
 
   return (
     <Container
@@ -51,7 +34,7 @@ const ResultElement = ({
           margin: '2rem 0 2rem 0',
         }}
       >
-        {dimensions.map((dimension) => {
+        {dimensionSelections.map((dimension) => {
           const color = dimension.color ?? null
 
           if (!resultData.data[dimension.id]) return null

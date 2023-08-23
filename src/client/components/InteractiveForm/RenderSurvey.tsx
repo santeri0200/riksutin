@@ -8,7 +8,6 @@ import RenderQuestions from './RenderQuestions'
 import SurveyButtons from '../Common/SurveyButtons'
 import RenderSelections from './RenderSelections'
 
-import { getSelectedDimensionsFromWatch } from '../../util/dimensions'
 import { FORM_DATA_KEY } from '../../../config'
 
 import { InputProps } from '../../types'
@@ -32,15 +31,6 @@ const RenderSurvey = ({ control, watch, isSubmitted }: InputProps) => {
   if (isLoading) return null
 
   const questions = survey.Questions
-  const dimensions = getSelectedDimensionsFromWatch(survey, watch)
-
-  const isAllowedToProceed = () => {
-    const isFacultySelected = watch('faculty') !== ''
-
-    if (!dimensions) return false
-
-    return isFacultySelected && dimensions.length > 0
-  }
 
   return (
     <Box sx={cardStyles.outerBox}>
@@ -77,7 +67,6 @@ const RenderSurvey = ({ control, watch, isSubmitted }: InputProps) => {
           {!showQuestions ? (
             <Button
               data-cy="open-form-button"
-              disabled={!!dimensions && !isAllowedToProceed()}
               onClick={() => setShowQuestions(true)}
             >
               {t('openForm')}

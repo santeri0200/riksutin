@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box } from '@mui/material'
 
-import { DimensionSelectionData, Locales } from '@backend/types'
+import { Locales } from '@backend/types'
 
 import useSurvey from '../../hooks/useSurvey'
 import useResults from '../../hooks/useResults'
@@ -11,10 +11,11 @@ import useResultRefCallback from '../../hooks/useResultRefCallback'
 import ResultElement from './ResultElement'
 
 import { useResultData } from '../../contexts/ResultDataContext'
+import { Dimension } from '../../types'
 
 interface RenderResultProps {
   resultArray: string[][]
-  dimensionSelections: DimensionSelectionData[] | null
+  dimensionSelections: Dimension[]
 }
 
 const RenderResults = ({

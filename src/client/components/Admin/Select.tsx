@@ -20,21 +20,16 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
-  Checkbox,
-  Tooltip,
 } from '@mui/material'
 
-import { DimensionSelectionData, Locales, Question } from '@backend/types'
+import { Locales } from '@backend/types'
 
 import useSurvey from '../../hooks/useSurvey'
 import useQuestions from '../../hooks/useQuestions'
 import useRecommendations from '../../hooks/useRecommendations'
 
-import DimensionChip from '../Chip/DimensionChip'
+import { allSelection, languages } from './config'
 
-import { allSelection, languages, sortDimensions } from './config'
-
-import { getDimensions } from '../../util/dimensions'
 import sortQuestions from '../../util/questions'
 
 type HandleChange = (event: SelectChangeEvent) => void
@@ -135,121 +130,11 @@ export const LanguageSelect = () => {
   )
 }
 
-export const DialogDimensionSelect = ({
-  label,
-  control,
-  dimensionQuestion,
-}: {
-  label: string
-  control: Control<any>
-  dimensionQuestion: Question | undefined
-}) => {
-  const { i18n } = useTranslation()
-  const { language } = i18n
-
-  if (!dimensionQuestion) return null
-
-  return (
-    <Box sx={{ my: 4 }}>
-      <InputLabel>{label}</InputLabel>
-      <Box sx={{ mt: 2 }}>
-        {(dimensionQuestion.optionData.options as DimensionSelectionData[]).map(
-          (choice: DimensionSelectionData) => (
-            <Controller
-              key={choice.id}
-              name={`dimensions.${choice.id}`}
-              control={control}
-              defaultValue={false}
-              render={({ field }) => (
-                <FormControl>
-                  <Box>
-                    <Tooltip
-                      title={choice.text[language as keyof Locales]}
-                      placement="bottom"
-                      arrow
-                    >
-                      <div>
-                        <Checkbox
-                          {...field}
-                          icon={
-                            <DimensionChip
-                              key={choice.id}
-                              choice={choice}
-                              color={undefined}
-                              compact={false}
-                            />
-                          }
-                          checkedIcon={
-                            <DimensionChip
-                              key={choice.id}
-                              choice={choice}
-                              color={choice.color}
-                              compact={false}
-                            />
-                          }
-                          value={choice.id}
-                          checked={field.value}
-                        />
-                      </div>
-                    </Tooltip>
-                  </Box>
-                </FormControl>
-              )}
-            />
-          )
-        )}
-      </Box>
-    </Box>
-  )
-}
-
-export const DimensionSelect = () => {
-  const { t, i18n } = useTranslation()
-  const navigate = useNavigate()
-  const location = useLocation()
-  const { dimensionId } = useParams()
-
-  const { survey, isLoading } = useSurvey()
-
-  const handleDimensionChange = (event: SelectChangeEvent) => {
-    navigate({
-      pathname: `./${event.target.value}`,
-      search: location.search,
-    })
-  }
-
-  const language = i18n.language as keyof Locales
-
-  if (isLoading) return null
-
-  const dimensions = getDimensions(survey)
-
-  if (!dimensions) return null
-
-  const sortedDimensions = sortDimensions(dimensions, language)
-
-  return (
-    <SelectWrapper
-      label={t('admin:selectDimension')}
-      value={dimensionId || ''}
-      handleChange={handleDimensionChange}
-    >
-      {sortedDimensions.map(({ id, title }) => (
-        <MenuItem key={id} value={id}>
-          {title[language]}
-        </MenuItem>
-      ))}
-    </SelectWrapper>
-  )
-}
-
 export const ResultDimensionSelect = () => {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
   const { questionId, dimensionId: persistDimensionId } = useParams()
-
-  const { survey } = useSurvey()
 
   const [dimensionId, setDimensionId] = useState('allDimensions')
 
@@ -275,12 +160,7 @@ export const ResultDimensionSelect = () => {
 
   const language = i18n.language as keyof Locales
 
-  const dimensions = getDimensions(survey)
-
-  if (!dimensions || !questionId) return null
-
-  const sortedDimensions = sortDimensions(dimensions, language)
-  const dimensionSelections = [allSelection].concat(sortedDimensions)
+  const dimensionSelections = [allSelection]
 
   return (
     <SelectWrapper

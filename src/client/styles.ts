@@ -220,32 +220,6 @@ const recommendationStyles = {
       mt: '1rem',
     },
   },
-  recommendationChipWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  subtoolWrapper: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    maxWidth: 300,
-  },
-  subtoolItem: {
-    ml: 1,
-  },
-  recommendationChipsContainer: {
-    mx: '0.6rem',
-  },
-  notSelected: {
-    fontWeight: 'light',
-    color: '#9e9e9e',
-  },
-  subtoolText: {
-    textTransform: 'capitalize',
-    paddingLeft: '1rem',
-    fontWeight: 'light',
-    color: '#757575',
-  },
 }
 
 const resultStyles = {

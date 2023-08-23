@@ -12,7 +12,7 @@ import useSurvey from '../../../hooks/useSurvey'
 import { useCreateRecommendationMutation } from '../../../hooks/useRecommendationMutation'
 
 import NewItemDialog from '../NewItemDialog'
-import { DialogDimensionSelect, DialogSelect } from '../Select'
+import { DialogSelect } from '../Select'
 import { DialogLocalesField, DialogTextField } from '../TextField'
 
 import {
@@ -45,7 +45,6 @@ const NewRecommendationForm = ({
     defaultValues: {
       label: '',
       type: 'teaching',
-      dimensions: {},
       title: {
         fi: '',
         sv: '',
@@ -60,10 +59,6 @@ const NewRecommendationForm = ({
   })
 
   if (isLoading || !survey) return null
-
-  const dimensionQuestion = survey.Questions.find(
-    (question) => question.optionData.type === 'dimensions'
-  )
 
   const onSubmit = async (data: NewRecommendation) => {
     try {
@@ -101,12 +96,6 @@ const NewRecommendationForm = ({
             </MenuItem>
           ))}
         </DialogSelect>
-
-        <DialogDimensionSelect
-          label={t('admin:selectRecommendationDimensions')}
-          control={control}
-          dimensionQuestion={dimensionQuestion}
-        />
 
         <DialogLocalesField
           error={errors.title}
