@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import { PATE_URL } from '../util/config'
-import { inProduction, inStaging } from '../../config'
+import { inProduction, inStaging, appName } from '../../config'
 
 const settings = {
   hideToska: false,
@@ -24,7 +24,7 @@ const sendEmail = async (targets: string[], text: string, subject: string) => {
 
   const mail = {
     template: {
-      from: 'Curre',
+      from: appName,
       text,
     },
     emails,

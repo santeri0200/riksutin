@@ -1,3 +1,5 @@
+export const appName = 'Riksutin'
+
 export const inDevelopment = process.env.NODE_ENV === 'development'
 
 export const inStaging = process.env.REACT_APP_STAGING === 'true'
@@ -13,9 +15,9 @@ export const PUBLIC_URL = process.env.PUBLIC_URL || ''
 export const DEFAULT_SURVEY_NAME =
   process.env.DEFAULT_SURVEY_NAME || 'testSurvey'
 
-export const FORM_DATA_KEY = 'curre_local_save'
+export const FORM_DATA_KEY = 'riksutin_local_save'
 
-export const SESSION_TOKEN = 'curre_session_token'
+export const SESSION_TOKEN = 'riksutin_session_token'
 
 // eslint-disable-next-line no-nested-ternary
 export const FULL_URL = inProduction
