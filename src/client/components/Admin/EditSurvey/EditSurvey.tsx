@@ -1,74 +1,115 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState } from 'react'
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { useState, useEffect } from 'react'
+import MDEditor from '@uiw/react-md-editor'
+import { Box, Typography, Button } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import { Box } from '@mui/material'
+import { enqueueSnackbar } from 'notistack'
 
-import { Locales, Question } from '@backend/types'
+import { Locales } from '@backend/types'
 
-import useSurvey from '../../../hooks/useSurvey'
-import useQuestions from '../../../hooks/useQuestions'
+import { useEditSurveyMutation } from '../../../hooks/useSurveyMutation'
 
-import RenderQuestions from './RenderQuestions'
-import EditModeControls from './EditModeControls'
+import { Survey } from '../../../types'
 
-const EditSurvey = () => {
-  const { i18n } = useTranslation()
-  const { survey, isLoading: surveyIsLoading } = useSurvey()
-  const { questions, isLoading: questionsIsLoading } = useQuestions(survey?.id)
-  const [inEditMode, setInEditMode] = useState(false)
-  const [selectedQuestion, setSelectedQuestion] = useState<
-    Question | undefined
-  >()
+import { UpdatedSurveyInfo } from '../../../../validators/survey'
 
-  const onCancel = () => {
-    setInEditMode(false)
-    setSelectedQuestion(undefined)
-  }
+const SurveyItem = ({
+  language,
+  survey,
+}: {
+  language: keyof Locales
+  survey: Survey
+}) => {
+  const { t } = useTranslation()
+  const mutation = useEditSurveyMutation()
+  const [surveyTitle, setSurveyTitle] = useState<string | undefined>(
+    survey.title[language]
+  )
+  const [surveyText, setSurveyText] = useState<string | undefined>(
+    survey.text[language]
+  )
 
   useEffect(() => {
-    const close = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onCancel()
-      }
+    setSurveyTitle(survey.title[language])
+    setSurveyText(survey.text[language])
+  }, [language, survey])
+
+  const handleSave = async () => {
+    const updatedSurveyInfo: UpdatedSurveyInfo = {
+      title: {
+        ...survey.title,
+        [language]: surveyTitle,
+      },
+      text: {
+        ...survey.text,
+        [language]: surveyText,
+      },
     }
 
-    window.addEventListener('keydown', close)
-
-    return () => window.removeEventListener('keydown', close)
-  }, [])
-
-  if (!survey || surveyIsLoading || !questions || questionsIsLoading)
-    return null
-
-  const { language } = i18n
-
-  const sortedQuestions = questions.sort((a, b) => a.priority - b.priority)
+    try {
+      await mutation.mutateAsync(updatedSurveyInfo)
+      enqueueSnackbar(t('admin:saveSuccess'), { variant: 'success' })
+    } catch (error: any) {
+      enqueueSnackbar(error.message, { variant: 'error' })
+    }
+  }
 
   return (
-    <Box sx={{ mr: 4 }}>
-      {sortedQuestions.map((question) => (
-        <div key={question.id}>
-          {question.parentId === null && (
-            <RenderQuestions
-              question={question}
-              questions={sortedQuestions}
-              language={language as keyof Locales}
-              inEditMode={inEditMode}
-              setInEditMode={setInEditMode}
-              selectedQuestion={selectedQuestion}
-              setSelectedQuestion={setSelectedQuestion}
-            />
-          )}
-        </div>
-      ))}
+    <Box
+      sx={{
+        p: 2,
+        mx: 4,
+        width: '50%',
+        '&:hover': {
+          border: 1,
+          borderColor: '#0288d1',
+        },
+      }}
+    >
+      <Box sx={{ mb: 2 }}>
+        <Typography sx={{ display: 'flex', mb: 2 }} variant="h6">
+          {t('admin:surveyTitle')}
+          <Typography ml={1}>{language}</Typography>
+        </Typography>
+        <MDEditor
+          data-color-mode="light"
+          height={200}
+          value={surveyTitle}
+          onChange={setSurveyTitle}
+        />
+      </Box>
 
-      <EditModeControls
-        questionName={selectedQuestion?.title[language as keyof Locales]}
-        isOpen={inEditMode}
-        onClose={onCancel}
-      />
+      <Box sx={{ mb: 2 }}>
+        <Typography sx={{ display: 'flex', mb: 2 }} variant="h6">
+          {t('admin:surveyText')}
+          <Typography ml={1}>{language}</Typography>
+        </Typography>
+        <MDEditor
+          data-color-mode="light"
+          height={400}
+          value={surveyText}
+          onChange={setSurveyText}
+        />
+      </Box>
+
+      <Button variant="outlined" onClick={handleSave}>
+        {t('admin:save')}
+      </Button>
     </Box>
   )
 }
+
+const EditSurvey = ({
+  language,
+  survey,
+}: {
+  language: keyof Locales
+  survey: Survey
+}) => (
+  <Box display="flex">
+    <SurveyItem language={'fi' as keyof Locales} survey={survey} />
+    <SurveyItem language={language} survey={survey} />
+  </Box>
+)
 
 export default EditSurvey

@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Riksutin",
+    "appName": "Curre",
     "submit": "Proceed with these choices",
     "updateSubmit": "Update choices",
     "openForm": "Proceed to the questions",
@@ -41,7 +41,8 @@
     "emailIsIncorrect": "Email is incorrect, check input",
     "sendSummaryMail": "Send",
     "showSummaryNotes": "Do you want to add notes?",
-    "summaryMailPlaceholder": "Add notes here, if needed",
+    "summaryMailNotesPlaceholder": "Add notes here, if needed",
+    "summaryEmailSharePlaceholder": "Lisää sähköpostisoitteita jakaaksesi tulokset",
     "sendSuccess": "Summary email sent successfully",
     "endMessage": "Thank you for using Curre!",
     "backToMessage": "Back to the questions"
@@ -77,6 +78,16 @@
     "apiErrorMessage": "No response from the server",
     "spinnerMessage": "AI is thinking..."
   },
+  "viewer": {
+    "entryInfoTitle": "Entry information",
+    "entryViewTitle": "Below are the results relating this entry",
+    "entryViewID": "ID",
+    "entryViewSurvey": "Survey",
+    "entryViewFaculty": "Faculty",
+    "entryViewCreated": "Created",
+    "entryViewUpdated": "Updated",
+    "entryViewCourse": "This survey was made for the following course"
+  },
   "admin": {
     "selectDimension": "Select dimension",
     "selectQuestion": "Select question",
@@ -93,11 +104,9 @@
     "move": "Move",
     "saveSuccess": "Saved successfully",
     "deleteSuccess": "Deleted successfully",
-    "editModeControlContent": "Select new priority for question {{questionName}}, press 'x' to cancel",
     "rePrioritizeSuccess": "Moved successfully",
-    "rePrioritizeButton": "Move question",
-    "moveToPriorityNumber": "Move to priority {{priority}}",
-    "moveToEnd": "Move to last",
+    "surveyViewSurveyEdit": "Edit survey information",
+    "surveyViewQuestionPositionEdit": "Edit survey question positions",
     "resultViewInfo": "Start by selecting a dimension and question from the menus",
     "resultViewResultEdit": "Edit results",
     "resultViewResultsNotFound": "No results found for this question",
@@ -154,6 +163,8 @@
     "recommendationNewRecommendationContent": "Here you can add a new recommendation to Curre",
     "recommendationNewRecommendationTitleLabel": "Recommendation title",
     "recommendationNewRecommendationContentLabel": "Recommendation content",
+    "surveyTitle": "Survey title",
+    "surveyText": "Survey text",
     "dimensionTitle": "Dimension title",
     "dimensionText": "Dimension text",
     "questionTitle": "Question title",

@@ -9,7 +9,6 @@ import RenderResults from './RenderResults'
 import SurveyButtons from '../Common/SurveyButtons'
 import SendSummaryEmail from './SendSummaryEmail'
 import ProceedToContact from './ProceedToContact'
-import Openai from '../Openai/Openai'
 import CompactDimensionChips from '../Chip/CompactDimensionChips'
 
 import { useResultData } from '../../contexts/ResultDataContext'
@@ -90,7 +89,6 @@ const Results = ({
 
       {location.pathname !== '/public' && (
         <Box>
-          <Openai />
           <ProceedToContact />
         </Box>
       )}

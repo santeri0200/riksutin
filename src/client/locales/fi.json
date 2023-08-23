@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Riksutin",
+    "appName": "Curre",
     "submit": "Valinnat tehty",
     "updateSubmit": "Päivitä valinnat",
     "reset": "Aloita alusta",
@@ -40,7 +40,8 @@
     "summaryEmailSubject": "Curre yhteenvetosi",
     "sendSummaryMail": "Lähetä yhteenveto",
     "showSummaryNotes": "Haluaisin lisätä muistiinpanoja",
-    "summaryMailPlaceholder": "Lisää muistiinpanoja tähän tarvittaessa",
+    "summaryMailNotesPlaceholder": "Lisää muistiinpanoja tähän tarvittaessa",
+    "summaryEmailSharePlaceholder": "Lisää sähköpostisoitteita jakaaksesi tulokset",
     "sendSuccess": "Yhteenveto on lähetetty sähköpostiisi",
     "endMessage": "Kiitos Curren käytöstä!",
     "backToMessage": "Takaisin valintoihin"
@@ -76,6 +77,16 @@
     "apiErrorMessage": "Palvelimeen ei saatu yhteyttä",
     "spinnerMessage": "Tekoäly miettii..."
   },
+  "viewer": {
+    "entryInfoTitle": "Tulostietueen tiedot",
+    "entryViewTitle": "Alla on tulokset, jotka liittyvät tähän tietueeseen",
+    "entryViewID": "Tunniste",
+    "entryViewSurvey": "Kysely",
+    "entryViewFaculty": "Tiedekunta",
+    "entryViewCreated": "Luotu",
+    "entryViewUpdated": "Päivitetty",
+    "entryViewCourse": "Tämä kysely on tehty seuraavaa kurssia varten"
+  },
   "admin": {
     "selectDimension": "Valitse oppimismuoto",
     "selectQuestion": "Valitse kysymys",
@@ -92,11 +103,9 @@
     "move": "Siirrä",
     "saveSuccess": "Tallennettu onnistuneesti",
     "deleteSuccess": "Poistettu onnistuneesti",
-    "editModeControlContent": "Valitse uusi sijainti kysymykselle {{questionName}}, paina rastia peruuttaaksesi",
     "rePrioritizeSuccess": "Siirretty onnistuneesti",
-    "rePrioritizeButton": "Siirrä kysymys",
-    "moveToPriorityNumber": "Siirrä kohtaan {{priority}}",
-    "moveToEnd": "Siirrä viimeiseksi",
+    "surveyViewSurveyEdit": "Kyselyn tietojen muokkaus",
+    "surveyViewQuestionPositionEdit": "Kysymysten uudelleenjärjestäminen",
     "resultViewInfo": "Aloita valitsemalla oppimismuoto ja kysymys valikoista",
     "resultViewResultEdit": "Tuloksien muokkaus",
     "resultViewResultsNotFound": "Tähän kysymykseen ei liity yhtään tulosta",
@@ -153,6 +162,8 @@
     "recommendationNewRecommendationContent": "Täällä voit lisätä uuden suosituksen Curreen",
     "recommendationNewRecommendationTitleLabel": "Suosituksen otsikko",
     "recommendationNewRecommendationContentLabel": "Suosituksen sisältö",
+    "surveyTitle": "Kyselyn otsikko",
+    "surveyText": "Kyselyn teksti",
     "dimensionTitle": "Oppimismuodon otsikko",
     "dimensionText": "Oppimismuodon teksti",
     "questionTitle": "Kysymyksen otsikko",

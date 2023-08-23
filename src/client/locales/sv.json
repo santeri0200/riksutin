@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Riksutin",
+    "appName": "Curre",
     "submit": "Gjorda val",
     "updateSubmit": "Uppdatera val",
     "reset": "Börja om från början",
@@ -40,7 +40,8 @@
     "summaryEmailSubject": "Din Curre sammanfattning",
     "sendSummaryMail": "Skicka",
     "showSummaryNotes": "Jag skulle vilja lägga till anteckningar",
-    "summaryMailPlaceholder": "Lägg till anteckningar här om det behövs",
+    "summaryMailNotesPlaceholder": "Lägg till anteckningar här om det behövs",
+    "summaryEmailSharePlaceholder": "Lisää sähköpostisoitteita jakaaksesi tulokset",
     "sendSuccess": "Ett sammandrag har skickats till din e-post",
     "endMessage": "Tack för att du har använt Curre!",
     "backToMessage": "Tillbaka till valmenyn"
@@ -76,6 +77,16 @@
     "apiErrorMessage": "Det gick inte att få kontakt med servern",
     "spinnerMessage": "AI tänker..."
   },
+  "viewer": {
+    "entryInfoTitle": "Entry information",
+    "entryViewTitle": "Below are the results relating this entry",
+    "entryViewID": "ID",
+    "entryViewSurvey": "Survey",
+    "entryViewFaculty": "Faculty",
+    "entryViewCreated": "Created",
+    "entryViewUpdated": "Updated",
+    "entryViewCourse": "This survey was made for the following course"
+  },
   "admin": {
     "selectDimension": "Välj inlärningsform",
     "selectQuestion": "Välj fråga",
@@ -92,11 +103,9 @@
     "move": "Siirrä",
     "saveSuccess": "Sparat",
     "deleteSuccess": "Borttaget",
-    "editModeControlContent": "Valitse uusi sijainti kysymykselle {{questionName}}, paina rastia peruuttaaksesi",
     "rePrioritizeSuccess": "Siirretty onnistuneesti",
-    "rePrioritizeButton": "Siirrä kysymys",
-    "moveToPriorityNumber": "Siirrä kohtaan {{priority}}",
-    "moveToEnd": "Siirrä viimeiseksi",
+    "surveyViewSurveyEdit": "Kyselyn tietojen muokkaus",
+    "surveyViewQuestionPositionEdit": "Kysymysten uudelleenjärjestäminen",
     "resultViewInfo": "Börja med att välja en inlärningsform och fråga från menyn",
     "resultViewResultEdit": "Redigera resultat",
     "resultViewResultsNotFound": "Inga resultat hittades för denna fråga",
@@ -153,6 +162,8 @@
     "recommendationNewRecommendationContent": "Här kan du lägga till en ny rekommendation i Curre",
     "recommendationNewRecommendationTitleLabel": "Rekommendationens rubrik",
     "recommendationNewRecommendationContentLabel": "Rekommendationens innehåll",
+    "surveyTitle": "Kyselyn otsikko",
+    "surveyText": "Kyselyn teksti",
     "dimensionTitle": "Inlärningsformens rubrik",
     "dimensionText": "Inlärningsformens text",
     "questionTitle": "Frågans rubrik",
