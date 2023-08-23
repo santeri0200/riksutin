@@ -17,14 +17,14 @@ import { useResultData } from '../../contexts/ResultDataContext'
 
 import styles from '../../styles'
 import { FormValues } from '../../types'
-import { FORM_DATA_KEY } from '../../../config'
+import { FORM_DATA_KEY, LOCATION_KEY } from '../../../config'
 
 const InteractiveForm = () => {
   const { survey, isLoading } = useSurvey()
   const { t } = useTranslation()
   const mutation = useSaveEntryMutation(survey?.id)
 
-  const sessionLocation = sessionStorage.getItem('curre-session-location')
+  const sessionLocation = sessionStorage.getItem(LOCATION_KEY)
   const [showResults, setShowResults] = useState(sessionLocation === 'results')
 
   const { resultData, setResultData } = useResultData()
@@ -49,11 +49,11 @@ const InteractiveForm = () => {
     mutation
       .mutateAsync(submittedData)
       .then(() => {
-        sessionStorage.setItem('curre-session-location', 'results')
+        sessionStorage.setItem(LOCATION_KEY, 'results')
         setShowResults(true)
 
         document
-          ?.getElementById('curre-main-section')
+          ?.getElementById('survey-main-section')
           ?.scrollIntoView({ behavior: 'smooth' })
       })
       .catch((error) => {
@@ -74,7 +74,7 @@ const InteractiveForm = () => {
           <HelloBanner />
         </Grid>
         <Grid
-          id="curre-main-section"
+          id="survey-main-section"
           sx={{ px: 2, maxWidth: '100vw' }}
           item
           sm={12}

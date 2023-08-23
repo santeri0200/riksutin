@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Box, Button, Container, Typography } from '@mui/material'
 
@@ -12,8 +11,9 @@ import ProceedToContact from './ProceedToContact'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 
-import { getResultArray } from '../../util/results'
 import styles from '../../styles'
+import { getResultArray } from '../../util/results'
+import { LOCATION_KEY } from '../../../config'
 
 const { cardStyles, resultStyles } = styles
 
@@ -22,7 +22,6 @@ const Results = ({
 }: {
   setShowResults: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
-  const location = useLocation()
   const { t } = useTranslation()
   const { survey } = useSurvey()
   const { resultData } = useResultData()
@@ -53,11 +52,11 @@ const Results = ({
   const resultArray = resultArrays.filter(([x]) => x !== '')
 
   const onNavigateBack = () => {
-    sessionStorage.setItem('curre-session-location', 'form')
+    sessionStorage.setItem(LOCATION_KEY, 'form')
     setShowResults(false)
 
     document
-      ?.getElementById('curre-main-section')
+      ?.getElementById('survey-main-section')
       ?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -91,11 +90,7 @@ const Results = ({
         </Box>
       </Box>
 
-      {location.pathname !== '/public' && (
-        <Box>
-          <ProceedToContact />
-        </Box>
-      )}
+      <ProceedToContact />
     </Box>
   )
 }

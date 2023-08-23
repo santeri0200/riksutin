@@ -23,6 +23,8 @@ export const FORM_DATA_KEY = 'riksutin_local_save'
 
 export const SESSION_TOKEN = 'riksutin_session_token'
 
+export const LOCATION_KEY = 'riksutin_session_location'
+
 // eslint-disable-next-line no-nested-ternary
 export const FULL_URL = inProduction
   ? 'https://riksutin.ext.ocp-prod-0.k8s.it.helsinki.fi'
