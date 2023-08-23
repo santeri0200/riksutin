@@ -13,7 +13,6 @@ import router from './routes'
 import setupAuthentication from './util/oidc'
 import { connectToDatabase } from './db/connection'
 import seed from './db/seeders'
-import scheduleMailerCronJobs from './mailer/mailerCronJobs'
 
 const app = express()
 
@@ -45,8 +44,6 @@ app.listen(PORT, async () => {
   await seed()
 
   await setupAuthentication()
-
-  await scheduleMailerCronJobs()
 
   logger.info(`Server running on port ${PORT}`)
 })

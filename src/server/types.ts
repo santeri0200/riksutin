@@ -148,40 +148,6 @@ export interface Question {
   visibility: Visibility
 }
 
-export interface CourseUnit {
-  id: string
-  code: string
-  responsibilityInfos: {
-    text: string | null
-    roleUrn: string
-    personId: string
-    validityPeriod: object
-  }[]
-  name: Locales
-  validityPeriod: {
-    startDate: Date | string
-  }
-}
-
-export interface Course {
-  id: string
-  code: string
-  name: Locales
-  nameSpecifier: Locales
-  assessmentItemIds?: string[]
-  activityPeriod?: {
-    endDate: Date | string
-    startDate: Date | string
-  }
-  courseUnitRealisationTypeUrn?: string
-  responsibilityInfos?: any[]
-  courseUnits?: CourseUnit[]
-}
-
 export interface EntryWithUser extends Entry {
   User: User
-}
-
-export interface UpcomingCoursesWithEntries extends EntryWithUser {
-  courseData: Course
 }
