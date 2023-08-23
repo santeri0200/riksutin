@@ -1,8 +1,5 @@
 # Survey documentation
 
-The application consists of three different surveys that are rendered individually.
-Each survey is rendered using the RenderSurvey component that then proceeds to call other components vital to the rendering of the survey.
-
 ## `InteractiveForm` Component
 
 The `InteractiveForm` component is a critical part of our React application, responsible for rendering a survey form, handling form submissions, persisting form data, and displaying recommendations. In this documentation, we'll explore the key aspects and functionality of the `InteractiveForm` component.
