@@ -14,8 +14,7 @@
     "licenseLinkText": "CC BY-NC-SA 4.0 -lisenssillä"
   },
   "facultySelect": {
-    "welcomeMessage": "",
-    "introMessage": "Aloita valitsemalla valikosta se tiedekunta, jossa kurssi toteutetaan.",
+    "introMessage": "Aloita valitsemalla valikosta tiedekuntasi.",
     "inputLabel": "Tiedekunta",
     "infoMessage": "Tietoa tiedekuntasi ohjeistuksesta"
   },

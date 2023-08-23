@@ -14,8 +14,7 @@
     "licenseLinkText": "med CC BY-NC-SA 4.0 licensä"
   },
   "facultySelect": {
-    "welcomeMessage": "",
-    "introMessage": "Börja med att i menyn välja det fakultet där kursen kommer att genomföras.",
+    "introMessage": "Börja med att i menyn välja din fakultet.",
     "inputLabel": "Fakultet",
     "infoMessage": "Tietoa tiedekuntasi ohjeistuksesta"
   },

@@ -80,9 +80,6 @@ const SelectFaculty = ({ control }: InputProps) => {
 
   return (
     <Box sx={cardStyles.card}>
-      <Typography variant="h5" sx={cardStyles.heading} component="div">
-        {t('facultySelect:welcomeMessage')}
-      </Typography>
       <Box sx={cardStyles.content}>
         <Markdown>{t('facultySelect:introMessage')}</Markdown>
       </Box>
