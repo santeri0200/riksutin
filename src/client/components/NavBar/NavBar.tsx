@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   AppBar,
   Toolbar,
@@ -13,24 +13,17 @@ import {
   Grow,
   Popper,
   Typography,
-  Link as ExternalLink,
 } from '@mui/material'
-import {
-  Language,
-  AdminPanelSettingsOutlined,
-  LoginOutlined,
-} from '@mui/icons-material'
+import { Language, AdminPanelSettingsOutlined } from '@mui/icons-material'
 import { useTranslation } from 'react-i18next'
 
 import useLoggedInUser from '../../hooks/useLoggedInUser'
 
-import hyLogo from '../../assets/hy_logo.svg'
 import styles from '../../styles'
-import { FULL_URL } from '../../../config'
+import hyLogo from '../../assets/hy_logo.svg'
 
 const NavBar = () => {
   const { t, i18n } = useTranslation()
-  const location = useLocation()
   const { user, isLoading } = useLoggedInUser()
   const [openLanguageSelect, setOpenLanguageSelect] = useState(false)
   const anchorRef = useRef<HTMLButtonElement>(null)
@@ -62,23 +55,13 @@ const NavBar = () => {
             </Box>
           </Box>
           <Box>
-            {location.pathname !== '/public' && user?.isAdmin && (
+            {user?.isAdmin && (
               <Link to="/admin" style={{ textDecoration: 'none' }}>
                 <Button>
                   <AdminPanelSettingsOutlined sx={navStyles.icon} />{' '}
                   {t('admin')}
                 </Button>
               </Link>
-            )}
-            {location.pathname === '/public' && (
-              <ExternalLink href={FULL_URL} style={{ textDecoration: 'none' }}>
-                <Button>
-                  <LoginOutlined sx={navStyles.icon} />
-                  <Typography variant="body2" sx={navStyles.itemText}>
-                    {t('login')}
-                  </Typography>
-                </Button>
-              </ExternalLink>
             )}
             <Button
               ref={anchorRef}

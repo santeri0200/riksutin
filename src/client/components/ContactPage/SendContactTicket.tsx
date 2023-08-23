@@ -12,8 +12,7 @@ import ContactEmailTemplate from '../../templates/ContactEmailTemplate'
 
 import styles from '../../styles'
 import sendEmail from '../../util/mailing'
-
-const ticketEmail = 'opetusteknologia@helsinki.fi'
+import { appName, contactEmail } from '../../../config'
 
 const SendContactTicket = () => {
   const { t } = useTranslation()
@@ -42,8 +41,8 @@ const SendContactTicket = () => {
       <ContactEmailTemplate user={user} content={content} />
     )
 
-    const subject = 'Curre contact ticket'
-    const targets = [ticketEmail]
+    const subject = `${appName} contact ticket`
+    const targets = [contactEmail]
     const text = `
         ${contactEmailTemplate}
         

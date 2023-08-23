@@ -29,7 +29,7 @@ const HelloBanner = () => {
         <Markdown>{survey.title[language as keyof Locales]}</Markdown>
         <ShowMore
           text={survey.text[language as keyof Locales]}
-          expanded={location.pathname === '/public' || user?.newUser}
+          expanded={user?.newUser}
         />
       </Box>
     </Box>

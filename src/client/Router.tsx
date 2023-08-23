@@ -10,8 +10,6 @@ import App from './App'
 import InteractiveForm from './components/InteractiveForm/InteractiveForm'
 import Admin from './components/Admin/Admin'
 import Contact from './components/ContactPage/Contact'
-import EditDimensions from './components/Admin/EditDimensions/EditDimensions'
-import RenderEditDimensions from './components/Admin/EditDimensions/RenderEditDimensions'
 import EditQuestions from './components/Admin/EditQuestions/EditQuestions'
 import RenderEditQuestions from './components/Admin/EditQuestions/RenderEditQuestions'
 import EditResults from './components/Admin/EditResults/EditResults'
@@ -33,20 +31,12 @@ const router = createBrowserRouter(
         errorElement={<RootBoundary />}
       />
       <Route
-        path="/public"
-        element={<InteractiveForm />}
-        errorElement={<RootBoundary />}
-      />
-      <Route
         path="/contact"
         element={<Contact />}
         errorElement={<RootBoundary />}
       />
       <Route path="/admin" element={<Admin />} errorElement={<RootBoundary />}>
         <Route index element={<RenderEditSurvey />} />
-        <Route path="edit-dimensions" element={<RenderEditDimensions />}>
-          <Route path=":dimensionId" element={<EditDimensions />} />
-        </Route>
         <Route path="edit-questions" element={<RenderEditQuestions />}>
           <Route path=":questionId" element={<EditQuestions />} />
         </Route>

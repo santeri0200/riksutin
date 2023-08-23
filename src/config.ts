@@ -1,5 +1,7 @@
 export const appName = 'Riksutin'
 
+export const contactEmail = ''
+
 export const inDevelopment = process.env.NODE_ENV === 'development'
 
 export const inStaging = process.env.REACT_APP_STAGING === 'true'

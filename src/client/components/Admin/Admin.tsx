@@ -44,12 +44,6 @@ const Admin = () => {
         />
         <Tab
           component={Link}
-          to="./edit-dimensions"
-          label={t('admin:dimensionTab')}
-          value="edit-dimensions"
-        />
-        <Tab
-          component={Link}
           to="./edit-questions"
           label={t('admin:questionTab')}
           value="edit-questions"
