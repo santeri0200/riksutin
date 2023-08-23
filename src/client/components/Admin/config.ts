@@ -3,19 +3,11 @@ import { Dimension } from '../../types'
 
 export const recommendationTypes: InfoType[] = [
   {
-    id: 'teaching',
+    id: 'common',
     title: {
-      fi: 'Opetus',
-      sv: 'Opetus',
-      en: 'Teaching',
-    },
-  },
-  {
-    id: 'administration',
-    title: {
-      fi: 'Hallinto',
-      sv: 'Hallinto',
-      en: 'Adminisitration',
+      fi: 'Yleinen',
+      sv: 'Yleinen',
+      en: 'Common',
     },
   },
 ]

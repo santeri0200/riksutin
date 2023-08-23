@@ -2,8 +2,6 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
-import { ToolType, Subtool, Locales } from '@backend/types'
-
 import useRecommendations from '../../hooks/useRecommendations'
 import useSurvey from '../../hooks/useSurvey'
 

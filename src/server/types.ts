@@ -56,7 +56,7 @@ export interface Recommendation {
   id?: number
   surveyId: number
   label: string
-  type: 'teaching' | 'administration'
+  type: 'common'
   title: Locales
   text: Locales
 }
