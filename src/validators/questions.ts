@@ -13,7 +13,7 @@ export const NewQuestionZod = z.object({
     en: z.string(),
   }),
   optionData: z.object({
-    type: z.enum(['singleChoice', 'multipleChoice', 'dimensions', 'info']),
+    type: z.enum(['singleChoice', 'multipleChoice', 'info']),
     options: z.array(
       z.object({
         title: z.object({
