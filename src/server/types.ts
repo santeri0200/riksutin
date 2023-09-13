@@ -91,7 +91,11 @@ export type Visibility = {
 
 export type ChoiceType = SingleChoiceType[] | MultipleChoiceType[]
 
-export type PossibleChoiceTypes = 'singleChoice' | 'multipleChoice' | 'info'
+export type PossibleChoiceTypes =
+  | 'singleChoice'
+  | 'multipleChoice'
+  | 'info'
+  | 'text'
 
 export interface OptionData {
   type: PossibleChoiceTypes

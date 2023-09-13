@@ -189,6 +189,24 @@ const getQuestionData = (): Question[] => [
     },
     visibility: {},
   },
+  {
+    id: 6,
+    surveyId: 1,
+    parentId: null,
+    priority: 0,
+    title: {
+      fi: 'Nimi',
+      sv: 'Namn',
+      en: 'Name',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: { type: 'text', options: [] },
+    visibility: {},
+  },
 ]
 
 export default getQuestionData

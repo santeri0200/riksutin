@@ -4,6 +4,7 @@ import { Locales, PossibleChoiceTypes, Question } from '@backend/types'
 
 import MultiChoice from '../Choices/MultiChoice'
 import SingleChoice from '../Choices/SingleChoice'
+import Text from '../Choices/TextField'
 import Markdown from '../Common/Markdown'
 import ShowMore from '../Common/ShowMore'
 
@@ -72,6 +73,7 @@ const RenderQuestions = ({
     singleChoice: SingleChoice,
     multipleChoice: MultiChoice,
     info: SingleChoice,
+    text: Text,
   }
 
   const Choice = components[question.optionData.type as PossibleChoiceTypes]
