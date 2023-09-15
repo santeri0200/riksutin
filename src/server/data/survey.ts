@@ -4,9 +4,9 @@ const getSurveyData = () => ({
   id: 1,
   name: DEFAULT_SURVEY_NAME,
   title: {
-    fi: '## Tervetuloa **suttimeen',
-    sv: '## Välkommen till **sutin',
-    en: '## Welcome to **sutin',
+    fi: '## Tervetuloa Riksuttimeen',
+    sv: '## Välkommen till Riksutin',
+    en: '## Welcome to Riksutin',
   },
   text: {
     fi: '### Insert pöhinä texts here',
