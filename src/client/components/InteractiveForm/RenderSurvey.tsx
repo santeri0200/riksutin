@@ -1,13 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import {
-  Box,
-  Button,
-  Autocomplete,
-  TextField,
-  Container,
-  Typography,
-} from '@mui/material'
+import { Box, Button } from '@mui/material'
 
 import RenderQuestions from './RenderQuestions'
 import SurveyButtons from '../Common/SurveyButtons'
@@ -17,7 +10,6 @@ import { useResultData } from '../../contexts/ResultDataContext'
 
 import { InputProps } from '../../types'
 import styles from '../../styles'
-import countries from '../../../server/data/countries.json'
 
 const RenderSurvey = ({
   questions,
@@ -26,8 +18,6 @@ const RenderSurvey = ({
   isSubmitted,
 }: InputProps) => {
   const { t, i18n } = useTranslation()
-
-  const countryNames = countries.map((country) => country.name.common)
 
   const { resultData } = useResultData()
   const [showQuestions, setShowQuestions] = useState(Boolean(resultData))
@@ -56,22 +46,6 @@ const RenderSurvey = ({
             )}
           </div>
         ))}
-        <Box sx={formStyles.stackBox}>
-          <Container sx={cardStyles.questionsContainer}>
-            <Box sx={cardStyles.content}>
-              <Typography>Yhteistyökumppanin sijaintimaa</Typography>
-            </Box>
-            <Autocomplete
-              disablePortal
-              id="country-names"
-              options={countryNames}
-              sx={{ width: 250 }}
-              renderInput={(params) => (
-                <TextField {...params} label="Country" />
-              )}
-            />
-          </Container>
-        </Box>
 
         <Box sx={formStyles.stackBox}>
           {!showQuestions ? (

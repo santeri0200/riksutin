@@ -1,4 +1,9 @@
+import countries from './countries.json'
 import { Question } from '../types'
+
+const countryNames = countries.map(
+  (country: { name: { common: string } }) => country.name.common
+)
 
 const getQuestionData = (): Question[] => [
   {
@@ -79,6 +84,24 @@ const getQuestionData = (): Question[] => [
     parentId: null,
     priority: 0,
     title: {
+      fi: 'Yhteistyökumppanin sijaintimaa',
+      sv: 'Yhteistyöprojektin sijaintimaa',
+      en: 'Yhteistyöprojektin sijaintimaa',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: { type: 'select', options: countryNames },
+    visibility: {},
+  },
+  {
+    id: 6,
+    surveyId: 1,
+    parentId: null,
+    priority: 0,
+    title: {
       fi: 'Projektin lyhyt kuvaus',
       sv: 'Projektin lyhyt kuvaus',
       en: 'Projektin lyhyt kuvaus',
@@ -92,7 +115,7 @@ const getQuestionData = (): Question[] => [
     visibility: {},
   },
   {
-    id: 6,
+    id: 7,
     surveyId: 1,
     parentId: null,
     priority: 1,
@@ -132,7 +155,7 @@ const getQuestionData = (): Question[] => [
     visibility: {},
   },
   {
-    id: 7,
+    id: 8,
     surveyId: 1,
     parentId: null,
     priority: 2,
