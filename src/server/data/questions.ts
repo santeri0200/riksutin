@@ -1,9 +1,9 @@
 import countries from './countries.json'
 import { Question } from '../types'
 
-const countryNames = countries.map(
-  (country: { name: { common: string } }) => country.name.common
-)
+const countryNames = countries
+  .map((country: { name: { common: string } }) => country.name.common)
+  .sort()
 
 const getQuestionData = (): Question[] => [
   {
