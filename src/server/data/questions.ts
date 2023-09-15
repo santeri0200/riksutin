@@ -85,8 +85,8 @@ const getQuestionData = (): Question[] => [
     priority: 0,
     title: {
       fi: 'Yhteistyökumppanin sijaintimaa',
-      sv: 'Yhteistyöprojektin sijaintimaa',
-      en: 'Yhteistyöprojektin sijaintimaa',
+      sv: 'Yhteistyökumppanin sijaintimaa',
+      en: 'Yhteistyökumppanin sijaintimaa',
     },
     text: {
       fi: '',
@@ -98,6 +98,27 @@ const getQuestionData = (): Question[] => [
   },
   {
     id: 6,
+    surveyId: 1,
+    parentId: null,
+    priority: 0,
+    title: {
+      fi: 'Yhteistyökumppanin tyyppi',
+      sv: 'Yhteistyökumppanin tyyppi',
+      en: 'Yhteistyökumppanin tyyppi',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'select',
+      options: ['Yliopisto', 'Tutkimuslaitos', 'Yritys', 'Kansalaisjärjestö'],
+    },
+    visibility: {},
+  },
+  {
+    id: 7,
     surveyId: 1,
     parentId: null,
     priority: 0,
@@ -115,7 +136,33 @@ const getQuestionData = (): Question[] => [
     visibility: {},
   },
   {
-    id: 7,
+    id: 8,
+    surveyId: 1,
+    parentId: null,
+    priority: 0,
+    title: {
+      fi: 'Helsingin yliopiston asema projektissa',
+      sv: 'Helsingin yliopiston asema projektissa',
+      en: 'Helsingin yliopiston asema projektissa',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'select',
+      options: [
+        'Koordinaattori',
+        'Partneri',
+        'Tasaveroinen kumppani',
+        'Alihankkija',
+      ],
+    },
+    visibility: {},
+  },
+  {
+    id: 9,
     surveyId: 1,
     parentId: null,
     priority: 1,
@@ -155,7 +202,7 @@ const getQuestionData = (): Question[] => [
     visibility: {},
   },
   {
-    id: 8,
+    id: 10,
     surveyId: 1,
     parentId: null,
     priority: 2,
