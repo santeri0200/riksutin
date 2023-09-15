@@ -91,6 +91,131 @@ const getQuestionData = (): Question[] => [
     optionData: { type: 'text', options: [] },
     visibility: {},
   },
+  {
+    id: 6,
+    surveyId: 1,
+    parentId: null,
+    priority: 1,
+    title: {
+      fi: 'Kirjallinen sopimus',
+      sv: 'Kirjallinen sopimus',
+      en: 'Kirjallinen sopimus',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'yes',
+          label: 'yes',
+          title: {
+            fi: 'Kyllä',
+            sv: 'Kyllä',
+            en: 'Kyllä',
+          },
+        },
+        {
+          id: 'no',
+          label: 'no',
+          title: {
+            fi: 'Ei',
+            sv: 'Ei',
+            en: 'Ei',
+          },
+        },
+      ],
+    },
+    visibility: {},
+  },
+  {
+    id: 7,
+    surveyId: 1,
+    parentId: null,
+    priority: 2,
+    title: {
+      fi: 'Yhteistyön muodot',
+      sv: 'Yhteistyön muodot',
+      en: 'Yhteistyön muodot',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'multipleChoice',
+      options: [
+        {
+          id: 'option1',
+          label: 'option1',
+          title: {
+            fi: 'Tutkimus',
+            sv: 'Tutkimus',
+            en: 'Tutkimus',
+          },
+        },
+        {
+          id: 'option2',
+          label: 'option2',
+          title: {
+            fi: 'Koulutus',
+            sv: 'Koulutus',
+            en: 'Koulutus',
+          },
+        },
+        {
+          id: 'option3',
+          label: 'option3',
+          title: {
+            fi: 'Koulutusvienti',
+            sv: 'Koulutusvienti',
+            en: 'Koulutusvienti',
+          },
+        },
+        {
+          id: 'option4',
+          label: 'option4',
+          title: {
+            fi: 'Kansainvälinen opiskelijaliikkuvuus',
+            sv: 'Kansainvälinen opiskelijaliikkuvuus',
+            en: 'Kansainvälinen opiskelijaliikkuvuus',
+          },
+        },
+        {
+          id: 'option5',
+          label: 'option5',
+          title: {
+            fi: 'Kansainvälinen henkilöstöliikkuvuus',
+            sv: 'Kansainvälinen henkilöstöliikkuvuus',
+            en: 'Kansainvälinen henkilöstöliikkuvuus',
+          },
+        },
+        {
+          id: 'option6',
+          label: 'option6',
+          title: {
+            fi: 'Yhteistutkinto',
+            sv: 'Yhteistutkinto',
+            en: 'Yhteistutkinto',
+          },
+        },
+        {
+          id: 'option7',
+          label: 'option7',
+          title: {
+            fi: 'Etäkampus',
+            sv: 'Etäkampus',
+            en: 'Etäkampus',
+          },
+        },
+      ],
+    },
+    visibility: {},
+  },
 ]
 
 export default getQuestionData
