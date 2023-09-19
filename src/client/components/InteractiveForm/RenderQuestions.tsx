@@ -60,7 +60,7 @@ const RenderQuestions = ({
       const questionSelectionToArray = Object.keys(parent).filter(
         (k) => parent[k]
       )
-      const hasAllValuesSelected = question.visibility.options.every((x) =>
+      const hasAllValuesSelected = question.visibility.options.some((x) =>
         questionSelectionToArray.includes(x)
       )
 
