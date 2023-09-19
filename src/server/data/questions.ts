@@ -286,6 +286,46 @@ const getQuestionData = (): Question[] => [
     },
     visibility: {},
   },
+  {
+    id: 11,
+    surveyId: 1,
+    parentId: 10,
+    priority: 0,
+    title: {
+      fi: 'Liikkuvuuden täsmennys',
+      sv: 'Liikkuvuuden täsmennys',
+      en: 'Liikkuvuuden täsmennys',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'childOption1',
+          label: 'childOption1',
+          title: {
+            fi: 'Vaihtoehto A',
+            sv: 'Alternativ A',
+            en: 'Option A',
+          },
+        },
+        {
+          id: 'childOption2',
+          label: 'childOption2',
+          title: {
+            fi: 'Vaihtoehto B',
+            sv: 'Alternativ B',
+            en: 'Option B',
+          },
+        },
+      ],
+    },
+    visibility: { options: ['option4', 'option5'] },
+  },
 ]
 
 export default getQuestionData
