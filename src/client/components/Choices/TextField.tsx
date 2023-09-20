@@ -13,9 +13,9 @@ const Text = ({ control, question, children }: InputProps) => {
         control={control}
         name={question.id.toString()}
         defaultValue=""
-        render={() => (
+        render={({ field: { onChange } }) => (
           <Box justifyContent="center">
-            <TextField />
+            <TextField onChange={onChange} />
           </Box>
         )}
       />

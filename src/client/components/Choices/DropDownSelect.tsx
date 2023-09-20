@@ -13,12 +13,14 @@ const DropDownSelect = ({ control, question, children }: InputProps) => {
         control={control}
         name={question.id.toString()}
         defaultValue=""
-        render={() => (
+        render={({ field: { onChange } }) => (
           <Box justifyContent="center">
             <Autocomplete
               disablePortal
               id={`select-${question.id.toString()}`}
               options={question.optionData.options}
+              getOptionLabel={(option) => option}
+              onChange={(e, data) => onChange(data)}
               sx={{ width: 250 }}
               renderInput={(params) => <TextField {...params} />}
             />
