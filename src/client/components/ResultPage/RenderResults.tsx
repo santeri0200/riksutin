@@ -49,15 +49,17 @@ const RenderResults = ({
 
   return (
     <Box ref={refCallback}>
-      <Box sx={resultStyles.resultElementWrapper}>
-        <Box sx={resultStyles.card}>
-          Valitsemasi yhteistyökumppanin sijaintimaa: {selectedCountry}
+      {selectedCountry && (
+        <Box sx={resultStyles.resultElementWrapper}>
+          <Box sx={resultStyles.card}>
+            Valitsemasi yhteistyökumppanin sijaintimaa: {selectedCountry}
+          </Box>
+          <Box sx={resultStyles.card}>
+            Sijoitus korruptioasteikolla:
+            {getCorruptionRank(selectedCountry)?.rank}
+          </Box>
         </Box>
-        <Box sx={resultStyles.card}>
-          Sijoitus korruptioasteikolla:{' '}
-          {getCorruptionRank(selectedCountry)?.rank}
-        </Box>
-      </Box>
+      )}
       {resultArray.map((resultLabels) =>
         resultLabels.map((resultLabel) => (
           <ResultElement
