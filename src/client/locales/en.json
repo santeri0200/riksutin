@@ -36,7 +36,9 @@
     "summaryEmailSharePlaceholder": "Add email addresses to share results",
     "sendSuccess": "Summary has been sent to your email",
     "endMessage": "Thank you for using Riksutin!",
-    "backToMessage": "Back to selections"
+    "backToMessage": "Back to selections",
+    "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa",
+    "corruptionRank": "Sijoitus korruptioasteikolla"
   },
   "contact": {
     "title": "Contact",

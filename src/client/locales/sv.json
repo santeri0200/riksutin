@@ -36,7 +36,9 @@
     "summaryEmailSharePlaceholder": "Lägg till e-postadresser för att dela resultat",
     "sendSuccess": "Sammanfattning har skickats till din e-post",
     "endMessage": "Tack för att du använder Riksutin!",
-    "backToMessage": "Tillbaka till val"
+    "backToMessage": "Tillbaka till val",
+    "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa",
+    "corruptionRank": "Sijoitus korruptioasteikolla"
   },
   "contact": {
     "title": "Kontakt",

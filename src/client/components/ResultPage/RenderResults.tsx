@@ -34,7 +34,7 @@ const RenderResults = ({
   resultArray,
   dimensionSelections,
 }: RenderResultProps) => {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { survey } = useSurvey()
   const { results, isSuccess: resultsFetched } = useResults(survey?.id)
   const refCallback = useResultRefCallback()
@@ -52,10 +52,10 @@ const RenderResults = ({
       {selectedCountry && (
         <Box sx={resultStyles.resultElementWrapper}>
           <Box sx={resultStyles.card}>
-            Valitsemasi yhteistyökumppanin sijaintimaa: {selectedCountry}
+            {t('results:selectedCountry')}: {selectedCountry}
           </Box>
           <Box sx={resultStyles.card}>
-            Sijoitus korruptioasteikolla:
+            {t('results:corruptionRank')}:
             {getCorruptionRank(selectedCountry)?.rank}
           </Box>
         </Box>

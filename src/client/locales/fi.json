@@ -36,7 +36,9 @@
     "summaryEmailSharePlaceholder": "Lisää sähköpostisoitteita jakaaksesi tulokset",
     "sendSuccess": "Yhteenveto on lähetetty sähköpostiisi",
     "endMessage": "Kiitos Riksuttimen käytöstä!",
-    "backToMessage": "Takaisin valintoihin"
+    "backToMessage": "Takaisin valintoihin",
+    "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa",
+    "corruptionRank": "Sijoitus korruptioasteikolla"
   },
   "contact": {
     "title": "Yhteydenotto",
