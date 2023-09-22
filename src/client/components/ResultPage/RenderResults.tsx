@@ -9,13 +9,25 @@ import useResults from '../../hooks/useResults'
 import useResultRefCallback from '../../hooks/useResultRefCallback'
 
 import ResultElement from './ResultElement'
+import corruptionData from '../../../server/data/corruption.json'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 import { Dimension } from '../../types'
+import styles from '../../styles'
+
+const { resultStyles } = styles
 
 interface RenderResultProps {
   resultArray: string[][]
   dimensionSelections: Dimension[]
+}
+
+const getCorruptionRank = (selectedCountry: any) => {
+  const foundCountry = corruptionData.find(
+    (countryData) =>
+      countryData.country === selectedCountry && countryData.year === 2022
+  )
+  return foundCountry
 }
 
 const RenderResults = ({
@@ -33,8 +45,19 @@ const RenderResults = ({
   if (!survey || !resultsFetched || !resultData || !dimensionSelections)
     return null
 
+  const selectedCountry: any = resultData['5']
+
   return (
     <Box ref={refCallback}>
+      <Box sx={resultStyles.resultElementWrapper}>
+        <Box sx={resultStyles.card}>
+          Valitsemasi yhteistyökumppanin sijaintimaa: {selectedCountry}
+        </Box>
+        <Box sx={resultStyles.card}>
+          Sijoitus korruptioasteikolla:{' '}
+          {getCorruptionRank(selectedCountry)?.rank}
+        </Box>
+      </Box>
       {resultArray.map((resultLabels) =>
         resultLabels.map((resultLabel) => (
           <ResultElement
