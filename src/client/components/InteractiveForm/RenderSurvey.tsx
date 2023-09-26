@@ -64,7 +64,7 @@ const RenderSurvey = ({
             </Box>
             <Controller
               control={control}
-              name="country"
+              name="11"
               defaultValue=""
               render={({ field: { onChange } }) => (
                 <Box justifyContent="center">
@@ -72,66 +72,6 @@ const RenderSurvey = ({
                     disablePortal
                     id="select-1"
                     options={countryNames}
-                    getOptionLabel={(option) => option}
-                    onChange={(e, data) => onChange(data)}
-                    sx={{ width: 250 }}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </Box>
-              )}
-            />
-          </Container>
-        </Box>
-        <Box sx={formStyles.stackBox}>
-          <Container sx={cardStyles.questionsContainer}>
-            <Box sx={cardStyles.content}>
-              <Typography>Yhteistyökumppanin tyyppi</Typography>
-            </Box>
-            <Controller
-              control={control}
-              name="type"
-              defaultValue=""
-              render={({ field: { onChange } }) => (
-                <Box justifyContent="center">
-                  <Autocomplete
-                    disablePortal
-                    id="select-2"
-                    options={[
-                      'Yliopisto',
-                      'Tutkimuslaitos',
-                      'Kansalaisjärjestö',
-                      'Yritys',
-                    ]}
-                    getOptionLabel={(option) => option}
-                    onChange={(e, data) => onChange(data)}
-                    sx={{ width: 250 }}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </Box>
-              )}
-            />
-          </Container>
-        </Box>
-        <Box sx={formStyles.stackBox}>
-          <Container sx={cardStyles.questionsContainer}>
-            <Box sx={cardStyles.content}>
-              <Typography>Helsingin yliopiston asema projektissa</Typography>
-            </Box>
-            <Controller
-              control={control}
-              name="status"
-              defaultValue=""
-              render={({ field: { onChange } }) => (
-                <Box justifyContent="center">
-                  <Autocomplete
-                    disablePortal
-                    id="select-3"
-                    options={[
-                      'Koordinaattori',
-                      'Partneri',
-                      'Tasaveroinen kumppani',
-                      'Alihankkija',
-                    ]}
                     getOptionLabel={(option) => option}
                     onChange={(e, data) => onChange(data)}
                     sx={{ width: 250 }}

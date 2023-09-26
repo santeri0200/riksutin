@@ -219,7 +219,7 @@ const getQuestionData = (): Question[] => [
   {
     id: 8,
     surveyId: 1,
-    parentId: 10,
+    parentId: 7,
     priority: 0,
     title: {
       fi: 'Liikkuvuuden täsmennys',
@@ -255,6 +255,53 @@ const getQuestionData = (): Question[] => [
       ],
     },
     visibility: { options: ['option4', 'option5'] },
+  },
+  {
+    id: 9,
+    surveyId: 1,
+    parentId: null,
+    priority: 0,
+    title: {
+      fi: 'Yhteistyökumppanin tyyppi',
+      sv: 'Yhteistyökumppanin tyyppi',
+      en: 'Yhteistyökumppanin tyyppi',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'select',
+      options: ['Yliopisto', 'Tutkimuslaitos', 'Yritys', 'Kansalaisjärjestö'],
+    },
+    visibility: {},
+  },
+  {
+    id: 10,
+    surveyId: 1,
+    parentId: null,
+    priority: 0,
+    title: {
+      fi: 'Helsingin yliopiston asema projektissa',
+      sv: 'Helsingin yliopiston asema projektissa',
+      en: 'Helsingin yliopiston asema projektissa',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'select',
+      options: [
+        'Koordinaattori',
+        'Partneri',
+        'Tasaveroinen kumppani',
+        'Alihankkija',
+      ],
+    },
+    visibility: {},
   },
 ]
 

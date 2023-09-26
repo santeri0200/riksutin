@@ -45,7 +45,7 @@ const RenderResults = ({
   if (!survey || !resultsFetched || !resultData || !dimensionSelections)
     return null
 
-  const selectedCountry: any = resultData['5']
+  const selectedCountry: any = resultData['11']
 
   return (
     <Box ref={refCallback}>
