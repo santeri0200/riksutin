@@ -1,8 +1,10 @@
 export type Info = {
   page: number
   pages: number
-  per_page: string
+  per_page: number
   total: number
+  sourceid?: string
+  lastupdated?: string
 }
 
 export type Region = {
@@ -22,4 +24,20 @@ export type Country = {
   capitalCity: string
   longitude: string
   latitude: string
+}
+
+export type Value = {
+  id: string
+  value: string
+}
+
+export type Indicator = {
+  indicator: Value
+  country: Value
+  countryiso3code: string
+  date: string
+  value?: number
+  unit: string
+  obs_status: string
+  decimal: number
 }
