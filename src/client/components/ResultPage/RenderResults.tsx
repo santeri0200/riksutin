@@ -9,7 +9,7 @@ import useResults from '../../hooks/useResults'
 import useResultRefCallback from '../../hooks/useResultRefCallback'
 
 import ResultElement from './ResultElement'
-import corruptionData from '../../../server/data/corruption.json'
+import useCountry from '../../hooks/useCountryData'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 import { Dimension } from '../../types'
@@ -22,14 +22,6 @@ interface RenderResultProps {
   dimensionSelections: Dimension[]
 }
 
-const getCorruptionRank = (selectedCountry: any) => {
-  const foundCountry = corruptionData.find(
-    (countryData) =>
-      countryData.country === selectedCountry && countryData.year === 2022
-  )
-  return foundCountry
-}
-
 const RenderResults = ({
   resultArray,
   dimensionSelections,
@@ -37,12 +29,20 @@ const RenderResults = ({
   const { t, i18n } = useTranslation()
   const { survey } = useSurvey()
   const { results, isSuccess: resultsFetched } = useResults(survey?.id)
+  const { country, isLoading } = useCountry('FI')
   const refCallback = useResultRefCallback()
 
   const { resultData } = useResultData()
   const { language } = i18n
 
-  if (!survey || !resultsFetched || !resultData || !dimensionSelections)
+  if (
+    isLoading ||
+    !country ||
+    !survey ||
+    !resultsFetched ||
+    !resultData ||
+    !dimensionSelections
+  )
     return null
 
   const selectedCountry: any = resultData['11']
@@ -55,8 +55,7 @@ const RenderResults = ({
             {t('results:selectedCountry')}: {selectedCountry}
           </Box>
           <Box sx={resultStyles.card}>
-            {t('results:corruptionRank')}:
-            {getCorruptionRank(selectedCountry)?.rank}
+            {t('results:corruptionRank')}:{country.corruption}
           </Box>
         </Box>
       )}
