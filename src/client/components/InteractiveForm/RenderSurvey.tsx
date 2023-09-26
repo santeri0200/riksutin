@@ -9,6 +9,7 @@ import {
   Typography,
 } from '@mui/material'
 
+import { Controller } from 'react-hook-form'
 import RenderQuestions from './RenderQuestions'
 import SurveyButtons from '../Common/SurveyButtons'
 import RenderSelections from './RenderSelections'
@@ -27,7 +28,7 @@ const RenderSurvey = ({
 }: InputProps) => {
   const { t, i18n } = useTranslation()
 
-  const countryNames = countries.map((country) => country.name.common)
+  const countryNames = countries.map((country) => country.name.common).sort()
 
   const { resultData } = useResultData()
   const [showQuestions, setShowQuestions] = useState(Boolean(resultData))
@@ -61,13 +62,82 @@ const RenderSurvey = ({
             <Box sx={cardStyles.content}>
               <Typography>Yhteistyökumppanin sijaintimaa</Typography>
             </Box>
-            <Autocomplete
-              disablePortal
-              id="country-names"
-              options={countryNames}
-              sx={{ width: 250 }}
-              renderInput={(params) => (
-                <TextField {...params} label="Country" />
+            <Controller
+              control={control}
+              name="country"
+              defaultValue=""
+              render={({ field: { onChange } }) => (
+                <Box justifyContent="center">
+                  <Autocomplete
+                    disablePortal
+                    id="select-1"
+                    options={countryNames}
+                    getOptionLabel={(option) => option}
+                    onChange={(e, data) => onChange(data)}
+                    sx={{ width: 250 }}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </Box>
+              )}
+            />
+          </Container>
+        </Box>
+        <Box sx={formStyles.stackBox}>
+          <Container sx={cardStyles.questionsContainer}>
+            <Box sx={cardStyles.content}>
+              <Typography>Yhteistyökumppanin tyyppi</Typography>
+            </Box>
+            <Controller
+              control={control}
+              name="type"
+              defaultValue=""
+              render={({ field: { onChange } }) => (
+                <Box justifyContent="center">
+                  <Autocomplete
+                    disablePortal
+                    id="select-2"
+                    options={[
+                      'Yliopisto',
+                      'Tutkimuslaitos',
+                      'Kansalaisjärjestö',
+                      'Yritys',
+                    ]}
+                    getOptionLabel={(option) => option}
+                    onChange={(e, data) => onChange(data)}
+                    sx={{ width: 250 }}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </Box>
+              )}
+            />
+          </Container>
+        </Box>
+        <Box sx={formStyles.stackBox}>
+          <Container sx={cardStyles.questionsContainer}>
+            <Box sx={cardStyles.content}>
+              <Typography>Helsingin yliopiston asema projektissa</Typography>
+            </Box>
+            <Controller
+              control={control}
+              name="status"
+              defaultValue=""
+              render={({ field: { onChange } }) => (
+                <Box justifyContent="center">
+                  <Autocomplete
+                    disablePortal
+                    id="select-3"
+                    options={[
+                      'Koordinaattori',
+                      'Partneri',
+                      'Tasaveroinen kumppani',
+                      'Alihankkija',
+                    ]}
+                    getOptionLabel={(option) => option}
+                    onChange={(e, data) => onChange(data)}
+                    sx={{ width: 250 }}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </Box>
               )}
             />
           </Container>
