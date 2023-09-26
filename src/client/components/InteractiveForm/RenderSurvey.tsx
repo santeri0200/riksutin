@@ -1,15 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import {
-  Box,
-  Button,
-  Autocomplete,
-  TextField,
-  Container,
-  Typography,
-} from '@mui/material'
+import { Box, Button } from '@mui/material'
 
-import { Controller } from 'react-hook-form'
 import RenderQuestions from './RenderQuestions'
 import SurveyButtons from '../Common/SurveyButtons'
 import RenderSelections from './RenderSelections'
@@ -18,7 +10,6 @@ import { useResultData } from '../../contexts/ResultDataContext'
 
 import { InputProps } from '../../types'
 import styles from '../../styles'
-import countries from '../../../server/data/countries.json'
 
 const RenderSurvey = ({
   questions,
@@ -27,8 +18,6 @@ const RenderSurvey = ({
   isSubmitted,
 }: InputProps) => {
   const { t, i18n } = useTranslation()
-
-  const countryNames = countries.map((country) => country.name.common).sort()
 
   const { resultData } = useResultData()
   const [showQuestions, setShowQuestions] = useState(Boolean(resultData))
@@ -57,31 +46,6 @@ const RenderSurvey = ({
             )}
           </div>
         ))}
-        <Box sx={formStyles.stackBox}>
-          <Container sx={cardStyles.questionsContainer}>
-            <Box sx={cardStyles.content}>
-              <Typography>Yhteistyökumppanin sijaintimaa</Typography>
-            </Box>
-            <Controller
-              control={control}
-              name="11"
-              defaultValue=""
-              render={({ field: { onChange } }) => (
-                <Box justifyContent="center">
-                  <Autocomplete
-                    disablePortal
-                    id="select-1"
-                    options={countryNames}
-                    getOptionLabel={(option) => option}
-                    onChange={(e, data) => onChange(data)}
-                    sx={{ width: 250 }}
-                    renderInput={(params) => <TextField {...params} />}
-                  />
-                </Box>
-              )}
-            />
-          </Container>
-        </Box>
 
         <Box sx={formStyles.stackBox}>
           {!showQuestions ? (
