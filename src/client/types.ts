@@ -74,3 +74,8 @@ export type Country = {
   code: string
   name: string
 }
+
+export type CountryData = {
+  code: string
+  corruption: number
+}
