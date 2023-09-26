@@ -2,9 +2,9 @@ import countries from './countries.json'
 import { Question } from '../types'
 
 const getCountryNames = () => {
-  const sortedCountries = countries
-    .map((country: { name: { common: string } }) => country.name.common)
-    .sort()
+  const sortedCountries = countries.map(
+    (country: { name: { common: string } }) => country.name.common
+  )
   return sortedCountries
 }
 
