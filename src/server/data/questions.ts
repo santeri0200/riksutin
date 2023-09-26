@@ -1,9 +1,12 @@
 import countries from './countries.json'
 import { Question } from '../types'
 
-const countryNames = countries
-  .map((country: { name: { common: string } }) => country.name.common)
-  .sort()
+const getCountryNames = () => {
+  const sortedCountries = countries
+    .map((country: { name: { common: string } }) => country.name.common)
+    .sort()
+  return sortedCountries
+}
 
 const getQuestionData = (): Question[] => [
   {
@@ -93,7 +96,7 @@ const getQuestionData = (): Question[] => [
       sv: '',
       en: '',
     },
-    optionData: { type: 'select', options: countryNames },
+    optionData: { type: 'select', options: getCountryNames() },
     visibility: {},
   },
   {
