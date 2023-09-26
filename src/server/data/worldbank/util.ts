@@ -1,8 +1,23 @@
 import { Indicator } from './types'
+import { set, get } from '../../util/redis'
 
-export const baseUrl = 'http://api.worldbank.org/v2'
+const baseUrl = 'https://api.worldbank.org/v2'
 
-export const params = 'per_page=1000&format=json'
+const params = 'per_page=1000&format=json'
+
+export const fetchData = async (path: string) => {
+  const url = `${baseUrl}/${path}?${params}`
+
+  const cached = await get(url)
+  if (cached) return cached
+
+  const response = await fetch(url)
+  const data = await response.json()
+
+  await set(url, data)
+
+  return data
+}
 
 export const getLatestIndicator = (indicators: Indicator[]) => {
   indicators.sort(

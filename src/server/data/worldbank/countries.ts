@@ -1,11 +1,10 @@
 import { Info, Country } from './types'
-import { baseUrl, params } from './util'
+import { fetchData } from './util'
 
 type Response = [Info, Country[]]
 
 const getCountries = async () => {
-  const response = await fetch(`${baseUrl}/country?${params}`)
-  const [info, data]: Response = await response.json()
+  const [info, data]: Response = await fetchData(`/countries`)
 
   const countries = data.filter(({ region }) => region.value !== 'Aggregates')
 
