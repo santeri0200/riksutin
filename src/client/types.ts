@@ -69,3 +69,8 @@ export interface Entry {
   SurveyId: number
   UserId: string
 }
+
+export type Country = {
+  code: string
+  name: string
+}
