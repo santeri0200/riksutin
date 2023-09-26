@@ -1,14 +1,14 @@
-import countries from './countries.json'
 import { Question } from '../types'
+import getCountries from './worldbank/countries'
 
-const getCountryNames = () => {
-  const sortedCountries = countries
-    .map((country: { name: { common: string } }) => country.name.common)
-    .sort()
-  return sortedCountries
+const getCountryNames = async () => {
+  const countries = await getCountries()
+  const countryNames = countries.map(({ name }) => name).sort()
+
+  return countryNames
 }
 
-const getQuestionData = (): Question[] => [
+const getQuestionData = async (): Promise<Question[]> => [
   {
     id: 1,
     surveyId: 1,
@@ -326,7 +326,7 @@ const getQuestionData = (): Question[] => [
       sv: '',
       en: '',
     },
-    optionData: { type: 'select', options: getCountryNames() },
+    optionData: { type: 'select', options: await getCountryNames() },
     visibility: {},
   },
 ]
