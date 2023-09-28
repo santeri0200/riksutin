@@ -2,6 +2,7 @@ import express from 'express'
 
 import getCountries from '../data/worldbank/countries'
 import getCountryCorruption from '../data/worldbank/corruption'
+import getCountryPoliticalStability from '../data/worldbank/politicalStability'
 
 const countryRouter = express.Router()
 
@@ -24,6 +25,19 @@ countryRouter.get('/:code', async (req, res: any) => {
   const country = {
     code,
     corruption,
+  }
+
+  return res.status(200).send(country)
+})
+
+countryRouter.get('/:code/stability', async (req, res: any) => {
+  const { code } = req.params
+
+  const stability = await getCountryPoliticalStability(code)
+
+  const country = {
+    code,
+    stability,
   }
 
   return res.status(200).send(country)
