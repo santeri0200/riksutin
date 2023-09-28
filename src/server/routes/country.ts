@@ -1,9 +1,7 @@
 import express from 'express'
 
 import getCountries from '../data/worldbank/countries'
-import getCountryCorruption from '../data/worldbank/corruption'
-import getCountryPoliticalStability from '../data/worldbank/politicalStability'
-import getCountryHCI from '../data/worldbank/humanCapitalIndex'
+import getCountryIndicator from '../data/worldbank/indicator'
 
 const countryRouter = express.Router()
 
@@ -18,10 +16,10 @@ countryRouter.get('/', async (_, res) => {
   return res.status(200).send(countries)
 })
 
-countryRouter.get('/:code', async (req, res: any) => {
+countryRouter.get('/:code/corruption', async (req, res: any) => {
   const { code } = req.params
 
-  const corruption = await getCountryCorruption(code)
+  const corruption = await getCountryIndicator(code, 'CC.EST')
 
   const country = {
     code,
@@ -34,7 +32,7 @@ countryRouter.get('/:code', async (req, res: any) => {
 countryRouter.get('/:code/stability', async (req, res: any) => {
   const { code } = req.params
 
-  const stability = await getCountryPoliticalStability(code)
+  const stability = await getCountryIndicator(code, 'PV.PER.RNK')
 
   const country = {
     code,
@@ -47,7 +45,7 @@ countryRouter.get('/:code/stability', async (req, res: any) => {
 countryRouter.get('/:code/hci', async (req, res: any) => {
   const { code } = req.params
 
-  const hci = await getCountryHCI(code)
+  const hci = await getCountryIndicator(code, 'HD.HCI.OVRL')
 
   const country = {
     code,
