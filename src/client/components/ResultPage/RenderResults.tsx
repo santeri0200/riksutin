@@ -55,6 +55,9 @@ const RenderResults = ({
     <Box ref={refCallback}>
       {selectedCountryCode && (
         <Box sx={resultStyles.resultElementWrapper}>
+          <Box sx={resultStyles.card}>
+            {t('results:selectedCountry')}: {selectedCountry}
+          </Box>
           <CountryResults selectedCountryCode={selectedCountryCode} />
         </Box>
       )}
