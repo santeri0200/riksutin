@@ -9,11 +9,12 @@ import useResults from '../../hooks/useResults'
 import useResultRefCallback from '../../hooks/useResultRefCallback'
 
 import ResultElement from './ResultElement'
-import useCountry from '../../hooks/useCountryData'
+import CountryResults from './CountryResults'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 import { Dimension } from '../../types'
 import styles from '../../styles'
+import useCountries from '../../hooks/useCountries'
 
 const { resultStyles } = styles
 
@@ -29,7 +30,7 @@ const RenderResults = ({
   const { t, i18n } = useTranslation()
   const { survey } = useSurvey()
   const { results, isSuccess: resultsFetched } = useResults(survey?.id)
-  const { country, isLoading } = useCountry('FI')
+  const { countries, isLoading } = useCountries()
   const refCallback = useResultRefCallback()
 
   const { resultData } = useResultData()
@@ -37,7 +38,7 @@ const RenderResults = ({
 
   if (
     isLoading ||
-    !country ||
+    !countries ||
     !survey ||
     !resultsFetched ||
     !resultData ||
@@ -46,19 +47,18 @@ const RenderResults = ({
     return null
 
   const selectedCountry: any = resultData['11']
+  const selectedCountryCode = countries.find(
+    (country) => country.name === selectedCountry
+  )?.code
 
   return (
     <Box ref={refCallback}>
-      {selectedCountry && (
+      {selectedCountryCode && (
         <Box sx={resultStyles.resultElementWrapper}>
-          <Box sx={resultStyles.card}>
-            {t('results:selectedCountry')}: {selectedCountry}
-          </Box>
-          <Box sx={resultStyles.card}>
-            {t('results:corruptionRank')}:{country.corruption}
-          </Box>
+          <CountryResults selectedCountryCode={selectedCountryCode} />
         </Box>
       )}
+
       {resultArray.map((resultLabels) =>
         resultLabels.map((resultLabel) => (
           <ResultElement
