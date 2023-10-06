@@ -80,4 +80,5 @@ export type CountryData = {
   corruption: number
   stability: number
   hci: number
+  safetyLevel: string
 }

@@ -40,7 +40,8 @@
     "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa",
     "corruptionRank": "Sijoitus korruptioasteikolla",
     "stabilityRank": "Poliittinen vakaus",
-    "HCIrank": "Inhimillinen kehitys"
+    "HCIrank": "Inhimillinen kehitys",
+    "safetyLevel": "Turvallisuustaso"
   },
   "contact": {
     "title": "Kontakt",

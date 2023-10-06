@@ -23,6 +23,9 @@ const CountryResults = ({ selectedCountryCode }: any) => {
       <Box sx={resultStyles.card}>
         {t('results:HCIrank')}: {country?.hci}
       </Box>
+      <Box sx={resultStyles.card}>
+        {t('results:safetyLevel')}: {country?.safetyLevel}
+      </Box>
     </>
   )
 }
