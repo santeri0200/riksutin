@@ -2,6 +2,7 @@ import express from 'express'
 
 import getCountries from '../data/worldbank/countries'
 import getCountryIndicator from '../data/worldbank/indicator'
+import fetchSafetyLevelData from '../data/safetyLevel'
 
 const countryRouter = express.Router()
 
@@ -22,12 +23,14 @@ countryRouter.get('/:code', async (req, res: any) => {
   const corruption = await getCountryIndicator(code, 'CC.EST')
   const stability = await getCountryIndicator(code, 'PV.PER.RNK')
   const hci = await getCountryIndicator(code, 'HD.HCI.OVRL')
+  const safetyLevel = await fetchSafetyLevelData(code)
 
   const country = {
     code,
     corruption,
     stability,
     hci,
+    safetyLevel,
   }
 
   return res.status(200).send(country)
