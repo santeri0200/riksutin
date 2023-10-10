@@ -8,7 +8,7 @@ const getCountryIndicator = async (
   indicatorCode: string
 ) => {
   const [info, data]: Response = await fetchData(
-    `/country/${countryCode}/indicator/${indicatorCode}`
+    `country/${countryCode}/indicator/${indicatorCode}`
   )
 
   const indicatorData = data.filter(({ value }) => value !== null)
