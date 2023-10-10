@@ -9,9 +9,9 @@ loginRouter.get('/', passport.authenticate('oidc'))
 
 loginRouter.get(
   '/callback',
-  passport.authenticate('oidc', { failureRedirect: PUBLIC_URL }),
+  passport.authenticate('oidc', { failureRedirect: PUBLIC_URL || '/' }),
   (_, res) => {
-    res.redirect(PUBLIC_URL)
+    res.redirect(PUBLIC_URL || '/')
   }
 )
 
