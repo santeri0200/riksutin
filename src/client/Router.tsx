@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import App from './App'
 import InteractiveForm from './components/InteractiveForm/InteractiveForm'
@@ -23,36 +18,70 @@ import NotFound from './components/Errors/NotFound'
 import { PUBLIC_URL } from '../config'
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />} errorElement={<RootBoundary />}>
-      <Route
-        index
-        element={<InteractiveForm />}
-        errorElement={<RootBoundary />}
-      />
-      <Route
-        path="/contact"
-        element={<Contact />}
-        errorElement={<RootBoundary />}
-      />
-      <Route path="/admin" element={<Admin />} errorElement={<RootBoundary />}>
-        <Route index element={<RenderEditSurvey />} />
-        <Route path="edit-questions" element={<RenderEditQuestions />}>
-          <Route path=":questionId" element={<EditQuestions />} />
-        </Route>
-        <Route path="edit-results/" element={<RenderEditResults />}>
-          <Route path=":questionId/:dimensionId?" element={<EditResults />} />
-        </Route>
-        <Route
-          path="edit-recommendations"
-          element={<RenderEditRecommendations />}
-        >
-          <Route path=":recommendationId" element={<EditRecommendations />} />
-        </Route>
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Route>
-  ),
+  [
+    {
+      path: '/',
+      element: <App />,
+      errorElement: <RootBoundary />,
+      children: [
+        {
+          index: true,
+          element: <InteractiveForm />,
+          errorElement: <RootBoundary />,
+        },
+        {
+          path: '/contact',
+          element: <Contact />,
+          errorElement: <RootBoundary />,
+        },
+        {
+          path: '/admin',
+          element: <Admin />,
+          errorElement: <RootBoundary />,
+          children: [
+            {
+              index: true,
+              element: <RenderEditSurvey />,
+            },
+            {
+              path: 'edit-questions',
+              element: <RenderEditQuestions />,
+              children: [
+                {
+                  path: ':questionId',
+                  element: <EditQuestions />,
+                },
+              ],
+            },
+            {
+              path: 'edit-results/',
+              element: <RenderEditResults />,
+              children: [
+                {
+                  path: ':questionId/:dimensionId?',
+                  element: <EditResults />,
+                },
+              ],
+            },
+            {
+              path: 'edit-recommendations',
+              element: <RenderEditRecommendations />,
+              children: [
+                {
+                  path: ':recommendationId',
+                  element: <EditRecommendations />,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          path: '*',
+          element: <NotFound />,
+        },
+      ],
+    },
+  ],
   {
     basename: PUBLIC_URL,
   }
