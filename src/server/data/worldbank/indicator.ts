@@ -1,5 +1,5 @@
 import { Info, Indicator } from './types'
-import { fetchData, getLatestIndicator } from './util'
+import { fetchData, getLatestIndicator, riskLevelCheck } from './util'
 
 type Response = [Info, Indicator[]]
 
@@ -19,7 +19,11 @@ const getCountryIndicator = async (
 
   const { value } = getLatestIndicator(indicatorData)
 
-  return value
+  if (value && indicatorCode === 'HD.HCI.OVRL') {
+    return riskLevelCheck(0, 1, value)
+  }
+
+  return riskLevelCheck(0, 100, value)
 }
 
 export default getCountryIndicator

@@ -20,7 +20,7 @@ countryRouter.get('/', async (_, res) => {
 countryRouter.get('/:code', async (req, res: any) => {
   const { code } = req.params
 
-  const corruption = await getCountryIndicator(code, 'CC.EST')
+  const corruption = await getCountryIndicator(code, 'CC.PER.RNK')
   const stability = await getCountryIndicator(code, 'PV.PER.RNK')
   const hci = await getCountryIndicator(code, 'HD.HCI.OVRL')
   const safetyLevel = await fetchSafetyLevelData(code)

@@ -26,3 +26,27 @@ export const getLatestIndicator = (indicators: Indicator[]) => {
 
   return indicators[0]
 }
+
+export const riskLevelCheck = (
+  start: number,
+  end: number,
+  res: number | undefined
+) => {
+  if (!res) {
+    return null
+  }
+  const riskLevel = [4, 3, 2, 1]
+  const distance = Math.abs(start - end)
+  const intervalCounter = distance / 4
+
+  let startOfInterval = start
+  let endOfInterval = start + intervalCounter
+  for (let step = 0; step < 4; step += 1) {
+    if (res > startOfInterval && res < endOfInterval) {
+      return riskLevel[step]
+    }
+    startOfInterval = start + intervalCounter
+    endOfInterval += intervalCounter
+  }
+  return null
+}
