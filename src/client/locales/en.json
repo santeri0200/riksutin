@@ -41,7 +41,8 @@
     "corruptionRank": "Korruptio",
     "stabilityRank": "Poliittinen vakaus",
     "HCIrank": "Inhimillinen kehitys",
-    "safetyLevel": "Turvallisuustaso"
+    "safetyLevel": "Turvallisuustaso",
+    "countryRiskLevel": "Maan kokonaisriskitaso"
   },
   "contact": {
     "title": "Contact",

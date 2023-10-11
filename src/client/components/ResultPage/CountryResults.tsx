@@ -14,19 +14,34 @@ const CountryResults = ({ selectedCountryCode }: any) => {
 
   if (!country) return null
 
+  const { code, ...riskValues } = country
+
+  const filteredRiskValues = Object.values(riskValues).filter(
+    (value) => value != null
+  )
+
+  const totalRiskLevel = Math.round(
+    filteredRiskValues.reduce((a, b) => a + b, 0) / filteredRiskValues.length
+  )
+
   return (
     <>
       <Box sx={resultStyles.card}>
-        {t('results:corruptionRank')}:{country.corruption}
+        {t('results:corruptionRank')}: {country.corruption}
       </Box>
       <Box sx={resultStyles.card}>
-        {t('results:stabilityRank')}:{country.stability}
+        {t('results:stabilityRank')}: {country.stability}
       </Box>
       <Box sx={resultStyles.card}>
         {t('results:HCIrank')}: {country.hci}
       </Box>
       <Box sx={resultStyles.card}>
         {t('results:safetyLevel')}: {country.safetyLevel}
+      </Box>
+      <Box sx={resultStyles.card}>
+        <b>
+          {t('results:countryRiskLevel')}: {totalRiskLevel}
+        </b>
       </Box>
     </>
   )
