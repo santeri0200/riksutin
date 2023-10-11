@@ -21,7 +21,7 @@ const DropDownSelect = ({ control, question, children }: InputProps) => {
               options={question.optionData.options}
               getOptionLabel={(option) => option}
               onChange={(e, data) => onChange(data)}
-              sx={{ width: 250 }}
+              sx={{ width: '50%' }}
               renderInput={(params) => <TextField {...params} />}
             />
           </Box>

@@ -15,7 +15,7 @@ const Text = ({ control, question, children }: InputProps) => {
         defaultValue=""
         render={({ field: { onChange } }) => (
           <Box justifyContent="center">
-            <TextField onChange={onChange} />
+            <TextField onChange={onChange} fullWidth multiline />
           </Box>
         )}
       />
