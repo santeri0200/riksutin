@@ -13,6 +13,10 @@ const getCountryIndicator = async (
 
   const indicatorData = data.filter(({ value }) => value !== null)
 
+  if (indicatorData.length === 0) {
+    return null
+  }
+
   const { value } = getLatestIndicator(indicatorData)
 
   return value

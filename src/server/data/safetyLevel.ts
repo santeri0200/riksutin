@@ -20,7 +20,7 @@ const fetchSafetyLevelData = async (code: string) => {
 
     return safetyLevel
   } catch (error) {
-    return ''
+    return null
   }
 }
 
