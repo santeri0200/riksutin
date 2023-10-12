@@ -20,7 +20,7 @@ export interface InputProps {
 }
 
 export interface FormValues {
-  [key: number]: Record<string, { [key: string]: boolean }>
+  [key: number]: any
   course: string
   faculty: string
 }

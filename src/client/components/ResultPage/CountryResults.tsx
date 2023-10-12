@@ -8,7 +8,7 @@ import styles from '../../styles'
 
 const { resultStyles } = styles
 
-const CountryResults = ({ selectedCountryCode }: any) => {
+const CountryResults = ({ selectedCountryCode, selectedCountry }: any) => {
   const { country } = useCountry(selectedCountryCode)
   const { t } = useTranslation()
 
@@ -25,7 +25,10 @@ const CountryResults = ({ selectedCountryCode }: any) => {
   )
 
   return (
-    <>
+    <Box>
+      <Box sx={resultStyles.card}>
+        {t('results:selectedCountry')}: {selectedCountry}
+      </Box>
       <Box sx={resultStyles.card}>
         {t('results:corruptionRank')}: {country.corruption}
       </Box>
@@ -43,7 +46,7 @@ const CountryResults = ({ selectedCountryCode }: any) => {
           {t('results:countryRiskLevel')}: {totalRiskLevel}
         </b>
       </Box>
-    </>
+    </Box>
   )
 }
 
