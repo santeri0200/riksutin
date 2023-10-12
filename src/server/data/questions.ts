@@ -31,7 +31,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 2,
     surveyId: 1,
     parentId: null,
-    priority: 0,
+    priority: 1,
     title: {
       fi: 'Yksikkö',
       sv: 'Yksikkö',
@@ -49,7 +49,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 3,
     surveyId: 1,
     parentId: null,
-    priority: 0,
+    priority: 2,
     title: {
       fi: 'Yhteistyöprojektin nimi',
       sv: 'Yhteistyöprojektin nimi',
@@ -67,7 +67,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 4,
     surveyId: 1,
     parentId: null,
-    priority: 0,
+    priority: 4,
     title: {
       fi: 'Yhteistyöprojektin kumppanin nimi',
       sv: 'Yhteistyöprojektin kumppanin nimi',
@@ -85,7 +85,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 5,
     surveyId: 1,
     parentId: null,
-    priority: 0,
+    priority: 3,
     title: {
       fi: 'Projektin lyhyt kuvaus',
       sv: 'Projektin lyhyt kuvaus',
@@ -103,7 +103,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 6,
     surveyId: 1,
     parentId: null,
-    priority: 1,
+    priority: 9,
     title: {
       fi: 'Kirjallinen sopimus',
       sv: 'Kirjallinen sopimus',
@@ -143,7 +143,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 7,
     surveyId: 1,
     parentId: null,
-    priority: 2,
+    priority: 7,
     title: {
       fi: 'Yhteistyön muodot',
       sv: 'Yhteistyön muodot',
@@ -268,7 +268,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 9,
     surveyId: 1,
     parentId: null,
-    priority: 0,
+    priority: 5,
     title: {
       fi: 'Yhteistyökumppanin tyyppi',
       sv: 'Yhteistyökumppanin tyyppi',
@@ -289,7 +289,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 10,
     surveyId: 1,
     parentId: null,
-    priority: 0,
+    priority: 8,
     title: {
       fi: 'Helsingin yliopiston asema projektissa',
       sv: 'Helsingin yliopiston asema projektissa',
@@ -315,7 +315,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 11,
     surveyId: 1,
     parentId: null,
-    priority: 0,
+    priority: 6,
     title: {
       fi: 'Yhteistyökumppanin sijaintimaa',
       sv: 'Yhteistyöprojektin sijaintimaa',
