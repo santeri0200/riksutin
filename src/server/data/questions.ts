@@ -128,8 +128,8 @@ const getQuestionData = async (): Promise<Question[]> => [
     priority: 5,
     title: {
       fi: 'Yhteistyöorganisaation tyyppi',
-      sv: 'Name of the partner organisation',
-      en: 'Name of the partner organisation',
+      sv: 'Type of the partner organisation',
+      en: 'Type of the partner organisation',
     },
     text: {
       fi: '',
@@ -137,8 +137,45 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: '',
     },
     optionData: {
-      type: 'select',
-      options: ['Yliopisto', 'Tutkimuslaitos', 'Yritys', 'Kansalaisjärjestö'],
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'university',
+          label: 'university',
+          title: {
+            fi: 'Yliopisto',
+            sv: 'University',
+            en: 'University',
+          },
+        },
+        {
+          id: 'otherResearchOrg',
+          label: 'otherResearchOrg',
+          title: {
+            fi: 'Muu tutkimuslaitos',
+            sv: 'Other Research Organisation',
+            en: 'Other Research Organisation',
+          },
+        },
+        {
+          id: 'company',
+          label: 'company',
+          title: {
+            fi: 'Yritys',
+            sv: 'Private company',
+            en: 'Private company',
+          },
+        },
+        {
+          id: 'ngo',
+          label: 'ngo',
+          title: {
+            fi: 'Kansalaisjärjestö',
+            sv: 'NGO',
+            en: 'NGO',
+          },
+        },
+      ],
     },
     visibility: {},
   },
@@ -167,8 +204,8 @@ const getQuestionData = async (): Promise<Question[]> => [
     priority: 7,
     title: {
       fi: 'Yhteistyökumppanin sijaintimaa',
-      sv: 'Yhteistyöprojektin sijaintimaa',
-      en: 'Yhteistyöprojektin sijaintimaa',
+      sv: 'Home country of partner organisation',
+      en: 'Home country of partner organisation',
     },
     text: {
       fi: '',
@@ -194,12 +231,44 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: '',
     },
     optionData: {
-      type: 'select',
+      type: 'singleChoice',
       options: [
-        'Koordinaattori',
-        'Partneri',
-        'Tasaveroinen kumppani',
-        'Alihankkija',
+        {
+          id: 'coordinator',
+          label: 'coordinator',
+          title: {
+            fi: 'Koordinaattori',
+            sv: 'Koordinaattori',
+            en: 'Koordinaattori',
+          },
+        },
+        {
+          id: 'partner',
+          label: 'partner',
+          title: {
+            fi: 'Partneri',
+            sv: 'Partneri',
+            en: 'Partneri',
+          },
+        },
+        {
+          id: 'equalPartner',
+          label: 'equalPartner',
+          title: {
+            fi: 'Tasaveroinen kumppani',
+            sv: 'Tasaveroinen kumppani',
+            en: 'Tasaveroinen kumppani',
+          },
+        },
+        {
+          id: 'subcontractor',
+          label: 'subcontractor',
+          title: {
+            fi: 'Alihankkija',
+            sv: 'Alihankkija',
+            en: 'Alihankkija',
+          },
+        },
       ],
     },
     visibility: {},
@@ -252,8 +321,8 @@ const getQuestionData = async (): Promise<Question[]> => [
     priority: 10,
     title: {
       fi: 'Yhteistyön muodot',
-      sv: 'Yhteistyön muodot',
-      en: 'Yhteistyön muodot',
+      sv: 'Forms of collaboration',
+      en: 'Forms of collaboration',
     },
     text: {
       fi: '',
