@@ -428,7 +428,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     optionData: {
       type: 'text',
       options: [
-        { attributes: { type: 'number', inputProps: { min: 0, max: 15 } } },
+        { attributes: { type: 'number', inputProps: { min: 1, max: 15 } } },
       ],
     },
     visibility: {},
@@ -508,6 +508,27 @@ const getQuestionData = async (): Promise<Question[]> => [
     },
     optionData: { type: 'text', options: [] },
     visibility: { options: ['externalFunding'] },
+  },
+  {
+    id: 16,
+    surveyId: 1,
+    parentId: null,
+    priority: 13,
+    title: {
+      fi: 'Arvio HY:n taloudellisista vastuista koko yhteistyön ajalta',
+      sv: 'Estimate of YH financial responsibilities for the duration of collaboration',
+      en: 'Estimate of YH financial responsibilities for the duration of collaboration',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'text',
+      options: [{ attributes: { type: 'number', inputProps: { min: 0 } } }],
+    },
+    visibility: {},
   },
 ]
 
