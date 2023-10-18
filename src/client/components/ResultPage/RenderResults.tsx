@@ -46,19 +46,19 @@ const RenderResults = ({
   )
     return null
 
-  const selectedCountry: any = resultData['11']
+  const selectedCountry: any = resultData['8']
   const selectedCountryCode = countries.find(
     (country) => country.name === selectedCountry
   )?.code
 
-  const basicInfoQuestions = survey.Questions.filter(
+  const textQuestions = survey.Questions.filter(
     (question) => question.optionData.type === 'text'
   )
 
   return (
     <Box ref={refCallback}>
       <Box sx={resultStyles.resultElementWrapper}>
-        {basicInfoQuestions.map((question) => (
+        {textQuestions.map((question) => (
           <Box key={JSON.stringify(question.id)} sx={resultStyles.card}>
             {question.title[language as keyof Locales]}:{' '}
             {resultData[question.id]}
