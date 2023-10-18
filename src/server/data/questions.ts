@@ -185,16 +185,27 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: null,
     priority: 6,
     title: {
-      fi: 'Vapaa sana',
-      sv: 'Free word',
-      en: 'Free word',
+      fi: 'Vapaa sana (enintään 500 merkkiä)',
+      sv: 'Free word (max 500 characters)',
+      en: 'Free word (max 500 characters)',
     },
     text: {
       fi: '',
       sv: '',
       en: '',
     },
-    optionData: { type: 'text', options: [] },
+    optionData: {
+      type: 'text',
+      options: [
+        {
+          attributes: {
+            multiline: true,
+            minRows: 5,
+            inputProps: { maxLength: 500 },
+          },
+        },
+      ],
+    },
     visibility: {},
   },
   {
@@ -414,7 +425,12 @@ const getQuestionData = async (): Promise<Question[]> => [
       sv: '',
       en: '',
     },
-    optionData: { type: 'text', options: [] },
+    optionData: {
+      type: 'text',
+      options: [
+        { attributes: { type: 'number', inputProps: { min: 0, max: 15 } } },
+      ],
+    },
     visibility: {},
   },
   {

@@ -7,6 +7,8 @@ import { InputProps } from '../../types'
 const Text = ({ control, question, children }: InputProps) => {
   if (!question) return null
 
+  const props = question.optionData.options.find(({ attributes }) => attributes)
+
   return (
     <>
       <Controller
@@ -15,7 +17,11 @@ const Text = ({ control, question, children }: InputProps) => {
         defaultValue=""
         render={({ field: { onChange } }) => (
           <Box justifyContent="center">
-            <TextField onChange={onChange} fullWidth multiline />
+            <TextField
+              onChange={onChange}
+              fullWidth
+              InputProps={props ? props.attributes : {}}
+            />
           </Box>
         )}
       />
