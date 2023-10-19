@@ -175,6 +175,15 @@ const getQuestionData = async (): Promise<Question[]> => [
             en: 'NGO',
           },
         },
+        {
+          id: 'otherType',
+          label: 'otherType',
+          title: {
+            fi: 'Muu',
+            sv: 'Other',
+            en: 'Other',
+          },
+        },
       ],
     },
     visibility: {},
@@ -278,6 +287,15 @@ const getQuestionData = async (): Promise<Question[]> => [
             fi: 'Alihankkija',
             sv: 'Alihankkija',
             en: 'Alihankkija',
+          },
+        },
+        {
+          id: 'otherRole',
+          label: 'otherRole',
+          title: {
+            fi: 'Muu',
+            sv: 'Other',
+            en: 'Other',
           },
         },
       ],
@@ -406,6 +424,15 @@ const getQuestionData = async (): Promise<Question[]> => [
             en: 'Branch Campus',
           },
         },
+        {
+          id: 'otherCollaboration',
+          label: 'otherCollaboration',
+          title: {
+            fi: 'Muu',
+            sv: 'Other',
+            en: 'Other',
+          },
+        },
       ],
     },
     visibility: {},
@@ -529,6 +556,60 @@ const getQuestionData = async (): Promise<Question[]> => [
       options: [{ attributes: { type: 'number', inputProps: { min: 0 } } }],
     },
     visibility: {},
+  },
+  {
+    id: 17,
+    surveyId: 1,
+    parentId: 6,
+    priority: 0,
+    title: {
+      fi: 'Mikä?',
+      sv: 'What?',
+      en: 'What?',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: { type: 'text', options: [] },
+    visibility: { options: ['otherType'] },
+  },
+  {
+    id: 18,
+    surveyId: 1,
+    parentId: 9,
+    priority: 0,
+    title: {
+      fi: 'Mikä?',
+      sv: 'What?',
+      en: 'What?',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: { type: 'text', options: [] },
+    visibility: { options: ['otherRole'] },
+  },
+  {
+    id: 19,
+    surveyId: 1,
+    parentId: 11,
+    priority: 0,
+    title: {
+      fi: 'Mikä?',
+      sv: 'What?',
+      en: 'What?',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: { type: 'text', options: [] },
+    visibility: { options: ['otherCollaboration'] },
   },
 ]
 
