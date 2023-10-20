@@ -17,6 +17,7 @@ export interface InputProps {
   language?: string
   questions?: Question[]
   isSubmitted?: boolean
+  selectedCountry?: string
 }
 
 export interface FormValues {
@@ -81,4 +82,5 @@ export type CountryData = {
   stability: number
   hci: number
   safetyLevel: number
+  universities: string[]
 }

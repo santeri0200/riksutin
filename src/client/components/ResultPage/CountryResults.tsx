@@ -14,10 +14,10 @@ const CountryResults = ({ selectedCountryCode, selectedCountry }: any) => {
 
   if (!country) return null
 
-  const { code, ...riskValues } = country
+  const { code, universities, ...riskValues } = country
 
   const filteredRiskValues = Object.values(riskValues).filter(
-    (value) => value != null
+    (value) => value != null && typeof value === 'number'
   )
 
   const totalRiskLevel = Math.round(

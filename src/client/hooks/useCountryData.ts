@@ -4,7 +4,7 @@ import apiClient from '../util/apiClient'
 
 import { CountryData } from '../types'
 
-const useCountry = (code: string) => {
+const useCountry = (code: string | undefined) => {
   const queryKey = ['country', code]
 
   const query = async (): Promise<CountryData> => {
@@ -13,7 +13,9 @@ const useCountry = (code: string) => {
     return data
   }
 
-  const { data: country, ...rest } = useQuery(queryKey, query)
+  const { data: country, ...rest } = useQuery(queryKey, query, {
+    enabled: Boolean(code),
+  })
 
   return { country, ...rest }
 }

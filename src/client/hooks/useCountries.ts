@@ -5,7 +5,7 @@ import apiClient from '../util/apiClient'
 import { Country } from '../types'
 
 const useCountries = () => {
-  const queryKey = 'faculties'
+  const queryKey = 'countries'
 
   const query = async (): Promise<Country[]> => {
     const { data } = await apiClient.get('/countries')

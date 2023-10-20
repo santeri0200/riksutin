@@ -14,6 +14,7 @@ import ShowMore from '../Common/ShowMore'
 import { InputProps } from '../../types'
 
 import styles from '../../styles'
+import useCountries from '../../hooks/useCountries'
 
 const { cardStyles } = styles
 
@@ -58,7 +59,14 @@ const RenderQuestions = ({
   questions,
   language,
 }: InputProps) => {
-  if (!question || !questions || !watch) return null
+  const { countries, isLoading } = useCountries()
+
+  if (isLoading || !question || !questions || !watch || !countries) return null
+
+  const selectedCountry = watch('8')
+  const selectedCountryCode = countries.find(
+    (country) => country.name === selectedCountry
+  )?.code
 
   if (question.visibility?.options) {
     const [...options] = question.visibility.options
@@ -96,7 +104,6 @@ const RenderQuestions = ({
   const childQuestions = questions.filter(
     (childQuestion) => question.id === childQuestion.parentId
   )
-
   return (
     <Container sx={cardStyles.questionsContainer}>
       <QuestionText
@@ -109,6 +116,7 @@ const RenderQuestions = ({
         control={control}
         question={question}
         language={language}
+        selectedCountry={selectedCountryCode}
       >
         {childQuestions &&
           childQuestions.map((children) => (
