@@ -1,7 +1,9 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import { Locales, PossibleChoiceTypes, Question } from '@backend/types'
+import { UseFormWatch } from 'react-hook-form'
 
+import { useTranslation } from 'react-i18next'
 import MultiChoice from '../Choices/MultiChoice'
 import SingleChoice from '../Choices/SingleChoice'
 import Text from '../Choices/TextField'
@@ -18,10 +20,13 @@ const { cardStyles } = styles
 const QuestionText = ({
   question,
   language,
+  watch,
 }: {
   question: Question
   language: keyof Locales
+  watch: UseFormWatch<any>
 }) => {
+  const { t } = useTranslation()
   if (question.optionData.type === 'info')
     return (
       <Typography component="span">
@@ -32,7 +37,13 @@ const QuestionText = ({
 
   return (
     <>
-      <Markdown>{question.title[language]}</Markdown>
+      {question.id === 5 && watch('4') === 'multilateral' ? (
+        <Markdown>
+          {t('questions:optionalPartnerOrganisationNameQuestion')}
+        </Markdown>
+      ) : (
+        <Markdown>{question.title[language]}</Markdown>
+      )}
       <Box sx={cardStyles.content}>
         <Markdown>{question.text[language]}</Markdown>
       </Box>
@@ -88,7 +99,11 @@ const RenderQuestions = ({
 
   return (
     <Container sx={cardStyles.questionsContainer}>
-      <QuestionText question={question} language={language as keyof Locales} />
+      <QuestionText
+        question={question}
+        language={language as keyof Locales}
+        watch={watch}
+      />
       <Choice
         key={question.id}
         control={control}

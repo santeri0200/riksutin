@@ -22,6 +22,9 @@
     "title": "Käytössäsi olevat työkalut",
     "infoBoxText": "Lisätietoa käytettävissä olevista työkaluista"
   },
+  "questions": {
+    "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi"
+  },
   "results": {
     "title": "Yhteenveto valinnoistasi",
     "resultsMessage": "Listasimme sinulle vielä alle yhteevedon valinnoista",

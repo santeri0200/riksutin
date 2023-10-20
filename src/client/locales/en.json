@@ -22,6 +22,9 @@
     "title": "Available Tools",
     "infoBoxText": "More information about available tools"
   },
+  "questions": {
+    "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi"
+  },
   "results": {
     "title": "Summary of Your Choices",
     "resultsMessage": "We have compiled a summary of your selections below",

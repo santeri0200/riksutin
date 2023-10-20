@@ -22,6 +22,9 @@
     "title": "Tillgängliga verktyg",
     "infoBoxText": "Mer information om tillgängliga verktyg"
   },
+  "questions": {
+    "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi"
+  },
   "results": {
     "title": "Sammanfattning av dina val",
     "resultsMessage": "Vi har sammanställt en översikt över dina val nedan",
