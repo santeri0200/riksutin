@@ -43,7 +43,9 @@ const parseHTML = (html: string): string[] => {
   return universityNames
 }
 
-const getCountryUniversities = async (countryName: string) => {
+const getCountryUniversities = async (countryName: string | undefined) => {
+  if (!countryName) return null
+
   const html = await fetchData(countryName)
 
   const universityNames = parseHTML(html)

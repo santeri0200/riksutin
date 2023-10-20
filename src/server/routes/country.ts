@@ -3,6 +3,7 @@ import express from 'express'
 import getCountries from '../data/worldbank/countries'
 import getCountryIndicator from '../data/worldbank/indicator'
 import fetchSafetyLevelData from '../data/safetyLevel'
+import getCountryUniversities from '../data/whed/countryUniversities'
 
 const countryRouter = express.Router()
 
@@ -19,11 +20,17 @@ countryRouter.get('/', async (_, res) => {
 
 countryRouter.get('/:code', async (req, res: any) => {
   const { code } = req.params
+  const countries = await getCountries()
+
+  const countryName = countries.find(
+    (country) => country.iso2Code === code.toUpperCase()
+  )?.name
 
   const corruption = await getCountryIndicator(code, 'CC.PER.RNK')
   const stability = await getCountryIndicator(code, 'PV.PER.RNK')
   const hci = await getCountryIndicator(code, 'HD.HCI.OVRL')
   const safetyLevel = await fetchSafetyLevelData(code)
+  const universities = await getCountryUniversities(countryName)
 
   const country = {
     code,
@@ -31,6 +38,7 @@ countryRouter.get('/:code', async (req, res: any) => {
     stability,
     hci,
     safetyLevel,
+    universities,
   }
 
   return res.status(200).send(country)
