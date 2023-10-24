@@ -645,6 +645,24 @@ const getQuestionData = async (): Promise<Question[]> => [
     },
     visibility: { options: ['university'] },
   },
+  {
+    id: 21,
+    surveyId: 1,
+    parentId: 6,
+    priority: 1,
+    title: {
+      fi: 'Muu yliopisto',
+      sv: 'Other university',
+      en: 'Other university',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: { type: 'text', options: [] },
+    visibility: { options: ['university'] },
+  },
 ]
 
 export default getQuestionData
