@@ -23,7 +23,9 @@
     "infoBoxText": "More information about available tools"
   },
   "questions": {
-    "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi"
+    "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
+    "loadingUniversities": "Loading universities",
+    "selectUniversityInfoMessage": "Select a country to see options"
   },
   "results": {
     "title": "Summary of Your Choices",

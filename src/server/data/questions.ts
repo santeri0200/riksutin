@@ -622,9 +622,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'What?',
     },
     text: {
-      fi: 'Valitse sijaintimaa nähdäksesi vaihtoehdot',
-      sv: 'Choose a country to see the options',
-      en: 'Choose a country to see the options',
+      fi: '',
+      sv: '',
+      en: '',
     },
     optionData: { type: 'select', options: [] },
     visibility: { options: ['university'] },

@@ -2,8 +2,11 @@ import React from 'react'
 import { Controller } from 'react-hook-form'
 import { Autocomplete, Box, TextField } from '@mui/material'
 
+import { useTranslation } from 'react-i18next'
+
 import useCountry from '../../hooks/useCountryData'
 import { InputProps } from '../../types'
+import LoadingProgress from '../Common/LoadingProgress'
 
 const DropDownSelect = ({
   control,
@@ -13,33 +16,45 @@ const DropDownSelect = ({
 }: InputProps) => {
   const { country } = useCountry(selectedCountry)
 
+  const { t } = useTranslation()
+
   if (!question) return null
+
+  if (!selectedCountry && question.id === 20)
+    return (
+      <Box>
+        <i>{t('questions:selectUniversityInfoMessage')}</i>
+      </Box>
+    )
 
   return (
     <>
-      <Controller
-        control={control}
-        name={question.id.toString()}
-        defaultValue=""
-        render={({ field: { onChange } }) => (
-          <Box justifyContent="center">
-            <Autocomplete
-              disablePortal
-              id={`select-${question.id.toString()}`}
-              options={
-                question.id === 20 && country?.universities
-                  ? country?.universities
-                  : question.optionData.options
-              }
-              getOptionLabel={(option) => option}
-              onChange={(e, data) => onChange(data)}
-              sx={{ width: '50%' }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </Box>
-        )}
-      />
-
+      {!country && question.id === 20 ? (
+        <LoadingProgress />
+      ) : (
+        <Controller
+          control={control}
+          name={question.id.toString()}
+          defaultValue=""
+          render={({ field: { onChange } }) => (
+            <Box justifyContent="center">
+              <Autocomplete
+                disablePortal
+                id={`select-${question.id.toString()}`}
+                options={
+                  question.id === 20 && country?.universities
+                    ? country?.universities
+                    : question.optionData.options
+                }
+                getOptionLabel={(option) => option}
+                onChange={(e, data) => onChange(data)}
+                sx={{ width: '50%' }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </Box>
+          )}
+        />
+      )}
       {children}
     </>
   )
