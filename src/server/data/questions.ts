@@ -232,7 +232,15 @@ const getQuestionData = async (): Promise<Question[]> => [
       sv: '',
       en: '',
     },
-    optionData: { type: 'select', options: await getCountryNames() },
+    optionData: {
+      type: 'select',
+      options: await getCountryNames(),
+      label: {
+        fi: 'Valitse sijaintimaa',
+        sv: 'Select the country',
+        en: 'Select the country',
+      },
+    },
     visibility: {},
   },
   {
@@ -542,9 +550,9 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: null,
     priority: 13,
     title: {
-      fi: 'Arvio HY:n taloudellisista vastuista koko yhteistyön ajalta',
-      sv: 'Estimate of YH financial responsibilities for the duration of collaboration',
-      en: 'Estimate of YH financial responsibilities for the duration of collaboration',
+      fi: 'Arvio HY:n taloudellisista vastuista koko yhteistyön ajalta (euroina)',
+      sv: 'Estimate of YH financial responsibilities for the duration of collaboration (in euros)',
+      en: 'Estimate of YH financial responsibilities for the duration of collaboration (in euros)',
     },
     text: {
       fi: '',
@@ -626,7 +634,15 @@ const getQuestionData = async (): Promise<Question[]> => [
       sv: '',
       en: '',
     },
-    optionData: { type: 'select', options: [] },
+    optionData: {
+      type: 'select',
+      options: [],
+      label: {
+        fi: 'Valitse yliopisto',
+        sv: 'Select university',
+        en: 'Select university',
+      },
+    },
     visibility: { options: ['university'] },
   },
 ]

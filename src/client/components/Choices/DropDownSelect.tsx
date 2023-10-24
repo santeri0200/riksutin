@@ -4,6 +4,8 @@ import { Autocomplete, Box, TextField } from '@mui/material'
 
 import { useTranslation } from 'react-i18next'
 
+import { Locales } from '@backend/types'
+
 import useCountry from '../../hooks/useCountryData'
 import { InputProps } from '../../types'
 import LoadingProgress from '../Common/LoadingProgress'
@@ -16,7 +18,8 @@ const DropDownSelect = ({
 }: InputProps) => {
   const { country } = useCountry(selectedCountry)
 
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const { language } = i18n
 
   if (!question) return null
 
@@ -49,7 +52,16 @@ const DropDownSelect = ({
                 getOptionLabel={(option) => option}
                 onChange={(e, data) => onChange(data)}
                 sx={{ width: '50%' }}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label={
+                      question.optionData.label
+                        ? question.optionData.label[language as keyof Locales]
+                        : ''
+                    }
+                  />
+                )}
               />
             </Box>
           )}

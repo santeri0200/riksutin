@@ -101,6 +101,7 @@ export type PossibleChoiceTypes =
 export interface OptionData {
   type: PossibleChoiceTypes
   options: ChoiceType
+  label?: Locales
 }
 export interface EntryValues {
   data: FormValues
