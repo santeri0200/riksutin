@@ -10,7 +10,6 @@ import useSaveEntryMutation from '../../hooks/useSaveEntryMutation'
 
 import HelloBanner from './HelloBanner'
 import RenderSurvey from './RenderSurvey'
-import Recommendations from '../Recommendations/Recommendations'
 import Results from '../ResultPage/Results'
 
 import { useResultData } from '../../contexts/ResultDataContext'
@@ -70,17 +69,10 @@ const InteractiveForm = () => {
   return (
     <Box sx={formStyles.formWrapper}>
       <Grid container>
-        <Grid item sm={12}>
-          <HelloBanner />
-        </Grid>
-        <Grid
-          id="survey-main-section"
-          sx={{ px: 2, maxWidth: '100vw' }}
-          item
-          sm={12}
-          md={7}
-          xl={8}
-        >
+        <Grid id="survey-main-section" sx={{ px: 2, maxWidth: '100vw' }} item>
+          <Grid item sm={12}>
+            <HelloBanner />
+          </Grid>
           <form
             style={{ display: showResults ? 'none' : 'block' }}
             onSubmit={handleSubmit(onSubmit)}
@@ -96,9 +88,6 @@ const InteractiveForm = () => {
           {resultData && showResults && (
             <Results setShowResults={setShowResults} />
           )}
-        </Grid>
-        <Grid item sm={12} md={5} xl={4}>
-          <Recommendations />
         </Grid>
       </Grid>
     </Box>
