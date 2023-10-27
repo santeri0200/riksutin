@@ -4,9 +4,9 @@ import { BreakPointTheme } from './theme'
 
 const cardStyles = {
   card: {
-    m: 2,
+    mx: 2,
     [BreakPointTheme.breakpoints.down('sm')]: {
-      m: 1,
+      mx: 1,
     },
     transition: '0.3s',
     textAlign: 'left',
@@ -47,11 +47,13 @@ const cardStyles = {
     spacing: 1,
   },
   questionsContainer: {
-    my: 8,
+    my: 4,
+    pl: 4,
     [BreakPointTheme.breakpoints.down('sm')]: {
-      my: 4,
+      my: 2,
     },
     borderLeft: 1,
+    textAlign: 'left',
     borderColor: 'grey.300',
   },
   content: {
@@ -113,6 +115,7 @@ const formStyles = {
   formWrapper: {
     my: 2,
     maxWidth: 1560,
+    width: '100%',
   },
   formControl: {
     width: '100%',

@@ -34,7 +34,7 @@ const RenderSurvey = ({
 
       <Box sx={cardStyles.card}>
         {questions.map((question) => (
-          <div key={question.id}>
+          <Box key={question.id} sx={cardStyles.card}>
             {showQuestions && question.parentId === null && (
               <RenderQuestions
                 control={control}
@@ -44,7 +44,7 @@ const RenderSurvey = ({
                 language={language}
               />
             )}
-          </div>
+          </Box>
         ))}
 
         <Box sx={formStyles.stackBox}>

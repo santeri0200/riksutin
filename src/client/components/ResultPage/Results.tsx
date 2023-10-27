@@ -61,7 +61,7 @@ const Results = ({
   }
 
   return (
-    <Box>
+    <>
       <Box sx={cardStyles.outerBox}>
         <Box sx={resultStyles.resultWrapper}>
           <Container sx={{ mt: 4 }}>
@@ -91,7 +91,7 @@ const Results = ({
       </Box>
 
       <ProceedToContact />
-    </Box>
+    </>
   )
 }
 

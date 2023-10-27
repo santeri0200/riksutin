@@ -68,11 +68,11 @@ const InteractiveForm = () => {
 
   return (
     <Box sx={formStyles.formWrapper}>
-      <Grid container>
-        <Grid id="survey-main-section" sx={{ px: 2, maxWidth: '100vw' }} item>
-          <Grid item sm={12}>
-            <HelloBanner />
-          </Grid>
+      <Grid id="survey-main-section">
+        <Grid item sm={12}>
+          <HelloBanner />
+        </Grid>
+        <Grid item sm={12}>
           <form
             style={{ display: showResults ? 'none' : 'block' }}
             onSubmit={handleSubmit(onSubmit)}
@@ -84,11 +84,13 @@ const InteractiveForm = () => {
               isSubmitted={isSubmitted}
             />
           </form>
-
-          {resultData && showResults && (
-            <Results setShowResults={setShowResults} />
-          )}
         </Grid>
+
+        {resultData && showResults && (
+          <Grid item sm={12}>
+            <Results setShowResults={setShowResults} />
+          </Grid>
+        )}
       </Grid>
     </Box>
   )

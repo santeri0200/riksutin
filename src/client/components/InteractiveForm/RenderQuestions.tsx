@@ -107,7 +107,7 @@ const RenderQuestions = ({
     (childQuestion) => question.id === childQuestion.parentId
   )
   return (
-    <Container sx={cardStyles.questionsContainer}>
+    <Box sx={cardStyles.questionsContainer}>
       <QuestionText
         question={question}
         language={language as keyof Locales}
@@ -135,7 +135,7 @@ const RenderQuestions = ({
             />
           ))}
       </Choice>
-    </Container>
+    </Box>
   )
 }
 
