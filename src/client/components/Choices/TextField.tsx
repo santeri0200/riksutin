@@ -3,11 +3,8 @@ import { Controller } from 'react-hook-form'
 import { Box, TextField } from '@mui/material'
 
 import { InputProps } from '../../types'
-import useLoggedInUser from '../../hooks/useLoggedInUser'
 
-const Text = ({ control, question }: InputProps) => {
-  const { user } = useLoggedInUser()
-
+const Text = ({ control, question, defaultValue }: InputProps) => {
   if (!question) return null
 
   const props = question.optionData.options.find(({ attributes }) => attributes)
@@ -16,16 +13,14 @@ const Text = ({ control, question }: InputProps) => {
     <Controller
       control={control}
       name={question.id.toString()}
-      defaultValue=""
+      defaultValue={defaultValue}
       render={({ field: { onChange } }) => (
         <Box justifyContent="center">
           <TextField
             onChange={onChange}
             fullWidth
             InputProps={props ? props.attributes : {}}
-            defaultValue={
-              question.id === 1 ? `${user?.firstName} ${user?.lastName}` : ''
-            }
+            defaultValue={defaultValue}
           />
         </Box>
       )}

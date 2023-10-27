@@ -18,6 +18,7 @@ export interface InputProps {
   questions?: Question[]
   isSubmitted?: boolean
   selectedCountry?: string
+  defaultValue?: string
 }
 
 export interface FormValues {

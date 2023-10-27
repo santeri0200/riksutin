@@ -4,6 +4,7 @@ import { Locales, PossibleChoiceTypes, Question } from '@backend/types'
 import { UseFormWatch } from 'react-hook-form'
 
 import { useTranslation } from 'react-i18next'
+import useLoggedInUser from '../../hooks/useLoggedInUser'
 import MultiChoice from '../Choices/MultiChoice'
 import SingleChoice from '../Choices/SingleChoice'
 import Text from '../Choices/TextField'
@@ -60,6 +61,7 @@ const RenderQuestions = ({
   language,
 }: InputProps) => {
   const { countries, isLoading } = useCountries()
+  const { user } = useLoggedInUser()
 
   if (isLoading || !question || !questions || !watch || !countries) return null
 
@@ -117,6 +119,9 @@ const RenderQuestions = ({
         question={question}
         language={language}
         selectedCountry={selectedCountryCode}
+        defaultValue={
+          question.id === 1 ? `${user?.firstName} ${user?.lastName}` : ''
+        }
       >
         {childQuestions &&
           childQuestions.map((children) => (
