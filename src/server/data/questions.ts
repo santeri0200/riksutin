@@ -192,11 +192,11 @@ const getQuestionData = async (): Promise<Question[]> => [
     id: 7,
     surveyId: 1,
     parentId: null,
-    priority: 13,
+    priority: 14,
     title: {
-      fi: 'Vapaa sana (enintään 500 merkkiä)',
-      sv: 'Free word (max 500 characters)',
-      en: 'Free word (max 500 characters)',
+      fi: 'Lisätietoja',
+      sv: 'Additional information ',
+      en: 'Additional information',
     },
     text: {
       fi: '',
