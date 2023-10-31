@@ -2,14 +2,11 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box } from '@mui/material'
 
-import { Locales } from '@backend/types'
-
 import useSurvey from '../../hooks/useSurvey'
 import useResults from '../../hooks/useResults'
 import useResultRefCallback from '../../hooks/useResultRefCallback'
 
-import ResultElement from './ResultElement'
-import CountryResults from './CountryResults'
+import TotalRisk from './TotalRisk'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 import { Dimension } from '../../types'
@@ -51,42 +48,11 @@ const RenderResults = ({
     (country) => country.name === selectedCountry
   )?.code
 
-  const textQuestions = survey.Questions.filter(
-    (question) => question.optionData.type === 'text'
-  )
-
   return (
     <Box ref={refCallback}>
       <Box sx={resultStyles.resultElementWrapper}>
-        {textQuestions.map((question) => (
-          <Box key={JSON.stringify(question.id)} sx={resultStyles.card}>
-            {question.title[language as keyof Locales]}:{' '}
-            {resultData[question.id]}
-          </Box>
-        ))}
+        <TotalRisk selectedCountryCode={selectedCountryCode} />
       </Box>
-      {selectedCountryCode && (
-        <Box sx={resultStyles.resultElementWrapper}>
-          <CountryResults
-            selectedCountryCode={selectedCountryCode}
-            selectedCountry={selectedCountry}
-          />
-        </Box>
-      )}
-
-      {resultArray.map((resultLabels) =>
-        resultLabels.map((resultLabel) => (
-          <ResultElement
-            key={JSON.stringify(resultLabel)}
-            language={language as keyof Locales}
-            resultData={results?.find(
-              (result: { optionLabel: string }) =>
-                result.optionLabel === resultLabel
-            )}
-            dimensionSelections={dimensionSelections}
-          />
-        ))
-      )}
     </Box>
   )
 }
