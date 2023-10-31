@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useTranslation } from 'react-i18next'
 import { Box } from '@mui/material'
 import { countryRisk, universityRisk, durationRisk } from '../../util/risks'
 
@@ -15,21 +15,26 @@ const TotalRisk = ({
 }: {
   selectedCountryCode: string | undefined
 }) => {
+  const { t } = useTranslation()
   const { resultData } = useResultData()
   const { country } = useCountry(selectedCountryCode)
 
   if (!resultData) return null
 
   const riskArray = [
-    { id: 1, text: 'Country', riskLevel: countryRisk(country) },
+    {
+      id: 1,
+      text: t('results:countryRiskLevel'),
+      riskLevel: countryRisk(country),
+    },
     {
       id: 2,
-      text: 'University',
+      text: t('results:universityRiskLevel'),
       riskLevel: universityRisk(resultData['20'], resultData['21']),
     },
     {
       id: 3,
-      text: 'Duration',
+      text: t('results:durationRiskLevel'),
       riskLevel: durationRisk(resultData['12'], [
         [5, 4],
         [1, 2],
@@ -49,7 +54,9 @@ const TotalRisk = ({
 
   return (
     <Box sx={resultStyles.card}>
-      <b>Kokonaisriskitaso: {totalRisk}</b>
+      <b>
+        {t('results:totalRiskLevel')}: {totalRisk}
+      </b>
       {riskArray.map(
         (risk) =>
           risk.riskLevel === 4 && (

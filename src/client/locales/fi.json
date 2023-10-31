@@ -47,7 +47,10 @@
     "stabilityRank": "Poliittinen vakaus",
     "HCIrank": "Inhimillinen kehitys",
     "safetyLevel": "Turvallisuustaso",
-    "countryRiskLevel": "Maan kokonaisriskitaso"
+    "countryRiskLevel": "Maan riskitaso",
+    "universityRiskLevel": "Yliopiston riskitaso",
+    "durationRiskLevel": "Yhteistyön keston riskitaso",
+    "totalRiskLevel": "Yhteistyön kokonaisriskitaso"
   },
   "contact": {
     "title": "Yhteydenotto",
