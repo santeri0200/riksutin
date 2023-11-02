@@ -12,7 +12,6 @@ import ProceedToContact from './ProceedToContact'
 import { useResultData } from '../../contexts/ResultDataContext'
 
 import styles from '../../styles'
-import { getResultArray } from '../../util/results'
 import { LOCATION_KEY } from '../../../config'
 
 const { cardStyles, resultStyles } = styles
@@ -27,29 +26,6 @@ const Results = ({
   const { resultData } = useResultData()
 
   if (!survey || !resultData) return null
-
-  const dimensionSelections = [
-    {
-      id: 'allDimensions',
-      label: 'allDimensions',
-      color: '#000000',
-      title: {
-        fi: 'Kaikki',
-        sv: 'All',
-        en: 'All',
-      },
-      text: {
-        fi: 'Kaikki',
-        sv: 'All',
-        en: 'All',
-      },
-    },
-  ]
-
-  const resultArrays = getResultArray(resultData)
-
-  // Rest of the selections and empty values filtered
-  const resultArray = resultArrays.filter(([x]) => x !== '')
 
   const onNavigateBack = () => {
     sessionStorage.setItem(LOCATION_KEY, 'form')
@@ -75,10 +51,7 @@ const Results = ({
             </Typography>
           </Container>
 
-          <RenderResults
-            resultArray={resultArray}
-            dimensionSelections={dimensionSelections}
-          />
+          <RenderResults />
 
           <SendSummaryEmail />
 
