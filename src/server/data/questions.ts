@@ -451,9 +451,9 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: null,
     priority: 11,
     title: {
-      fi: 'Yhteistyön kesto vuosina',
-      sv: 'Duration of collaboration in years',
-      en: 'Duration of collaboration in years',
+      fi: 'Yhteistyön kesto',
+      sv: 'Duration of collaboration',
+      en: 'Duration of collaboration',
     },
     text: {
       fi: '',
@@ -461,9 +461,44 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: '',
     },
     optionData: {
-      type: 'text',
+      type: 'singleChoice',
       options: [
-        { attributes: { type: 'number', inputProps: { min: 1, max: 15 } } },
+        {
+          id: 'shortDuration',
+          label: 'shortDuration',
+          title: {
+            fi: '0-18kk',
+            sv: '0-18 months',
+            en: '0-18 months',
+          },
+        },
+        {
+          id: 'mediumDuration',
+          label: 'mediumDuration',
+          title: {
+            fi: '18-36kk',
+            sv: '18-36 months',
+            en: '18-36 months',
+          },
+        },
+        {
+          id: 'longDuration',
+          label: 'longDuration',
+          title: {
+            fi: '36-54kk',
+            sv: '36-54 months',
+            en: '36-54 months',
+          },
+        },
+        {
+          id: 'veryLongDuration',
+          label: 'veryLongDuration',
+          title: {
+            fi: '54+ kk',
+            sv: '54+ months',
+            en: '54+ months',
+          },
+        },
       ],
     },
     visibility: {},
@@ -560,8 +595,45 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: '',
     },
     optionData: {
-      type: 'text',
-      options: [{ attributes: { type: 'number', inputProps: { min: 0 } } }],
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'smallBudget',
+          label: 'smallBudget',
+          title: {
+            fi: '0-50000',
+            sv: '0-50000',
+            en: '0-50000',
+          },
+        },
+        {
+          id: 'mediumBudget',
+          label: 'mediumBudget',
+          title: {
+            fi: '50000-100000',
+            sv: '50000-100000',
+            en: '50000-100000',
+          },
+        },
+        {
+          id: 'largeBudget',
+          label: 'largeBudget',
+          title: {
+            fi: '100000-250000',
+            sv: '100000-250000',
+            en: '100000-250000',
+          },
+        },
+        {
+          id: 'veryLargeBudget',
+          label: 'veryLargeBudget',
+          title: {
+            fi: '250000+',
+            sv: '250000+',
+            en: '250000+',
+          },
+        },
+      ],
     },
     visibility: {},
   },

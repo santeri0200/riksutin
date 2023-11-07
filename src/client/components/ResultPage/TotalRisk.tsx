@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box } from '@mui/material'
-import { countryRisk, universityRisk, durationRisk } from '../../util/risks'
+import { countryRisk, universityRisk } from '../../util/risks'
 
 import useCountry from '../../hooks/useCountryData'
 import { useResultData } from '../../contexts/ResultDataContext'
@@ -31,15 +31,6 @@ const TotalRisk = ({
       id: 2,
       text: t('results:universityRiskLevel'),
       riskLevel: universityRisk(resultData['20'], resultData['21']),
-    },
-    {
-      id: 3,
-      text: t('results:durationRiskLevel'),
-      riskLevel: durationRisk(resultData['12'], [
-        [5, 4],
-        [1, 2],
-        [0, 1],
-      ]),
     },
   ].filter((value) => value.riskLevel != null)
 
