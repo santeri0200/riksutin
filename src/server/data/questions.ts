@@ -549,16 +549,38 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: 13,
     priority: 0,
     title: {
-      fi: 'Rahoittajan nimi',
-      sv: 'Name of funding agency',
-      en: 'Name of funding agency',
+      fi: 'Onko yksikkösi saanut aiemmin rahoitusta samalta rahoittajalta?',
+      sv: 'Has your unit been previously funded by the same funder?',
+      en: 'Has your unit been previously funded by the same funder?',
     },
     text: {
       fi: '',
       sv: '',
       en: '',
     },
-    optionData: { type: 'text', options: [] },
+    optionData: {
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'previouslyFunded',
+          label: 'previouslyFunded',
+          title: {
+            fi: 'Kyllä',
+            sv: 'Yes',
+            en: 'Yes',
+          },
+        },
+        {
+          id: 'notPreviouslyFunded',
+          label: 'notPreviouslyFunded',
+          title: {
+            fi: 'Ei',
+            sv: 'No',
+            en: 'No',
+          },
+        },
+      ],
+    },
     visibility: { options: ['externalFunding'] },
   },
   {
@@ -567,16 +589,92 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: 13,
     priority: 1,
     title: {
-      fi: 'Ulkopuolisen rahoituksen määrä',
-      sv: 'Amount of external funding',
-      en: 'Amount of external funding',
+      fi: 'Pääasiallinen rahoittaja on',
+      sv: 'Classification of the principal funder',
+      en: 'Classification of the principal funder',
     },
     text: {
       fi: '',
       sv: '',
       en: '',
     },
-    optionData: { type: 'text', options: [] },
+    optionData: {
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'finnishPublicEntity',
+          label: 'finnishPublicEntity',
+          title: {
+            fi: 'Suomalainen julkisyhteisö (esim. ministeriö)',
+            sv: 'Finnish public entity (e.g. ministry)',
+            en: 'Finnish public entity (e.g. ministry)',
+          },
+        },
+        {
+          id: 'finnishFoundation',
+          label: 'finnishFoundation',
+          title: {
+            fi: 'Suomalainen säätiö tai vastaava',
+            sv: 'Finnish foundation or similar',
+            en: 'Finnish foundation or similar',
+          },
+        },
+        {
+          id: 'finnishCompany',
+          label: 'finnishCompany',
+          title: {
+            fi: 'Suomalainen yritys',
+            sv: 'Finnish company',
+            en: 'Finnish company',
+          },
+        },
+        {
+          id: 'otherFinnishFunder',
+          label: 'otherFinnishFunder',
+          title: {
+            fi: 'Muu suomalainen taho',
+            sv: 'Other Finnish funder',
+            en: 'Other Finnish funder',
+          },
+        },
+        {
+          id: 'internationalPublicEntity',
+          label: 'internationalPublicEntity',
+          title: {
+            fi: 'Ulkomainen julisyhteisö (esim. EU, YK, ulkomainen ministeriö)',
+            sv: 'International public entity (e.g. EU, UN, foreign ministry)',
+            en: 'International public entity (e.g. EU, UN, foreign ministry)',
+          },
+        },
+        {
+          id: 'internationalFoundation',
+          label: 'internationalFoundation',
+          title: {
+            fi: 'Ulkomainen säätiö tai vastaava',
+            sv: 'International foundation or similar',
+            en: 'International foundation or similar',
+          },
+        },
+        {
+          id: 'internationalCompany',
+          label: 'internationalCompany',
+          title: {
+            fi: 'Ulkomainen yritys',
+            sv: 'International company',
+            en: 'International company',
+          },
+        },
+        {
+          id: 'otherInternationalFunder',
+          label: 'otherInternationalFunder',
+          title: {
+            fi: 'Muu ulkomainen taho',
+            sv: 'Other international funder',
+            en: 'Other international funder',
+          },
+        },
+      ],
+    },
     visibility: { options: ['externalFunding'] },
   },
   {
