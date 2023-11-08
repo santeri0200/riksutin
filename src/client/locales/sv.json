@@ -14,7 +14,7 @@
     "licenseLinkText": "under CC BY-NC-SA 4.0 licens"
   },
   "facultySelect": {
-    "introMessage": "Börja genom att välja din fakultet från menyn.",
+    "title": "Faculty of the person providing information",
     "inputLabel": "Fakultet",
     "infoMessage": "Information om din fakultets riktlinjer"
   },

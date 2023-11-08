@@ -14,7 +14,7 @@
     "licenseLinkText": "under CC BY-NC-SA 4.0 license"
   },
   "facultySelect": {
-    "introMessage": "Start by selecting your faculty from the menu.",
+    "title": "Faculty of the person providing information",
     "inputLabel": "Faculty",
     "infoMessage": "Information about your faculty's guidelines"
   },

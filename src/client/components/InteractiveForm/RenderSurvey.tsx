@@ -4,7 +4,6 @@ import { Box, Button } from '@mui/material'
 
 import RenderQuestions from './RenderQuestions'
 import SurveyButtons from '../Common/SurveyButtons'
-import RenderSelections from './RenderSelections'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 
@@ -30,8 +29,6 @@ const RenderSurvey = ({
 
   return (
     <Box sx={cardStyles.outerBox}>
-      <RenderSelections control={control} />
-
       <Box sx={cardStyles.card}>
         {questions.map((question) => (
           <Box key={question.id} sx={cardStyles.card}>

@@ -16,6 +16,7 @@ import { InputProps } from '../../types'
 
 import styles from '../../styles'
 import useCountries from '../../hooks/useCountries'
+import SelectFaculty from '../Common/SelectFaculty'
 
 const { cardStyles } = styles
 
@@ -107,34 +108,37 @@ const RenderQuestions = ({
     (childQuestion) => question.id === childQuestion.parentId
   )
   return (
-    <Box sx={cardStyles.questionsContainer}>
-      <QuestionText
-        question={question}
-        language={language as keyof Locales}
-        watch={watch}
-      />
-      <Choice
-        key={question.id}
-        control={control}
-        question={question}
-        language={language}
-        selectedCountry={selectedCountryCode}
-        defaultValue={
-          question.id === 1 ? `${user?.firstName} ${user?.lastName}` : ''
-        }
-      >
-        {childQuestions &&
-          childQuestions.map((children) => (
-            <RenderQuestions
-              key={children.id}
-              control={control}
-              watch={watch}
-              question={children}
-              questions={questions}
-              language={language}
-            />
-          ))}
-      </Choice>
+    <Box>
+      <Box sx={cardStyles.questionsContainer}>
+        <QuestionText
+          question={question}
+          language={language as keyof Locales}
+          watch={watch}
+        />
+        <Choice
+          key={question.id}
+          control={control}
+          question={question}
+          language={language}
+          selectedCountry={selectedCountryCode}
+          defaultValue={
+            question.id === 1 ? `${user?.firstName} ${user?.lastName}` : ''
+          }
+        >
+          {childQuestions &&
+            childQuestions.map((children) => (
+              <RenderQuestions
+                key={children.id}
+                control={control}
+                watch={watch}
+                question={children}
+                questions={questions}
+                language={language}
+              />
+            ))}
+        </Choice>
+      </Box>
+      {question.id === 1 && <SelectFaculty control={control} />}
     </Box>
   )
 }

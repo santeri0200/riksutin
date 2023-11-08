@@ -79,20 +79,18 @@ const SelectFaculty = ({ control }: InputProps) => {
   const organisations = sortedFaculties.concat(extraOrganisations)
 
   return (
-    <Box sx={cardStyles.card}>
-      <Box sx={cardStyles.content}>
-        <Markdown>{t('facultySelect:introMessage')}</Markdown>
+    <Box sx={cardStyles.questionsContainer}>
+      <Box sx={{ marginBottom: '16px' }}>
+        <Markdown>{t('facultySelect:title')}</Markdown>
       </Box>
-
       <Controller
         control={control}
         name="faculty"
         defaultValue={userFaculties[0]?.code || ''}
         render={({ field }) => (
-          <FormControl sx={formStyles.formControl}>
+          <FormControl>
             <InputLabel>{t('facultySelect:inputLabel')}</InputLabel>
             <Select
-              sx={cardStyles.inputField}
               data-cy="faculty-select"
               label={t('facultySelect:inputLabel')}
               {...field}
