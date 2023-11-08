@@ -1,8 +1,8 @@
-# Digipedakuraattorin rekisteri- ja tietosuojaseloste
+# Kv-riski - Riskiarviointijärjestelmän rekisteri- ja tietosuojaseloste
 
 ## Rekisterin nimi
 
-Digipedakuraattori Curre
+Kv-riski - Riskiarviointijärjestelmä
 
 Tallennamme ja käsittelemme Helsingin yliopiston työntekijöiden henkilötietoja EU:n tietosuojaasetuksen mukaisesti.
 
@@ -27,17 +27,16 @@ Henkilötiedot:
 
 - Etu- ja sukunimi
 - Sähköpostiosoite
-- Henkilökuntanumero
 
 Muu tietosisältö:
 
-- Kurssisuunnittelulomakkeen tiedot; kysymys, monivalintavastaus
+- Riskiarviointilomakkeen tiedot; kysymys, monivalintavastaus
 
 ## Säännönmukaiset tietolähteet
 
 Rekisterinpitäjä tallentaa asiakasrekisteriin ne tiedot, jotka asiakas luovuttaa kirjautuessaan sovellukseen ja käyttäessään sovellusta.
 
-Annetut vastaukset saadaan suunnittelulomakkeen täyttäjältä.
+Annetut vastaukset saadaan riskiarviointilomakkeen täyttäjältä.
 
 ## Henkilötietojen tallentaminen, säilyttäminen, suojaaminen ja käsittely
 
@@ -50,7 +49,7 @@ Henkilötietoja ei siirretä EU:n tai ETA alueen ulkopuolelle.
 ## Rekisterin suojauksen periaatteet
 
 Sovelluksen yhteydessä olevaa rekisteriä ylläpidetään teknisenä tallenteena salatun tietoliikenneyhteyden kautta salasanoin ja palomuurein suojattuina.
-Järjestelmään tallennettuihin tietoihin pääsevät ja niitä ovat oikeutettuja käyttämään vain nimetyt kurssipalautejärjestelmää työssään käyttävät ja järjestelmän ylläpidosta vastaavat yliopiston henkilökuntaan kuuluvat henkilöt.
+Järjestelmään tallennettuihin tietoihin pääsevät ja niitä ovat oikeutettuja käyttämään vain nimetyt riskiarviointijärjestelmää työssään käyttävät ja järjestelmän ylläpidosta vastaavat yliopiston henkilökuntaan kuuluvat henkilöt.
 
 Rekisteriin sisältyvät henkilötiedot säilytetään luottamuksellisina. Rekisterin käyttö on ohjeistettu ja henkilörekisteriin pääsy on rajattu siten, että järjestelmään tallennettuihin rekisterin sisältämiin tietoihin pääsevät käsiksi ja niitä ovat oikeutettuja käyttämään vain ne henkilöt, joilla on tehtäviensä puolesta siihen oikeus ja jotka tarvitsevat tietoja tehtävässään. Henkilötietoja käsittelevällä henkilöstöllä on vaitiolovelvollisuus.
 
