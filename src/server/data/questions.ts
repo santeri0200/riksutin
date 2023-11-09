@@ -266,8 +266,8 @@ const getQuestionData = async (): Promise<Question[]> => [
           label: 'coordinator',
           title: {
             fi: 'Koordinaattori',
-            sv: 'Koordinaattori',
-            en: 'Koordinaattori',
+            sv: 'Coordinator',
+            en: 'Coordinator',
           },
         },
         {
@@ -275,8 +275,8 @@ const getQuestionData = async (): Promise<Question[]> => [
           label: 'partner',
           title: {
             fi: 'Partneri',
-            sv: 'Partneri',
-            en: 'Partneri',
+            sv: 'Partner',
+            en: 'Partner',
           },
         },
         {
@@ -284,8 +284,8 @@ const getQuestionData = async (): Promise<Question[]> => [
           label: 'equalPartner',
           title: {
             fi: 'Tasaveroinen kumppani',
-            sv: 'Tasaveroinen kumppani',
-            en: 'Tasaveroinen kumppani',
+            sv: 'Equal partner',
+            en: 'Equal partner',
           },
         },
         {
@@ -293,8 +293,8 @@ const getQuestionData = async (): Promise<Question[]> => [
           label: 'subcontractor',
           title: {
             fi: 'Alihankkija',
-            sv: 'Alihankkija',
-            en: 'Alihankkija',
+            sv: 'Subcontractor',
+            en: 'Subcontractor',
           },
         },
         {
