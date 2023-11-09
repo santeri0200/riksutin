@@ -78,6 +78,7 @@ export type SingleChoiceType = {
   id: string
   label: string
   title: Locales
+  risk: number
 }
 
 export interface MultipleChoiceType extends SingleChoiceType {

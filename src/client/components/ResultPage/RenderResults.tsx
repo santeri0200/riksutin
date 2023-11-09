@@ -29,7 +29,10 @@ const RenderResults = () => {
   return (
     <Box ref={refCallback}>
       <Box sx={resultStyles.resultElementWrapper}>
-        <TotalRisk selectedCountryCode={selectedCountryCode} />
+        <TotalRisk
+          selectedCountryCode={selectedCountryCode}
+          questions={survey.Questions}
+        />
       </Box>
     </Box>
   )

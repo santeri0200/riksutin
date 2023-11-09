@@ -529,6 +529,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'Yes',
             en: 'Yes',
           },
+          risk: 2,
         },
         {
           id: 'noExternalFunding',
@@ -538,6 +539,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'No',
             en: 'No',
           },
+          risk: 0,
         },
       ],
     },
@@ -569,6 +571,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'Yes',
             en: 'Yes',
           },
+          risk: 1,
         },
         {
           id: 'notPreviouslyFunded',
@@ -578,6 +581,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'No',
             en: 'No',
           },
+          risk: 2,
         },
       ],
     },
@@ -609,6 +613,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'Finnish public entity (e.g. ministry)',
             en: 'Finnish public entity (e.g. ministry)',
           },
+          risk: 1,
         },
         {
           id: 'finnishFoundation',
@@ -618,6 +623,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'Finnish foundation or similar',
             en: 'Finnish foundation or similar',
           },
+          risk: 1,
         },
         {
           id: 'finnishCompany',
@@ -627,6 +633,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'Finnish company',
             en: 'Finnish company',
           },
+          risk: 2,
         },
         {
           id: 'otherFinnishFunder',
@@ -636,6 +643,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'Other Finnish funder',
             en: 'Other Finnish funder',
           },
+          risk: 2,
         },
         {
           id: 'internationalPublicEntity',
@@ -645,6 +653,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'International public entity (e.g. EU, UN, foreign ministry)',
             en: 'International public entity (e.g. EU, UN, foreign ministry)',
           },
+          risk: 1,
         },
         {
           id: 'internationalFoundation',
@@ -654,6 +663,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'International foundation or similar',
             en: 'International foundation or similar',
           },
+          risk: 2,
         },
         {
           id: 'internationalCompany',
@@ -663,6 +673,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'International company',
             en: 'International company',
           },
+          risk: 2,
         },
         {
           id: 'otherInternationalFunder',
@@ -672,6 +683,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: 'Other international funder',
             en: 'Other international funder',
           },
+          risk: 2,
         },
       ],
     },

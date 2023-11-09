@@ -27,6 +27,14 @@
     "loadingUniversities": "Loading universities",
     "selectUniversityInfoMessage": "Select a country to see options"
   },
+  "risks": {
+    "countryRiskLevel": "Risk level of the partner country",
+    "universityRiskLevel": "Risk level of the partner university",
+    "durationRiskLevel": "Risk level of the project duration",
+    "funderRiskLevel": "Risk level of the project funder",
+    "fundingRiskLevel": "Risk level of the external funding",
+    "totalRiskLevel": "Total risk level of the project"
+  },
   "results": {
     "title": "Sammanfattning av dina val",
     "resultsMessage": "Vi har sammanställt en översikt över dina val nedan",
@@ -46,11 +54,7 @@
     "corruptionRank": "Sijoitus korruptioasteikolla",
     "stabilityRank": "Poliittinen vakaus",
     "HCIrank": "Inhimillinen kehitys",
-    "safetyLevel": "Turvallisuustaso",
-    "countryRiskLevel": "Risk level of the partner country",
-    "universityRiskLevel": "Risk level of the partner university",
-    "durationRiskLevel": "Risk level of the project duration",
-    "totalRiskLevel": "Total risk level of the project"
+    "safetyLevel": "Turvallisuustaso"
   },
   "contact": {
     "title": "Kontakt",

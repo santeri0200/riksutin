@@ -27,6 +27,14 @@
     "loadingUniversities": "Ladataan yliopistoja",
     "selectUniversityInfoMessage": "Valitse sijaintimaa nähdäksesi vaihtoehdot"
   },
+  "risks": {
+    "countryRiskLevel": "Maan riskitaso",
+    "universityRiskLevel": "Yliopiston riskitaso",
+    "durationRiskLevel": "Yhteistyön keston riskitaso",
+    "funderRiskLevel": "Projektin rahoittajan riskitaso",
+    "fundingRiskLevel": "Ulkopuolisen rahoituksen riskitaso",
+    "totalRiskLevel": "Yhteistyön kokonaisriskitaso"
+  },
   "results": {
     "title": "Yhteenveto valinnoistasi",
     "resultsMessage": "Listasimme sinulle vielä alle yhteevedon valinnoista",
@@ -46,11 +54,7 @@
     "corruptionRank": "Korruptio",
     "stabilityRank": "Poliittinen vakaus",
     "HCIrank": "Inhimillinen kehitys",
-    "safetyLevel": "Turvallisuustaso",
-    "countryRiskLevel": "Maan riskitaso",
-    "universityRiskLevel": "Yliopiston riskitaso",
-    "durationRiskLevel": "Yhteistyön keston riskitaso",
-    "totalRiskLevel": "Yhteistyön kokonaisriskitaso"
+    "safetyLevel": "Turvallisuustaso"
   },
   "contact": {
     "title": "Yhteydenotto",
