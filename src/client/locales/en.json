@@ -33,7 +33,8 @@
     "durationRiskLevel": "Risk level of the project duration",
     "funderRiskLevel": "Risk level of the project funder",
     "fundingRiskLevel": "Risk level of the external funding",
-    "totalRiskLevel": "Total risk level of the project"
+    "totalRiskLevel": "Total risk level of the project",
+    "noRisk": "No identifiable risk"
   },
   "results": {
     "title": "Summary of Your Choices",

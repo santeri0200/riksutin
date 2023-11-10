@@ -8,6 +8,7 @@ import useCountry from '../../hooks/useCountryData'
 import { useResultData } from '../../contexts/ResultDataContext'
 
 import styles from '../../styles'
+import CountryResults from './CountryResults'
 
 const { resultStyles } = styles
 
@@ -77,9 +78,23 @@ const TotalRisk = ({
       <b>
         {t('risks:totalRiskLevel')}: {totalRisk}
       </b>
+      {country && (
+        <Box sx={resultStyles.card}>
+          {t('risks:countryRiskLevel')}:{' '}
+          {countryRisk(country) === (4 || 3) ? (
+            <>
+              {countryRisk(country)}
+              <CountryResults country={country} />
+            </>
+          ) : (
+            t('risks:noRisk')
+          )}
+        </Box>
+      )}
       {riskArray.map(
         (risk) =>
-          risk.riskLevel === 4 && (
+          risk.riskLevel === 4 &&
+          risk.id !== 1 && (
             <Box key={risk.id} sx={resultStyles.card}>
               {risk.text}: {risk.riskLevel}
             </Box>

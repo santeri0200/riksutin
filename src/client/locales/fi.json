@@ -33,7 +33,8 @@
     "durationRiskLevel": "Yhteistyön keston riskitaso",
     "funderRiskLevel": "Projektin rahoittajan riskitaso",
     "fundingRiskLevel": "Ulkopuolisen rahoituksen riskitaso",
-    "totalRiskLevel": "Yhteistyön kokonaisriskitaso"
+    "totalRiskLevel": "Yhteistyön kokonaisriskitaso",
+    "noRisk": "Ei erityistä riskiä"
   },
   "results": {
     "title": "Yhteenveto valinnoistasi",
