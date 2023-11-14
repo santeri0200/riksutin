@@ -5,19 +5,13 @@ import { set, get } from '../../util/redis'
 const baseUrl = 'https://www.whed.net'
 
 const fetchData = async (countryName: string) => {
-  console.time('whed')
   const url = `${baseUrl}/results_institutions.php`
   const key = `${url}?country=${countryName}`
 
   const cached = await get(key)
-  if (cached) {
-    console.log('Cache hit', countryName)
-    console.timeEnd('whed')
-    return cached
-  }
-  const formdata = new FormData()
+  if (cached) return cached
 
-  console.log('Cache miss', countryName)
+  const formdata = new FormData()
 
   formdata.append('Chp1', countryName)
   formdata.append('nbr_ref_pge', '10000')
@@ -30,7 +24,6 @@ const fetchData = async (countryName: string) => {
   const html = await response.text()
 
   await set(key, html)
-  console.timeEnd('whed')
 
   return html
 }
