@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { Locales } from '@backend/types'
 
 import useCountry from '../../hooks/useCountryData'
+import useCountries from '../../hooks/useCountries'
 import { InputProps } from '../../types'
 import LoadingProgress from '../Common/LoadingProgress'
 
@@ -17,6 +18,7 @@ const DropDownSelect = ({
   selectedCountry,
 }: InputProps) => {
   const { country } = useCountry(selectedCountry)
+  const { countries = [] } = useCountries()
 
   const { t, i18n } = useTranslation()
   const { language } = i18n
@@ -29,6 +31,8 @@ const DropDownSelect = ({
         <i>{t('questions:selectUniversityInfoMessage')}</i>
       </Box>
     )
+
+  const countryNames = countries.map(({ name }) => name).sort()
 
   return (
     <>
@@ -45,8 +49,11 @@ const DropDownSelect = ({
                 disablePortal
                 id={`select-${question.id.toString()}`}
                 options={
+                  // eslint-disable-next-line no-nested-ternary
                   question.id === 20 && country?.universities
                     ? country?.universities
+                    : question.id === 8
+                    ? countryNames
                     : question.optionData.options
                 }
                 getOptionLabel={(option) => option}
