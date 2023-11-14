@@ -1,12 +1,4 @@
 import { Question } from '../types'
-import getCountries from './worldbank/countries'
-
-const getCountryNames = async () => {
-  const countries = await getCountries()
-  const countryNames = countries.map(({ name }) => name).sort()
-
-  return countryNames
-}
 
 const getQuestionData = async (): Promise<Question[]> => [
   {
@@ -234,7 +226,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     },
     optionData: {
       type: 'select',
-      options: await getCountryNames(),
+      options: [],
       label: {
         fi: 'Valitse sijaintimaa',
         sv: 'Select the country',
