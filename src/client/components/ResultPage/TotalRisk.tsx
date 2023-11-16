@@ -74,32 +74,34 @@ const TotalRisk = ({
   )
 
   return (
-    <Box sx={resultStyles.card}>
-      <b>
-        {t('risks:totalRiskLevel')}: {totalRisk}
-      </b>
-      {country && (
-        <Box sx={resultStyles.card}>
-          {t('risks:countryRiskLevel')}:{' '}
-          {countryRisk(country) === (4 || 3) ? (
-            <>
-              {countryRisk(country)}
-              <CountryResults country={country} />
-            </>
-          ) : (
-            t('risks:noRisk')
-          )}
-        </Box>
-      )}
-      {riskArray.map(
-        (risk) =>
-          risk.riskLevel === 4 &&
-          risk.id !== 1 && (
-            <Box key={risk.id} sx={resultStyles.card}>
-              {risk.text}: {risk.riskLevel}
-            </Box>
-          )
-      )}
+    <Box sx={resultStyles.resultElementWrapper}>
+      <Box sx={resultStyles.card}>
+        <b>
+          {t('risks:totalRiskLevel')}: {totalRisk}
+        </b>
+        {country && (
+          <Box sx={resultStyles.card}>
+            {t('risks:countryRiskLevel')}:{' '}
+            {countryRisk(country) === (4 || 3) ? (
+              <>
+                {countryRisk(country)}
+                <CountryResults country={country} />
+              </>
+            ) : (
+              t('risks:noRisk')
+            )}
+          </Box>
+        )}
+        {riskArray.map(
+          (risk) =>
+            risk.riskLevel === 4 &&
+            risk.id !== 1 && (
+              <Box key={risk.id} sx={resultStyles.card}>
+                {risk.text}: {risk.riskLevel}
+              </Box>
+            )
+        )}
+      </Box>
     </Box>
   )
 }

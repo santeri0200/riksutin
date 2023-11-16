@@ -2,7 +2,6 @@ import React from 'react'
 
 import { Box } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import useCountry from '../../hooks/useCountryData'
 
 import styles from '../../styles'
 import { CountryData } from '../../types'
