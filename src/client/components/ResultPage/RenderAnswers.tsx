@@ -2,8 +2,12 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Locales } from '@backend/types'
 import { Box } from '@mui/material'
+
+import { extraOrganisations } from '../../util/organisations'
+
 import styles from '../../styles'
 import { FormValues, Survey } from '../../types'
+import useFaculties from '../../hooks/useFaculties'
 
 const { resultStyles } = styles
 
@@ -14,8 +18,13 @@ const RenderAnswers = ({
   survey: Survey
   resultData: FormValues
 }) => {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { language } = i18n
+  const { faculties, isLoading: facultiesLoading } = useFaculties()
+
+  if (facultiesLoading || !faculties) return null
+
+  const organisations = faculties.concat(extraOrganisations)
 
   const multiChoiceQuestions = survey.Questions.filter(
     (question) => question.optionData.type === 'multipleChoice'
@@ -87,6 +96,16 @@ const RenderAnswers = ({
               )}
             </>
           ) : null}
+          {question.id === 1 && (
+            <Box sx={resultStyles.card}>
+              {t('facultySelect:title')}:{' '}
+              {
+                organisations.find(
+                  (faculty) => faculty.code === answers.faculty
+                )?.name[language as keyof Locales]
+              }
+            </Box>
+          )}
         </Box>
       ))}
     </Box>
