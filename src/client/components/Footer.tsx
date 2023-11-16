@@ -36,24 +36,6 @@ const Footer = () => {
               }}
             />
           </Typography>
-          <Link
-            rel="license"
-            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-          >
-            <img
-              alt="Creative Commons license"
-              src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
-            />
-          </Link>
-          <br />
-          {t('footer:licenseText')}
-          <Link
-            sx={{ ml: 1 }}
-            rel="license"
-            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-          >
-            {t('footer:licenseLinkText')}
-          </Link>
         </Box>
 
         <Box sx={footerStyles.imageBox}>
