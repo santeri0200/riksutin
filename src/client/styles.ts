@@ -39,13 +39,6 @@ const cardStyles = {
     border: 1,
     borderColor: 'grey.300',
   },
-  gridBox: {
-    px: 3,
-    py: 2,
-  },
-  gridContainer: {
-    spacing: 1,
-  },
   questionsContainer: {
     my: 4,
     pl: 4,
@@ -66,27 +59,9 @@ const cardStyles = {
     },
     textAlign: 'left',
   },
-  question: {
-    my: 2,
-    fontWeight: '200',
-  },
   heading: {
     fontWeight: '200',
     pb: 1,
-  },
-  subHeading: {
-    fontWeight: '200',
-    mt: 2,
-    mx: 1,
-    [BreakPointTheme.breakpoints.up('sm')]: {
-      mt: 8,
-      mx: 4,
-      mb: 2,
-      pl: 2,
-      textAlign: 'center',
-    },
-
-    textAlign: 'left',
   },
   nestedSubSection: {
     fontWeight: '200',
@@ -102,12 +77,6 @@ const cardStyles = {
   },
   inputField: {
     width: '100%',
-  },
-  answerBox: {
-    my: 4,
-    maxWidth: 1560,
-    border: 1,
-    borderColor: 'grey.300',
   },
 }
 
@@ -199,30 +168,6 @@ const navStyles = {
     color: (theme: Theme) => theme.palette.primary.main,
     fontWeight: (theme: Theme) => theme.typography.fontWeightMedium,
   },
-  itemText: {
-    [BreakPointTheme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
-  },
-}
-
-const recommendationStyles = {
-  recommendationContainer: {
-    m: 2,
-    [BreakPointTheme.breakpoints.down('sm')]: {
-      m: 1,
-    },
-    px: 2,
-    top: '4rem',
-    textAlign: 'left',
-    position: 'sticky',
-  },
-  recommendationBox: {
-    mt: '1.8rem',
-    [BreakPointTheme.breakpoints.down('sm')]: {
-      mt: '1rem',
-    },
-  },
 }
 
 const resultStyles = {
@@ -236,22 +181,10 @@ const resultStyles = {
     borderLeft: 1,
     borderColor: 'grey.400',
   },
-  resultElementContent: {
-    mt: 2,
-    mb: 1,
-    pl: 2,
-    textAlign: 'left',
-  },
   resultWrapper: {
     m: 2,
     [BreakPointTheme.breakpoints.down('sm')]: {
       m: 1,
-    },
-  },
-  infoWrapper: {
-    mt: 2,
-    [BreakPointTheme.breakpoints.up('sm')]: {
-      m: 4,
     },
   },
   contactStackWrapper: {
@@ -283,11 +216,6 @@ const footerStyles = {
     alignItems: 'center',
     rowGap: '1rem',
   },
-  surveyText: {
-    [BreakPointTheme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
-  },
 }
 
 const common = {
@@ -303,7 +231,6 @@ export default {
   formStyles,
   common,
   navStyles,
-  recommendationStyles,
   footerStyles,
   resultStyles,
 }

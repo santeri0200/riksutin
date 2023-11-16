@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { Locales, PossibleChoiceTypes, Question } from '@backend/types'
 import { UseFormWatch } from 'react-hook-form'
 
