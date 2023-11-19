@@ -18,10 +18,6 @@
     "inputLabel": "Fakultet",
     "infoMessage": "Information om din fakultets riktlinjer"
   },
-  "recommendations": {
-    "title": "Tillgängliga verktyg",
-    "infoBoxText": "Mer information om tillgängliga verktyg"
-  },
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
     "loadingUniversities": "Loading universities",

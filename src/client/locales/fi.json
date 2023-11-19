@@ -18,10 +18,6 @@
     "inputLabel": "Tiedekunta",
     "infoMessage": "Tietoa tiedekuntasi ohjeistuksesta"
   },
-  "recommendations": {
-    "title": "Käytössäsi olevat työkalut",
-    "infoBoxText": "Lisätietoa käytettävissä olevista työkaluista"
-  },
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
     "loadingUniversities": "Ladataan yliopistoja",

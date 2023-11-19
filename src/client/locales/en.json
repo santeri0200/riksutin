@@ -18,10 +18,6 @@
     "inputLabel": "Faculty",
     "infoMessage": "Information about your faculty's guidelines"
   },
-  "recommendations": {
-    "title": "Available Tools",
-    "infoBoxText": "More information about available tools"
-  },
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
     "loadingUniversities": "Loading universities",
