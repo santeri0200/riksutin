@@ -32,7 +32,7 @@ export const universityRisk = (
   other: string | undefined
 ) => {
   if (other) {
-    return 4
+    return 3
   }
   if (university) {
     return 1

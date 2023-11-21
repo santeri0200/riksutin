@@ -82,7 +82,7 @@ const TotalRisk = ({
         {country && (
           <Box sx={resultStyles.card}>
             {t('risks:countryRiskLevel')}:{' '}
-            {[3, 4].some((level) => level === countryRisk(country)) ? (
+            {countryRisk(country) === 3 ? (
               <>
                 {countryRisk(country)}
                 <CountryResults country={country} />

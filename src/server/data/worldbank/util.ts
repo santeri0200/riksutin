@@ -35,13 +35,13 @@ export const riskLevelCheck = (
   if (!res) {
     return null
   }
-  const riskLevel = [4, 3, 2, 1]
+  const riskLevel = [3, 2, 1]
   const distance = Math.abs(start - end)
-  const intervalCounter = distance / 4
+  const intervalCounter = distance / 3
 
   let startOfInterval = start
   let endOfInterval = start + intervalCounter
-  for (let step = 0; step < 4; step += 1) {
+  for (let step = 0; step < 3; step += 1) {
     if (res > startOfInterval && res < endOfInterval) {
       return riskLevel[step]
     }
