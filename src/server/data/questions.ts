@@ -463,6 +463,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '0-18 months',
             en: '0-18 months',
           },
+          risk: 1,
         },
         {
           id: 'mediumDuration',
@@ -472,6 +473,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '18-36 months',
             en: '18-36 months',
           },
+          risk: 2,
         },
         {
           id: 'longDuration',
@@ -481,6 +483,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '36-54 months',
             en: '36-54 months',
           },
+          risk: 3,
         },
         {
           id: 'veryLongDuration',
@@ -490,6 +493,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '54+ months',
             en: '54+ months',
           },
+          risk: 3,
         },
       ],
     },

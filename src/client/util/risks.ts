@@ -40,17 +40,3 @@ export const universityRisk = (
 
   return null
 }
-
-export const durationRisk = (
-  duration: string | undefined,
-  levels: number[][]
-) => {
-  if (!duration) return null
-
-  const durationNumber = Number(duration)
-  const riskLevel = levels.find((level) => durationNumber > level[0])
-
-  if (!riskLevel) return null
-
-  return riskLevel[1]
-}

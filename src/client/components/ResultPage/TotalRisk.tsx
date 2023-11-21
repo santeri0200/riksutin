@@ -41,6 +41,10 @@ const TotalRisk = ({
     .find((question) => question.id === 13)
     ?.optionData.options.find((o) => o.id === resultData[13])?.risk
 
+  const durationRisk = questions
+    .find((question) => question.id === 12)
+    ?.optionData.options.find((o) => o.id === resultData[12])?.risk
+
   const riskArray = [
     {
       id: 1,
@@ -61,6 +65,11 @@ const TotalRisk = ({
       id: 4,
       text: t('risks:fundingRiskLevel'),
       riskLevel: fundingRisk,
+    },
+    {
+      id: 5,
+      text: t('risks:durationRiskLevel'),
+      riskLevel: durationRisk,
     },
   ].filter((value) => possibleRiskLevels.includes(value.riskLevel))
 
@@ -94,7 +103,7 @@ const TotalRisk = ({
         )}
         {riskArray.map(
           (risk) =>
-            risk.riskLevel === 4 &&
+            risk.riskLevel === 3 &&
             risk.id !== 1 && (
               <Box key={risk.id} sx={resultStyles.card}>
                 {risk.text}: {risk.riskLevel}
