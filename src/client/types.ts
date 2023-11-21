@@ -82,6 +82,6 @@ export type CountryData = {
   corruption: number
   stability: number
   hci: number
-  safetyLevel: number
+  safetyLevel: string
   universities: string[]
 }

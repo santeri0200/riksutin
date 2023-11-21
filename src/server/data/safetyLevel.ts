@@ -18,19 +18,7 @@ const fetchSafetyLevelData = async (code: string) => {
     const dom = new JSDOM(element[0].encoded)
     const safetyLevel = dom.window.document.querySelector('p')?.textContent
 
-    const safetyLevels = [
-      'Noudata tavanomaista varovaisuutta',
-      'Noudata erityistä varovaisuutta',
-      'Vältä tarpeetonta matkustamista',
-      'Vältä kaikkea matkustamista',
-      'Poistu välittömästi maasta',
-    ]
-
-    const safetyLevelIndex = safetyLevels.findIndex(
-      (level) => level === safetyLevel
-    )
-
-    return safetyLevelIndex + 1
+    return safetyLevel
   } catch (error) {
     return null
   }
