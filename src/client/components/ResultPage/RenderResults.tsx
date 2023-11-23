@@ -9,6 +9,7 @@ import TotalRisk from './TotalRisk'
 import { useResultData } from '../../contexts/ResultDataContext'
 import useCountries from '../../hooks/useCountries'
 import RenderAnswers from './RenderAnswers'
+import useResults from '../../hooks/useResults'
 
 const RenderResults = () => {
   const { survey } = useSurvey()
@@ -17,7 +18,17 @@ const RenderResults = () => {
 
   const { resultData } = useResultData()
 
-  if (isLoading || !countries || !survey || !resultData) return null
+  const { results, isSuccess: resultsFetched } = useResults(survey?.id)
+
+  if (
+    isLoading ||
+    !countries ||
+    !survey ||
+    !resultData ||
+    !resultsFetched ||
+    !results
+  )
+    return null
 
   const selectedCountry: any = resultData['8']
   const selectedCountryCode = countries.find(
@@ -30,6 +41,7 @@ const RenderResults = () => {
       <TotalRisk
         selectedCountryCode={selectedCountryCode}
         questions={survey.Questions}
+        results={results}
       />
     </Box>
   )

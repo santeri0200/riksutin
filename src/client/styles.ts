@@ -175,6 +175,7 @@ const resultStyles = {
     m: 2,
     transition: '0.3s',
     textAlign: 'left',
+    width: '80%',
   },
   resultElementWrapper: {
     my: 4,

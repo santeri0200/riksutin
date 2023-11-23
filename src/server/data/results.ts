@@ -4,45 +4,45 @@ const getResultData = (): Result[] => [
   {
     id: 1,
     surveyId: 1,
-    optionLabel: 'option1',
+    optionLabel: 'corruptionLevel1',
     isSelected: {
-      fi: 'Olet valinnut vaihtoehdon 1 kysymykseen "Kysymys valinnasta".',
-      sv: 'Du har valt alternativ 1 för frågan "Fråga om val".',
-      en: 'You have selected Option 1 for the "Choice Question".',
+      fi: 'Yhteistyökumppanin sijaintimaassa korruptio ei ole merkittävä riski.',
+      sv: 'Your collaboration partner is located in a country, where corruption does not pose a serious risk.',
+      en: 'Your collaboration partner is located in a country, where corruption does not pose a serious risk".',
     },
     data: {
       allDimensions: {
-        fi: 'Tämä on esimerkki tulostekstistä, joka näkyy tulossivulla mustilla reunoilla. Tähän voi kirjoittaa laajan tuloksen tai lopputuloksen tekstin.',
-        sv: 'Det här är ett exempel på resultattext som visas på resultatssidan med svarta ramar. Här kan du skriva en bred resultattext eller slutresultattext.',
-        en: 'This is an example of result text that will be displayed on the results page with black borders. You can write a comprehensive result or outcome text here.',
+        fi: '',
+        sv: '',
+        en: '',
       },
     },
   },
   {
     id: 2,
     surveyId: 1,
-    optionLabel: 'option2',
+    optionLabel: 'corruptionLevel2',
     isSelected: {
-      fi: 'Olet valinnut vaihtoehdon 2 kysymykseen "Kysymys valinnasta".',
-      sv: 'Du har valt alternativ 2 för frågan "Fråga om val".',
-      en: 'You have selected Option 2 for the "Choice Question".',
+      fi: '*Yhteistyökumppanin sijaintimaassa korruption riski on kohonnut. Ota tämä huomioon yhteistyön suunnittelussa ja toteutuksessa.*',
+      sv: '*Your collaboration partner is located in a country, where the risk of corruption is elevated. Take this into account in planning and implementing your collaboration.*',
+      en: '*Your collaboration partner is located in a country, where the risk of corruption is elevated. Take this into account in planning and implementing your collaboration.*',
     },
     data: {
       allDimensions: {
-        fi: 'Kenttä tukee myös Markdown-sisältöä, joten tässä on hyvä antaa myös linkkejä ulkopuolisiin tietolähteisiin jne.',
-        sv: 'Fältet stöder också Markdown-innehåll, så känn dig fri att lägga till länkar till externa källor, osv.',
-        en: 'The field also supports Markdown content, so feel free to provide links to external sources, etc.',
+        fi: '',
+        sv: '',
+        en: '',
       },
     },
   },
   {
     id: 3,
     surveyId: 1,
-    optionLabel: 'option3',
+    optionLabel: 'corruptionLevel3',
     isSelected: {
-      fi: 'Olet valinnut vaihtoehdon 3 kysymykseen "Monivalintakysymys".',
-      sv: 'Du har valt alternativ 3 för frågan "Fråga med flera val".',
-      en: 'You have selected Option 3 for the "Multiple Choice Question".',
+      fi: '*Yhteistyökumppanin sijaintimaassa korruption riski on merkittävä. Ota tämä huomioon yhteistyön suunnittelussa ja toteutuksessa ja varmistu, ettet osallistu korruptioon.*',
+      sv: '*Your collaboration partner is located in a country, where the risk of corruption is significant. Take this into account in planning and implementing your collaboration, and make sure you do not engage in corruption.*',
+      en: '*Your collaboration partner is located in a country, where the risk of corruption is significant. Take this into account in planning and implementing your collaboration, and make sure you do not engage in corruption.*',
     },
     data: {
       allDimensions: {
@@ -55,11 +55,11 @@ const getResultData = (): Result[] => [
   {
     id: 4,
     surveyId: 1,
-    optionLabel: 'childOption1',
+    optionLabel: 'safetyLevel1',
     isSelected: {
-      fi: 'Olet valinnut vaihtoehdon A kysymykseen "Lapsikysymys".',
-      sv: 'Du har valt alternativ A för frågan "Barnfråga".',
-      en: 'You have selected Option A for the "Child Question".',
+      fi: '*Yhteistyömaahan matkustamiseen ei liity rajoituksia. Varmistu halutessasi tarkemmin tilanteesta ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o)*',
+      sv: '*Travelling to this country is not restricted. Feel free to find additional information from the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
+      en: '*Travelling to this country is not restricted. Feel free to find additional information from the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
     },
     data: {
       allDimensions: {
@@ -72,11 +72,28 @@ const getResultData = (): Result[] => [
   {
     id: 5,
     surveyId: 1,
-    optionLabel: 'childOption3',
+    optionLabel: 'safetyLevel2',
     isSelected: {
-      fi: 'Olet valinnut vaihtoehdon 1 kysymykseen "Sisennetty Lapsikysymys".',
-      sv: 'Du har valt alternativ 1 för frågan "Inkurerad Barnfråga".',
-      en: 'You have selected Option 1 for the "Indented Child Question".',
+      fi: '*Yhteistyömaahan matkustamiseen liittyy rajoituksia, jotka on syytä ottaa huomioon. Tutki tarkemmat yksityiskohdat ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o)".*',
+      sv: '*Travelling to this country may be restricted. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
+      en: '*Travelling to this country may be restricted. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 6,
+    surveyId: 1,
+    optionLabel: 'safetyLevel3',
+    isSelected: {
+      fi: '*Yhteistyömaahan matkustaminen ei ole tällä hetkellä mahdollista. Tutki tarkemmat yksityiskohdat ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o).*',
+      sv: '*Travelling to this country is not possible at the moment. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
+      en: '*Travelling to this country is not possible at the moment. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
     },
     data: {
       allDimensions: {

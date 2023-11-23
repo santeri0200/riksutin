@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box } from '@mui/material'
-import { Question } from '@backend/types'
+import { Question, Result } from '@backend/types'
 import { countryRisk, universityRisk } from '../../util/risks'
 
 import useCountry from '../../hooks/useCountryData'
@@ -15,9 +15,11 @@ const { resultStyles } = styles
 const TotalRisk = ({
   selectedCountryCode,
   questions,
+  results,
 }: {
   selectedCountryCode: string | undefined
   questions: Question[]
+  results: Result[]
 }) => {
   const { t } = useTranslation()
   const { resultData } = useResultData()
@@ -94,7 +96,7 @@ const TotalRisk = ({
             {countryRisk(country) === 3 ? (
               <>
                 {countryRisk(country)}
-                <CountryResults country={country} />
+                <CountryResults country={country} results={results} />
               </>
             ) : (
               t('risks:noRisk')
