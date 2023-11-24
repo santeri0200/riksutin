@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Locales } from '@backend/types'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 import { extraOrganisations } from '../../util/organisations'
 
@@ -73,8 +73,10 @@ const RenderAnswers = ({
           {question.parentId === null ? (
             <>
               <Box sx={resultStyles.card}>
-                {question.title[language as keyof Locales]}:{' '}
-                {answers[question.id] as string}
+                <Typography variant="body1">
+                  {question.title[language as keyof Locales]}:{' '}
+                  {answers[question.id] as string}
+                </Typography>
               </Box>
               {survey?.Questions.filter((q) => q.parentId === question.id)?.map(
                 (q) => (
@@ -88,7 +90,9 @@ const RenderAnswers = ({
                           paddingLeft: '10px',
                         }}
                       >
-                        {q.title[language as keyof Locales]}: {answers[q.id]}
+                        <Typography variant="body1">
+                          {q.title[language as keyof Locales]}: {answers[q.id]}
+                        </Typography>
                       </Box>
                     ) : null}
                   </Box>
@@ -98,12 +102,14 @@ const RenderAnswers = ({
           ) : null}
           {question.id === 1 && (
             <Box sx={resultStyles.card}>
-              {t('facultySelect:title')}:{' '}
-              {
-                organisations.find(
-                  (faculty) => faculty.code === answers.faculty
-                )?.name[language as keyof Locales]
-              }
+              <Typography variant="body1">
+                {t('facultySelect:title')}:{' '}
+                {
+                  organisations.find(
+                    (faculty) => faculty.code === answers.faculty
+                  )?.name[language as keyof Locales]
+                }
+              </Typography>
             </Box>
           )}
         </Box>

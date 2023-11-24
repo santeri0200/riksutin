@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { Locales, Result } from '@backend/types'
 import styles from '../../styles'
 import { CountryData } from '../../types'
-import Markdown from '../Common/Markdown'
+import RiskElement from './RiskElement'
 
 const { resultStyles } = styles
 
@@ -32,24 +32,21 @@ const CountryResults = ({
 
   return (
     <Box sx={resultStyles.resultWrapper}>
-      {country.corruption && (
-        <Box sx={resultStyles.card}>
-          {t('results:corruptionRank')}: {country.corruption}
-          {corruptionText && <Markdown>{corruptionText}</Markdown>}
-        </Box>
-      )}
-      <Box sx={resultStyles.card}>
-        {t('results:stabilityRank')}: {country.stability}
-      </Box>
-      <Box sx={resultStyles.card}>
-        {t('results:HCIrank')}: {country.hci}
-      </Box>
-      {country.safetyLevel && (
-        <Box sx={resultStyles.card}>
-          {t('results:safetyLevel')}: {country.safetyLevel}
-          {safetyLevelText && <Markdown>{safetyLevelText}</Markdown>}
-        </Box>
-      )}
+      <RiskElement
+        infoText={corruptionText}
+        resultText={t('results:corruptionRank')}
+        risk={country.corruption}
+      />
+      <RiskElement
+        resultText={t('results:stabilityRank')}
+        risk={country.stability}
+      />
+      <RiskElement resultText={t('results:HCIrank')} risk={country.hci} />
+      <RiskElement
+        infoText={safetyLevelText}
+        resultText={t('results:safetyLevel')}
+        risk={country.safetyLevel}
+      />
     </Box>
   )
 }

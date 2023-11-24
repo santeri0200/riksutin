@@ -48,10 +48,10 @@
     "endMessage": "Tack för att du använder Riksutin!",
     "backToMessage": "Tillbaka till val",
     "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa",
-    "corruptionRank": "Sijoitus korruptioasteikolla",
-    "stabilityRank": "Poliittinen vakaus",
-    "HCIrank": "Inhimillinen kehitys",
-    "safetyLevel": "Turvallisuustaso"
+    "corruptionRank": "Corruption",
+    "stabilityRank": "Political stability",
+    "HCIrank": "Human development",
+    "safetyLevel": "Safety level"
   },
   "contact": {
     "title": "Kontakt",

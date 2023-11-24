@@ -1,16 +1,21 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Box } from '@mui/material'
+import {
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+  Typography,
+} from '@mui/material'
 import { Question, Result } from '@backend/types'
 import { countryRisk, universityRisk } from '../../util/risks'
 
 import useCountry from '../../hooks/useCountryData'
 import { useResultData } from '../../contexts/ResultDataContext'
 
-import styles from '../../styles'
 import CountryResults from './CountryResults'
-
-const { resultStyles } = styles
 
 const TotalRisk = ({
   selectedCountryCode,
@@ -49,27 +54,27 @@ const TotalRisk = ({
 
   const riskArray = [
     {
-      id: 1,
+      id: 'country',
       text: t('risks:countryRiskLevel'),
       riskLevel: countryRisk(country),
     },
     {
-      id: 2,
+      id: 'university',
       text: t('risks:universityRiskLevel'),
       riskLevel: universityRisk(resultData['20'], resultData['21']),
     },
     {
-      id: 3,
+      id: 'funder',
       text: t('risks:funderRiskLevel'),
       riskLevel: funderRisk,
     },
     {
-      id: 4,
+      id: 'funding',
       text: t('risks:fundingRiskLevel'),
       riskLevel: fundingRisk,
     },
     {
-      id: 5,
+      id: 'duration',
       text: t('risks:durationRiskLevel'),
       riskLevel: durationRisk,
     },
@@ -84,36 +89,83 @@ const TotalRisk = ({
     ) / riskArray.length
   )
 
+  const riskCellColors: any = {
+    1: '#2ecc71',
+    2: '#f1c40f',
+    3: '#e74c3c',
+  }
+
   return (
-    <Box sx={resultStyles.resultElementWrapper}>
-      <Box sx={resultStyles.card}>
-        <b>
-          {t('risks:totalRiskLevel')}: {totalRisk}
-        </b>
-        {country && (
-          <Box sx={resultStyles.card}>
-            {t('risks:countryRiskLevel')}:{' '}
-            {countryRisk(country) === 3 ? (
-              <>
-                {countryRisk(country)}
+    <TableContainer>
+      <Table sx={{ width: '50%' }}>
+        <TableBody>
+          <TableRow>
+            <TableCell>
+              <Typography variant="body1">
+                {t('risks:totalRiskLevel')}
+              </Typography>
+            </TableCell>
+            <TableCell
+              align="right"
+              sx={{
+                backgroundColor: riskCellColors[totalRisk],
+                borderRadius: '25%',
+              }}
+            >
+              {totalRisk}
+            </TableCell>
+          </TableRow>
+          {country && (
+            <>
+              <TableRow>
+                <TableCell>
+                  <Typography variant="body1">
+                    {t('risks:countryRiskLevel')}
+                  </Typography>
+                </TableCell>
+                <TableCell
+                  align="right"
+                  sx={{
+                    backgroundColor:
+                      riskCellColors[riskArray[0].riskLevel as number],
+                    borderRadius: '25%',
+                  }}
+                >
+                  {riskArray[0].riskLevel}
+                </TableCell>
+              </TableRow>
+              {riskArray[0].riskLevel === 1 ? (
+                <Box sx={{ m: 2, width: '500px', paddingLeft: '20px' }}>
+                  {t('risks:noRisk')}
+                </Box>
+              ) : (
                 <CountryResults country={country} results={results} />
-              </>
-            ) : (
-              t('risks:noRisk')
-            )}
-          </Box>
-        )}
-        {riskArray.map(
-          (risk) =>
-            risk.riskLevel === 3 &&
-            risk.id !== 1 && (
-              <Box key={risk.id} sx={resultStyles.card}>
-                {risk.text}: {risk.riskLevel}
-              </Box>
-            )
-        )}
-      </Box>
-    </Box>
+              )}
+            </>
+          )}
+          {riskArray.map(
+            (risk) =>
+              risk.riskLevel === 3 &&
+              risk.id !== 'country' && (
+                <TableRow key={risk.id}>
+                  <TableCell>
+                    <Typography variant="body1">{risk.text}</Typography>
+                  </TableCell>
+                  <TableCell
+                    align="right"
+                    sx={{
+                      backgroundColor: riskCellColors[risk.riskLevel as number],
+                      borderRadius: '25%',
+                    }}
+                  >
+                    {risk.riskLevel}
+                  </TableCell>
+                </TableRow>
+              )
+          )}
+        </TableBody>
+      </Table>
+    </TableContainer>
   )
 }
 
