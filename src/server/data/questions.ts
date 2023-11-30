@@ -96,24 +96,6 @@ const getQuestionData = async (): Promise<Question[]> => [
     visibility: {},
   },
   {
-    id: 5,
-    surveyId: 1,
-    parentId: null,
-    priority: 4,
-    title: {
-      fi: 'Yhteistyöorganisaation nimi',
-      sv: 'Name of the partner organisation',
-      en: 'Name of the partner organisation',
-    },
-    text: {
-      fi: '',
-      sv: '',
-      en: '',
-    },
-    optionData: { type: 'text', options: [] },
-    visibility: {},
-  },
-  {
     id: 6,
     surveyId: 1,
     parentId: null,
@@ -744,24 +726,6 @@ const getQuestionData = async (): Promise<Question[]> => [
     visibility: {},
   },
   {
-    id: 17,
-    surveyId: 1,
-    parentId: 6,
-    priority: 0,
-    title: {
-      fi: 'Mikä?',
-      sv: 'What?',
-      en: 'What?',
-    },
-    text: {
-      fi: '',
-      sv: '',
-      en: '',
-    },
-    optionData: { type: 'text', options: [] },
-    visibility: { options: ['otherType'] },
-  },
-  {
     id: 18,
     surveyId: 1,
     parentId: 9,
@@ -840,6 +804,26 @@ const getQuestionData = async (): Promise<Question[]> => [
     },
     optionData: { type: 'text', options: [] },
     visibility: { options: ['university'] },
+  },
+  {
+    id: 22,
+    surveyId: 1,
+    parentId: 6,
+    priority: 1,
+    title: {
+      fi: 'Yhteistyöorganisaation nimi',
+      sv: 'Name of the partner organisation',
+      en: 'name of the partner organisation',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: { type: 'text', options: [] },
+    visibility: {
+      options: ['otherResearchOrg', 'company', 'ngo', 'otherType'],
+    },
   },
 ]
 
