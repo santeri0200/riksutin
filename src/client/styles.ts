@@ -198,6 +198,14 @@ const resultStyles = {
     fontWeight: '200',
     textAlign: 'left',
   },
+  tableCell: {
+    borderRadius: '25%',
+    width: '40px',
+    height: '40px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 }
 
 const footerStyles = {

@@ -1,14 +1,11 @@
 import React from 'react'
 
-import { Box } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
 import { Locales, Result } from '@backend/types'
-import styles from '../../styles'
+
 import { CountryData } from '../../types'
 import RiskElement from './RiskElement'
-
-const { resultStyles } = styles
 
 const CountryResults = ({
   country,
@@ -31,7 +28,7 @@ const CountryResults = ({
   )?.isSelected[language as keyof Locales]
 
   return (
-    <Box sx={resultStyles.resultWrapper}>
+    <>
       <RiskElement
         infoText={corruptionText}
         resultText={t('results:corruptionRank')}
@@ -47,7 +44,7 @@ const CountryResults = ({
         resultText={t('results:safetyLevel')}
         risk={country.safetyLevel}
       />
-    </Box>
+    </>
   )
 }
 

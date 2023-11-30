@@ -1,6 +1,10 @@
 import React from 'react'
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, TableCell, TableRow, Typography } from '@mui/material'
 import Markdown from '../Common/Markdown'
+
+import styles from '../../styles'
+
+const { resultStyles } = styles
 
 export interface RiskElementProps {
   // eslint-disable-next-line react/require-default-props
@@ -16,41 +20,28 @@ const RiskElement = ({ infoText, resultText, risk }: RiskElementProps) => {
     3: '#e74c3c',
   }
   return (
-    <Box sx={{ paddingBottom: '10px', paddingLeft: '20px' }}>
-      <Grid
-        container
-        spacing={2}
-        direction="row"
-        alignItems="baseline"
-        justifyContent="space-between"
-      >
-        <Grid item>
-          <Box>
-            <Typography variant="body1">{resultText}</Typography>
-          </Box>
-        </Grid>
-        <Grid item>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              minHeight: '50px',
+    <TableRow>
+      <TableCell>
+        <Typography variant="body1">{resultText}</Typography>
+      </TableCell>
+      <TableCell>
+        <Box
+          sx={[
+            {
               backgroundColor: colors[risk],
-              width: '40px',
-              borderRadius: '25%',
-            }}
-          >
-            {risk}
-          </Box>
-        </Grid>
-      </Grid>
-      {infoText && (
-        <Box sx={{ width: '90%' }}>
-          <Markdown>{infoText}</Markdown>
+            },
+            resultStyles.tableCell,
+          ]}
+        >
+          {risk}
         </Box>
+      </TableCell>
+      {infoText && (
+        <TableCell sx={{ width: '90%' }}>
+          <Markdown>{infoText}</Markdown>
+        </TableCell>
       )}
-    </Box>
+    </TableRow>
   )
 }
 
