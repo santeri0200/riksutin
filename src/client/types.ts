@@ -84,4 +84,5 @@ export type CountryData = {
   hci: number
   safetyLevel: number
   universities: string[]
+  sanctions: object[]
 }

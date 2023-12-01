@@ -30,7 +30,8 @@
     "funderRiskLevel": "Projektin rahoittajan riskitaso",
     "fundingRiskLevel": "Ulkopuolisen rahoituksen riskitaso",
     "totalRiskLevel": "Yhteistyön kokonaisriskitaso",
-    "noRisk": "Ei erityistä riskiä"
+    "noRisk": "Ei erityistä riskiä",
+    "sanctionsRisk": "*Lue lisää maahan kohdistuvista pakotteista [sanctionsmap.eu](https://sanctionsmap.eu/#/main)-sivulta*"
   },
   "results": {
     "title": "Yhteenveto valinnoistasi",

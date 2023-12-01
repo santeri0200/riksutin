@@ -27,6 +27,8 @@ const CountryResults = ({
     (r) => r.optionLabel === `safetyLevel${country.safetyLevel}`
   )?.isSelected[language as keyof Locales]
 
+  const sanctionsRisk = country.sanctions ? 2 : 1
+
   return (
     <>
       <RiskElement
@@ -43,6 +45,11 @@ const CountryResults = ({
         infoText={safetyLevelText}
         resultText={t('results:safetyLevel')}
         risk={country.safetyLevel}
+      />
+      <RiskElement
+        resultText="Pakotteet"
+        risk={sanctionsRisk}
+        infoText={sanctionsRisk === 2 ? t('risks:sanctionsRisk') : ''}
       />
     </>
   )

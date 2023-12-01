@@ -8,7 +8,7 @@ const { resultStyles } = styles
 
 export interface RiskElementProps {
   // eslint-disable-next-line react/require-default-props
-  infoText?: string
+  infoText?: string | null
   resultText: string
   risk: number
 }

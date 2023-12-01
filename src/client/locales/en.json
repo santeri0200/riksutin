@@ -30,7 +30,8 @@
     "funderRiskLevel": "Risk level of the project funder",
     "fundingRiskLevel": "Risk level of the external funding",
     "totalRiskLevel": "Total risk level of the project",
-    "noRisk": "No identifiable risk"
+    "noRisk": "No identifiable risk",
+    "sanctionsRisk": "*Read more information about the sanctions at [sanctionsmap.eu](https://sanctionsmap.eu/#/main)*"
   },
   "results": {
     "title": "Summary of Your Choices",
