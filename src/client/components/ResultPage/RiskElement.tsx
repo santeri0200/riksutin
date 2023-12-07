@@ -15,8 +15,10 @@ export interface RiskElementProps {
 
 const RiskElement = ({ infoText, resultText, risk }: RiskElementProps) => (
   <TableRow>
-    <TableCell>
-      <Typography variant="body1">{resultText}</Typography>
+    <TableCell width="30%">
+      <Typography variant="body1">
+        <Markdown>{resultText}</Markdown>
+      </Typography>
     </TableCell>
     <TableCell>
       <Box
