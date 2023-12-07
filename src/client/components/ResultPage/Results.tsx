@@ -6,7 +6,6 @@ import useSurvey from '../../hooks/useSurvey'
 
 import RenderResults from './RenderResults'
 import SurveyButtons from '../Common/SurveyButtons'
-import SendSummaryEmail from './SendSummaryEmail'
 import ProceedToContact from './ProceedToContact'
 
 import { useResultData } from '../../contexts/ResultDataContext'
@@ -52,8 +51,6 @@ const Results = ({
           </Container>
 
           <RenderResults />
-
-          <SendSummaryEmail />
 
           <SurveyButtons>
             <Button data-cy="back-to-selections" onClick={onNavigateBack}>
