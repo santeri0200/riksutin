@@ -19,7 +19,7 @@ import CountryResults from './CountryResults'
 
 import styles from '../../styles'
 
-const { resultStyles } = styles
+const { resultStyles, riskColors } = styles
 
 const TotalRisk = ({
   selectedCountryCode,
@@ -93,12 +93,6 @@ const TotalRisk = ({
     ) / riskArray.length
   )
 
-  const riskCellColors: any = {
-    1: '#2ecc71',
-    2: '#f1c40f',
-    3: '#e74c3c',
-  }
-
   return (
     <TableContainer>
       <Table
@@ -119,7 +113,7 @@ const TotalRisk = ({
             <TableCell>
               <Box
                 sx={[
-                  { backgroundColor: riskCellColors[totalRisk] },
+                  { backgroundColor: riskColors[totalRisk] },
                   resultStyles.tableCell,
                 ]}
               >
@@ -139,7 +133,7 @@ const TotalRisk = ({
                   <Box
                     sx={[
                       {
-                        backgroundColor: riskCellColors[riskArray[0].riskLevel],
+                        backgroundColor: riskColors[riskArray[0].riskLevel],
                       },
                       resultStyles.tableCell,
                     ]}
@@ -174,8 +168,7 @@ const TotalRisk = ({
                     <Box
                       sx={[
                         {
-                          backgroundColor:
-                            riskCellColors[risk.riskLevel as number],
+                          backgroundColor: riskColors[risk.riskLevel as number],
                         },
                         resultStyles.tableCell,
                       ]}
