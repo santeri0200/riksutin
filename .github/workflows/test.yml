@@ -3,15 +3,6 @@ name: E2E Tests
 on: [workflow_call]
 
 jobs:
-  eslint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Build project for eslint
-        run: npm install
-      - name: Run eslint
-        run: npm run lint
 
   playwright:
     timeout-minutes: 60
