@@ -20,3 +20,7 @@ services:
     ports:
       - 5432:5432
     container_name: riksutin_test_db
+
+  redis:
+    image: redis:7-alpine
+    container_name: riksutin_test_redis
