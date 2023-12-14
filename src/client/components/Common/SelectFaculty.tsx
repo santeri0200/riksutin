@@ -86,9 +86,9 @@ const SelectFaculty = ({ control }: InputProps) => {
       <Controller
         control={control}
         name="faculty"
-        defaultValue={userFaculties[0]?.code || ''}
+        defaultValue={userFaculties[0]?.code || extraOrganisations[0].code}
         render={({ field }) => (
-          <FormControl>
+          <FormControl sx={{ minWidth: 200 }}>
             <InputLabel>{t('facultySelect:inputLabel')}</InputLabel>
             <Select
               data-cy="faculty-select"
