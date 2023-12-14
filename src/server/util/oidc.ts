@@ -7,6 +7,7 @@ import {
 } from 'openid-client'
 import passport from 'passport'
 
+import { inE2EMode } from 'src/config'
 import {
   OIDC_ISSUER,
   OIDC_CLIENT_ID,
@@ -85,6 +86,8 @@ const verifyLogin = async (
 }
 
 const setupAuthentication = async () => {
+  if (inE2EMode) return
+
   const client = await getClient()
 
   passport.serializeUser((user, done) => {
