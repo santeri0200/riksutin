@@ -6,6 +6,7 @@ import express from 'express'
 import session from 'express-session'
 import passport from 'passport'
 
+import { inE2EMode } from '../config'
 import { PORT, SESSION_SECRET } from './util/config'
 import { redisStore } from './util/redis'
 import logger from './util/logger'
@@ -21,7 +22,7 @@ app.use(
     store: redisStore,
     resave: false,
     saveUninitialized: false,
-    secret: SESSION_SECRET,
+    secret: inE2EMode ? 'testing' : SESSION_SECRET,
   })
 )
 
