@@ -2,7 +2,7 @@ export const appName = 'Riksutin'
 
 export const contactEmail = ''
 
-export const supportEmail = ''
+export const supportEmail = 'int-risks@helsinki.fi'
 
 export const inDevelopment = process.env.NODE_ENV === 'development'
 
