@@ -35,21 +35,29 @@ const CountryResults = ({
         infoText={corruptionText}
         resultText={t('results:corruptionRank')}
         risk={country.corruption}
+        style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         resultText={t('results:stabilityRank')}
         risk={country.stability}
+        style={{ paddingLeft: '30px' }}
       />
-      <RiskElement resultText={t('results:HCIrank')} risk={country.hci} />
+      <RiskElement
+        resultText={t('results:HCIrank')}
+        risk={country.hci}
+        style={{ paddingLeft: '30px' }}
+      />
       <RiskElement
         infoText={safetyLevelText}
         resultText={t('results:safetyLevel')}
         risk={country.safetyLevel}
+        style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         resultText="Pakotteet"
         risk={sanctionsRisk}
         infoText={sanctionsRisk === 2 ? t('risks:sanctionsRisk') : ''}
+        style={{ paddingLeft: '30px' }}
       />
     </>
   )

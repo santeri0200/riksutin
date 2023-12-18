@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react'
 import { Box, TableCell, TableRow, Typography } from '@mui/material'
 import Markdown from '../Common/Markdown'
@@ -7,17 +8,24 @@ import styles from '../../styles'
 const { resultStyles, riskColors } = styles
 
 export interface RiskElementProps {
-  // eslint-disable-next-line react/require-default-props
   infoText?: string | null
   resultText: string
   risk: number
+  style?: any
 }
 
-const RiskElement = ({ infoText, resultText, risk }: RiskElementProps) => (
+const RiskElement = ({
+  infoText,
+  resultText,
+  risk,
+  style,
+}: RiskElementProps) => (
   <TableRow>
     <TableCell width="30%">
       <Typography variant="body1">
-        <Markdown>{resultText}</Markdown>
+        <Box sx={style}>
+          <Markdown>{resultText}</Markdown>
+        </Box>
       </Typography>
     </TableCell>
     <TableCell>
