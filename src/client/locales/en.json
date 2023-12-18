@@ -52,7 +52,8 @@
     "corruptionRank": "Corruption",
     "stabilityRank": "Political stability",
     "HCIrank": "Human development",
-    "safetyLevel": "Safety level"
+    "safetyLevel": "Safety level",
+    "sanctions": "Sanctions"
   },
   "contact": {
     "title": "Contact",

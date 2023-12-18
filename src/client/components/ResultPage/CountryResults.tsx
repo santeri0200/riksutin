@@ -54,7 +54,7 @@ const CountryResults = ({
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
-        resultText="Pakotteet"
+        resultText={t('results:sanctions')}
         risk={sanctionsRisk}
         infoText={sanctionsRisk === 2 ? t('risks:sanctionsRisk') : ''}
         style={{ paddingLeft: '30px' }}

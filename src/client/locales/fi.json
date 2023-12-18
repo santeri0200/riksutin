@@ -52,7 +52,8 @@
     "corruptionRank": "Korruptio",
     "stabilityRank": "Poliittinen vakaus",
     "HCIrank": "Inhimillinen kehitys",
-    "safetyLevel": "Turvallisuustaso"
+    "safetyLevel": "Turvallisuustaso",
+    "sanctions": "Pakotteet"
   },
   "contact": {
     "title": "Yhteydenotto",
