@@ -53,7 +53,8 @@
     "stabilityRank": "Political stability",
     "HCIrank": "Human development",
     "safetyLevel": "Safety level",
-    "sanctions": "Sanctions"
+    "sanctions": "Sanctions",
+    "academicFreedom": "Academic freedom"
   },
   "contact": {
     "title": "Kontakt",

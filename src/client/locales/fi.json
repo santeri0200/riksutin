@@ -53,7 +53,8 @@
     "stabilityRank": "Poliittinen vakaus",
     "HCIrank": "Inhimillinen kehitys",
     "safetyLevel": "Turvallisuustaso",
-    "sanctions": "Pakotteet"
+    "sanctions": "Pakotteet",
+    "academicFreedom": "Akateeminen vapaus"
   },
   "contact": {
     "title": "Yhteydenotto",
