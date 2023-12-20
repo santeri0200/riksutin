@@ -78,6 +78,7 @@ export type Country = {
 }
 
 export type CountryData = {
+  academicfreedom: number
   code: string
   corruption: number
   stability: number

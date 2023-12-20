@@ -60,7 +60,7 @@ const CountryResults = ({
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
-        risk={0}
+        risk={country.academicfreedom}
         resultText={t('results:academicFreedom')}
         style={{ paddingLeft: '30px' }}
       />

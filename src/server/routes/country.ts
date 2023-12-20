@@ -5,6 +5,7 @@ import getCountryIndicator from '../data/worldbank/indicator'
 import fetchSafetyLevelData from '../data/safetyLevel'
 import getCountryUniversities from '../data/whed/countryUniversities'
 import fetchSanctionsData from '../data/sanctions/sanctionsMap'
+import parseAcademicFreedom from '../data/academicfreedom/parseAcademicFreedom'
 
 const countryRouter = express.Router()
 
@@ -33,6 +34,7 @@ countryRouter.get('/:code', async (req, res: any) => {
   const safetyLevel = await fetchSafetyLevelData(code)
   const universities = await getCountryUniversities(countryName)
   const sanctions = await fetchSanctionsData(countryName)
+  const academicfreedom = await parseAcademicFreedom(countryName)
 
   const country = {
     code,
@@ -42,6 +44,7 @@ countryRouter.get('/:code', async (req, res: any) => {
     safetyLevel,
     universities,
     sanctions,
+    academicfreedom,
   }
 
   return res.status(200).send(country)
