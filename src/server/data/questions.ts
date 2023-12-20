@@ -726,6 +726,55 @@ const getQuestionData = async (): Promise<Question[]> => [
     visibility: {},
   },
   {
+    id: 17,
+    surveyId: 1,
+    parentId: null,
+    priority: 14,
+    title: {
+      fi: 'Onko mahdollista, että yhteistyössä siirretäään henkilötietoja yhteistyökumppanille?',
+      sv: 'Does the collaboration require transferring personal data to the partner institution?',
+      en: 'Does the collaboration require transferring personal data to the partner institution?',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'transferPersonalData',
+          label: 'transferPersonalData',
+          title: {
+            fi: 'Kyllä',
+            sv: 'Yes',
+            en: 'Yes',
+          },
+        },
+        {
+          id: 'noTransferPersonalData',
+          label: 'noTransferPersonalData',
+          title: {
+            fi: 'Ei',
+            sv: 'No',
+            en: 'No',
+          },
+        },
+        {
+          id: 'notSureTransferPersonalData',
+          label: 'notSureTransferPersonalData',
+          title: {
+            fi: 'Ei tiedossa',
+            sv: 'Not sure',
+            en: 'Not sure',
+          },
+        },
+      ],
+    },
+    visibility: {},
+  },
+  {
     id: 18,
     surveyId: 1,
     parentId: 9,
@@ -824,6 +873,55 @@ const getQuestionData = async (): Promise<Question[]> => [
     visibility: {
       options: ['otherResearchOrg', 'company', 'ngo', 'otherType'],
     },
+  },
+  {
+    id: 23,
+    surveyId: 1,
+    parentId: null,
+    priority: 15,
+    title: {
+      fi: 'Onko mahdollista, että yhteistyössä siirtyy sotilaskäyttöön soveltuvaa teknologiaa tai osaamista kumppanille (vrt. Dual Use)?',
+      sv: 'Does the collaboration require transferring technology or know-how with potential for military use (so-called Dual Use)?',
+      en: 'Does the collaboration require transferring technology or know-how with potential for military use (so-called Dual Use)?',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'transferMilitaryKnowledge',
+          label: 'transferMilitaryKnowledge',
+          title: {
+            fi: 'Kyllä',
+            sv: 'Yes',
+            en: 'Yes',
+          },
+        },
+        {
+          id: 'noTransferMilitaryKnowledge',
+          label: 'noTransferMilitaryKnowledge',
+          title: {
+            fi: 'Ei',
+            sv: 'No',
+            en: 'No',
+          },
+        },
+        {
+          id: 'notSureTransferMilitaryKnowledge',
+          label: 'notSureTransferMilitaryKnowledge',
+          title: {
+            fi: 'Ei tiedossa',
+            sv: 'Not sure',
+            en: 'Not sure',
+          },
+        },
+      ],
+    },
+    visibility: {},
   },
 ]
 
