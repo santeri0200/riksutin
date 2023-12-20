@@ -19,33 +19,37 @@ const RiskElement = ({
   resultText,
   risk,
   style,
-}: RiskElementProps) => (
-  <TableRow>
-    <TableCell width="30%">
-      <Typography variant="body1">
-        <Box sx={style}>
-          <Markdown>{resultText}</Markdown>
-        </Box>
-      </Typography>
-    </TableCell>
-    <TableCell>
-      <Box
-        sx={[
-          {
-            backgroundColor: riskColors[risk],
-          },
-          resultStyles.tableCell,
-        ]}
-      >
-        {risk}
-      </Box>
-    </TableCell>
-    {infoText && (
-      <TableCell sx={{ width: '90%' }}>
-        <Markdown>{infoText}</Markdown>
+}: RiskElementProps) => {
+  if (!risk) return null
+
+  return (
+    <TableRow>
+      <TableCell width="30%">
+        <Typography variant="body1">
+          <Box sx={style}>
+            <Markdown>{resultText}</Markdown>
+          </Box>
+        </Typography>
       </TableCell>
-    )}
-  </TableRow>
-)
+      <TableCell>
+        <Box
+          sx={[
+            {
+              backgroundColor: riskColors[risk],
+            },
+            resultStyles.tableCell,
+          ]}
+        >
+          {risk}
+        </Box>
+      </TableCell>
+      {infoText && (
+        <TableCell sx={{ width: '90%' }}>
+          <Markdown>{infoText}</Markdown>
+        </TableCell>
+      )}
+    </TableRow>
+  )
+}
 
 export default RiskElement
