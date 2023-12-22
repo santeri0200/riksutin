@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Table, TableBody, TableContainer } from '@mui/material'
-import { Question, Result } from '@backend/types'
+import { Question, Result, Locales } from '@backend/types'
 import { countryRisk, universityRisk } from '../../util/risks'
 
 import useCountry from '../../hooks/useCountryData'
@@ -20,11 +20,13 @@ const TotalRisk = ({
   questions: Question[]
   results: Result[]
 }) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { resultData } = useResultData()
   const { country } = useCountry(selectedCountryCode)
 
   if (!resultData) return null
+
+  const { language } = i18n
 
   const possibleRiskLevels = [0, 1, 2, 3, 4, 5]
 
@@ -83,6 +85,10 @@ const TotalRisk = ({
     ) / riskArray.length
   )
 
+  const totalRiskText = results.find(
+    (r) => r.optionLabel === `totalRiskLevel${totalRisk}`
+  )?.isSelected[language as keyof Locales]
+
   return (
     <TableContainer>
       <Table
@@ -95,6 +101,7 @@ const TotalRisk = ({
       >
         <TableBody>
           <RiskElement
+            infoText={totalRiskText}
             resultText={t('risks:totalRiskLevel')}
             risk={totalRisk}
           />

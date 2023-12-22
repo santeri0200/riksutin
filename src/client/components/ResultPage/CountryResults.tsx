@@ -26,6 +26,15 @@ const CountryResults = ({
   const safetyLevelText = results.find(
     (r) => r.optionLabel === `safetyLevel${country.safetyLevel}`
   )?.isSelected[language as keyof Locales]
+  const academicFreedomText = results.find(
+    (r) => r.optionLabel === `academicFreedomLevel${country.academicfreedom}`
+  )?.isSelected[language as keyof Locales]
+  const politicalStabilityText = results.find(
+    (r) => r.optionLabel === `politicalStabilityLevel${country.stability}`
+  )?.isSelected[language as keyof Locales]
+  const humanDevelopmentText = results.find(
+    (r) => r.optionLabel === `developmentLevel${country.hci}`
+  )?.isSelected[language as keyof Locales]
 
   const sanctionsRisk = country.sanctions ? 2 : 1
 
@@ -38,11 +47,13 @@ const CountryResults = ({
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
+        infoText={politicalStabilityText}
         resultText={t('results:stabilityRank')}
         risk={country.stability}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
+        infoText={humanDevelopmentText}
         resultText={t('results:HCIrank')}
         risk={country.hci}
         style={{ paddingLeft: '30px' }}
@@ -60,6 +71,7 @@ const CountryResults = ({
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
+        infoText={academicFreedomText}
         risk={country.academicfreedom}
         resultText={t('results:academicFreedom')}
         style={{ paddingLeft: '30px' }}

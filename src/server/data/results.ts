@@ -103,6 +103,210 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 7,
+    surveyId: 1,
+    optionLabel: 'developmentLevel1',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee kehittyneessä maassa.*',
+      sv: '*Your partner is located in a developed country.*',
+      en: '*Your partner is located in a developed country.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 8,
+    surveyId: 1,
+    optionLabel: 'developmentLevel2',
+    isSelected: {
+      fi: '*Yhteistyöumppanisi sijaitsee vähemmän kehittyneessä maassa, millä saattaa olla vaikutusta yhteistyön suunnitteluun ja toteutukseen.*',
+      sv: '*Your partner is located in a less-developed country, which might affect planning and implementing the collaboration.*',
+      en: '*Your partner is located in a less-developed country, which might affect planning and implementing the collaboration.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 9,
+    surveyId: 1,
+    optionLabel: 'developmentLevel3',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee vähiten kehittyneessä maassa. Tämä ei itsessään ole välttämättä riski, mutta ota tämä kuitenkin huomioon yhteistyön suunnittelussa ja toteutuksessa*',
+      sv: '*Your partner is located in a least developed country. In and by itself, this is not a risk, but you should still take this into account in planning and implementing phases.*',
+      en: '*Your partner is located in a least developed country. In and by itself, this is not a risk, but you should still take this into account in planning and implementing phases.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 10,
+    surveyId: 1,
+    optionLabel: 'academicFreedomLevel1',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee maassa, jossa akateeminen vapaus on hyvällä tasolla.*',
+      sv: '*Your collaboration partner is located in a country, where academic freedom is at a good level.*',
+      en: '*Your collaboration partner is located in a country, where academic freedom is at a good level.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 11,
+    surveyId: 1,
+    optionLabel: 'academicFreedomLevel2',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee maassa, jossa akateeminen vapaus on jonkin verran rajoitettua. Huomioi tämä yhteistyön toteutuksessa.*',
+      sv: '*Your collaboration partner is located in a country, where academic freedom is somewhat restricted. Take this into account in implementation.*',
+      en: '*Your collaboration partner is located in a country, where academic freedom is somewhat restricted. Take this into account in implementation.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 12,
+    surveyId: 1,
+    optionLabel: 'academicFreedomLevel3',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee maassa, jossa akateeminen vapaus on hyvin rajoitettua. Harkitse yhteistyötä tarkasti tästä ja yliopiston [arvojen](https://www.helsinki.fi/fi/tutustu-meihin/strategia-talous-ja-laatu/strategia-2021-2030/arvot) näkökulmasta*',
+      sv: "*Your collaboration partner is located in a country, where academic freedom very restricted. Consider your collaboration, and whether it is compatible with University's [values](https://www.helsinki.fi/en/about-us/strategy-economy-and-quality/strategic-plan-2021-2030/values)*",
+      en: "*Your collaboration partner is located in a country, where academic freedom very restricted. Consider your collaboration, and whether it is compatible with University's [values](https://www.helsinki.fi/en/about-us/strategy-economy-and-quality/strategic-plan-2021-2030/values)*",
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 13,
+    surveyId: 1,
+    optionLabel: 'politicalStabilityLevel1',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee poliittisesti vakaassa maassa.*',
+      sv: '*Your collaboration partner is located in a politically stable country.*',
+      en: '*Your collaboration partner is located in a politically stable country.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 14,
+    surveyId: 1,
+    optionLabel: 'politicalStabilityLevel2',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee poliittisesti melko epävakaassa maassa.*',
+      sv: '*Your collaboration partner is located in a politically somewhat unstable country.*',
+      en: '*Your collaboration partner is located in a politically somewhat unstable country.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 15,
+    surveyId: 1,
+    optionLabel: 'politicalStabilityLevel3',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee poliittisesti epävakaassa maassa.*',
+      sv: '*Your collaboration partner is located in a politically unstable country.*',
+      en: '*Your collaboration partner is located in a politically unstable country.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 16,
+    surveyId: 1,
+    optionLabel: 'totalRiskLevel1',
+    isSelected: {
+      fi: '*Yhteistyön kokonaisriski on alhainen. Yhteistyössä voi kuitenkin esiintyä tunnistamattomia riskejä ja nyt arvioitujen asioiden riskitaso saattaa muuttua jatkossa.*',
+      sv: '*Risk level is low. However, the collaboration may entail unidentified risks and the risks assessed here may change in the future.*',
+      en: '*Risk level is low. However, the collaboration may entail unidentified risks and the risks assessed here may change in the future.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 17,
+    surveyId: 1,
+    optionLabel: 'totalRiskLevel2',
+    isSelected: {
+      fi: '*Yhteistyön kokonaisriskitaso on kohonnut. Kiinnitä erityistä huomiota kohonneisiin riskeihin ja mieti niiden hallintaa. Toteuta tarvittaessa yksityiskohtaisempi riskiarvio.*',
+      sv: '*Risk-level is elevated. Pay attention to individual risks and their management. Undertake a more detailed risk assessment, if necessary.*',
+      en: '*Risk-level is elevated. Pay attention to individual risks and their management. Undertake a more detailed risk assessment, if necessary.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 18,
+    surveyId: 1,
+    optionLabel: 'totalRiskLevel3',
+    isSelected: {
+      fi: '*Yhteistyön kokonaisriskitaso on merkittävä. Yksityiskohtaisemman riskiarvion toteuttaminen on suositeltavaa. Ryhdy myös toimenpiteisiin tunnistettujen riskien hallitsemiseksi.*',
+      sv: '*Risk level is high. It is highly recommendable to undertake a more detailed risk assessment, and take action on individual risks indentified here.*',
+      en: '*Risk level is high. It is highly recommendable to undertake a more detailed risk assessment, and take action on individual risks indentified here.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData
