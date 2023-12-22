@@ -48,6 +48,10 @@ const TotalRisk = ({
     .find((question) => question.id === 12)
     ?.optionData.options.find((o) => o.id === resultData[12])?.risk
 
+  const dualUseRisk = questions
+    .find((question) => question.id === 23)
+    ?.optionData.options.find((o) => o.id === resultData[23])?.risk
+
   const riskArray = [
     {
       id: 'country',
@@ -73,6 +77,11 @@ const TotalRisk = ({
       id: 'duration',
       text: t('risks:durationRiskLevel'),
       riskLevel: durationRisk,
+    },
+    {
+      id: 'dualUse',
+      text: t('risks:dualUseRiskLevel'),
+      riskLevel: dualUseRisk,
     },
   ].filter((value) => possibleRiskLevels.includes(value.riskLevel))
 
@@ -119,7 +128,6 @@ const TotalRisk = ({
           )}
           {riskArray.map(
             (risk) =>
-              risk.riskLevel === 3 &&
               risk.id !== 'country' && (
                 <RiskElement
                   key={risk.id}

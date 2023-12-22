@@ -29,6 +29,7 @@
     "durationRiskLevel": "Yhteistyön keston riskitaso",
     "funderRiskLevel": "Projektin rahoittajan riskitaso",
     "fundingRiskLevel": "Ulkopuolisen rahoituksen riskitaso",
+    "dualUseRiskLevel": "Kaksikäyttötuotteiden riskitaso",
     "totalRiskLevel": "**Yhteistyön kokonaisriskitaso**",
     "noRisk": "Ei erityistä riskiä",
     "sanctionsRisk": "*Lue lisää maahan kohdistuvista pakotteista [sanctionsmap.eu](https://sanctionsmap.eu/#/main)-sivulta*"
