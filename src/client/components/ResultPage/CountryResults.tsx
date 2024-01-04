@@ -4,15 +4,17 @@ import { useTranslation } from 'react-i18next'
 
 import { Locales, Result } from '@backend/types'
 
-import { CountryData } from '../../types'
+import { CountryData, FormValues } from '../../types'
 import RiskElement from './RiskElement'
 
 const CountryResults = ({
   country,
   results,
+  resultData,
 }: {
   country: CountryData | undefined
   results: Result[]
+  resultData: FormValues
 }) => {
   const { t, i18n } = useTranslation()
 
@@ -37,6 +39,8 @@ const CountryResults = ({
   )?.isSelected[language as keyof Locales]
 
   const sanctionsRisk = country.sanctions ? 2 : 1
+  const sanctionsMultiplier =
+    sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
 
   return (
     <>
@@ -66,7 +70,7 @@ const CountryResults = ({
       />
       <RiskElement
         resultText={t('results:sanctions')}
-        risk={sanctionsRisk}
+        risk={sanctionsRisk * sanctionsMultiplier}
         infoText={sanctionsRisk === 2 ? t('risks:sanctionsRisk') : ''}
         style={{ paddingLeft: '30px' }}
       />

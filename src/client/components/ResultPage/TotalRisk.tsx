@@ -122,7 +122,11 @@ const TotalRisk = ({
                 infoText={riskArray[0].riskLevel === 1 ? t('risks:noRisk') : ''}
               />
               {riskArray[0].riskLevel !== 1 && (
-                <CountryResults country={country} results={results} />
+                <CountryResults
+                  country={country}
+                  results={results}
+                  resultData={resultData}
+                />
               )}
             </>
           )}
