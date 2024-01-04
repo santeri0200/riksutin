@@ -17,6 +17,7 @@ const Text = ({ control, question, defaultValue }: InputProps) => {
       render={({ field: { onChange } }) => (
         <Box justifyContent="center">
           <TextField
+            data-testid={`question-${question.id}`}
             onChange={onChange}
             fullWidth
             InputProps={props ? props.attributes : {}}
