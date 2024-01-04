@@ -56,7 +56,7 @@ const TotalRisk = ({
     {
       id: 'country',
       text: t('risks:countryRiskLevel'),
-      riskLevel: countryRisk(country),
+      riskLevel: countryRisk({ country, resultData }),
     },
     {
       id: 'university',

@@ -1,6 +1,12 @@
-import { CountryData } from '@frontend/types'
+import { CountryData, FormValues } from '@frontend/types'
 
-export const countryRisk = (country: CountryData | undefined) => {
+export const countryRisk = ({
+  country,
+  resultData,
+}: {
+  country: CountryData | undefined
+  resultData: FormValues
+}) => {
   if (!country) return null
 
   const { code, universities, safetyLevel, ...riskValues } = country
@@ -13,11 +19,15 @@ export const countryRisk = (country: CountryData | undefined) => {
     ['Poistu välittömästi maasta', 3],
   ]
 
+  const sanctionsRisk = country.sanctions ? 2 : 1
+  const sanctionsMultiplier =
+    sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
+
   const safetyLevelRisk =
     safetyLevels.find((level) => level[0] === safetyLevel)?.[1] || null
 
   const filteredRiskValues = Object.values(riskValues)
-    .concat(safetyLevelRisk as number)
+    .concat(safetyLevelRisk as number, sanctionsRisk * sanctionsMultiplier)
     .filter((value) => value != null && typeof value === 'number')
 
   const totalCountryRiskLevel = Math.round(
