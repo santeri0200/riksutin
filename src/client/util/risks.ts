@@ -9,7 +9,7 @@ export const countryRisk = ({
 }) => {
   if (!country) return null
 
-  const { code, universities, safetyLevel, ...riskValues } = country
+  const { code, universities, safetyLevel, sanctions, ...riskValues } = country
 
   const safetyLevels = [
     ['Noudata tavanomaista varovaisuutta', 1],
@@ -19,7 +19,7 @@ export const countryRisk = ({
     ['Poistu välittömästi maasta', 3],
   ]
 
-  const sanctionsRisk = country.sanctions ? 2 : 1
+  const sanctionsRisk = sanctions ? 2 : 1
   const sanctionsMultiplier =
     sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
 
@@ -28,7 +28,7 @@ export const countryRisk = ({
 
   const filteredRiskValues = Object.values(riskValues)
     .concat(safetyLevelRisk as number, sanctionsRisk * sanctionsMultiplier)
-    .filter((value) => value != null && typeof value === 'number')
+    .filter((value) => value != null)
 
   const totalCountryRiskLevel = Math.round(
     filteredRiskValues.reduce((a, b) => a + b, 0) / filteredRiskValues.length
