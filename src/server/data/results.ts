@@ -307,6 +307,57 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 19,
+    surveyId: 1,
+    optionLabel: 'gdprRiskLevel1',
+    isSelected: {
+      fi: '*Tietosuojamielessä yhteistyöhön ei kohdistu erityisiä vaatimuksia.*',
+      sv: '*GDPR is not applicable*',
+      en: '*GDPR is not applicable*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 20,
+    surveyId: 1,
+    optionLabel: 'gdprRiskLevel2',
+    isSelected: {
+      fi: '*Henkilötietojen luovuttamista koskee EU:n GDPR-sääntely. Yhteistyökumppanisi sijaintimaa kuuluu helpotetun menettelyn mukaisiin maihin, mutta tutustu tarkempiin ohjeisiin Flammassa.*',
+      sv: '*Handing over personal data requires GDPR compliance. Your partner is located in a country with limited compliance requirements, but please review instructions at Flamma.*',
+      en: '*Handing over personal data requires GDPR compliance. Your partner is located in a country with limited compliance requirements, but please review instructions at Flamma.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 21,
+    surveyId: 1,
+    optionLabel: 'gdprRiskLevel3',
+    isSelected: {
+      fi: '*Henkilötietojen luovuttamista koskee EU:n GDPR-sääntely. Tutustu tarkempiin ohjeisiin Flammassa.*',
+      sv: '*Handing over personal data requires GDPR compliance. Please review instructions at Flamma.*',
+      en: '*Handing over personal data requires GDPR compliance. Please review instructions at Flamma.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData

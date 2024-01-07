@@ -1,4 +1,5 @@
 import { CountryData, FormValues } from '@frontend/types'
+import { eeaCountries, adequateProtectionCountries } from './gdprCountries'
 
 export const countryRisk = ({
   country,
@@ -23,11 +24,37 @@ export const countryRisk = ({
   const sanctionsMultiplier =
     sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
 
+  const gdprRisk = () => {
+    if (resultData['17'] === 'noTransferPersonalData') return 1
+    if (
+      resultData['17'] === 'transferPersonalData' &&
+      eeaCountries.includes(country.code)
+    )
+      return 1
+    if (
+      resultData['17'] === 'transferPersonalData' &&
+      !eeaCountries.includes(country.code) &&
+      adequateProtectionCountries.includes(country.code)
+    )
+      return 2
+    if (
+      resultData['17'] === 'transferPersonalData' &&
+      !eeaCountries.includes(country.code) &&
+      !adequateProtectionCountries.includes(country.code)
+    )
+      return 3
+    return null
+  }
+
   const safetyLevelRisk =
     safetyLevels.find((level) => level[0] === safetyLevel)?.[1] || null
 
   const filteredRiskValues = Object.values(riskValues)
-    .concat(safetyLevelRisk as number, sanctionsRisk * sanctionsMultiplier)
+    .concat(
+      safetyLevelRisk as number,
+      sanctionsRisk * sanctionsMultiplier,
+      gdprRisk() as number
+    )
     .filter((value) => value != null)
 
   const totalCountryRiskLevel = Math.round(

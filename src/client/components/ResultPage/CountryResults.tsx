@@ -6,6 +6,10 @@ import { Locales, Result } from '@backend/types'
 
 import { CountryData, FormValues } from '../../types'
 import RiskElement from './RiskElement'
+import {
+  eeaCountries,
+  adequateProtectionCountries,
+} from '../../util/gdprCountries'
 
 const CountryResults = ({
   country,
@@ -22,6 +26,32 @@ const CountryResults = ({
 
   const { language } = i18n
 
+  const sanctionsRisk = country.sanctions ? 2 : 1
+  const sanctionsMultiplier =
+    sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
+
+  const gdprRisk = () => {
+    if (resultData['17'] === 'noTransferPersonalData') return 1
+    if (
+      resultData['17'] === 'transferPersonalData' &&
+      eeaCountries.includes(country.code)
+    )
+      return 1
+    if (
+      resultData['17'] === 'transferPersonalData' &&
+      !eeaCountries.includes(country.code) &&
+      adequateProtectionCountries.includes(country.code)
+    )
+      return 2
+    if (
+      resultData['17'] === 'transferPersonalData' &&
+      !eeaCountries.includes(country.code) &&
+      !adequateProtectionCountries.includes(country.code)
+    )
+      return 3
+    return null
+  }
+
   const corruptionText = results.find(
     (r) => r.optionLabel === `corruptionLevel${country.corruption}`
   )?.isSelected[language as keyof Locales]
@@ -37,10 +67,9 @@ const CountryResults = ({
   const humanDevelopmentText = results.find(
     (r) => r.optionLabel === `developmentLevel${country.hci}`
   )?.isSelected[language as keyof Locales]
-
-  const sanctionsRisk = country.sanctions ? 2 : 1
-  const sanctionsMultiplier =
-    sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
+  const gdprText = results.find(
+    (r) => r.optionLabel === `gdprRiskLevel${gdprRisk()}`
+  )?.isSelected[language as keyof Locales]
 
   return (
     <>
@@ -78,6 +107,12 @@ const CountryResults = ({
         infoText={academicFreedomText}
         risk={country.academicfreedom}
         resultText={t('results:academicFreedom')}
+        style={{ paddingLeft: '30px' }}
+      />
+      <RiskElement
+        infoText={gdprText}
+        risk={gdprRisk()}
+        resultText="GDPR"
         style={{ paddingLeft: '30px' }}
       />
     </>

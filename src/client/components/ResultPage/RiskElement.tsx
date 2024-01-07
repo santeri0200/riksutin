@@ -10,7 +10,7 @@ const { resultStyles, riskColors } = styles
 export interface RiskElementProps {
   infoText?: string | null
   resultText: string
-  risk: number
+  risk: number | null
   style?: any
 }
 
