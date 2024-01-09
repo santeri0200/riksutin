@@ -35,12 +35,12 @@ const RiskElement = ({
         <Box
           sx={[
             {
-              backgroundColor: riskColors[risk],
+              backgroundColor: riskColors[risk > 3 ? 3 : risk],
             },
             resultStyles.tableCell,
           ]}
         >
-          {risk}
+          {risk > 3 ? 3 : risk}
         </Box>
       </TableCell>
       {infoText && (

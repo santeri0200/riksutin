@@ -30,6 +30,12 @@ const CountryResults = ({
   const sanctionsMultiplier =
     sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
 
+  const safetyLevelMultiplier =
+    (country.safetyLevel === 2 || country.safetyLevel === 3) &&
+    (resultData['11'].studentMobility || resultData['11'].staffMobility)
+      ? 1.5
+      : 1
+
   const gdprRisk = () => {
     if (resultData['17'] === 'noTransferPersonalData') return 1
     if (
@@ -94,7 +100,7 @@ const CountryResults = ({
       <RiskElement
         infoText={safetyLevelText}
         resultText={t('results:safetyLevel')}
-        risk={country.safetyLevel}
+        risk={country.safetyLevel * safetyLevelMultiplier}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement

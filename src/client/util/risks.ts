@@ -12,17 +12,15 @@ export const countryRisk = ({
 
   const { code, universities, safetyLevel, sanctions, ...riskValues } = country
 
-  const safetyLevels = [
-    ['Noudata tavanomaista varovaisuutta', 1],
-    ['Noudata erityistä varovaisuutta', 2],
-    ['Vältä tarpeetonta matkustamista', 2],
-    ['Vältä kaikkea matkustamista', 3],
-    ['Poistu välittömästi maasta', 3],
-  ]
-
   const sanctionsRisk = sanctions ? 2 : 1
   const sanctionsMultiplier =
     sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
+
+  const safetyLevelMultiplier =
+    (safetyLevel === 2 || safetyLevel === 3) &&
+    (resultData['11'].studentMobility || resultData['11'].staffMobility)
+      ? 1.5
+      : 1
 
   const gdprRisk = () => {
     if (resultData['17'] === 'noTransferPersonalData') return 1
@@ -46,12 +44,9 @@ export const countryRisk = ({
     return null
   }
 
-  const safetyLevelRisk =
-    safetyLevels.find((level) => level[0] === safetyLevel)?.[1] || null
-
   const filteredRiskValues = Object.values(riskValues)
     .concat(
-      safetyLevelRisk as number,
+      safetyLevel * safetyLevelMultiplier,
       sanctionsRisk * sanctionsMultiplier,
       gdprRisk() as number
     )
