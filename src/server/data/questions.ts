@@ -694,7 +694,7 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: null,
     priority: 14,
     title: {
-      fi: 'Onko mahdollista, että yhteistyössä siirretäään henkilötietoja yhteistyökumppanille?',
+      fi: 'Onko mahdollista, että yhteistyössä siirretään henkilötietoja yhteistyökumppanille?',
       sv: 'Does the collaboration require transferring personal data to the partner institution?',
       en: 'Does the collaboration require transferring personal data to the partner institution?',
     },
