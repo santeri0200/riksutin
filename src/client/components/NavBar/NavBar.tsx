@@ -28,7 +28,7 @@ const NavBar = () => {
   const anchorRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    if (user?.language) i18n.changeLanguage(user.language)
+    if (user?.language === 'en') i18n.changeLanguage('en')
   }, [user, i18n])
 
   const { language } = i18n
