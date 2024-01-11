@@ -83,7 +83,7 @@ const RenderAnswers = ({
               <>
                 <Box sx={resultStyles.card}>
                   <Typography variant="body1">
-                    {question.title[language as keyof Locales]}:{' '}
+                    <b>{question.title[language as keyof Locales]}</b>:{' '}
                     {answers[question.id] as string}
                   </Typography>
                 </Box>
@@ -101,7 +101,8 @@ const RenderAnswers = ({
                         }}
                       >
                         <Typography variant="body1">
-                          {q.title[language as keyof Locales]}: {answers[q.id]}
+                          <b>{q.title[language as keyof Locales]}</b>:{' '}
+                          {answers[q.id]}
                         </Typography>
                       </Box>
                     ) : null}
@@ -112,7 +113,7 @@ const RenderAnswers = ({
             {question.id === 1 && (
               <Box sx={resultStyles.card}>
                 <Typography variant="body1">
-                  {t('facultySelect:title')}:{' '}
+                  <b>{t('facultySelect:title')}</b>:{' '}
                   {
                     organisations.find(
                       (faculty) => faculty.code === answers.faculty
