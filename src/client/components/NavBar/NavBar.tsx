@@ -32,7 +32,7 @@ const NavBar = () => {
   }, [user, i18n])
 
   const { language } = i18n
-  const languages = ['fi', 'sv', 'en']
+  const languages = ['fi', 'en']
 
   const handleLanguageChange = (newLanguage: string) => {
     i18n.changeLanguage(newLanguage)

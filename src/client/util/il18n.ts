@@ -3,7 +3,6 @@ import { initReactI18next } from 'react-i18next'
 
 import en from '../locales/en.json'
 import fi from '../locales/fi.json'
-import sv from '../locales/sv.json'
 
 declare global {
   interface Window {
@@ -16,7 +15,6 @@ const initializeI18n = () =>
     resources: {
       en,
       fi,
-      sv,
     },
     lng: 'fi',
     fallbackLng: 'fi',
