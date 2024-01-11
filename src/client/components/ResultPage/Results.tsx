@@ -6,7 +6,6 @@ import useSurvey from '../../hooks/useSurvey'
 
 import RenderResults from './RenderResults'
 import SurveyButtons from '../Common/SurveyButtons'
-import ProceedToContact from './ProceedToContact'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 
@@ -36,32 +35,28 @@ const Results = ({
   }
 
   return (
-    <>
-      <Box sx={cardStyles.outerBox}>
-        <Box sx={resultStyles.resultWrapper}>
-          <Container sx={{ mt: 4 }}>
-            <Typography
-              data-cy="result-section-title"
-              variant="h5"
-              sx={resultStyles.heading}
-              component="div"
-            >
-              {t('results:title')}
-            </Typography>
-          </Container>
+    <Box sx={cardStyles.outerBox}>
+      <Box sx={resultStyles.resultWrapper}>
+        <Container sx={{ mt: 4 }}>
+          <Typography
+            data-cy="result-section-title"
+            variant="h5"
+            sx={resultStyles.heading}
+            component="div"
+          >
+            {t('results:title')}
+          </Typography>
+        </Container>
 
-          <RenderResults />
+        <RenderResults />
 
-          <SurveyButtons>
-            <Button data-cy="back-to-selections" onClick={onNavigateBack}>
-              {'<'} {t('results:backToMessage')}
-            </Button>
-          </SurveyButtons>
-        </Box>
+        <SurveyButtons>
+          <Button data-cy="back-to-selections" onClick={onNavigateBack}>
+            {'<'} {t('results:backToMessage')}
+          </Button>
+        </SurveyButtons>
       </Box>
-
-      <ProceedToContact />
-    </>
+    </Box>
   )
 }
 

@@ -69,9 +69,11 @@ const InteractiveForm = () => {
   return (
     <Box sx={formStyles.formWrapper}>
       <Grid id="survey-main-section">
-        <Grid item sm={12}>
-          <HelloBanner />
-        </Grid>
+        {!showResults && (
+          <Grid item sm={12}>
+            <HelloBanner />
+          </Grid>
+        )}
         <Grid item sm={12}>
           <form
             style={{ display: showResults ? 'none' : 'block' }}
