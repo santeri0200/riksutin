@@ -197,6 +197,7 @@ const resultStyles = {
   heading: {
     fontWeight: '200',
     textAlign: 'left',
+    paddingBottom: '30px',
   },
   tableCell: {
     borderRadius: '25%',

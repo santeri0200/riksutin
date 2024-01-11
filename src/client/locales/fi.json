@@ -36,6 +36,8 @@
   },
   "results": {
     "title": "Yhteenveto valinnoistasi",
+    "riskTableTitle": "Yhteistyön riskit",
+    "answerBoxTitle": "Vastauksesi",
     "resultsMessage": "Listasimme sinulle vielä alle yhteevedon valinnoista",
     "proceedTitle": "Löysitkö etsimäsi?",
     "proceedToExit": "Kyllä",

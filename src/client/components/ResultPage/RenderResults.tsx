@@ -37,12 +37,12 @@ const RenderResults = () => {
 
   return (
     <Box ref={refCallback}>
-      <RenderAnswers survey={survey} resultData={resultData} />
       <TotalRisk
         selectedCountryCode={selectedCountryCode}
         questions={survey.Questions}
         results={results}
       />
+      <RenderAnswers survey={survey} resultData={resultData} />
     </Box>
   )
 }

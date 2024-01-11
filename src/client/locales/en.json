@@ -36,6 +36,8 @@
   },
   "results": {
     "title": "Summary of Your Choices",
+    "riskTableTitle": "Risks of the collaboration",
+    "answerBoxTitle": "Your answers",
     "resultsMessage": "We have compiled a summary of your selections below",
     "proceedTitle": "Did you find what you were looking for?",
     "proceedToExit": "Yes",

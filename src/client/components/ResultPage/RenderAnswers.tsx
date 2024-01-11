@@ -67,19 +67,29 @@ const RenderAnswers = ({
   }
 
   return (
-    <Box sx={resultStyles.resultElementWrapper}>
-      {survey?.Questions.map((question) => (
-        <Box key={question.id}>
-          {question.parentId === null ? (
-            <>
-              <Box sx={resultStyles.card}>
-                <Typography variant="body1">
-                  {question.title[language as keyof Locales]}:{' '}
-                  {answers[question.id] as string}
-                </Typography>
-              </Box>
-              {survey?.Questions.filter((q) => q.parentId === question.id)?.map(
-                (q) => (
+    <>
+      <Typography
+        data-cy="result-section-title"
+        variant="h6"
+        component="div"
+        sx={{ paddingTop: '20px' }}
+      >
+        {t('results:answerBoxTitle')}
+      </Typography>
+      <Box sx={resultStyles.resultElementWrapper}>
+        {survey?.Questions.map((question) => (
+          <Box key={question.id}>
+            {question.parentId === null ? (
+              <>
+                <Box sx={resultStyles.card}>
+                  <Typography variant="body1">
+                    {question.title[language as keyof Locales]}:{' '}
+                    {answers[question.id] as string}
+                  </Typography>
+                </Box>
+                {survey?.Questions.filter(
+                  (q) => q.parentId === question.id
+                )?.map((q) => (
                   <Box key={q.id}>
                     {answers[q.id] ? (
                       <Box
@@ -96,25 +106,25 @@ const RenderAnswers = ({
                       </Box>
                     ) : null}
                   </Box>
-                )
-              )}
-            </>
-          ) : null}
-          {question.id === 1 && (
-            <Box sx={resultStyles.card}>
-              <Typography variant="body1">
-                {t('facultySelect:title')}:{' '}
-                {
-                  organisations.find(
-                    (faculty) => faculty.code === answers.faculty
-                  )?.name[language as keyof Locales]
-                }
-              </Typography>
-            </Box>
-          )}
-        </Box>
-      ))}
-    </Box>
+                ))}
+              </>
+            ) : null}
+            {question.id === 1 && (
+              <Box sx={resultStyles.card}>
+                <Typography variant="body1">
+                  {t('facultySelect:title')}:{' '}
+                  {
+                    organisations.find(
+                      (faculty) => faculty.code === answers.faculty
+                    )?.name[language as keyof Locales]
+                  }
+                </Typography>
+              </Box>
+            )}
+          </Box>
+        ))}
+      </Box>
+    </>
   )
 }
 

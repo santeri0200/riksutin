@@ -1,6 +1,12 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Table, TableBody, TableContainer } from '@mui/material'
+import {
+  Box,
+  Table,
+  TableBody,
+  TableContainer,
+  Typography,
+} from '@mui/material'
 import { Question, Result, Locales } from '@backend/types'
 import { countryRisk, universityRisk } from '../../util/risks'
 
@@ -10,6 +16,10 @@ import { useResultData } from '../../contexts/ResultDataContext'
 import CountryResults from './CountryResults'
 
 import RiskElement from './RiskElement'
+
+import styles from '../../styles'
+
+const { resultStyles } = styles
 
 const TotalRisk = ({
   selectedCountryCode,
@@ -99,50 +109,59 @@ const TotalRisk = ({
   )?.isSelected[language as keyof Locales]
 
   return (
-    <TableContainer>
-      <Table
-        sx={{
-          width: '80%',
-          '& .MuiTableCell-sizeMedium': {
-            padding: '10px',
-          },
-        }}
-      >
-        <TableBody>
-          <RiskElement
-            infoText={totalRiskText}
-            resultText={t('risks:totalRiskLevel')}
-            risk={totalRisk}
-          />
-          {country && (
-            <>
+    <>
+      <Typography data-cy="result-section-title" variant="h6" component="div">
+        {t('results:riskTableTitle')}
+      </Typography>
+      <Box sx={resultStyles.resultElementWrapper}>
+        <TableContainer>
+          <Table
+            sx={{
+              width: '80%',
+              '& .MuiTableCell-sizeMedium': {
+                padding: '10px',
+              },
+            }}
+          >
+            <TableBody>
               <RiskElement
-                resultText={t('risks:countryRiskLevel')}
-                risk={riskArray[0].riskLevel}
-                infoText={riskArray[0].riskLevel === 1 ? t('risks:noRisk') : ''}
+                infoText={totalRiskText}
+                resultText={t('risks:totalRiskLevel')}
+                risk={totalRisk}
               />
-              {riskArray[0].riskLevel !== 1 && (
-                <CountryResults
-                  country={country}
-                  results={results}
-                  resultData={resultData}
-                />
+              {country && (
+                <>
+                  <RiskElement
+                    resultText={t('risks:countryRiskLevel')}
+                    risk={riskArray[0].riskLevel}
+                    infoText={
+                      riskArray[0].riskLevel === 1 ? t('risks:noRisk') : ''
+                    }
+                  />
+                  {riskArray[0].riskLevel !== 1 && (
+                    <CountryResults
+                      country={country}
+                      results={results}
+                      resultData={resultData}
+                    />
+                  )}
+                </>
               )}
-            </>
-          )}
-          {riskArray.map(
-            (risk) =>
-              risk.id !== 'country' && (
-                <RiskElement
-                  key={risk.id}
-                  resultText={risk.text}
-                  risk={risk.riskLevel}
-                />
-              )
-          )}
-        </TableBody>
-      </Table>
-    </TableContainer>
+              {riskArray.map(
+                (risk) =>
+                  risk.id !== 'country' && (
+                    <RiskElement
+                      key={risk.id}
+                      resultText={risk.text}
+                      risk={risk.riskLevel}
+                    />
+                  )
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
+    </>
   )
 }
 
