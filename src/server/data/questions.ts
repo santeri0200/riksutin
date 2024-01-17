@@ -832,7 +832,7 @@ const getQuestionData = async (): Promise<Question[]> => [
       sv: '',
       en: '',
     },
-    optionData: { type: 'text', options: [] },
+    optionData: { type: 'organisationSelect', options: [] },
     visibility: {
       options: ['otherResearchOrg', 'company', 'ngo', 'otherType'],
     },

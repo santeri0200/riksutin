@@ -17,6 +17,7 @@ import { InputProps } from '../../types'
 import styles from '../../styles'
 import useCountries from '../../hooks/useCountries'
 import SelectFaculty from '../Common/SelectFaculty'
+import OrganisationSelect from '../Choices/OrganisationSelect'
 
 const { cardStyles } = styles
 
@@ -98,6 +99,7 @@ const RenderQuestions = ({
     info: SingleChoice,
     text: Text,
     select: DropDownSelect,
+    organisationSelect: OrganisationSelect,
   }
 
   const Choice = components[question.optionData.type as PossibleChoiceTypes]
@@ -121,6 +123,7 @@ const RenderQuestions = ({
           question={question}
           language={language}
           selectedCountry={selectedCountryCode}
+          watch={watch}
           defaultValue={
             question.id === 1 ? `${user?.firstName} ${user?.lastName}` : ''
           }

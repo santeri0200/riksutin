@@ -5,13 +5,17 @@ const organizationRouter = express.Router()
 organizationRouter.get('/:org', async (req, res: any) => {
   const { org } = req.params
 
-  const params = '&pageSize=10&pageNumber=1'
+  const params = '&pageSize=20&pageNumber=1'
   const url = `https://api.tech.ec.europa.eu/search-api/prod/rest/search?apiKey=SEDIA_PERSON&text="${org}"${params}`
 
   const response = await fetch(url, { method: 'POST' })
   const data = await response.json()
 
-  return res.status(200).send(data.results)
+  const resultNames = [
+    ...new Set(data.results.map((result: any) => result.summary)),
+  ]
+
+  return res.status(200).send(resultNames)
 })
 
 export default organizationRouter
