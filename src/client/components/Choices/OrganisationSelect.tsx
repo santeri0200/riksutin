@@ -42,7 +42,7 @@ const OrganisationList = ({
 
       <Controller
         control={control}
-        name="select-organisation"
+        name="selectOrganisation"
         defaultValue=""
         render={({ field: { onChange } }) => (
           <Box justifyContent="center">

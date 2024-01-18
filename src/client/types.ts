@@ -25,6 +25,7 @@ export interface FormValues {
   [key: number]: any
   course: string
   faculty: string
+  selectOrganisation: string
 }
 
 export type SurveySave = typeof FORM_DATA_KEY

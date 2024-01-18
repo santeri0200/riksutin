@@ -60,11 +60,18 @@ const RenderAnswers = ({
     return { [questionId]: texts.join(', ') || '' }
   })
 
+  if (resultData.selectOrganisation) {
+    // eslint-disable-next-line no-param-reassign
+    resultData[22] = resultData.selectOrganisation
+  }
+
   const answers = {
     ...resultData,
     ...Object.assign({}, ...singleChoiceAnswers),
     ...Object.assign({}, ...multiChoiceAnswers),
   }
+
+  console.log(resultData)
 
   return (
     <>
