@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Control, Controller } from 'react-hook-form'
-import { Box, Button, TextField, Autocomplete, Typography } from '@mui/material'
+import { Box, TextField, Autocomplete, Typography } from '@mui/material'
 
 import { useTranslation } from 'react-i18next'
 import { InputProps } from '../../types'
@@ -17,17 +17,25 @@ const OrganisationList = ({
   questionId: string
   control: Control<any> | undefined
 }) => {
-  const { organisations = [] } = useOrganisations(inputOrganisation)
+  const { organisations } = useOrganisations(inputOrganisation)
   const { t } = useTranslation()
 
-  return !organisations ? (
-    <LoadingProgress />
+  if (!organisations) return <LoadingProgress />
+
+  return organisations.length === 0 ? (
+    <Typography
+      data-cy="result-section-title"
+      variant="body1"
+      sx={{ mt: 2, paddingBottom: 2 }}
+    >
+      {t('organisationSelect:noResults')}
+    </Typography>
   ) : (
     <>
       <Typography
         data-cy="result-section-title"
         variant="body1"
-        sx={{ paddingBottom: 2 }}
+        sx={{ mt: 2, paddingBottom: 2 }}
       >
         {t('organisationSelect:listInfoText')}
       </Typography>
@@ -62,10 +70,9 @@ const OrganisationSelect = ({
   children,
   watch,
 }: InputProps) => {
-  const [buttonClicked, setButtonClicked] = React.useState(false)
-  const { t } = useTranslation()
-
   if (!question || !watch) return null
+
+  const input = watch(question.id.toString())
 
   return (
     <>
@@ -82,10 +89,7 @@ const OrganisationSelect = ({
           </Box>
         )}
       />
-      <Button type="button" onClick={() => setButtonClicked(true)}>
-        {t('organisationSelect:searchButton')}
-      </Button>
-      {buttonClicked && (
+      {input && input.length > 3 && (
         <OrganisationList
           inputOrganisation={watch(question.id.toString())}
           questionId={question.id.toString()}

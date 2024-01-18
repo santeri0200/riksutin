@@ -20,11 +20,12 @@
   },
   "organisationSelect": {
     "searchButton": "Search",
-    "listInfoText": "Select your organisation from the list"
+    "listInfoText": "Select your partner organisation from the list",
+    "noResults": "Your partner organisation is not in the database"
   },
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
-    "loadingUniversities": "Loading universities",
+    "loadingUniversities": "Loading",
     "selectUniversityInfoMessage": "Select a country to see options"
   },
   "risks": {

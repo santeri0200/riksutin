@@ -20,7 +20,8 @@
   },
   "organisationSelect": {
     "searchButton": "Hae",
-    "listInfoText": "Valitse yhteistyökumppanisi nimi listalta"
+    "listInfoText": "Valitse yhteistyökumppanisi nimi listalta",
+    "noResults": "Yhteistyökumppaniasi ei löytynyt tietokannasta"
   },
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
