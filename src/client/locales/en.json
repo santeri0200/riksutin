@@ -18,6 +18,10 @@
     "inputLabel": "Faculty",
     "infoMessage": "Information about your faculty's guidelines"
   },
+  "organisationSelect": {
+    "searchButton": "Search",
+    "listInfoText": "Select your organisation from the list"
+  },
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
     "loadingUniversities": "Loading universities",

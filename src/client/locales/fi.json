@@ -18,6 +18,10 @@
     "inputLabel": "Tiedekunta",
     "infoMessage": "Tietoa tiedekuntasi ohjeistuksesta"
   },
+  "organisationSelect": {
+    "searchButton": "Hae",
+    "listInfoText": "Valitse yhteistyökumppanisi nimi listalta"
+  },
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
     "loadingUniversities": "Ladataan yliopistoja",

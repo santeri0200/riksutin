@@ -1,8 +1,9 @@
 import React from 'react'
 
 import { Control, Controller } from 'react-hook-form'
-import { Box, Button, TextField, Autocomplete } from '@mui/material'
+import { Box, Button, TextField, Autocomplete, Typography } from '@mui/material'
 
+import { useTranslation } from 'react-i18next'
 import { InputProps } from '../../types'
 import useOrganisations from '../../hooks/useOrganisations'
 import LoadingProgress from '../Common/LoadingProgress'
@@ -17,12 +18,19 @@ const OrganisationList = ({
   control: Control<any> | undefined
 }) => {
   const { organisations = [] } = useOrganisations(inputOrganisation)
+  const { t } = useTranslation()
 
   return !organisations ? (
     <LoadingProgress />
   ) : (
     <>
-      <p>Valitse organisaatiosi listalta</p>
+      <Typography
+        data-cy="result-section-title"
+        variant="body1"
+        sx={{ paddingBottom: 2 }}
+      >
+        {t('organisationSelect:listInfoText')}
+      </Typography>
 
       <Controller
         control={control}
@@ -55,6 +63,7 @@ const OrganisationSelect = ({
   watch,
 }: InputProps) => {
   const [buttonClicked, setButtonClicked] = React.useState(false)
+  const { t } = useTranslation()
 
   if (!question || !watch) return null
 
@@ -74,7 +83,7 @@ const OrganisationSelect = ({
         )}
       />
       <Button type="button" onClick={() => setButtonClicked(true)}>
-        Etsi
+        {t('organisationSelect:searchButton')}
       </Button>
       {buttonClicked && (
         <OrganisationList
