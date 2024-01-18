@@ -71,8 +71,6 @@ const RenderAnswers = ({
     ...Object.assign({}, ...multiChoiceAnswers),
   }
 
-  console.log(resultData)
-
   return (
     <>
       <Typography

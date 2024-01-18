@@ -8,7 +8,7 @@ import styles from '../../styles'
 const { resultStyles, riskColors } = styles
 
 export interface RiskElementProps {
-  infoText?: string | null
+  infoText?: string | null | undefined
   resultText: string
   risk: number | null
   style?: any

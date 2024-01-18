@@ -62,6 +62,21 @@ const TotalRisk = ({
     .find((question) => question.id === 23)
     ?.optionData.options.find((o) => o.id === resultData[23])?.risk
 
+  const organisationRisk = () => {
+    if (resultData.selectOrganisation) return 1
+    if (
+      !resultData.selectOrganisation &&
+      resultData[24] === 'succefultCollaboration'
+    )
+      return 2
+    if (
+      !resultData.selectOrganisation &&
+      resultData[24] === 'noSuccessfulCollaboration'
+    )
+      return 3
+    return null
+  }
+
   const riskArray = [
     {
       id: 'country',
@@ -92,6 +107,14 @@ const TotalRisk = ({
       id: 'dualUse',
       text: t('risks:dualUseRiskLevel'),
       riskLevel: dualUseRisk,
+    },
+    {
+      id: 'organisation',
+      text: 'Organisaation riskitaso',
+      riskLevel: organisationRisk(),
+      infoText: results.find(
+        (r) => r.optionLabel === `organisationRiskLevel${organisationRisk()}`
+      )?.isSelected[language as keyof Locales],
     },
   ].filter((value) => possibleRiskLevels.includes(value.riskLevel))
 
@@ -154,6 +177,7 @@ const TotalRisk = ({
                       key={risk.id}
                       resultText={risk.text}
                       risk={risk.riskLevel}
+                      infoText={risk.infoText}
                     />
                   )
               )}

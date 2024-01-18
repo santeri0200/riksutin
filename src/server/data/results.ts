@@ -358,6 +358,57 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 22,
+    surveyId: 1,
+    optionLabel: 'organisationRiskLevel1',
+    isSelected: {
+      fi: '*Yhteistyökumppani löytyy EU:n komission rahoittamiskelpoisten organisaatioiden listalta, joten sitä voidaan pitää luotettavana.*',
+      sv: '',
+      en: "*Partner organisation appeard on the EU Commission's list ot eligible organisations, and may be trusted.*",
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 23,
+    surveyId: 1,
+    optionLabel: 'organisationRiskLevel2',
+    isSelected: {
+      fi: '*Yhteistyökumppani ei kuulu EUn komission tunnistamiin kumppaniorganisaatioihin, mutta sen kanssa on tehty aiempaa yhteistyötä. Jos luotat edelleen yhteistyökumppaniin, voit edetä yhteistyön suunnittelussa ja toteutuksessa.*',
+      sv: '',
+      en: '*Partner organisation does not appear on EU Comission list of approved organisations, but there is a history of previous collaboration. If you continue to trust the partner organisation, you can go ahead and continue planinning and implementing the collaboration.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 24,
+    surveyId: 1,
+    optionLabel: 'organisationRiskLevel3',
+    isSelected: {
+      fi: '*Yhteistyökumppani ei kuulu EUn komission tunnistamiin kumppaniorganisaatioihin, eikä sen kanssa ole tehty aiempaa yhteistyötä. Selvitä kumppanin taustat ennen yhteistyöhön sitoutmista ja sen aloittamista.*',
+      sv: '',
+      en: "*Partner organisation does not appear on EU Comission list of approved organisations, and there is no history of previous collaboration. Please investigate the partner's background before committing to collaboration.*",
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData
