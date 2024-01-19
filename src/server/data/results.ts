@@ -409,6 +409,57 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 24,
+    surveyId: 1,
+    optionLabel: 'dualUseRiskLevel1',
+    isSelected: {
+      fi: '*Yhteistyö ei sisällä kaksoiskäyttöriskejä.*',
+      sv: '',
+      en: '*Collaboration does not pose Dual Use risks.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 25,
+    surveyId: 1,
+    optionLabel: 'dualUseRiskLevel2',
+    isSelected: {
+      fi: '*Olet ilmoittanut, että ei ole tiedossa onkoyhteistyössä mahdollisuus siihen, että kumppanille siirtyy sotilaskäyttöön soveltuvaa teknologiaa tai osaamista. Koska kaksoiskäyttö (Dual Use) on lailla kiellettyä, on sen estämisen varmistaminen yhteistyölle välttämätöntä. Tutustu tarkasti Flammassa oleviin ohjeisiin ja ota yhteyttä tarvittaessa yliopiston tutkimuspalveluiden asiantuntijoihin.*',
+      sv: '',
+      en: '*According to the information provided, the possibility of military technology or related knowledge being tranferred to the partner in question in not certain. As Dual Use is illegal, and its prevention is  precondition for the collaboration, ensuring compliance is mandatory. Please review related instructions in Flamma and contact Research Services experts, if necessary..*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 26,
+    surveyId: 1,
+    optionLabel: 'dualUseRiskLevel3',
+    isSelected: {
+      fi: '*Olet ilmoittanut, että yhteistyössää on mahdollisuus siihen, että kumppanille siirtyy sotilaskäyttöön soveltuvaa teknologiaa tai osaamista. Kaksoiskäyttö (Dual Use) on lailla kiellettyä, joten sen estäminen on yhteistyölle välttämätöntä. Tutustu tarkasti Flammassa oleviin ohjeisiin ja ota yhteyttä tarvittaessa yliopiston tutkimuspalveluiden asiantuntijoihin.*',
+      sv: '',
+      en: '*According to the information provided, there is a possibility of military technology or related knowledge being tranferred to the partner in question. Dual Use is illegal, and its prevention is  precondition for the collaboration. Please review related instructions in Flamma and contact Research Services experts, if necessary.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData

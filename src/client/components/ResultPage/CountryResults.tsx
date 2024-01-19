@@ -9,7 +9,7 @@ import RiskElement from './RiskElement'
 import {
   eeaCountries,
   adequateProtectionCountries,
-} from '../../util/gdprCountries'
+} from '../../util/countryLists'
 
 const CountryResults = ({
   country,

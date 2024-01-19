@@ -8,6 +8,7 @@ import {
   Typography,
 } from '@mui/material'
 import { Question, Result, Locales } from '@backend/types'
+import { euCountries } from '../../util/countryLists'
 import { countryRisk, universityRisk } from '../../util/risks'
 
 import useCountry from '../../hooks/useCountryData'
@@ -58,9 +59,12 @@ const TotalRisk = ({
     .find((question) => question.id === 12)
     ?.optionData.options.find((o) => o.id === resultData[12])?.risk
 
-  const dualUseRisk = questions
-    .find((question) => question.id === 23)
-    ?.optionData.options.find((o) => o.id === resultData[23])?.risk
+  const dualUseRisk = () => {
+    if (euCountries.includes(resultData[8])) return 1
+    return questions
+      .find((question) => question.id === 23)
+      ?.optionData.options.find((o) => o.id === resultData[23])?.risk
+  }
 
   const organisationRisk = () => {
     if (resultData.selectOrganisation) return 1
@@ -106,7 +110,10 @@ const TotalRisk = ({
     {
       id: 'dualUse',
       text: t('risks:dualUseRiskLevel'),
-      riskLevel: dualUseRisk,
+      riskLevel: dualUseRisk(),
+      infoText: results.find(
+        (r) => r.optionLabel === `dualUseRiskLevel${dualUseRisk()}`
+      )?.isSelected[language as keyof Locales],
     },
     {
       id: 'organisation',

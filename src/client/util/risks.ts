@@ -1,5 +1,5 @@
 import { CountryData, FormValues } from '@frontend/types'
-import { eeaCountries, adequateProtectionCountries } from './gdprCountries'
+import { eeaCountries, adequateProtectionCountries } from './countryLists'
 
 export const countryRisk = ({
   country,
