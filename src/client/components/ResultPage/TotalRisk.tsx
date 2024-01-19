@@ -82,11 +82,13 @@ const TotalRisk = ({
     return null
   }
 
+  const countryRiskValues = countryRisk({ country, resultData })
+
   const riskArray = [
     {
       id: 'country',
       text: t('risks:countryRiskLevel'),
-      riskLevel: countryRisk({ country, resultData }),
+      riskLevel: countryRiskValues ? countryRiskValues[0] : null,
     },
     {
       id: 'university',
@@ -128,12 +130,15 @@ const TotalRisk = ({
 
   if (riskArray.length === 0) return null
 
-  const totalRisk = Math.round(
-    (riskArray.map((value) => value.riskLevel) as number[]).reduce(
-      (a, b) => a + b,
-      0
-    ) / riskArray.length
+  const allRisks = (
+    riskArray.map((value) => value.riskLevel) as number[]
+  ).concat(countryRiskValues ? countryRiskValues[1] : [])
+
+  let totalRisk = Math.round(
+    allRisks.reduce((a, b) => a + b, 0) / allRisks.length
   )
+
+  if (allRisks.filter((value) => value === 3).length >= 3) totalRisk = 3
 
   const totalRiskText = results.find(
     (r) => r.optionLabel === `totalRiskLevel${totalRisk}`

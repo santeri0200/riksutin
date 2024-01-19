@@ -44,7 +44,7 @@ export const countryRisk = ({
     return null
   }
 
-  const filteredRiskValues = Object.values(riskValues)
+  const riskList = Object.values(riskValues)
     .concat(
       safetyLevel * safetyLevelMultiplier,
       sanctionsRisk * sanctionsMultiplier,
@@ -53,10 +53,10 @@ export const countryRisk = ({
     .filter((value) => value != null)
 
   const totalCountryRiskLevel = Math.round(
-    filteredRiskValues.reduce((a, b) => a + b, 0) / filteredRiskValues.length
+    riskList.reduce((a, b) => a + b, 0) / riskList.length
   )
 
-  return totalCountryRiskLevel
+  return [totalCountryRiskLevel, riskList]
 }
 
 export const universityRisk = (
