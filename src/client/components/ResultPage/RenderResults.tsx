@@ -41,6 +41,7 @@ const RenderResults = () => {
         selectedCountryCode={selectedCountryCode}
         questions={survey.Questions}
         results={results}
+        resultData={resultData}
       />
       <RenderAnswers survey={survey} resultData={resultData} />
     </Box>

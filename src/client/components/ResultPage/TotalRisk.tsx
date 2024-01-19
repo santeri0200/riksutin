@@ -12,13 +12,13 @@ import { euCountries } from '../../util/countryLists'
 import { countryRisk, universityRisk } from '../../util/risks'
 
 import useCountry from '../../hooks/useCountryData'
-import { useResultData } from '../../contexts/ResultDataContext'
 
 import CountryResults from './CountryResults'
 
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
+import { FormValues } from '../../types'
 
 const { resultStyles } = styles
 
@@ -26,13 +26,14 @@ const TotalRisk = ({
   selectedCountryCode,
   questions,
   results,
+  resultData,
 }: {
   selectedCountryCode: string | undefined
   questions: Question[]
   results: Result[]
+  resultData: FormValues
 }) => {
   const { t, i18n } = useTranslation()
-  const { resultData } = useResultData()
   const { country } = useCountry(selectedCountryCode)
 
   if (!resultData) return null
@@ -117,7 +118,7 @@ const TotalRisk = ({
     },
     {
       id: 'organisation',
-      text: 'Organisaation riskitaso',
+      text: t('risks:organisationRiskLevel'),
       riskLevel: organisationRisk(),
       infoText: results.find(
         (r) => r.optionLabel === `organisationRiskLevel${organisationRisk()}`
@@ -168,13 +169,11 @@ const TotalRisk = ({
                       riskArray[0].riskLevel === 1 ? t('risks:noRisk') : ''
                     }
                   />
-                  {riskArray[0].riskLevel !== 1 && (
-                    <CountryResults
-                      country={country}
-                      results={results}
-                      resultData={resultData}
-                    />
-                  )}
+                  <CountryResults
+                    country={country}
+                    results={results}
+                    resultData={resultData}
+                  />
                 </>
               )}
               {riskArray.map(
