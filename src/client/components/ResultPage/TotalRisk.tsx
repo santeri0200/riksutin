@@ -84,6 +84,15 @@ const TotalRisk = ({
 
   const countryRiskValues = countryRisk({ country, resultData })
 
+  const roleMultiplier = resultData[9] === 'coordinator' ? 1.2 : 1
+
+  const durationMultiplier = resultData[12] === 'longDuration' ? 1.2 : 1
+
+  const agreementMultiplier = resultData[10] === 'agreementNotDone' ? 1.2 : 1
+
+  const previousCollaborationMultiplier =
+    resultData[24] === 'noSuccessfulCollaboration' ? 1.2 : 1
+
   const riskArray = [
     {
       id: 'country',
@@ -135,7 +144,11 @@ const TotalRisk = ({
   ).concat(countryRiskValues ? countryRiskValues[1] : [])
 
   let totalRisk = Math.round(
-    allRisks.reduce((a, b) => a + b, 0) / allRisks.length
+    (allRisks.reduce((a, b) => a + b, 0) / allRisks.length) *
+      roleMultiplier *
+      durationMultiplier *
+      agreementMultiplier *
+      previousCollaborationMultiplier
   )
 
   if (allRisks.filter((value) => value === 3).length >= 3) totalRisk = 3
