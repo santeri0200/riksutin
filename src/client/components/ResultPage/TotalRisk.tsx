@@ -68,6 +68,7 @@ const TotalRisk = ({
   }
 
   const organisationRisk = () => {
+    if (!resultData[22] && !resultData.selectOrganisation) return null
     if (resultData.selectOrganisation) return 1
     if (
       !resultData.selectOrganisation &&

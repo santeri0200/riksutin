@@ -410,7 +410,7 @@ const getResultData = (): Result[] => [
     },
   },
   {
-    id: 24,
+    id: 25,
     surveyId: 1,
     optionLabel: 'dualUseRiskLevel1',
     isSelected: {
@@ -427,7 +427,7 @@ const getResultData = (): Result[] => [
     },
   },
   {
-    id: 25,
+    id: 26,
     surveyId: 1,
     optionLabel: 'dualUseRiskLevel2',
     isSelected: {
@@ -444,7 +444,7 @@ const getResultData = (): Result[] => [
     },
   },
   {
-    id: 26,
+    id: 27,
     surveyId: 1,
     optionLabel: 'dualUseRiskLevel3',
     isSelected: {
