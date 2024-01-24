@@ -44,23 +44,13 @@ const TotalRisk = ({
 
   const possibleRiskLevels = [0, 1, 2, 3, 4, 5]
 
-  const fundingRisk = questions
-    .filter((question) => [14, 15].includes(question.id))
-    ?.map(
-      (question) =>
-        question.optionData.options.find(
-          (o) => o.id === resultData[question.id]
-        )?.risk
-    )
-    .reduce((a, b) => a * b, 1)
-
-  const funderRisk = questions
-    .find((question) => question.id === 13)
-    ?.optionData.options.find((o) => o.id === resultData[13])?.risk
-
   const durationRisk = questions
     .find((question) => question.id === 12)
     ?.optionData.options.find((o) => o.id === resultData[12])?.risk
+
+  const economicRisk = questions
+    .find((question) => question.id === 16)
+    ?.optionData.options.find((o) => o.id === resultData[16])?.risk
 
   const dualUseRisk = () => {
     if (euCountries.includes(resultData[8])) return 1
@@ -108,16 +98,6 @@ const TotalRisk = ({
       riskLevel: universityRisk(resultData['20'], resultData['21']),
     },
     {
-      id: 'funder',
-      text: t('risks:funderRiskLevel'),
-      riskLevel: funderRisk,
-    },
-    {
-      id: 'funding',
-      text: t('risks:fundingRiskLevel'),
-      riskLevel: fundingRisk,
-    },
-    {
       id: 'duration',
       text: t('risks:durationRiskLevel'),
       riskLevel: durationRisk,
@@ -137,6 +117,11 @@ const TotalRisk = ({
       infoText: results.find(
         (r) => r.optionLabel === `organisationRiskLevel${organisationRisk()}`
       )?.isSelected[language as keyof Locales],
+    },
+    {
+      id: 'economic',
+      text: t('risks:economicRiskLevel'),
+      riskLevel: economicRisk,
     },
   ].filter((value) => possibleRiskLevels.includes(value.riskLevel))
 
