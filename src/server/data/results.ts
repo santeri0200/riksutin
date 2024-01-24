@@ -460,6 +460,57 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 28,
+    surveyId: 1,
+    optionLabel: 'universityRiskLevel1',
+    isSelected: {
+      fi: '*Yhteistyöyliopisto on listattu World Higher Education -tietokannassa ja kuuluu lisäksi johonkin seuraavista: Euroopan tai maailman ylipistojen liitto (EUA/IAU), Magna Charta Observatory, Scholars at Risk.*',
+      sv: '',
+      en: '*Collaboration university is listed in the World Higher Education database and is a member of European University Association, International University Association, Magna Charta Observatory or Scholars at Risk network.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 29,
+    surveyId: 1,
+    optionLabel: 'universityRiskLevel2',
+    isSelected: {
+      fi: '*Yhteistyöyliopisto on listattu World Higher Education -tietokannassa mutta ei ole Euroopan tai maailman yliopistojen liiton, Magna Charta Observatoryn tai Scholars at Risk -verkoston jäsen.*',
+      sv: '',
+      en: '*Collaboration university is listed in the World Higher Education database but is not a member of European University Association, International University Association, Magna Charta Observatory or Scholars at Risk network.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 30,
+    surveyId: 1,
+    optionLabel: 'universityRiskLevel3',
+    isSelected: {
+      fi: '*Yhteistyöyliopistoa ei löydy World Higher Education -tietokannasta. Varmista, että kyseessä on maansa virallisesti hyväksyttyihin kuuluva yliopisto.*',
+      sv: '',
+      en: '*Collaboration university is not part of the World Higher Education database. Please take steps to make sure, the partner is a legitimate university.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData

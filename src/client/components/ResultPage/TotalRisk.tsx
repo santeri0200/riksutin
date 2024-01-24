@@ -96,6 +96,14 @@ const TotalRisk = ({
       id: 'university',
       text: t('risks:universityRiskLevel'),
       riskLevel: universityRisk(resultData['20'], resultData['21']),
+      infoText: results.find(
+        (r) =>
+          r.optionLabel ===
+          `universityRiskLevel${universityRisk(
+            resultData['20'],
+            resultData['21']
+          )}`
+      )?.isSelected[language as keyof Locales],
     },
     {
       id: 'duration',
