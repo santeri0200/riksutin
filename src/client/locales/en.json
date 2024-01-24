@@ -63,7 +63,8 @@
     "HCIrank": "Human development",
     "safetyLevel": "Safety level",
     "sanctions": "Sanctions",
-    "academicFreedom": "Academic freedom"
+    "academicFreedom": "Academic freedom",
+    "multiplierInfoText": "In addition, the role of the UH, duration of the project, existence of written agreement and previous successful collaboration affect to the total risk level."
   },
   "contact": {
     "title": "Contact",

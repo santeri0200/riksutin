@@ -4,7 +4,9 @@ import {
   Box,
   Table,
   TableBody,
+  TableCell,
   TableContainer,
+  TableRow,
   Typography,
 } from '@mui/material'
 import { Question, Result, Locales } from '@backend/types'
@@ -179,6 +181,15 @@ const TotalRisk = ({
                 resultText={t('risks:totalRiskLevel')}
                 risk={totalRisk}
               />
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <Box sx={{ paddingTop: '10px', paddingBottom: '10px' }}>
+                    <Typography variant="body1">
+                      {t('results:multiplierInfoText')}
+                    </Typography>
+                  </Box>
+                </TableCell>
+              </TableRow>
               {country && (
                 <>
                   <RiskElement

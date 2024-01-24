@@ -63,7 +63,8 @@
     "HCIrank": "Inhimillinen kehitys",
     "safetyLevel": "Turvallisuustaso",
     "sanctions": "Pakotteet",
-    "academicFreedom": "Akateeminen vapaus"
+    "academicFreedom": "Akateeminen vapaus",
+    "multiplierInfoText": "Lisäksi kokonaisriskiin vaikuttavat Helsingin yliopiston rooli yhteistyössä, yhteistyösopimuksen kesto, yhteistyösopimuksen olemassaolo ja aiempi yhteistyö."
   },
   "contact": {
     "title": "Yhteydenotto",
