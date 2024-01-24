@@ -21,7 +21,8 @@
   "organisationSelect": {
     "searchButton": "Search",
     "listInfoText": "Select your partner organisation from the list",
-    "noResults": "Your partner organisation is not in the database"
+    "noResults": "Your partner organisation is not in the database",
+    "autocompleteLabel": "Organisation"
   },
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",

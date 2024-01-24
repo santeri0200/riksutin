@@ -54,7 +54,10 @@ const OrganisationList = ({
               onChange={(e, data) => onChange(data)}
               sx={{ width: '50%' }}
               renderInput={(params) => (
-                <TextField {...params} label="organisaatio" />
+                <TextField
+                  {...params}
+                  label={t('organisationSelect:autocompleteLabel')}
+                />
               )}
             />
           </Box>
