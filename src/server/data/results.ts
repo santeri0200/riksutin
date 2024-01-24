@@ -329,9 +329,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'gdprRiskLevel2',
     isSelected: {
-      fi: '*Henkilötietojen luovuttamista koskee EU:n GDPR-sääntely. Yhteistyökumppanisi sijaintimaa kuuluu helpotetun menettelyn mukaisiin maihin, mutta tutustu tarkempiin ohjeisiin Flammassa.*',
-      sv: '*Handing over personal data requires GDPR compliance. Your partner is located in a country with limited compliance requirements, but please review instructions at Flamma.*',
-      en: '*Handing over personal data requires GDPR compliance. Your partner is located in a country with limited compliance requirements, but please review instructions at Flamma.*',
+      fi: '*Henkilötietojen luovuttamista koskee EU:n GDPR-sääntely. Yhteistyökumppanisi sijaintimaa kuuluu helpotetun menettelyn mukaisiin maihin, mutta tutustu tarkempiin ohjeisiin [Flammassa.](https://flamma.helsinki.fi/fi/group/turvallisuus/tietosuoja#menu10)',
+      sv: '*Handing over personal data requires GDPR compliance. Your partner is located in a country with limited compliance requirements, but please review instructions at [Flamma.](https://flamma.helsinki.fi/en/group/turvallisuus/tietosuoja)*',
+      en: '*Handing over personal data requires GDPR compliance. Your partner is located in a country with limited compliance requirements, but please review instructions at [Flamma.](https://flamma.helsinki.fi/en/group/turvallisuus/tietosuoja)*',
     },
     data: {
       allDimensions: {
@@ -346,9 +346,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'gdprRiskLevel3',
     isSelected: {
-      fi: '*Henkilötietojen luovuttamista koskee EU:n GDPR-sääntely. Tutustu tarkempiin ohjeisiin Flammassa.*',
-      sv: '*Handing over personal data requires GDPR compliance. Please review instructions at Flamma.*',
-      en: '*Handing over personal data requires GDPR compliance. Please review instructions at Flamma.*',
+      fi: '*Henkilötietojen luovuttamista koskee EU:n GDPR-sääntely. Tutustu tarkempiin ohjeisiin [Flammassa.](https://flamma.helsinki.fi/fi/group/turvallisuus/tietosuoja#menu10)*',
+      sv: '*Handing over personal data requires GDPR compliance. Please review instructions at [Flamma.](https://flamma.helsinki.fi/en/group/turvallisuus/tietosuoja)*',
+      en: '*Handing over personal data requires GDPR compliance. Please review instructions at [Flamma.](https://flamma.helsinki.fi/en/group/turvallisuus/tietosuoja)*',
     },
     data: {
       allDimensions: {
