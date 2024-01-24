@@ -596,7 +596,7 @@ const getQuestionData = async (): Promise<Question[]> => [
           id: 'internationalPublicEntity',
           label: 'internationalPublicEntity',
           title: {
-            fi: 'Ulkomainen julisyhteisö (esim. EU, YK, ulkomainen ministeriö)',
+            fi: 'Ulkomainen julkisyhteisö (esim. EU, YK, ulkomainen ministeriö)',
             sv: 'International public entity (e.g. EU, UN, foreign ministry)',
             en: 'International public entity (e.g. EU, UN, foreign ministry)',
           },
@@ -643,8 +643,8 @@ const getQuestionData = async (): Promise<Question[]> => [
     priority: 13,
     title: {
       fi: 'Arvio HY:n taloudellisista vastuista koko yhteistyön ajalta (euroina)',
-      sv: 'Estimate of YH financial responsibilities for the duration of collaboration (in euros)',
-      en: 'Estimate of YH financial responsibilities for the duration of collaboration (in euros)',
+      sv: 'Estimate of UH financial responsibilities for the duration of collaboration (in euros)',
+      en: 'Estimate of UH financial responsibilities for the duration of collaboration (in euros)',
     },
     text: {
       fi: '',
