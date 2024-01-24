@@ -3,7 +3,7 @@ export const euCountries = [
   'Belgium',
   'Bulgaria',
   'Croatia',
-  'Republic of Cyprus',
+  'Cyprus',
   'Czech Republic',
   'Denmark',
   'Estonia',
@@ -48,4 +48,17 @@ export const adequateProtectionCountries = [
   'GB',
   'UY',
   'US',
+]
+
+export const globalNorthCountries = [
+  ...eeaCountries,
+  'Australia',
+  'Canada',
+  'Japan',
+  'New Zealand',
+  'Switzerland',
+  'United Kingdom',
+  'United States',
+  'Korea, Rep.',
+  'Israel',
 ]
