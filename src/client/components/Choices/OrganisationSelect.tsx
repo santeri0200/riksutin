@@ -89,7 +89,7 @@ const OrganisationSelect = ({
           </Box>
         )}
       />
-      {input && input.length > 3 && (
+      {input && input.length > 1 && (
         <OrganisationList
           inputOrganisation={watch(question.id.toString())}
           questionId={question.id.toString()}
