@@ -5,6 +5,9 @@ import { set, get } from '../../util/redis'
 const baseUrl = 'https://www.whed.net'
 
 const fetchData = async (countryName: string) => {
+  // eslint-disable-next-line no-param-reassign
+  if (countryName === 'United States') countryName = 'United States of America'
+
   const url = `${baseUrl}/results_institutions.php`
   const key = `${url}?country=${countryName}`
 
