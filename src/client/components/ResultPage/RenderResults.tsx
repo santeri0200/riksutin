@@ -4,7 +4,7 @@ import { Box } from '@mui/material'
 import useSurvey from '../../hooks/useSurvey'
 import useResultRefCallback from '../../hooks/useResultRefCallback'
 
-import TotalRisk from './TotalRisk'
+import RiskTable from './RiskTable'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 import useCountries from '../../hooks/useCountries'
@@ -37,7 +37,7 @@ const RenderResults = () => {
 
   return (
     <Box ref={refCallback}>
-      <TotalRisk
+      <RiskTable
         selectedCountryCode={selectedCountryCode}
         questions={survey.Questions}
         results={results}

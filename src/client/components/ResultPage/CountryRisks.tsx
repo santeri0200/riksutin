@@ -11,7 +11,7 @@ import {
   adequateProtectionCountries,
 } from '../../util/countryLists'
 
-const CountryResults = ({
+const CountryRisks = ({
   country,
   results,
   resultData,
@@ -125,4 +125,4 @@ const CountryResults = ({
   )
 }
 
-export default CountryResults
+export default CountryRisks

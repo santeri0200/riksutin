@@ -15,16 +15,15 @@ import { countryRisk, universityRisk } from '../../util/risks'
 
 import useCountry from '../../hooks/useCountryData'
 
-import CountryResults from './CountryResults'
-
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
 import { FormValues } from '../../types'
+import CountryRisks from './CountryRisks'
 
 const { resultStyles } = styles
 
-const TotalRisk = ({
+const RiskTable = ({
   selectedCountryCode,
   questions,
   results,
@@ -192,7 +191,7 @@ const TotalRisk = ({
                       riskArray[0].riskLevel === 1 ? t('riskTable:noRisk') : ''
                     }
                   />
-                  <CountryResults
+                  <CountryRisks
                     country={country}
                     results={results}
                     resultData={resultData}
@@ -218,4 +217,4 @@ const TotalRisk = ({
   )
 }
 
-export default TotalRisk
+export default RiskTable
