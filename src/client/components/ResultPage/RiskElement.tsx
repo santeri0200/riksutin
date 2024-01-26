@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props */
 import React from 'react'
-import { Box, TableCell, TableRow, Typography } from '@mui/material'
+import { Box, TableCell, TableRow } from '@mui/material'
 import Markdown from '../Common/Markdown'
 
 import styles from '../../styles'
@@ -25,11 +25,9 @@ const RiskElement = ({
   return (
     <TableRow>
       <TableCell width="30%">
-        <Typography variant="body1">
-          <Box sx={style}>
-            <Markdown>{resultText}</Markdown>
-          </Box>
-        </Typography>
+        <Box sx={style}>
+          <Markdown>{resultText}</Markdown>
+        </Box>
       </TableCell>
       <TableCell>
         <Box
