@@ -4,7 +4,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from './App'
 import InteractiveForm from './components/InteractiveForm/InteractiveForm'
 import Admin from './components/Admin/Admin'
-import Contact from './components/ContactPage/Contact'
 import EditQuestions from './components/Admin/EditQuestions/EditQuestions'
 import RenderEditQuestions from './components/Admin/EditQuestions/RenderEditQuestions'
 import EditResults from './components/Admin/EditResults/EditResults'
@@ -27,11 +26,6 @@ const router = createBrowserRouter(
         {
           index: true,
           element: <InteractiveForm />,
-          errorElement: <RootBoundary />,
-        },
-        {
-          path: '/contact',
-          element: <Contact />,
           errorElement: <RootBoundary />,
         },
         {

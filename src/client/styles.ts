@@ -89,10 +89,6 @@ const formStyles = {
   formControl: {
     width: '100%',
   },
-  contactForm: {
-    width: '100%',
-    height: '100vh',
-  },
   choiceBox: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -186,12 +182,6 @@ const resultStyles = {
     m: 2,
     [BreakPointTheme.breakpoints.down('sm')]: {
       m: 1,
-    },
-  },
-  contactStackWrapper: {
-    mt: 4,
-    [BreakPointTheme.breakpoints.up('sm')]: {
-      mt: 12,
     },
   },
   heading: {
