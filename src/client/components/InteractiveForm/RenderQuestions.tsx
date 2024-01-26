@@ -5,10 +5,10 @@ import { UseFormWatch } from 'react-hook-form'
 
 import { useTranslation } from 'react-i18next'
 import useLoggedInUser from '../../hooks/useLoggedInUser'
-import MultiChoice from '../Choices/MultiChoice'
-import SingleChoice from '../Choices/SingleChoice'
-import Text from '../Choices/TextField'
-import DropDownSelect from '../Choices/DropDownSelect'
+import MultiChoice from '../QuestionTypes/MultiChoice'
+import SingleChoice from '../QuestionTypes/SingleChoice'
+import Text from '../QuestionTypes/Text'
+import DropDownSelect from '../QuestionTypes/DropDownSelect'
 import Markdown from '../Common/Markdown'
 import ShowMore from '../Common/ShowMore'
 
@@ -17,7 +17,7 @@ import { InputProps } from '../../types'
 import styles from '../../styles'
 import useCountries from '../../hooks/useCountries'
 import SelectFaculty from '../Common/SelectFaculty'
-import OrganisationSelect from '../Choices/OrganisationSelect'
+import OrganisationSelect from '../QuestionTypes/OrganisationSelect'
 
 const { cardStyles } = styles
 
@@ -102,9 +102,10 @@ const RenderQuestions = ({
     organisationSelect: OrganisationSelect,
   }
 
-  const Choice = components[question.optionData.type as PossibleChoiceTypes]
+  const QuestionType =
+    components[question.optionData.type as PossibleChoiceTypes]
 
-  if (!Choice) return null
+  if (!QuestionType) return null
 
   const childQuestions = questions.filter(
     (childQuestion) => question.id === childQuestion.parentId
@@ -117,7 +118,7 @@ const RenderQuestions = ({
           language={language as keyof Locales}
           watch={watch}
         />
-        <Choice
+        <QuestionType
           key={question.id}
           control={control}
           question={question}
@@ -139,7 +140,7 @@ const RenderQuestions = ({
                 language={language}
               />
             ))}
-        </Choice>
+        </QuestionType>
       </Box>
       {question.id === 1 && <SelectFaculty control={control} />}
     </Box>
