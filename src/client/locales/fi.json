@@ -9,9 +9,7 @@
     "submitError": "Tulosten lähettäminen epäonnistui, kokeile uudelleen hetken päästä"
   },
   "footer": {
-    "contactSupport": "Ota yhteyttä tukeen: <mailTo>{{supportEmail}}</mailTo>",
-    "licenseText": "Tämä teos on lisensoitu",
-    "licenseLinkText": "CC BY-NC-SA 4.0 -lisenssillä"
+    "contactSupport": "Ota yhteyttä tukeen: <mailTo>{{supportEmail}}</mailTo>"
   },
   "facultySelect": {
     "title": "Ilmoittajan tiedekunta",
@@ -29,7 +27,7 @@
     "loadingUniversities": "Ladataan",
     "selectUniversityInfoMessage": "Valitse sijaintimaa nähdäksesi vaihtoehdot"
   },
-  "risks": {
+  "riskTable": {
     "countryRiskLevel": "Maan riskitaso",
     "universityRiskLevel": "Yliopiston riskitaso",
     "durationRiskLevel": "Yhteistyön keston riskitaso",
@@ -38,7 +36,14 @@
     "organisationRiskLevel": "Yhteistyöorganisaation riskitaso",
     "totalRiskLevel": "**Yhteistyön kokonaisriskitaso**",
     "noRisk": "*Ei erityistä riskiä*",
-    "sanctionsRisk": "*Lue lisää maahan kohdistuvista pakotteista [sanctionsmap.eu](https://sanctionsmap.eu/#/main)-sivulta*"
+    "sanctionsRisk": "*Lue lisää maahan kohdistuvista pakotteista [sanctionsmap.eu](https://sanctionsmap.eu/#/main)-sivulta*",
+    "corruptionRank": "Korruptio",
+    "stabilityRank": "Poliittinen vakaus",
+    "HCIrank": "Inhimillinen kehitys",
+    "safetyLevel": "Turvallisuustaso",
+    "sanctions": "Pakotteet",
+    "academicFreedom": "Akateeminen vapaus",
+    "multiplierInfoText": "Alla mainittujen riskitekijöiden lisäksi kokonaisriskiin vaikuttavat antamasi tiedot Helsingin yliopiston roolista yhteistyössä, yhteistyön kesto, yhteistyösopimuksen olemassaolo ja aiempi yhteistyö."
   },
   "results": {
     "title": "Yhteenveto valinnoistasi",
@@ -57,29 +62,9 @@
     "sendSuccess": "Yhteenveto on lähetetty sähköpostiisi",
     "endMessage": "Kiitos Riksuttimen käytöstä!",
     "backToMessage": "Takaisin valintoihin",
-    "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa",
-    "corruptionRank": "Korruptio",
-    "stabilityRank": "Poliittinen vakaus",
-    "HCIrank": "Inhimillinen kehitys",
-    "safetyLevel": "Turvallisuustaso",
-    "sanctions": "Pakotteet",
-    "academicFreedom": "Akateeminen vapaus",
-    "multiplierInfoText": "Alla mainittujen riskitekijöiden lisäksi kokonaisriskiin vaikuttavat antamasi tiedot Helsingin yliopiston roolista yhteistyössä, yhteistyön kesto, yhteistyösopimuksen olemassaolo ja aiempi yhteistyö."
+    "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa"
   },
   "contact": {
-    "title": "Yhteydenotto",
-    "contactMessage": "Lähetä tästä viesti jatkaaksesi keskustelua asiantuntijan kanssa.",
-    "contactMethodLabel": "Valitse yhteydenottotapa",
-    "contactMethodEmail": "Sähköposti",
-    "contactMethodConsultation": "Konsultaatio",
-    "contactTicketText": "Täytä yhteytenottolomake",
-    "contactTicketContentLabel": "Sisältö",
-    "contactTicketSenderEmail": "Käyttäjän sähköpostiosoite:",
-    "contactTicketSenderFullname": "Käyttäjän nimi:",
-    "contactTicketUserMessage": "Käyttäjän viesti:",
-    "contactTicketUserSummary": "Käyttäjän yhteenveto:",
-    "contactTicketSend": "Lähetä",
-    "sendSuccess": "Kiitos Riksuttimen käytöstä, olemme yhteydessä sinuun pian!",
     "pateErrorMessage": "Palvelimeen ei saatu yhteyttä"
   },
   "admin": {

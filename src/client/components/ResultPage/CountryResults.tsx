@@ -81,38 +81,38 @@ const CountryResults = ({
     <>
       <RiskElement
         infoText={corruptionText}
-        resultText={t('results:corruptionRank')}
+        resultText={t('riskTable:corruptionRank')}
         risk={country.corruption}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         infoText={politicalStabilityText}
-        resultText={t('results:stabilityRank')}
+        resultText={t('riskTable:stabilityRank')}
         risk={country.stability}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         infoText={humanDevelopmentText}
-        resultText={t('results:HCIrank')}
+        resultText={t('riskTable:HCIrank')}
         risk={country.hci}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         infoText={safetyLevelText}
-        resultText={t('results:safetyLevel')}
+        resultText={t('riskTable:safetyLevel')}
         risk={country.safetyLevel * safetyLevelMultiplier}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
-        resultText={t('results:sanctions')}
+        resultText={t('riskTable:sanctions')}
         risk={sanctionsRisk * sanctionsMultiplier}
-        infoText={sanctionsRisk === 2 ? t('risks:sanctionsRisk') : ''}
+        infoText={sanctionsRisk === 2 ? t('riskTable:sanctionsRisk') : ''}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         infoText={academicFreedomText}
         risk={country.academicfreedom}
-        resultText={t('results:academicFreedom')}
+        resultText={t('riskTable:academicFreedom')}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement

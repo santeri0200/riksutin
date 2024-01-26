@@ -89,12 +89,12 @@ const TotalRisk = ({
   const riskArray = [
     {
       id: 'country',
-      text: t('risks:countryRiskLevel'),
+      text: t('riskTable:countryRiskLevel'),
       riskLevel: countryRiskValues ? countryRiskValues[0] : null,
     },
     {
       id: 'university',
-      text: t('risks:universityRiskLevel'),
+      text: t('riskTable:universityRiskLevel'),
       riskLevel: universityRisk(resultData['20'], resultData['21']),
       infoText: results.find(
         (r) =>
@@ -107,12 +107,12 @@ const TotalRisk = ({
     },
     {
       id: 'duration',
-      text: t('risks:durationRiskLevel'),
+      text: t('riskTable:durationRiskLevel'),
       riskLevel: durationRisk,
     },
     {
       id: 'dualUse',
-      text: t('risks:dualUseRiskLevel'),
+      text: t('riskTable:dualUseRiskLevel'),
       riskLevel: dualUseRisk(),
       infoText: results.find(
         (r) => r.optionLabel === `dualUseRiskLevel${dualUseRisk()}`
@@ -120,7 +120,7 @@ const TotalRisk = ({
     },
     {
       id: 'organisation',
-      text: t('risks:organisationRiskLevel'),
+      text: t('riskTable:organisationRiskLevel'),
       riskLevel: organisationRisk(),
       infoText: results.find(
         (r) => r.optionLabel === `organisationRiskLevel${organisationRisk()}`
@@ -128,7 +128,7 @@ const TotalRisk = ({
     },
     {
       id: 'economic',
-      text: t('risks:economicRiskLevel'),
+      text: t('riskTable:economicRiskLevel'),
       riskLevel: economicRisk,
     },
   ].filter((value) => possibleRiskLevels.includes(value.riskLevel))
@@ -171,14 +171,14 @@ const TotalRisk = ({
             <TableBody>
               <RiskElement
                 infoText={totalRiskText}
-                resultText={t('risks:totalRiskLevel')}
+                resultText={t('riskTable:totalRiskLevel')}
                 risk={totalRisk}
               />
               <TableRow>
                 <TableCell colSpan={3}>
                   <Box sx={{ paddingTop: '10px', paddingBottom: '10px' }}>
                     <Typography variant="body1">
-                      {t('results:multiplierInfoText')}
+                      {t('riskTable:multiplierInfoText')}
                     </Typography>
                   </Box>
                 </TableCell>
@@ -186,10 +186,10 @@ const TotalRisk = ({
               {country && (
                 <>
                   <RiskElement
-                    resultText={t('risks:countryRiskLevel')}
+                    resultText={t('riskTable:countryRiskLevel')}
                     risk={riskArray[0].riskLevel}
                     infoText={
-                      riskArray[0].riskLevel === 1 ? t('risks:noRisk') : ''
+                      riskArray[0].riskLevel === 1 ? t('riskTable:noRisk') : ''
                     }
                   />
                   <CountryResults

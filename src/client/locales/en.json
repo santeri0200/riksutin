@@ -9,9 +9,7 @@
     "submitError": "Failed to submit results, please try again later"
   },
   "footer": {
-    "contactSupport": "Contact support: <mailTo>{{supportEmail}}</mailTo>",
-    "licenseText": "This work is licensed",
-    "licenseLinkText": "under CC BY-NC-SA 4.0 license"
+    "contactSupport": "Contact support: <mailTo>{{supportEmail}}</mailTo>"
   },
   "facultySelect": {
     "title": "Faculty of the person providing information",
@@ -29,7 +27,7 @@
     "loadingUniversities": "Loading",
     "selectUniversityInfoMessage": "Select a country to see options"
   },
-  "risks": {
+  "riskTable": {
     "countryRiskLevel": "Risk level of the partner country",
     "universityRiskLevel": "Risk level of the partner university",
     "durationRiskLevel": "Risk level of the project duration",
@@ -38,7 +36,14 @@
     "organisationRiskLevel": "Risk level of the partner organisation",
     "totalRiskLevel": "**Total risk level of the project**",
     "noRisk": "*No identifiable risk*",
-    "sanctionsRisk": "*Read more information about the sanctions at [sanctionsmap.eu](https://sanctionsmap.eu/#/main)*"
+    "sanctionsRisk": "*Read more information about the sanctions at [sanctionsmap.eu](https://sanctionsmap.eu/#/main)*",
+    "corruptionRank": "Corruption",
+    "stabilityRank": "Political stability",
+    "HCIrank": "Human development",
+    "safetyLevel": "Safety level",
+    "sanctions": "Sanctions",
+    "academicFreedom": "Academic freedom",
+    "multiplierInfoText": "In addition to the individual risk items below, the overall risk score is affected by information you have provided for the role University of Helsinki plays in the collaboration, the duration of the collaboration, the availability of an agreement and previous experiences with this partner."
   },
   "results": {
     "title": "Summary of Your Choices",
@@ -57,29 +62,9 @@
     "sendSuccess": "Summary has been sent to your email",
     "endMessage": "Thank you for using Riksutin!",
     "backToMessage": "Back to selections",
-    "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa",
-    "corruptionRank": "Corruption",
-    "stabilityRank": "Political stability",
-    "HCIrank": "Human development",
-    "safetyLevel": "Safety level",
-    "sanctions": "Sanctions",
-    "academicFreedom": "Academic freedom",
-    "multiplierInfoText": "In addition to the individual risk items below, the overall risk score is affected by information you have provided for the role University of Helsinki plays in the collaboration, the duration of the collaboration, the availability of an agreement and previous experiences with this partner."
+    "selectedCountry": "Valitsemasi yhteistyökumppanin sijaintimaa"
   },
   "contact": {
-    "title": "Contact",
-    "contactMessage": "Send a message here to continue the conversation with an expert.",
-    "contactMethodLabel": "Select contact method",
-    "contactMethodEmail": "Email",
-    "contactMethodConsultation": "Consultation",
-    "contactTicketText": "Fill out the contact form",
-    "contactTicketContentLabel": "Content",
-    "contactTicketSenderEmail": "User's email address:",
-    "contactTicketSenderFullname": "User's name:",
-    "contactTicketUserMessage": "User's message:",
-    "contactTicketUserSummary": "User's summary:",
-    "contactTicketSend": "Send",
-    "sendSuccess": "Thank you for using Riksutin, we will get back to you soon!",
     "pateErrorMessage": "Failed to connect to the server"
   },
   "admin": {
