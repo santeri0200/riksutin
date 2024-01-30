@@ -1,5 +1,36 @@
 import { CountryData, FormValues } from '@frontend/types'
-import { eeaCountries, adequateProtectionCountries } from './countryLists'
+import { Question } from '@backend/types'
+import {
+  euCountries,
+  eeaCountries,
+  adequateProtectionCountries,
+} from './countryLists'
+
+export const gdprRisk = (
+  country: CountryData | undefined,
+  resultData: FormValues
+) => {
+  if (resultData['17'] === 'noTransferPersonalData') return 1
+  if (!country) return null
+  if (
+    resultData['17'] === 'transferPersonalData' &&
+    eeaCountries.includes(country.code)
+  )
+    return 1
+  if (
+    resultData['17'] === 'transferPersonalData' &&
+    !eeaCountries.includes(country.code) &&
+    adequateProtectionCountries.includes(country.code)
+  )
+    return 2
+  if (
+    resultData['17'] === 'transferPersonalData' &&
+    !eeaCountries.includes(country.code) &&
+    !adequateProtectionCountries.includes(country.code)
+  )
+    return 3
+  return null
+}
 
 export const countryRisk = ({
   country,
@@ -22,33 +53,12 @@ export const countryRisk = ({
       ? 1.5
       : 1
 
-  const gdprRisk = () => {
-    if (resultData['17'] === 'noTransferPersonalData') return 1
-    if (
-      resultData['17'] === 'transferPersonalData' &&
-      eeaCountries.includes(country.code)
-    )
-      return 1
-    if (
-      resultData['17'] === 'transferPersonalData' &&
-      !eeaCountries.includes(country.code) &&
-      adequateProtectionCountries.includes(country.code)
-    )
-      return 2
-    if (
-      resultData['17'] === 'transferPersonalData' &&
-      !eeaCountries.includes(country.code) &&
-      !adequateProtectionCountries.includes(country.code)
-    )
-      return 3
-    return null
-  }
-
+  const gdprRiskValue = gdprRisk(country, resultData)
   const riskList = Object.values(riskValues)
     .concat(
       safetyLevel * safetyLevelMultiplier,
       sanctionsRisk * sanctionsMultiplier,
-      gdprRisk() as number
+      gdprRiskValue as number
     )
     .filter((value) => value != null)
 
@@ -70,5 +80,28 @@ export const universityRisk = (
     return 1
   }
 
+  return null
+}
+
+export const dualUseRisk = (questions: Question[], resultData: FormValues) => {
+  if (euCountries.includes(resultData[8])) return 1
+  return questions
+    .find((question) => question.id === 23)
+    ?.optionData.options.find((o) => o.id === resultData[23])?.risk
+}
+
+export const organisationRisk = (resultData: FormValues) => {
+  if (!resultData[22] && !resultData.selectOrganisation) return null
+  if (resultData.selectOrganisation) return 1
+  if (
+    !resultData.selectOrganisation &&
+    resultData[24] === 'succefultCollaboration'
+  )
+    return 2
+  if (
+    !resultData.selectOrganisation &&
+    resultData[24] === 'noSuccessfulCollaboration'
+  )
+    return 3
   return null
 }

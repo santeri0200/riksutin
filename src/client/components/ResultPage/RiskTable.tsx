@@ -10,8 +10,12 @@ import {
   Typography,
 } from '@mui/material'
 import { Question, Result, Locales } from '@backend/types'
-import { euCountries } from '../../util/countryLists'
-import { countryRisk, universityRisk } from '../../util/risks'
+import {
+  countryRisk,
+  universityRisk,
+  dualUseRisk,
+  organisationRisk,
+} from '../../util/risks'
 
 import useCountry from '../../hooks/useCountryData'
 
@@ -43,47 +47,17 @@ const RiskTable = ({
 
   const possibleRiskLevels = [0, 1, 2, 3, 4, 5]
 
-  const durationRisk = questions
-    .find((question) => question.id === 12)
-    ?.optionData.options.find((o) => o.id === resultData[12])?.risk
-
-  const economicRisk = questions
-    .find((question) => question.id === 16)
-    ?.optionData.options.find((o) => o.id === resultData[16])?.risk
-
-  const dualUseRisk = () => {
-    if (euCountries.includes(resultData[8])) return 1
-    return questions
-      .find((question) => question.id === 23)
-      ?.optionData.options.find((o) => o.id === resultData[23])?.risk
-  }
-
-  const organisationRisk = () => {
-    if (!resultData[22] && !resultData.selectOrganisation) return null
-    if (resultData.selectOrganisation) return 1
-    if (
-      !resultData.selectOrganisation &&
-      resultData[24] === 'succefultCollaboration'
-    )
-      return 2
-    if (
-      !resultData.selectOrganisation &&
-      resultData[24] === 'noSuccessfulCollaboration'
-    )
-      return 3
-    return null
-  }
-
   const countryRiskValues = countryRisk({ country, resultData })
 
   const roleMultiplier = resultData[9] === 'coordinator' ? 1.2 : 1
-
   const durationMultiplier = resultData[12] === 'longDuration' ? 1.2 : 1
-
   const agreementMultiplier = resultData[10] === 'agreementNotDone' ? 1.2 : 1
-
   const previousCollaborationMultiplier =
     resultData[24] === 'noSuccessfulCollaboration' ? 1.2 : 1
+
+  const dualUseRiskValue = dualUseRisk(questions, resultData)
+
+  const organisationRiskValue = organisationRisk(resultData)
 
   const riskArray = [
     {
@@ -107,28 +81,32 @@ const RiskTable = ({
     {
       id: 'duration',
       text: t('riskTable:durationRiskLevel'),
-      riskLevel: durationRisk,
+      riskLevel: questions
+        .find((question) => question.id === 12)
+        ?.optionData.options.find((o) => o.id === resultData[12])?.risk,
     },
     {
       id: 'dualUse',
       text: t('riskTable:dualUseRiskLevel'),
-      riskLevel: dualUseRisk(),
+      riskLevel: dualUseRiskValue,
       infoText: results.find(
-        (r) => r.optionLabel === `dualUseRiskLevel${dualUseRisk()}`
+        (r) => r.optionLabel === `dualUseRiskLevel${dualUseRiskValue}`
       )?.isSelected[language as keyof Locales],
     },
     {
       id: 'organisation',
       text: t('riskTable:organisationRiskLevel'),
-      riskLevel: organisationRisk(),
+      riskLevel: organisationRiskValue,
       infoText: results.find(
-        (r) => r.optionLabel === `organisationRiskLevel${organisationRisk()}`
+        (r) => r.optionLabel === `organisationRiskLevel${organisationRiskValue}`
       )?.isSelected[language as keyof Locales],
     },
     {
       id: 'economic',
       text: t('riskTable:economicRiskLevel'),
-      riskLevel: economicRisk,
+      riskLevel: questions
+        .find((question) => question.id === 16)
+        ?.optionData.options.find((o) => o.id === resultData[16])?.risk,
     },
   ].filter((value) => possibleRiskLevels.includes(value.riskLevel))
 

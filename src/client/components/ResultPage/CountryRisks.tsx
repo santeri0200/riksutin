@@ -6,10 +6,8 @@ import { Locales, Result } from '@backend/types'
 
 import { CountryData, FormValues } from '../../types'
 import RiskElement from './RiskElement'
-import {
-  eeaCountries,
-  adequateProtectionCountries,
-} from '../../util/countryLists'
+
+import { gdprRisk } from '../../util/risks'
 
 const CountryRisks = ({
   country,
@@ -36,28 +34,6 @@ const CountryRisks = ({
       ? 1.5
       : 1
 
-  const gdprRisk = () => {
-    if (resultData['17'] === 'noTransferPersonalData') return 1
-    if (
-      resultData['17'] === 'transferPersonalData' &&
-      eeaCountries.includes(country.code)
-    )
-      return 1
-    if (
-      resultData['17'] === 'transferPersonalData' &&
-      !eeaCountries.includes(country.code) &&
-      adequateProtectionCountries.includes(country.code)
-    )
-      return 2
-    if (
-      resultData['17'] === 'transferPersonalData' &&
-      !eeaCountries.includes(country.code) &&
-      !adequateProtectionCountries.includes(country.code)
-    )
-      return 3
-    return null
-  }
-
   const corruptionText = results.find(
     (r) => r.optionLabel === `corruptionLevel${country.corruption}`
   )?.isSelected[language as keyof Locales]
@@ -74,7 +50,7 @@ const CountryRisks = ({
     (r) => r.optionLabel === `developmentLevel${country.hci}`
   )?.isSelected[language as keyof Locales]
   const gdprText = results.find(
-    (r) => r.optionLabel === `gdprRiskLevel${gdprRisk()}`
+    (r) => r.optionLabel === `gdprRiskLevel${gdprRisk(country, resultData)}`
   )?.isSelected[language as keyof Locales]
 
   return (
@@ -117,7 +93,7 @@ const CountryRisks = ({
       />
       <RiskElement
         infoText={gdprText}
-        risk={gdprRisk()}
+        risk={gdprRisk(country, resultData)}
         resultText="GDPR"
         style={{ paddingLeft: '30px' }}
       />
