@@ -125,7 +125,7 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'developmentLevel2',
     isSelected: {
-      fi: '*Yhteistyöumppanisi sijaitsee vähemmän kehittyneessä maassa, millä saattaa olla vaikutusta yhteistyön suunnitteluun ja toteutukseen.*',
+      fi: '*Yhteistyökumppanisi sijaitsee vähemmän kehittyneessä maassa, millä saattaa olla vaikutusta yhteistyön suunnitteluun ja toteutukseen.*',
       sv: '*Your partner is located in a less-developed country, which might affect planning and implementing the collaboration.*',
       en: '*Your partner is located in a less-developed country, which might affect planning and implementing the collaboration.*',
     },

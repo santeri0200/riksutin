@@ -95,7 +95,7 @@ test('shows correct risk levels', async ({ page }) => {
   ).toBeVisible()
   await expect(
     page.getByText(
-      'Yhteistyöumppanisi sijaitsee vähemmän kehittyneessä maassa, millä saattaa olla vaikutusta yhteistyön suunnitteluun ja toteutukseen.'
+      'Yhteistyökumppanisi sijaitsee vähemmän kehittyneessä maassa, millä saattaa olla vaikutusta yhteistyön suunnitteluun ja toteutukseen.'
     )
   ).toBeVisible()
   await expect(
