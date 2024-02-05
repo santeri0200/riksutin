@@ -1,12 +1,12 @@
-const fetchSanctionsData = async (countryName: string | undefined) => {
-  if (!countryName) return null
+const fetchSanctionsData = async (code: string | undefined) => {
+  if (!code) return null
 
   const url = 'https://sanctionsmap.eu/api/v1/regime'
   const res = await fetch(url)
   const data = await res.json()
 
   const countrySanctions = data.data.find(
-    (c: any) => c.country.data.title === countryName
+    (c: any) => c.country.data.code === code
   )?.legal_acts.data
 
   if (!countrySanctions) return null
