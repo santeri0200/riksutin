@@ -74,7 +74,7 @@ test('shows correct risk levels', async ({ page }) => {
   await page.getByLabel('Koulutus/opetusyhteistyö').check()
   await page.getByLabel('-24kk').check()
   await page.getByLabel('Ei', { exact: true }).nth(2).check()
-  await page.getByLabel('Yli 200000').check()
+  await page.getByLabel('Yli 200.000').check()
   await page.getByLabel('Ei', { exact: true }).nth(3).check()
   await page.getByLabel('Kyllä').nth(4).check()
   await page.getByRole('button', { name: 'Valinnat tehty' }).click()
@@ -125,7 +125,7 @@ test('shows correct risk levels', async ({ page }) => {
   ).toBeVisible()
   await expect(
     page.getByText(
-      'Olet ilmoittanut, että yhteistyössää on mahdollisuus siihen, että kumppanille siirtyy sotilaskäyttöön soveltuvaa teknologiaa tai osaamista. Kaksoiskäyttö (Dual Use) on lailla kiellettyä, joten sen estäminen on yhteistyölle välttämätöntä. Tutustu tarkasti Flammassa oleviin ohjeisiin ja ota yhteyttä tarvittaessa yliopiston tutkimuspalveluiden asiantuntijoihin.'
+      'Olet ilmoittanut, että yhteistyössä on mahdollisuus siihen, että kumppanille siirtyy sotilaskäyttöön soveltuvaa teknologiaa tai osaamista. Intressimme ja myös lakisääteinen velvollisuutemme on varmistaa, että asiantuntijuuttamme tai teknologiaamme ei päädy sotilaalliseen loppukäyttöön pakotemaissa. Tutustu tarkasti Flammassa oleviin ohjeisiin ja ota yhteyttä tarvittaessa yliopiston tutkimuspalveluiden asiantuntijoihin.'
     )
   ).toBeVisible()
   await expect(
