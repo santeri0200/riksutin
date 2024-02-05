@@ -57,9 +57,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'safetyLevel1',
     isSelected: {
-      fi: '*Yhteistyömaahan matkustamiseen ei liity rajoituksia. Varmistu halutessasi tarkemmin tilanteesta ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o)*',
-      sv: '*Travelling to this country is not restricted. Feel free to find additional information from the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
-      en: '*Travelling to this country is not restricted. Feel free to find additional information from the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
+      fi: '*Yhteistyömaahan matkustamiseen ei liity rajoituksia. Varmistu halutessasi tarkemmin tilanteesta ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o). Helsingin yliopiston matkustusturvalllsuutta koskevat ohjeet löytyvät https://flamma.helsinki.fi/fi/group/matkustaminen/matkustusturvallisuus*',
+      sv: '*Travelling to this country is not restricted. Feel free to find additional information from the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
+      en: '*Travelling to this country is not restricted. Feel free to find additional information from the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
     },
     data: {
       allDimensions: {
@@ -74,9 +74,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'safetyLevel2',
     isSelected: {
-      fi: '*Yhteistyömaahan matkustamiseen liittyy rajoituksia, jotka on syytä ottaa huomioon. Tutki tarkemmat yksityiskohdat ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o)".*',
-      sv: '*Travelling to this country may be restricted. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
-      en: '*Travelling to this country may be restricted. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
+      fi: '*Yhteistyömaahan matkustamiseen liittyy rajoituksia, jotka on syytä ottaa huomioon. Tutki tarkemmat yksityiskohdat ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o). Helsingin yliopiston matkustusturvalllsuutta koskevat ohjeet löytyvät https://flamma.helsinki.fi/fi/group/matkustaminen/matkustusturvallisuus*',
+      sv: '*Travelling to this country may be restricted. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
+      en: '*Travelling to this country may be restricted. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
     },
     data: {
       allDimensions: {
@@ -91,9 +91,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'safetyLevel3',
     isSelected: {
-      fi: '*Yhteistyömaahan matkustaminen ei ole tällä hetkellä mahdollista. Tutki tarkemmat yksityiskohdat ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o).*',
-      sv: '*Travelling to this country is not possible at the moment. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
-      en: '*Travelling to this country is not possible at the moment. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only.*',
+      fi: '*Yhteistyömaahan matkustaminen ei ole tällä hetkellä mahdollista. Tutki tarkemmat yksityiskohdat ulkoministeriön [matkustustiedotteista](https://um.fi/matkustustiedotteet-a-o). Helsingin yliopiston matkustusturvalllsuutta koskevat ohjeet löytyvät https://flamma.helsinki.fi/fi/group/matkustaminen/matkustusturvallisuus*',
+      sv: '*Travelling to this country is not possible at the moment. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
+      en: '*Travelling to this country is not possible at the moment. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
     },
     data: {
       allDimensions: {
