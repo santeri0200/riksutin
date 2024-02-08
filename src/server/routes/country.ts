@@ -34,7 +34,7 @@ countryRouter.get('/:code', async (req, res: any) => {
   const safetyLevel = await fetchSafetyLevelData(code)
   const universities = await getCountryUniversities(countryName)
   const sanctions = await fetchSanctionsData(code)
-  const academicfreedom = parseAcademicFreedom(countryName)
+  const academicfreedom = parseAcademicFreedom(code)
 
   const country = {
     code,
