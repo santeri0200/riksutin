@@ -71,6 +71,8 @@ export interface Entry {
   reminderSent: boolean
   SurveyId: number
   UserId: string
+  createdAt: string
+  survey: Survey
 }
 
 export type Country = {

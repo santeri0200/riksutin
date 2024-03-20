@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import App from './App'
 import InteractiveForm from './components/InteractiveForm/InteractiveForm'
+import UserPage from './components/UserPage/UserPage'
 import Admin from './components/Admin/Admin'
 import EditQuestions from './components/Admin/EditQuestions/EditQuestions'
 import RenderEditQuestions from './components/Admin/EditQuestions/RenderEditQuestions'
@@ -26,6 +27,11 @@ const router = createBrowserRouter(
         {
           index: true,
           element: <InteractiveForm />,
+          errorElement: <RootBoundary />,
+        },
+        {
+          path: '/user',
+          element: <UserPage />,
           errorElement: <RootBoundary />,
         },
         {
