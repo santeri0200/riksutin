@@ -16,6 +16,7 @@ import {
 import { Language } from '@mui/icons-material'
 import { useTranslation } from 'react-i18next'
 
+import { Link } from 'react-router-dom'
 import useLoggedInUser from '../../hooks/useLoggedInUser'
 
 import styles from '../../styles'
@@ -53,7 +54,15 @@ const NavBar = () => {
               <Typography sx={navStyles.appName}>{t('appName')}</Typography>
             </Box>
           </Box>
-          <Box>
+          <Box sx={{ display: 'flex' }}>
+            <Button variant="outlined" sx={{ marginRight: '25px' }}>
+              <Link
+                to="/user"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                Omat tiedot
+              </Link>
+            </Button>
             <Button
               ref={anchorRef}
               id="composition-button"
