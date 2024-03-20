@@ -1,7 +1,12 @@
 import express from 'express'
 
 import adminHandler from '../middleware/admin'
-import { createEntry, getEntries, getEntry } from '../services/entry'
+import {
+  createEntry,
+  getEntries,
+  getEntry,
+  getUserEntries,
+} from '../services/entry'
 
 import { EntryValues, RequestWithUser } from '../types'
 
@@ -10,6 +15,12 @@ const entryRouter = express.Router()
 entryRouter.get('/', adminHandler, async (req, res) => {
   const entries = await getEntries()
 
+  return res.status(200).send(entries)
+})
+
+entryRouter.get('/user', async (req: RequestWithUser, res: any) => {
+  const userId = req.user?.id
+  const entries = await getUserEntries(userId)
   return res.status(200).send(entries)
 })
 

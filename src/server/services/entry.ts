@@ -14,6 +14,20 @@ export const getEntries = async (): Promise<Entry[]> => {
   return entries
 }
 
+export const getUserEntries = async (userId: string): Promise<Entry[]> => {
+  const entries = await Entry.findAll({
+    where: {
+      userId,
+    },
+    include: Survey,
+    order: [['updatedAt', 'DESC']],
+  })
+
+  if (!entries) throw new NotFoundError('Entries not found')
+
+  return entries
+}
+
 export const getEntry = async (
   entryId: string,
   userId: string
