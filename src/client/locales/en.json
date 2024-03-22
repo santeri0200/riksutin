@@ -67,6 +67,9 @@
   "contact": {
     "pateErrorMessage": "Failed to connect to the server"
   },
+  "userPage": {
+    "previousEntries": "Previous entries"
+  },
   "admin": {
     "selectDimension": "Select learning method",
     "selectQuestion": "Select question",

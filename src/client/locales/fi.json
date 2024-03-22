@@ -67,6 +67,9 @@
   "contact": {
     "pateErrorMessage": "Palvelimeen ei saatu yhteyttä"
   },
+  "userPage": {
+    "previousEntries": "Täytetyt kyselyt"
+  },
   "admin": {
     "selectDimension": "Valitse oppimismuoto",
     "selectQuestion": "Valitse kysymys",
