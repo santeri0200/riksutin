@@ -40,18 +40,14 @@ const QuestionText = ({
     )
 
   return (
-    <>
-      {question.id === 5 && watch('4') === 'multilateral' ? (
-        <Markdown>
-          {t('questions:optionalPartnerOrganisationNameQuestion')}
-        </Markdown>
-      ) : (
-        <Markdown>{question.title[language]}</Markdown>
+    <Typography component="span">
+      {question.id === 5 && watch('4') === 'multilateral'
+        ? t('questions:optionalPartnerOrganisationNameQuestion')
+        : question.title[language as keyof Locales]}
+      {question.text[language as keyof Locales] && (
+        <ShowMore text={question.text[language as keyof Locales]} />
       )}
-      <Box sx={cardStyles.content}>
-        <Markdown>{question.text[language]}</Markdown>
-      </Box>
-    </>
+    </Typography>
   )
 }
 

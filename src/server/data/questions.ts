@@ -30,9 +30,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'UH unit responsible for collaboration',
     },
     text: {
-      fi: '',
+      fi: 'Kirjoita tähän sen yksikön nimi, jolla HY:ssa on päävastuu tässä yhteistyöstä.',
       sv: '',
-      en: '',
+      en: 'Please provide the name of UH unit, which has the main responsibility of the collaboration in question.',
     },
     optionData: { type: 'text', options: [] },
     visibility: {},
@@ -48,9 +48,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Name of the collaboration/project',
     },
     text: {
-      fi: '',
+      fi: 'Anna yhteistyöprojektin nimi tai lyhyt kuvaus yhteistyöstä',
       sv: '',
-      en: '',
+      en: 'Please enter the name of the project/collaboration or a short description',
     },
     optionData: { type: 'text', options: [] },
     visibility: {},
@@ -66,9 +66,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Composition of consortium',
     },
     text: {
-      fi: '',
+      fi: 'Valitse annetuista vaihtoehdoista',
       sv: '',
-      en: '',
+      en: 'Choose from among the alternatives',
     },
     optionData: {
       type: 'singleChoice',
@@ -106,9 +106,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Type of the partner organisation',
     },
     text: {
-      fi: '',
+      fi: 'Valitse listasta yhteistyökumppania parhaiten kuvaava vaihtoehto',
       sv: '',
-      en: '',
+      en: 'Select the alternative best describing the partner organisation',
     },
     optionData: {
       type: 'singleChoice',
@@ -202,9 +202,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Home country of partner organisation',
     },
     text: {
-      fi: '',
+      fi: 'Jos kyseessä on kahdenvälinen yhteistyö, valitse kumppanin sijaintimaa listasta. Jos kyseessä on monenkeskinen yhteistyö, valitse listasta koordinoivan yliopiston sijaintimaa',
       sv: '',
-      en: '',
+      en: 'In the case of bilateral collaboration, choose the country of location of your partner from the list. In the case of multilateral colllaboration, choose the country of the co-ordinating organisation',
     },
     optionData: {
       type: 'select',
@@ -228,9 +228,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Role of UH in collaboration',
     },
     text: {
-      fi: '',
+      fi: 'Valitse listasta Helsingin yliopiston asemaa parhaiten kuvaava vaihtoehto',
       sv: '',
-      en: '',
+      en: "Select the alternative, which best describes the University of Helsinki's role in the collaboration.",
     },
     optionData: {
       type: 'singleChoice',
@@ -277,9 +277,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Has a written agreement been made, or will one be concluded prior to starting the collaboration?',
     },
     text: {
-      fi: '',
+      fi: 'Ilmaise tässä, onko yhteistyöstä tehty jo sopimus, tai onko sellainen valmisteilla.',
       sv: '',
-      en: '',
+      en: 'Indicate here, if an agreement has either already been made or is in the process of being made.',
     },
     optionData: {
       type: 'singleChoice',
@@ -318,9 +318,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Forms of collaboration',
     },
     text: {
-      fi: '',
+      fi: 'Valitse listan yhteistyömuodoista kaikki hankkeessa todennäköisesti toteutettavaksi aiotut, vaikkei varmuutta toteutuksesta olisikaan',
       sv: '',
-      en: '',
+      en: 'Select from as many from among the alternatives',
     },
     optionData: {
       type: 'multipleChoice',
@@ -412,9 +412,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Duration of collaboration',
     },
     text: {
-      fi: '',
+      fi: 'Valitse annetuista vaihtoehdoista',
       sv: '',
-      en: '',
+      en: 'Choose from among the alternatives',
     },
     optionData: {
       type: 'singleChoice',
@@ -461,9 +461,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Is external funding included in this collaboration?',
     },
     text: {
-      fi: '',
+      fi: 'Valitse annetuista vaihtoehdoista',
       sv: '',
-      en: '',
+      en: 'Choose from among the alternatives',
     },
     optionData: {
       type: 'singleChoice',
@@ -503,9 +503,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Has your unit been previously funded by the same funder?',
     },
     text: {
-      fi: '',
+      fi: 'Valitse annetuista vaihtoehdoista',
       sv: '',
-      en: '',
+      en: 'Choose from among the alternatives',
     },
     optionData: {
       type: 'singleChoice',
@@ -545,9 +545,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Classification of the principal funder',
     },
     text: {
-      fi: '',
+      fi: 'Valitse rahoittajatahoa parhaiten kuvaava vaihtoehto. Jos rahoittajia on useampia, valitse pääasiallista rahoittajaa kuvaava vaihtoehto.',
       sv: '',
-      en: '',
+      en: 'Select the alternative, which best describes the funder. In case there are several funders, select the alternative, which best describes the principal funder.',
     },
     optionData: {
       type: 'singleChoice',
@@ -647,9 +647,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Provide an estimate of the University’s financial responsibilities (including in-kind) of the collaboration for the duration of it.',
     },
     text: {
-      fi: '',
+      fi: 'Ilmoita hankkeen taloudellinen kokonaislaajuus sisältäen mahdollisen omarahoituksen',
       sv: '',
-      en: '',
+      en: 'Please indicated the overall financial scope of the collaoboration, including possible in-kind contribution.',
     },
     optionData: {
       type: 'singleChoice',
@@ -699,9 +699,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Does the collaboration require transferring personal data to the partner institution?',
     },
     text: {
-      fi: '',
+      fi: 'Valitse annetuista vaihtoehdoista',
       sv: '',
-      en: '',
+      en: 'Choose from among the alternatives',
     },
     optionData: {
       type: 'singleChoice',
@@ -848,9 +848,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Does the collaboration require transferring technology or know-how with potential for military use (so-called Dual Use)?',
     },
     text: {
-      fi: '',
+      fi: 'Valitse annetuista vaihtoehdoista',
       sv: '',
-      en: '',
+      en: 'Choose from among the alternatives',
     },
     optionData: {
       type: 'singleChoice',
@@ -900,9 +900,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Has your unit collaborated successfully with the partner organisation before?',
     },
     text: {
-      fi: '',
+      fi: 'Valitse annetuista vaihtoehdoista',
       sv: '',
-      en: '',
+      en: 'Choose from among the alternatives',
     },
     optionData: {
       type: 'singleChoice',
