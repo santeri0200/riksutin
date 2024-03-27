@@ -7,7 +7,7 @@ const fetchSanctionsData = async (code: string | undefined) => {
 
   const countrySanctions = data.data.find(
     (c: any) => c.country.data.code === code
-  )?.legal_acts.data
+  )?.has_lists
 
   if (!countrySanctions) return null
 
