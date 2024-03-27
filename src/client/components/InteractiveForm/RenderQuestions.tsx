@@ -9,7 +9,6 @@ import MultiChoice from '../QuestionTypes/MultiChoice'
 import SingleChoice from '../QuestionTypes/SingleChoice'
 import Text from '../QuestionTypes/Text'
 import DropDownSelect from '../QuestionTypes/DropDownSelect'
-import Markdown from '../Common/Markdown'
 import ShowMore from '../Common/ShowMore'
 
 import { InputProps } from '../../types'
@@ -31,13 +30,6 @@ const QuestionText = ({
   watch: UseFormWatch<any>
 }) => {
   const { t } = useTranslation()
-  if (question.optionData.type === 'info')
-    return (
-      <Typography component="span">
-        {question.title[language]}
-        <ShowMore text={question.text[language as keyof Locales]} />
-      </Typography>
-    )
 
   return (
     <Typography component="span">
