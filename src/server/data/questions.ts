@@ -929,6 +929,73 @@ const getQuestionData = async (): Promise<Question[]> => [
     },
     visibility: {},
   },
+  {
+    id: 25,
+    surveyId: 1,
+    parentId: null,
+    priority: 19,
+    title: {
+      fi: 'Arvioi, sisältääkö yhteistyö eettisiä ongelmakohtia (ihmisoikeudet, tasa-arvo, yhdenvertaisuus) tai ristiriitaa yliopiston arvojen kanssa',
+      sv: '',
+      en: 'Assess if the collaboration includes ethical issues (human rights, equality) or conflicts with the values of the UH',
+    },
+    text: {
+      fi: 'Valitse annetuista vaihtoehdoista',
+      sv: '',
+      en: 'Choose from among the alternatives',
+    },
+    optionData: {
+      type: 'singleChoice',
+      options: [
+        {
+          id: 'noEthicalIssues',
+          label: 'noEthicalIssues',
+          title: {
+            fi: 'Ei missään tapauksessa',
+            sv: '',
+            en: 'Not in any case',
+          },
+        },
+        {
+          id: 'likelyNoEthicalIssues',
+          label: 'likelyNoEthicalIssues',
+          title: {
+            fi: 'Melko varmasti ei',
+            sv: '',
+            en: 'Likely not',
+          },
+        },
+        {
+          id: 'maybeEthicalIssues',
+          label: 'maybeEthicalIssues',
+          title: {
+            fi: 'Ehkä',
+            sv: '',
+            en: 'Maybe',
+          },
+        },
+        {
+          id: 'likelyEthicalIssues',
+          label: 'likelyEthicalIssues',
+          title: {
+            fi: 'Melko varmasti',
+            sv: '',
+            en: 'Possibly',
+          },
+        },
+        {
+          id: 'ethicalIssues',
+          label: 'ethicalIssues',
+          title: {
+            fi: 'Varmasti',
+            sv: '',
+            en: 'Certainly',
+          },
+        },
+      ],
+    },
+    visibility: {},
+  },
 ]
 
 export default getQuestionData
