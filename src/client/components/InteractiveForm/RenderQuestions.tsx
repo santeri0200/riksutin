@@ -17,6 +17,7 @@ import styles from '../../styles'
 import useCountries from '../../hooks/useCountries'
 import SelectFaculty from '../Common/SelectFaculty'
 import OrganisationSelect from '../QuestionTypes/OrganisationSelect'
+import UniversitySelect from '../QuestionTypes/UniversitySelect'
 
 const { cardStyles } = styles
 
@@ -88,6 +89,7 @@ const RenderQuestions = ({
     text: Text,
     select: DropDownSelect,
     organisationSelect: OrganisationSelect,
+    universitySelect: UniversitySelect,
   }
 
   const QuestionType =

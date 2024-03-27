@@ -789,7 +789,7 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: '',
     },
     optionData: {
-      type: 'select',
+      type: 'universitySelect',
       options: [],
       label: {
         fi: 'Valitse yliopisto',
@@ -802,8 +802,8 @@ const getQuestionData = async (): Promise<Question[]> => [
   {
     id: 21,
     surveyId: 1,
-    parentId: 6,
-    priority: 1,
+    parentId: 20,
+    priority: 0,
     title: {
       fi: 'Muu yliopisto',
       sv: 'Other university',
@@ -815,7 +815,7 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: '',
     },
     optionData: { type: 'text', options: [] },
-    visibility: { options: ['university'] },
+    visibility: {},
   },
   {
     id: 22,
