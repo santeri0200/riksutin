@@ -25,7 +25,8 @@
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
     "loadingUniversities": "Ladataan",
-    "selectUniversityInfoMessage": "Valitse sijaintimaa nähdäksesi vaihtoehdot"
+    "selectUniversityInfoMessage": "Valitse sijaintimaa nähdäksesi vaihtoehdot",
+    "addUniversityManually": "Lisää yliopisto itse"
   },
   "riskTable": {
     "countryRiskLevel": "Maan riskitaso",

@@ -25,7 +25,8 @@
   "questions": {
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
     "loadingUniversities": "Loading",
-    "selectUniversityInfoMessage": "Select a country to see options"
+    "selectUniversityInfoMessage": "Select a country to see options",
+    "addUniversityManually": "Add university manually"
   },
   "riskTable": {
     "countryRiskLevel": "Risk level of the partner country",

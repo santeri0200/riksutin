@@ -65,7 +65,7 @@ const UniversitySelect = ({
             )}
           />
           <Button onClick={() => setShowChildQuestion(true)}>
-            Lisää yliopisto itse
+            {t('questions:addUniversityManually')}
           </Button>
         </>
       )}
