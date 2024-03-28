@@ -955,6 +955,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '',
             en: 'Not in any case',
           },
+          risk: 1,
         },
         {
           id: 'likelyNoEthicalIssues',
@@ -964,6 +965,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '',
             en: 'Likely not',
           },
+          risk: 1,
         },
         {
           id: 'maybeEthicalIssues',
@@ -973,6 +975,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '',
             en: 'Maybe',
           },
+          risk: 2,
         },
         {
           id: 'likelyEthicalIssues',
@@ -982,6 +985,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '',
             en: 'Possibly',
           },
+          risk: 3,
         },
         {
           id: 'ethicalIssues',
@@ -991,6 +995,7 @@ const getQuestionData = async (): Promise<Question[]> => [
             sv: '',
             en: 'Certainly',
           },
+          risk: 3,
         },
       ],
     },
