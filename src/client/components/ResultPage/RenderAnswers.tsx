@@ -84,7 +84,7 @@ const RenderAnswers = ({
       <Box sx={resultStyles.resultElementWrapper}>
         {survey?.Questions.map((question) => (
           <Box key={question.id}>
-            {question.parentId === null ? (
+            {!question.parentId && (
               <>
                 <Box sx={resultStyles.card}>
                   <Typography variant="body1">
@@ -96,7 +96,7 @@ const RenderAnswers = ({
                   (q) => q.parentId === question.id
                 )?.map((q) => (
                   <Box key={q.id}>
-                    {answers[q.id] ? (
+                    {answers[q.id] && (
                       <Box
                         sx={{
                           m: 2,
@@ -110,11 +110,32 @@ const RenderAnswers = ({
                           {answers[q.id]}
                         </Typography>
                       </Box>
-                    ) : null}
+                    )}
                   </Box>
                 ))}
               </>
-            ) : null}
+            )}
+            {question.id === 6 && answers[21] && (
+              <Box
+                sx={{
+                  m: 2,
+                  borderLeft: 1,
+                  margin: '15px',
+                  paddingLeft: '10px',
+                }}
+              >
+                <Typography variant="body1">
+                  <b>
+                    {
+                      survey.Questions.find((q) => q.id === 21)?.title[
+                        language as keyof Locales
+                      ]
+                    }
+                  </b>
+                  : {answers[21]}
+                </Typography>
+              </Box>
+            )}
             {question.id === 1 && (
               <Box sx={resultStyles.card}>
                 <Typography variant="body1">
