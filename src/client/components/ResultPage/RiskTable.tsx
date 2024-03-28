@@ -114,7 +114,7 @@ const RiskTable = ({
     },
     {
       id: 'ethical',
-      text: 'Ethical risk level',
+      text: t('riskTable:ethicalRiskLevel'),
       riskLevel: ethicalRiskValue,
       infoText: results.find(
         (r) => r.optionLabel === `ethicalRiskLevel${ethicalRiskValue}`

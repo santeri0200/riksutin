@@ -35,6 +35,7 @@
     "economicRiskLevel": "Economic risk level",
     "dualUseRiskLevel": "Risk level of the dual use",
     "organisationRiskLevel": "Risk level of the partner organisation",
+    "ethicalRiskLevel": "Ethical risk level",
     "totalRiskLevel": "**Total risk level of the project**",
     "noRisk": "*No identifiable risk*",
     "sanctionsRisk": "*Read more information about the sanctions at [sanctionsmap.eu](https://sanctionsmap.eu/#/main)*",
