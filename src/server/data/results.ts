@@ -312,9 +312,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'gdprRiskLevel1',
     isSelected: {
-      fi: '*Tietosuojamielessä yhteistyöhön ei kohdistu erityisiä vaatimuksia.*',
-      sv: '*GDPR is not applicable*',
-      en: '*GDPR is not applicable*',
+      fi: '*Antamisesi tietojen perusteella yhteistyöhön ei kohdistu tietousuojamielessä erityisiä vaatimuksia mutta varmistu, että henkilötietoja ei yhteistyössä tarvitse luovuttaa.*',
+      sv: '',
+      en: '*Based on the information you have provided, GDPR is not applicable, but please double check, if this really is the case.*',
     },
     data: {
       allDimensions: {
@@ -414,9 +414,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'dualUseRiskLevel1',
     isSelected: {
-      fi: '*Yhteistyö ei sisällä kaksoiskäyttöriskejä.*',
+      fi: '*Antamiesi tietojen perusteella yhteistyö ei sisällä kaksoiskäyttöriskejä. Jos tästä kuitenkin on jotain epävarmuutta, tutustu yliopiston ohjeisiin.*',
       sv: '',
-      en: '*Collaboration does not pose Dual Use risks.*',
+      en: '*Based on your response, this collaboration does not pose Dual Use risks. If there is any doubt, please review the instructions at Flamma.*',
     },
     data: {
       allDimensions: {
@@ -502,6 +502,57 @@ const getResultData = (): Result[] => [
       fi: '*Yhteistyöyliopistoa ei löydy World Higher Education -tietokannasta. Varmista, että kyseessä on maansa virallisesti hyväksyttyihin kuuluva yliopisto.*',
       sv: '',
       en: '*Collaboration university is not part of the World Higher Education database. Please take steps to make sure, the partner is a legitimate university.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 31,
+    surveyId: 1,
+    optionLabel: 'ethicalRiskLevel1',
+    isSelected: {
+      fi: '*Ilmoituksesi perusteella yhteistyössä ei ole erityisiä eettisiä haasteita.*',
+      sv: '',
+      en: '*Based on the information you have provided, there are no specific ethical challenges in the collaboration.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 32,
+    surveyId: 1,
+    optionLabel: 'ethicalRiskLevel2',
+    isSelected: {
+      fi: '*Et ole varma yhteistyön eettisistä riskeistä. Voit halutessasi konsultoida yliopiston eettistä asiantuntijaneuvostoa (https://flamma.helsinki.fi/fi/group/yliopisto/eettinen-asiantuntijaneuvosto).*',
+      sv: '',
+      en: 'You are not sure if the collaboration includes ethical risks.',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 33,
+    surveyId: 1,
+    optionLabel: 'ethicalRiskLevel3',
+    isSelected: {
+      fi: '*Olet arvioinut yhteistyön eettiset riskit merkittäviksi. Suositus on, että konsultoit yliopiston eettistä asiantuntijaneuvostoa (https://flamma.helsinki.fi/fi/group/yliopisto/eettinen-asiantuntijaneuvosto) ennen yhteistyöhön sitoutuista.*',
+      sv: '',
+      en: 'You have assessed the ethical risks of the collaboration as significant.',
     },
     data: {
       allDimensions: {
