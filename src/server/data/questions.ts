@@ -173,9 +173,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Additional information',
     },
     text: {
-      fi: '',
+      fi: 'Kirjoita tähän kenttään tärkeiksi katsomiasi lisätietoja yhteistyöstä.',
       sv: '',
-      en: '',
+      en: 'Please provide any additional information regarding the collaboration.',
     },
     optionData: {
       type: 'text',
