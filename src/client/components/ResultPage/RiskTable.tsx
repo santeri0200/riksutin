@@ -59,6 +59,10 @@ const RiskTable = ({
 
   const organisationRiskValue = organisationRisk(resultData)
 
+  const ethicalRiskValue = questions
+    .find((question) => question.id === 25)
+    ?.optionData.options.find((o) => o.id === resultData[25])?.risk
+
   const riskArray = [
     {
       id: 'country',
@@ -107,6 +111,14 @@ const RiskTable = ({
       riskLevel: questions
         .find((question) => question.id === 16)
         ?.optionData.options.find((o) => o.id === resultData[16])?.risk,
+    },
+    {
+      id: 'ethical',
+      text: 'Ethical risk level',
+      riskLevel: ethicalRiskValue,
+      infoText: results.find(
+        (r) => r.optionLabel === `ethicalRiskLevel${ethicalRiskValue}`
+      )?.isSelected[language as keyof Locales],
     },
   ].filter((value) => possibleRiskLevels.includes(value.riskLevel))
 
