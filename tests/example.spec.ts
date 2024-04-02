@@ -115,7 +115,7 @@ test('shows correct risk levels', async ({ page }) => {
   ).toBeVisible()
   await expect(
     page.getByText(
-      'Tietosuojamielessä yhteistyöhön ei kohdistu erityisiä vaatimuksia.'
+      'Antamisesi tietojen perusteella yhteistyöhön ei kohdistu tietousuojamielessä erityisiä vaatimuksia mutta varmistu, että henkilötietoja ei yhteistyössä tarvitse luovuttaa.'
     )
   ).toBeVisible()
   await expect(
