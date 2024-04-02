@@ -47,6 +47,9 @@
     "academicFreedom": "Academic freedom",
     "multiplierInfoText": "In addition to the individual risk items below, the overall risk score is affected by information you have provided for the role University of Helsinki plays in the collaboration, the duration of the collaboration, the availability of an agreement and previous experiences with this partner."
   },
+  "countrySpecificTexts": {
+    "CN": ""
+  },
   "results": {
     "title": "Summary of Your Choices",
     "riskTableTitle": "Risks of the collaboration",

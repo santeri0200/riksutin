@@ -178,7 +178,9 @@ const RiskTable = ({
                     resultText={t('riskTable:countryRiskLevel')}
                     risk={riskArray[0].riskLevel}
                     infoText={
-                      riskArray[0].riskLevel === 1 ? t('riskTable:noRisk') : ''
+                      selectedCountryCode === 'CN'
+                        ? t(`countrySpecificTexts:CN`)
+                        : ''
                     }
                   />
                   <CountryRisks
