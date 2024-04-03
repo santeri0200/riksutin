@@ -33,7 +33,7 @@ test('shows the risk table and answers after submitting', async ({ page }) => {
   await expect(page.getByText('Yhteistyön riskit')).toBeVisible()
 
   await expect(page.getByText('Vastauksesi')).toBeVisible()
-  await expect(page.getByText('Ilmoittajan nimi: Testi Testinen')).toBeVisible()
+  await expect(page.getByText('Testi Testinen')).toBeVisible()
 })
 
 test('selecting a country shows a list of universities', async ({ page }) => {
@@ -74,7 +74,7 @@ test('shows correct risk levels', async ({ page }) => {
   await page.getByLabel('Koulutus/opetusyhteistyö').check()
   await page.getByLabel('-24kk').check()
   await page.getByLabel('Ei', { exact: true }).nth(2).check()
-  await page.getByLabel('Yli 200.000').check()
+  await page.getByLabel('Yli 500.000').check()
   await page.getByLabel('Ei', { exact: true }).nth(3).check()
   await page.getByLabel('Kyllä').nth(4).check()
   await page.getByRole('button', { name: 'Valinnat tehty' }).click()
