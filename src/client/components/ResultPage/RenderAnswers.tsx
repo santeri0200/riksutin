@@ -73,12 +73,7 @@ const RenderAnswers = ({
 
   return (
     <>
-      <Typography
-        data-cy="result-section-title"
-        variant="h6"
-        component="div"
-        sx={{ paddingTop: '20px' }}
-      >
+      <Typography variant="h6" component="div" sx={{ paddingTop: '20px' }}>
         {t('results:answerBoxTitle')}
       </Typography>
       <Box sx={resultStyles.resultElementWrapper}>
@@ -88,7 +83,8 @@ const RenderAnswers = ({
               <>
                 <Box sx={resultStyles.card}>
                   <Typography variant="body1">
-                    <b>{question.title[language as keyof Locales]}</b>:{' '}
+                    <b>{question.title[language as keyof Locales]}</b>
+                    <br />
                     {answers[question.id] as string}
                   </Typography>
                 </Box>
@@ -106,7 +102,8 @@ const RenderAnswers = ({
                         }}
                       >
                         <Typography variant="body1">
-                          <b>{q.title[language as keyof Locales]}</b>:{' '}
+                          <b>{q.title[language as keyof Locales]}</b>
+                          <br />
                           {answers[q.id]}
                         </Typography>
                       </Box>
@@ -132,14 +129,16 @@ const RenderAnswers = ({
                       ]
                     }
                   </b>
-                  : {answers[21]}
+                  <br />
+                  {answers[21]}
                 </Typography>
               </Box>
             )}
             {question.id === 1 && (
               <Box sx={resultStyles.card}>
                 <Typography variant="body1">
-                  <b>{t('facultySelect:title')}</b>:{' '}
+                  <b>{t('facultySelect:title')}</b>
+                  <br />
                   {
                     organisations.find(
                       (faculty) => faculty.code === answers.faculty
