@@ -24,6 +24,7 @@ import RiskElement from './RiskElement'
 import styles from '../../styles'
 import { FormValues } from '../../types'
 import CountryRisks from './CountryRisks'
+import { globalNorthCountries } from '../../util/countryLists'
 
 const { resultStyles } = styles
 
@@ -138,9 +139,21 @@ const RiskTable = ({
 
   if (allRisks.filter((value) => value === 3).length >= 3) totalRisk = 3
 
-  const totalRiskText = results.find(
+  let totalRiskText = results.find(
     (r) => r.optionLabel === `totalRiskLevel${totalRisk}`
   )?.isSelected[language as keyof Locales]
+
+  if (selectedCountryCode === ('RU' || 'BY')) {
+    totalRiskText += t(`countrySpecificTexts:RU`)
+  }
+
+  let countryInfoText = ''
+
+  if (selectedCountryCode === 'CN') {
+    countryInfoText = t(`countrySpecificTexts:CN`)
+  } else if (!globalNorthCountries.includes(selectedCountryCode as string)) {
+    countryInfoText = t(`countrySpecificTexts:globalSouth`)
+  }
 
   return (
     <>
@@ -177,11 +190,7 @@ const RiskTable = ({
                   <RiskElement
                     resultText={t('riskTable:countryRiskLevel')}
                     risk={riskArray[0].riskLevel}
-                    infoText={
-                      selectedCountryCode === 'CN'
-                        ? t(`countrySpecificTexts:CN`)
-                        : ''
-                    }
+                    infoText={countryInfoText}
                   />
                   <CountryRisks
                     country={country}
