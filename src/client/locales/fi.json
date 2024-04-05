@@ -75,7 +75,8 @@
     "pateErrorMessage": "Palvelimeen ei saatu yhteyttä"
   },
   "userPage": {
-    "previousEntries": "Täytetyt kyselyt"
+    "userPageButton": "Omat tiedot",
+    "previousEntries": "Täyttämäsi kyselyt"
   },
   "admin": {
     "selectDimension": "Valitse oppimismuoto",

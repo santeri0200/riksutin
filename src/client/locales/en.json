@@ -75,7 +75,8 @@
     "pateErrorMessage": "Failed to connect to the server"
   },
   "userPage": {
-    "previousEntries": "Previous entries"
+    "userPageButton": "Your profile",
+    "previousEntries": "Your previous entries"
   },
   "admin": {
     "selectDimension": "Select learning method",
