@@ -22,7 +22,7 @@ const SingleChoice = ({
         defaultValue=""
         render={({ field }) => (
           <Box justifyContent="center">
-            <RadioGroup {...field} row>
+            <RadioGroup {...field}>
               {question.optionData.options.map(
                 (singleOption: SingleChoiceType) => (
                   <FormControlLabel
