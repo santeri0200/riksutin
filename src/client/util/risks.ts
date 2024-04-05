@@ -83,8 +83,13 @@ export const universityRisk = (
   return null
 }
 
-export const dualUseRisk = (questions: Question[], resultData: FormValues) => {
-  if (euCountries.includes(resultData[8])) return 1
+export const dualUseRisk = (
+  questions: Question[],
+  resultData: FormValues,
+  country: CountryData | undefined
+) => {
+  if (!country) return null
+  if (euCountries.includes(country.code)) return 1
   return questions
     .find((question) => question.id === 23)
     ?.optionData.options.find((o) => o.id === resultData[23])?.risk

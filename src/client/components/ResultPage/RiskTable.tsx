@@ -55,7 +55,7 @@ const RiskTable = ({
   const previousCollaborationMultiplier =
     resultData[24] === 'noSuccessfulCollaboration' ? 1.2 : 1
 
-  const dualUseRiskValue = dualUseRisk(questions, resultData)
+  const dualUseRiskValue = dualUseRisk(questions, resultData, country)
 
   const organisationRiskValue = organisationRisk(resultData)
 
