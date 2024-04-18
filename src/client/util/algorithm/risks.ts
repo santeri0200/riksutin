@@ -4,7 +4,7 @@ import {
   euCountries,
   eeaCountries,
   adequateProtectionCountries,
-} from './countryLists'
+} from '../countryLists'
 
 export const gdprRisk = (
   country: CountryData | undefined,

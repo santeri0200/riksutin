@@ -7,7 +7,7 @@ import { Locales, Result } from '@backend/types'
 import { CountryData, FormValues } from '../../types'
 import RiskElement from './RiskElement'
 
-import { gdprRisk } from '../../util/risks'
+import { gdprRisk } from '../../util/algorithm/risks'
 
 const CountryRisks = ({
   country,
@@ -57,30 +57,30 @@ const CountryRisks = ({
     <>
       <RiskElement
         infoText={corruptionText}
-        resultText={t('riskTable:corruptionRank')}
+        resultText="riskTable:corruptionRank"
         risk={country.corruption}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         infoText={politicalStabilityText}
-        resultText={t('riskTable:stabilityRank')}
+        resultText="riskTable:stabilityRank"
         risk={country.stability}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         infoText={humanDevelopmentText}
-        resultText={t('riskTable:HCIrank')}
+        resultText="riskTable:HCIrank"
         risk={country.hci}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
         infoText={safetyLevelText}
-        resultText={t('riskTable:safetyLevel')}
+        resultText="riskTable:safetyLevel"
         risk={country.safetyLevel * safetyLevelMultiplier}
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement
-        resultText={t('riskTable:sanctions')}
+        resultText="riskTable:sanctions"
         risk={sanctionsRisk * sanctionsMultiplier}
         infoText={sanctionsRisk === 2 ? t('riskTable:sanctionsRisk') : ''}
         style={{ paddingLeft: '30px' }}
@@ -88,7 +88,7 @@ const CountryRisks = ({
       <RiskElement
         infoText={academicFreedomText}
         risk={country.academicfreedom}
-        resultText={t('riskTable:academicFreedom')}
+        resultText="riskTable:academicFreedom"
         style={{ paddingLeft: '30px' }}
       />
       <RiskElement

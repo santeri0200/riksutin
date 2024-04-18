@@ -10,12 +10,7 @@ import {
   Typography,
 } from '@mui/material'
 import { Question, Result, Locales } from '@backend/types'
-import {
-  countryRisk,
-  universityRisk,
-  dualUseRisk,
-  organisationRisk,
-} from '../../util/risks'
+import totalRisk from '../../util/algorithm/totalRisk'
 
 import useCountry from '../../hooks/useCountryData'
 
@@ -46,98 +41,15 @@ const RiskTable = ({
 
   const { language } = i18n
 
-  const possibleRiskLevels = [0, 1, 2, 3, 4, 5]
-
-  const countryRiskValues = countryRisk({ country, resultData })
-
-  const roleMultiplier = resultData[9] === 'coordinator' ? 1.2 : 1
-  const durationMultiplier = resultData[12] === 'longDuration' ? 1.2 : 1
-  const agreementMultiplier = resultData[10] === 'agreementNotDone' ? 1.2 : 1
-  const previousCollaborationMultiplier =
-    resultData[24] === 'noSuccessfulCollaboration' ? 1.2 : 1
-
-  const dualUseRiskValue = dualUseRisk(questions, resultData, country)
-
-  const organisationRiskValue = organisationRisk(resultData)
-
-  const ethicalRiskValue = questions
-    .find((question) => question.id === 25)
-    ?.optionData.options.find((o) => o.id === resultData[25])?.risk
-
-  const riskArray = [
-    {
-      id: 'country',
-      text: t('riskTable:countryRiskLevel'),
-      riskLevel: countryRiskValues ? countryRiskValues[0] : null,
-    },
-    {
-      id: 'university',
-      text: t('riskTable:universityRiskLevel'),
-      riskLevel: universityRisk(resultData['20'], resultData['21']),
-      infoText: results.find(
-        (r) =>
-          r.optionLabel ===
-          `universityRiskLevel${universityRisk(
-            resultData['20'],
-            resultData['21']
-          )}`
-      )?.isSelected[language as keyof Locales],
-    },
-    {
-      id: 'duration',
-      text: t('riskTable:durationRiskLevel'),
-      riskLevel: questions
-        .find((question) => question.id === 12)
-        ?.optionData.options.find((o) => o.id === resultData[12])?.risk,
-    },
-    {
-      id: 'dualUse',
-      text: t('riskTable:dualUseRiskLevel'),
-      riskLevel: dualUseRiskValue,
-      infoText: results.find(
-        (r) => r.optionLabel === `dualUseRiskLevel${dualUseRiskValue}`
-      )?.isSelected[language as keyof Locales],
-    },
-    {
-      id: 'organisation',
-      text: t('riskTable:organisationRiskLevel'),
-      riskLevel: organisationRiskValue,
-      infoText: results.find(
-        (r) => r.optionLabel === `organisationRiskLevel${organisationRiskValue}`
-      )?.isSelected[language as keyof Locales],
-    },
-    {
-      id: 'economic',
-      text: t('riskTable:economicRiskLevel'),
-      riskLevel: questions
-        .find((question) => question.id === 16)
-        ?.optionData.options.find((o) => o.id === resultData[16])?.risk,
-    },
-    {
-      id: 'ethical',
-      text: t('riskTable:ethicalRiskLevel'),
-      riskLevel: ethicalRiskValue,
-      infoText: results.find(
-        (r) => r.optionLabel === `ethicalRiskLevel${ethicalRiskValue}`
-      )?.isSelected[language as keyof Locales],
-    },
-  ].filter((value) => possibleRiskLevels.includes(value.riskLevel))
-
-  if (riskArray.length === 0) return null
-
-  const allRisks = (
-    riskArray.map((value) => value.riskLevel) as number[]
-  ).concat(countryRiskValues ? countryRiskValues[1] : [])
-
-  let totalRisk = Math.round(
-    (allRisks.reduce((a, b) => a + b, 0) / allRisks.length) *
-      roleMultiplier *
-      durationMultiplier *
-      agreementMultiplier *
-      previousCollaborationMultiplier
+  const { totalRiskLevel, filteredArray } = totalRisk(
+    country,
+    questions,
+    results,
+    resultData,
+    language
   )
 
-  if (allRisks.filter((value) => value === 3).length >= 3) totalRisk = 3
+  if (!filteredArray || !totalRiskLevel) return null
 
   let totalRiskText = results.find(
     (r) => r.optionLabel === `totalRiskLevel${totalRisk}`
@@ -174,7 +86,7 @@ const RiskTable = ({
               <RiskElement
                 infoText={totalRiskText}
                 resultText={t('riskTable:totalRiskLevel')}
-                risk={totalRisk}
+                risk={totalRiskLevel}
               />
               <TableRow>
                 <TableCell colSpan={3}>
@@ -189,7 +101,7 @@ const RiskTable = ({
                 <>
                   <RiskElement
                     resultText={t('riskTable:countryRiskLevel')}
-                    risk={riskArray[0].riskLevel}
+                    risk={filteredArray[0].riskLevel}
                     infoText={countryInfoText}
                   />
                   <CountryRisks
@@ -199,7 +111,7 @@ const RiskTable = ({
                   />
                 </>
               )}
-              {riskArray.map(
+              {filteredArray.map(
                 (risk) =>
                   risk.id !== 'country' && (
                     <RiskElement
