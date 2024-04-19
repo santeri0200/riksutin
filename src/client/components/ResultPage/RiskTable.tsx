@@ -52,7 +52,7 @@ const RiskTable = ({
   if (!filteredArray || !totalRiskLevel) return null
 
   let totalRiskText = results.find(
-    (r) => r.optionLabel === `totalRiskLevel${totalRisk}`
+    (r) => r.optionLabel === `totalRiskLevel${totalRiskLevel}`
   )?.isSelected[language as keyof Locales]
 
   if (selectedCountryCode === ('RU' || 'BY')) {
