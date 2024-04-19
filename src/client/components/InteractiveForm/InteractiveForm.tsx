@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { enqueueSnackbar } from 'notistack'
 import { Box, Grid } from '@mui/material'
 
+import getRiskValues from '../../util/algorithm/getRiskValues'
+import useResults from '../../hooks/useResults'
 import useSurvey from '../../hooks/useSurvey'
 import usePersistForm from '../../hooks/usePersistForm'
 import useSaveEntryMutation from '../../hooks/useSaveEntryMutation'
@@ -20,7 +22,8 @@ import { FORM_DATA_KEY, LOCATION_KEY } from '../../../config'
 
 const InteractiveForm = () => {
   const { survey, isLoading } = useSurvey()
-  const { t } = useTranslation()
+  const { results } = useResults(survey?.id)
+  const { t, i18n } = useTranslation()
   const mutation = useSaveEntryMutation(survey?.id)
 
   const sessionLocation = sessionStorage.getItem(LOCATION_KEY)
@@ -29,6 +32,8 @@ const InteractiveForm = () => {
   const { resultData, setResultData } = useResultData()
 
   const { formStyles } = styles
+
+  const { language } = i18n
 
   const {
     formState: { isSubmitted },
@@ -41,8 +46,19 @@ const InteractiveForm = () => {
     defaultValues: resultData,
   })
 
+  usePersistForm({ value: watch(), sessionStorageKey: FORM_DATA_KEY })
+
+  if (!survey || isLoading || !results) return null
+
   const onSubmit = (data: FormValues) => {
     const submittedData = data
+
+    const dataWithRisks = getRiskValues(
+      submittedData,
+      survey.Questions,
+      results,
+      language
+    )
 
     setResultData(submittedData)
     mutation
@@ -61,10 +77,6 @@ const InteractiveForm = () => {
         enqueueSnackbar(t('common:submitError'), { variant: 'error' })
       })
   }
-
-  usePersistForm({ value: watch(), sessionStorageKey: FORM_DATA_KEY })
-
-  if (!survey || isLoading) return null
 
   return (
     <Box sx={formStyles.formWrapper}>
