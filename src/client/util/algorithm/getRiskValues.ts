@@ -3,6 +3,7 @@ import { Country, CountryData, FormValues } from '../../types'
 import apiClient from '../apiClient'
 
 import totalRisk from './totalRisk'
+import getCountryRisks from './getCountryRisks'
 
 const getRiskValues = async (
   formdata: FormValues,
@@ -17,19 +18,21 @@ const getRiskValues = async (
     (country) => country.name === selectedCountry
   )?.code
 
-  const country: CountryData = (
+  const countryData: CountryData = (
     await apiClient.get(`/countries/${selectedCountryCode}`)
   ).data
 
+  const countryRisks = getCountryRisks(countryData, results, formdata, language)
+
   const { totalRiskLevel, filteredArray } = totalRisk(
-    country,
+    countryData,
     questions,
     results,
     formdata,
     language
   )
 
-  return formdata
+  return {}
 }
 
 export default getRiskValues
