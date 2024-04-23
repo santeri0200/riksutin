@@ -101,7 +101,7 @@ const RiskTable = ({
                 <>
                   <RiskElement
                     resultText={t('riskTable:countryRiskLevel')}
-                    risk={filteredArray[0].riskLevel}
+                    risk={filteredArray[0].level}
                     infoText={countryInfoText}
                   />
                   <CountryRisks
@@ -116,8 +116,8 @@ const RiskTable = ({
                   risk.id !== 'country' && (
                     <RiskElement
                       key={risk.id}
-                      resultText={risk.text}
-                      risk={risk.riskLevel}
+                      resultText={risk.title}
+                      risk={risk.level}
                       infoText={risk.infoText}
                     />
                   )

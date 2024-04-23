@@ -40,23 +40,52 @@ const getCountryRisks = (
     (r) => r.optionLabel === `gdprRiskLevel${gdprRiskLevel}`
   )?.isSelected[language as keyof Locales]
 
-  return [
-    [country.corruption, corruptionText, 'riskTable:corruptionRank'],
-    [
-      country.safetyLevel * safetyLevelMultiplier,
-      safetyLevelText,
-      'riskTable:safetyLevel',
-    ],
-    [country.academicfreedom, academicFreedomText, 'riskTable:academicFreedom'],
-    [country.stability, politicalStabilityText, 'riskTable:stabilityRank'],
-    [country.hci, humanDevelopmentText, 'riskTable:HCIrank'],
-    [gdprRiskLevel, gdprText, 'GDPR'],
-    [
-      sanctionsRiskLevel * sanctionsMultiplier,
-      sanctionsRiskLevel === 2 ? 'riskTable:sanctionsRisk' : '',
-      'riskTable:sanctions',
-    ],
+  const countryRisks = [
+    {
+      id: 'corruption',
+      title: 'riskTable:corruptionRank',
+      level: country.corruption,
+      infoText: corruptionText,
+    },
+    {
+      id: 'safetyLevel',
+      title: 'riskTable:safetyLevel',
+      level: country.safetyLevel * safetyLevelMultiplier,
+      infoText: safetyLevelText,
+    },
+    {
+      id: 'academicFreedom',
+      title: 'riskTable:academicFreedom',
+      level: country.academicfreedom,
+      infoText: academicFreedomText,
+    },
+    {
+      id: 'politicalStability',
+      title: 'riskTable:stabilityRank',
+      level: country.stability,
+      infoText: politicalStabilityText,
+    },
+    {
+      id: 'HCI',
+      title: 'riskTable:HCIrank',
+      level: country.hci,
+      infoText: humanDevelopmentText,
+    },
+    {
+      id: 'GDPR',
+      title: 'GDPR',
+      level: gdprRiskLevel,
+      infoText: gdprText,
+    },
+    {
+      id: 'sanctions',
+      title: 'riskTable:sanctions',
+      level: sanctionsRiskLevel * sanctionsMultiplier,
+      infoText: sanctionsRiskLevel === 2 ? 'riskTable:sanctionsRisk' : '',
+    },
   ]
+
+  return countryRisks
 }
 
 export default getCountryRisks

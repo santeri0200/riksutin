@@ -17,8 +17,8 @@ const totalRisk = (
   totalRiskLevel: number
   filteredArray: {
     id: string
-    text: string
-    riskLevel: any
+    title: string
+    level: number
     infoText?: string
   }[]
 } => {
@@ -43,13 +43,13 @@ const totalRisk = (
   const riskArray = [
     {
       id: 'country',
-      text: 'riskTable:countryRiskLevel',
-      riskLevel: countryRiskValues ? countryRiskValues[0] : null,
+      title: 'riskTable:countryRiskLevel',
+      level: countryRiskValues ? countryRiskValues[0] : null,
     },
     {
       id: 'university',
-      text: 'riskTable:universityRiskLevel',
-      riskLevel: universityRisk(resultData['20'], resultData['21']),
+      title: 'riskTable:universityRiskLevel',
+      level: universityRisk(resultData['20'], resultData['21']),
       infoText: results.find(
         (r) =>
           r.optionLabel ===
@@ -61,38 +61,38 @@ const totalRisk = (
     },
     {
       id: 'duration',
-      text: 'riskTable:durationRiskLevel',
-      riskLevel: questions
+      title: 'riskTable:durationRiskLevel',
+      level: questions
         .find((question) => question.id === 12)
         ?.optionData.options.find((o) => o.id === resultData[12])?.risk,
     },
     {
       id: 'dualUse',
-      text: 'riskTable:dualUseRiskLevel',
-      riskLevel: dualUseRiskValue,
+      title: 'riskTable:dualUseRiskLevel',
+      level: dualUseRiskValue,
       infoText: results.find(
         (r) => r.optionLabel === `dualUseRiskLevel${dualUseRiskValue}`
       )?.isSelected[language as keyof Locales],
     },
     {
       id: 'organisation',
-      text: 'riskTable:organisationRiskLevel',
-      riskLevel: organisationRiskValue,
+      title: 'riskTable:organisationRiskLevel',
+      level: organisationRiskValue,
       infoText: results.find(
         (r) => r.optionLabel === `organisationRiskLevel${organisationRiskValue}`
       )?.isSelected[language as keyof Locales],
     },
     {
       id: 'economic',
-      text: 'riskTable:economicRiskLevel',
-      riskLevel: questions
+      title: 'riskTable:economicRiskLevel',
+      level: questions
         .find((question) => question.id === 16)
         ?.optionData.options.find((o) => o.id === resultData[16])?.risk,
     },
     {
       id: 'ethical',
-      text: 'riskTable:ethicalRiskLevel',
-      riskLevel: ethicalRiskValue,
+      title: 'riskTable:ethicalRiskLevel',
+      level: ethicalRiskValue,
       infoText: results.find(
         (r) => r.optionLabel === `ethicalRiskLevel${ethicalRiskValue}`
       )?.isSelected[language as keyof Locales],
@@ -100,12 +100,12 @@ const totalRisk = (
   ]
 
   const filteredArray = riskArray.filter((value) =>
-    possibleRiskLevels.includes(value.riskLevel)
+    possibleRiskLevels.includes(value.level)
   )
 
-  const allRisks = (
-    riskArray.map((value) => value.riskLevel) as number[]
-  ).concat(countryRiskValues ? countryRiskValues[1] : [])
+  const allRisks = (riskArray.map((value) => value.level) as number[]).concat(
+    countryRiskValues ? countryRiskValues[1] : []
+  )
 
   let totalRiskLevel = Math.round(
     (allRisks.reduce((a, b) => a + b, 0) / allRisks.length) *

@@ -1,4 +1,4 @@
-import { Question, Result } from '@backend/types'
+import { Locales, Question, Result } from '@backend/types'
 import { Country, CountryData, FormValues } from '../../types'
 import apiClient from '../apiClient'
 
@@ -32,7 +32,25 @@ const getRiskValues = async (
     language
   )
 
-  return {}
+  const totalRiskText = results.find(
+    (r) => r.optionLabel === `totalRiskLevel${totalRiskLevel}`
+  )?.isSelected[language as keyof Locales]
+
+  const dataWithRisks = {
+    answers: formdata,
+    risks: [
+      {
+        id: 'total',
+        title: 'riskTable:totalRiskLevel',
+        level: totalRiskLevel,
+        infoText: totalRiskText,
+      },
+      filteredArray,
+    ],
+    country: countryRisks,
+  }
+
+  return dataWithRisks
 }
 
 export default getRiskValues
