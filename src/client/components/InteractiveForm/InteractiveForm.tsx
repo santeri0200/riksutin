@@ -17,7 +17,7 @@ import Results from '../ResultPage/Results'
 import { useResultData } from '../../contexts/ResultDataContext'
 
 import styles from '../../styles'
-import { FormValues } from '../../types'
+import { FormValues, RiskData } from '../../types'
 import { FORM_DATA_KEY, LOCATION_KEY } from '../../../config'
 
 const InteractiveForm = () => {
@@ -25,6 +25,7 @@ const InteractiveForm = () => {
   const { results } = useResults(survey?.id)
   const { t, i18n } = useTranslation()
   const mutation = useSaveEntryMutation(survey?.id)
+  const [riskData, setRiskData] = useState<RiskData>()
 
   const sessionLocation = sessionStorage.getItem(LOCATION_KEY)
   const [showResults, setShowResults] = useState(sessionLocation === 'results')
@@ -50,16 +51,17 @@ const InteractiveForm = () => {
 
   if (!survey || isLoading || !results) return null
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     const submittedData = data
 
-    const riskData = getRiskValues(
+    const formDataWithRisks = await getRiskValues(
       submittedData,
       survey.Questions,
       results,
       language
     )
 
+    setRiskData(formDataWithRisks)
     setResultData(submittedData)
     mutation
       .mutateAsync(submittedData)
@@ -100,9 +102,9 @@ const InteractiveForm = () => {
           </form>
         </Grid>
 
-        {resultData && showResults && (
+        {riskData && showResults && (
           <Grid item sm={12}>
-            <Results setShowResults={setShowResults} />
+            <Results setShowResults={setShowResults} riskData={riskData} />
           </Grid>
         )}
       </Grid>

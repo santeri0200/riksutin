@@ -6,31 +6,22 @@ import useResultRefCallback from '../../hooks/useResultRefCallback'
 
 import RiskTable from './RiskTable'
 
-import { useResultData } from '../../contexts/ResultDataContext'
 import useCountries from '../../hooks/useCountries'
 import RenderAnswers from './RenderAnswers'
 import useResults from '../../hooks/useResults'
+import { RiskData } from '../../types'
 
-const RenderResults = () => {
+const RenderResults = ({ riskData }: { riskData: RiskData }) => {
   const { survey } = useSurvey()
   const { countries, isLoading } = useCountries()
   const refCallback = useResultRefCallback()
 
-  const { resultData } = useResultData()
-
   const { results, isSuccess: resultsFetched } = useResults(survey?.id)
 
-  if (
-    isLoading ||
-    !countries ||
-    !survey ||
-    !resultData ||
-    !resultsFetched ||
-    !results
-  )
+  if (isLoading || !countries || !survey || !resultsFetched || !results)
     return null
 
-  const selectedCountry: any = resultData['8']
+  const selectedCountry: string = riskData.answers['8']
   const selectedCountryCode = countries.find(
     (country) => country.name === selectedCountry
   )?.code
@@ -41,9 +32,9 @@ const RenderResults = () => {
         selectedCountryCode={selectedCountryCode}
         questions={survey.Questions}
         results={results}
-        resultData={resultData}
+        resultData={riskData.answers}
       />
-      <RenderAnswers survey={survey} resultData={resultData} />
+      <RenderAnswers survey={survey} resultData={riskData.answers} />
     </Box>
   )
 }

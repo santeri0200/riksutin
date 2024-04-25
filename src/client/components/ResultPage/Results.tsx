@@ -7,23 +7,23 @@ import useSurvey from '../../hooks/useSurvey'
 import RenderResults from './RenderResults'
 import SurveyButtons from '../Common/SurveyButtons'
 
-import { useResultData } from '../../contexts/ResultDataContext'
-
 import styles from '../../styles'
 import { LOCATION_KEY } from '../../../config'
+import { RiskData } from '../../types'
 
 const { cardStyles, resultStyles } = styles
 
 const Results = ({
   setShowResults,
+  riskData,
 }: {
   setShowResults: React.Dispatch<React.SetStateAction<boolean>>
+  riskData: RiskData
 }) => {
   const { t } = useTranslation()
   const { survey } = useSurvey()
-  const { resultData } = useResultData()
 
-  if (!survey || !resultData) return null
+  if (!survey || !riskData) return null
 
   const onNavigateBack = () => {
     sessionStorage.setItem(LOCATION_KEY, 'form')
@@ -48,7 +48,7 @@ const Results = ({
           </Typography>
         </Container>
 
-        <RenderResults />
+        <RenderResults riskData={riskData} />
 
         <SurveyButtons>
           <Button data-cy="back-to-selections" onClick={onNavigateBack}>
