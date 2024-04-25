@@ -53,7 +53,7 @@ const InteractiveForm = () => {
   const onSubmit = (data: FormValues) => {
     const submittedData = data
 
-    const dataWithRisks = getRiskValues(
+    const riskData = getRiskValues(
       submittedData,
       survey.Questions,
       results,

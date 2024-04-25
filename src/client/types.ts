@@ -75,6 +75,19 @@ export interface Entry {
   survey: Survey
 }
 
+export interface Risk {
+  id: string
+  title: string
+  level: number
+  infoText?: string
+}
+
+export interface RiskData {
+  answers: FormValues
+  risks: Risk[]
+  country: any
+}
+
 export type Country = {
   code: string
   name: string

@@ -1,4 +1,4 @@
-import { CountryData, FormValues } from '@frontend/types'
+import { CountryData, FormValues, Risk } from '@frontend/types'
 import { Question, Result, Locales } from '@backend/types'
 import {
   countryRisk,
@@ -40,7 +40,7 @@ const totalRisk = (
     .find((question) => question.id === 25)
     ?.optionData.options.find((o: { id: any }) => o.id === resultData[25])?.risk
 
-  const riskArray = [
+  const riskArray: Risk[] = [
     {
       id: 'country',
       title: 'riskTable:countryRiskLevel',

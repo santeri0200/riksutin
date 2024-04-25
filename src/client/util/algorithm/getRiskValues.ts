@@ -1,5 +1,5 @@
 import { Locales, Question, Result } from '@backend/types'
-import { Country, CountryData, FormValues } from '../../types'
+import { Country, CountryData, FormValues, Risk, RiskData } from '../../types'
 import apiClient from '../apiClient'
 
 import totalRisk from './totalRisk'
@@ -36,21 +36,20 @@ const getRiskValues = async (
     (r) => r.optionLabel === `totalRiskLevel${totalRiskLevel}`
   )?.isSelected[language as keyof Locales]
 
-  const dataWithRisks = {
+  const totalRiskObject: Risk = {
+    id: 'total',
+    title: 'riskTable:totalRiskLevel',
+    level: totalRiskLevel,
+    infoText: totalRiskText,
+  }
+
+  const riskData: RiskData = {
     answers: formdata,
-    risks: [
-      {
-        id: 'total',
-        title: 'riskTable:totalRiskLevel',
-        level: totalRiskLevel,
-        infoText: totalRiskText,
-      },
-      filteredArray,
-    ],
+    risks: filteredArray.concat(totalRiskObject),
     country: countryRisks,
   }
 
-  return dataWithRisks
+  return riskData
 }
 
 export default getRiskValues
