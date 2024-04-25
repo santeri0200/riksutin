@@ -9,15 +9,14 @@ import {
   TableRow,
   Typography,
 } from '@mui/material'
-import { Question, Result, Locales } from '@backend/types'
-import totalRisk from '../../util/algorithm/totalRisk'
+import { Result } from '@backend/types'
 
 import useCountry from '../../hooks/useCountryData'
 
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
-import { FormValues } from '../../types'
+import { RiskData } from '../../types'
 import CountryRisks from './CountryRisks'
 import { globalNorthCountries } from '../../util/countryLists'
 
@@ -25,35 +24,23 @@ const { resultStyles } = styles
 
 const RiskTable = ({
   selectedCountryCode,
-  questions,
   results,
-  resultData,
+  riskData,
 }: {
   selectedCountryCode: string | undefined
-  questions: Question[]
   results: Result[]
-  resultData: FormValues
+  riskData: RiskData
 }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { country } = useCountry(selectedCountryCode)
 
-  if (!resultData) return null
+  if (!riskData) return null
 
-  const { language } = i18n
+  const totalRisk = riskData.risks.find((risk) => risk.id === 'total')
 
-  const { totalRiskLevel, filteredArray } = totalRisk(
-    country,
-    questions,
-    results,
-    resultData,
-    language
-  )
+  if (!totalRisk) return null
 
-  if (!filteredArray || !totalRiskLevel) return null
-
-  let totalRiskText = results.find(
-    (r) => r.optionLabel === `totalRiskLevel${totalRiskLevel}`
-  )?.isSelected[language as keyof Locales]
+  let totalRiskText = totalRisk.infoText
 
   if (selectedCountryCode === ('RU' || 'BY')) {
     totalRiskText += t(`countrySpecificTexts:RU`)
@@ -85,8 +72,8 @@ const RiskTable = ({
             <TableBody>
               <RiskElement
                 infoText={totalRiskText}
-                resultText={t('riskTable:totalRiskLevel')}
-                risk={totalRiskLevel}
+                resultText={totalRisk.title}
+                risk={totalRisk.level}
               />
               <TableRow>
                 <TableCell colSpan={3}>
@@ -101,17 +88,17 @@ const RiskTable = ({
                 <>
                   <RiskElement
                     resultText={t('riskTable:countryRiskLevel')}
-                    risk={filteredArray[0].level}
+                    risk={riskData.risks[0].level}
                     infoText={countryInfoText}
                   />
                   <CountryRisks
                     country={country}
                     results={results}
-                    resultData={resultData}
+                    resultData={riskData.answers}
                   />
                 </>
               )}
-              {filteredArray.map(
+              {riskData.risks.map(
                 (risk) =>
                   risk.id !== 'country' && (
                     <RiskElement

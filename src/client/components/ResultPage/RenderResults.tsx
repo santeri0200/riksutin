@@ -30,9 +30,8 @@ const RenderResults = ({ riskData }: { riskData: RiskData }) => {
     <Box ref={refCallback}>
       <RiskTable
         selectedCountryCode={selectedCountryCode}
-        questions={survey.Questions}
         results={results}
-        resultData={riskData.answers}
+        riskData={riskData}
       />
       <RenderAnswers survey={survey} resultData={riskData.answers} />
     </Box>
