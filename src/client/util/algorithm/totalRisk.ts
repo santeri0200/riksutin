@@ -15,15 +15,8 @@ const totalRisk = (
   language: string
 ): {
   totalRiskLevel: number
-  filteredArray: {
-    id: string
-    title: string
-    level: number
-    infoText?: string
-  }[]
+  filteredArray: Risk[]
 } => {
-  const possibleRiskLevels = [0, 1, 2, 3, 4, 5]
-
   const countryRiskValues = countryRisk({ country, resultData })
 
   const roleMultiplier = resultData[9] === 'coordinator' ? 1.2 : 1
@@ -99,8 +92,8 @@ const totalRisk = (
     },
   ]
 
-  const filteredArray = riskArray.filter((value) =>
-    possibleRiskLevels.includes(value.level)
+  const filteredArray = riskArray.filter(
+    (value) => value.level !== (null || undefined)
   )
 
   const allRisks = (riskArray.map((value) => value.level) as number[]).concat(

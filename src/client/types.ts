@@ -78,14 +78,14 @@ export interface Entry {
 export interface Risk {
   id: string
   title: string
-  level: number
+  level: number | null
   infoText?: string
 }
 
 export interface RiskData {
   answers: FormValues
   risks: Risk[]
-  country: any
+  country: Risk[] | null
 }
 
 export type Country = {
