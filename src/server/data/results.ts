@@ -562,6 +562,23 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 34,
+    surveyId: 1,
+    optionLabel: 'sanctionsRiskLevel2',
+    isSelected: {
+      fi: '*Lue lisää maahan kohdistuvista pakotteista [sanctionsmap.eu](https://sanctionsmap.eu/#/main)-sivulta*',
+      sv: '',
+      en: '*Read more information about the sanctions at [sanctionsmap.eu](https://sanctionsmap.eu/#/main)*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData

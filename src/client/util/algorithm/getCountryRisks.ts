@@ -39,6 +39,9 @@ const getCountryRisks = (
   const gdprText = results.find(
     (r) => r.optionLabel === `gdprRiskLevel${gdprRiskLevel}`
   )?.isSelected[language as keyof Locales]
+  const sanctionsText = results.find(
+    (r) => r.optionLabel === `sanctionsRiskLevel${sanctionsRiskLevel}`
+  )?.isSelected[language as keyof Locales]
 
   const countryRisks = [
     {
@@ -81,7 +84,7 @@ const getCountryRisks = (
       id: 'sanctions',
       title: 'riskTable:sanctions',
       level: sanctionsRiskLevel * sanctionsMultiplier,
-      infoText: sanctionsRiskLevel === 2 ? 'riskTable:sanctionsRisk' : '',
+      infoText: sanctionsText,
     },
   ]
 
