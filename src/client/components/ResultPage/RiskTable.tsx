@@ -9,9 +9,6 @@ import {
   TableRow,
   Typography,
 } from '@mui/material'
-import { Result } from '@backend/types'
-
-import useCountry from '../../hooks/useCountryData'
 
 import RiskElement from './RiskElement'
 
@@ -19,24 +16,23 @@ import styles from '../../styles'
 import { RiskData } from '../../types'
 import CountryRisks from './CountryRisks'
 import { globalNorthCountries } from '../../util/countryLists'
+import useCountries from '../../hooks/useCountries'
 
 const { resultStyles } = styles
 
-const RiskTable = ({
-  selectedCountryCode,
-  results,
-  riskData,
-}: {
-  selectedCountryCode: string | undefined
-  results: Result[]
-  riskData: RiskData
-}) => {
+const RiskTable = ({ riskData }: { riskData: RiskData }) => {
   const { t } = useTranslation()
-  const { country } = useCountry(selectedCountryCode)
+  const { countries, isLoading } = useCountries()
 
-  if (!riskData) return null
+  if (!riskData || !countries || isLoading) return null
+
+  const selectedCountry: string = riskData.answers['8']
+  const selectedCountryCode = countries.find(
+    (country) => country.name === selectedCountry
+  )?.code
 
   const totalRisk = riskData.risks.find((risk) => risk.id === 'total')
+  const countryRisk = riskData.risks.find((risk) => risk.id === 'country')
 
   if (!totalRisk) return null
 
@@ -84,18 +80,14 @@ const RiskTable = ({
                   </Box>
                 </TableCell>
               </TableRow>
-              {country && (
+              {riskData.country && countryRisk && (
                 <>
                   <RiskElement
                     resultText={t('riskTable:countryRiskLevel')}
                     risk={riskData.risks[0].level}
                     infoText={countryInfoText}
                   />
-                  <CountryRisks
-                    country={country}
-                    results={results}
-                    resultData={riskData.answers}
-                  />
+                  <CountryRisks countryRisks={riskData.country} />
                 </>
               )}
               {riskData.risks.map(
