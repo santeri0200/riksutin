@@ -10,8 +10,8 @@ const CountryRisks = ({ countryRisks }: { countryRisks: any }) => {
       {countryRisks.map((risk: any) => (
         <RiskElement
           key={risk.id}
-          risk={risk.level}
-          resultText={risk.title}
+          level={risk.level}
+          title={risk.title}
           infoText={risk.infoText}
           style={{ paddingLeft: '30px' }}
         />

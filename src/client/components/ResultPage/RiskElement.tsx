@@ -10,37 +10,32 @@ const { resultStyles, riskColors } = styles
 
 export interface RiskElementProps {
   infoText?: string | null | undefined
-  resultText: string
-  risk: number | null
+  title: string
+  level: number | null
   style?: any
 }
 
-const RiskElement = ({
-  infoText,
-  resultText,
-  risk,
-  style,
-}: RiskElementProps) => {
+const RiskElement = ({ infoText, title, level, style }: RiskElementProps) => {
   const { t } = useTranslation()
-  if (!risk) return null
+  if (!level) return null
 
   return (
     <TableRow>
       <TableCell width="30%">
         <Box sx={style}>
-          <Markdown>{t(resultText)}</Markdown>
+          <Markdown>{t(title)}</Markdown>
         </Box>
       </TableCell>
       <TableCell>
         <Box
           sx={[
             {
-              backgroundColor: riskColors[risk > 3 ? 3 : risk],
+              backgroundColor: riskColors[level > 3 ? 3 : level],
             },
             resultStyles.tableCell,
           ]}
         >
-          {risk > 3 ? 3 : risk}
+          {level > 3 ? 3 : level}
         </Box>
       </TableCell>
       {infoText && (

@@ -68,8 +68,8 @@ const RiskTable = ({ riskData }: { riskData: RiskData }) => {
             <TableBody>
               <RiskElement
                 infoText={totalRiskText}
-                resultText={totalRisk.title}
-                risk={totalRisk.level}
+                title={totalRisk.title}
+                level={totalRisk.level}
               />
               <TableRow>
                 <TableCell colSpan={3}>
@@ -83,8 +83,8 @@ const RiskTable = ({ riskData }: { riskData: RiskData }) => {
               {riskData.country && countryRisk && (
                 <>
                   <RiskElement
-                    resultText={t('riskTable:countryRiskLevel')}
-                    risk={riskData.risks[0].level}
+                    title={t('riskTable:countryRiskLevel')}
+                    level={riskData.risks[0].level}
                     infoText={countryInfoText}
                   />
                   <CountryRisks countryRisks={riskData.country} />
@@ -95,8 +95,8 @@ const RiskTable = ({ riskData }: { riskData: RiskData }) => {
                   risk.id !== 'country' && (
                     <RiskElement
                       key={risk.id}
-                      resultText={risk.title}
-                      risk={risk.level}
+                      title={risk.title}
+                      level={risk.level}
                       infoText={risk.infoText}
                     />
                   )
