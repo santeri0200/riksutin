@@ -23,7 +23,6 @@ export interface InputProps {
 
 export interface FormValues {
   [key: number]: any
-  course: string
   faculty: string
   selectOrganisation: string
 }
@@ -66,7 +65,7 @@ export interface Entry {
   id: number
   surveyId: number
   userId: string
-  data: FormValues
+  data: RiskData
   sessionToken: string
   reminderSent: boolean
   SurveyId: number

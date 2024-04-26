@@ -64,7 +64,7 @@ const InteractiveForm = () => {
     setRiskData(formDataWithRisks)
     setResultData(submittedData)
     mutation
-      .mutateAsync(submittedData)
+      .mutateAsync(formDataWithRisks)
       .then(() => {
         sessionStorage.setItem(LOCATION_KEY, 'results')
         setShowResults(true)

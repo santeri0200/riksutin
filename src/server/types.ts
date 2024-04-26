@@ -106,14 +106,28 @@ export interface OptionData {
   options: ChoiceType
   label?: Locales
 }
+
+export interface Risk {
+  id: string
+  title: string
+  level: number | null
+  infoText?: string
+}
+
+export interface RiskData {
+  answers: FormValues
+  risks: Risk[]
+  country: Risk[] | null
+}
+
 export interface EntryValues {
-  data: FormValues
+  data: RiskData
   sessionToken: string
 }
 export interface FormValues {
   [key: number]: Record<string, { [key: string]: boolean }>
-  course: string
   faculty: string
+  selectOrganisation: string
 }
 
 export interface Question {

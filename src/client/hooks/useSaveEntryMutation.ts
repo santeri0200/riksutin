@@ -1,14 +1,14 @@
 import { v4 as uuidv4 } from 'uuid'
 import { useMutation } from 'react-query'
 
-import { FormValues } from '../types'
+import { RiskData } from '../types'
 
 import apiClient from '../util/apiClient'
 
 import { SESSION_TOKEN } from '../../config'
 
 const useSaveEntryMutation = (surveyId: number | undefined) => {
-  const mutationFn = async (data: FormValues) => {
+  const mutationFn = async (data: RiskData) => {
     let sessionToken = sessionStorage.getItem(SESSION_TOKEN)
 
     if (!sessionToken) {

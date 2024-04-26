@@ -7,7 +7,7 @@ import {
 } from 'sequelize'
 
 import { sequelize } from '../connection'
-import { FormValues } from '../../types'
+import { RiskData } from '../../types'
 
 class Entry extends Model<
   InferAttributes<Entry>,
@@ -19,7 +19,7 @@ class Entry extends Model<
 
   declare userId: string
 
-  declare data: FormValues
+  declare data: RiskData
 
   declare sessionToken: string
 

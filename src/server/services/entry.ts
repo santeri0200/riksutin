@@ -51,25 +51,6 @@ export const createEntry = async (
 ) => {
   const { sessionToken, data } = body
 
-  const existingEntry = await Entry.findOne({
-    where: {
-      surveyId,
-      userId,
-      sessionToken,
-      data: {
-        course: data.course,
-      },
-    },
-  })
-
-  if (existingEntry) {
-    await existingEntry.update({
-      data,
-    })
-
-    return existingEntry
-  }
-
   const newEntry = await Entry.create({
     surveyId: Number(surveyId),
     userId,
