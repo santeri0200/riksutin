@@ -92,7 +92,7 @@ const RiskTable = ({ riskData }: { riskData: RiskData }) => {
               )}
               {riskData.risks.map(
                 (risk) =>
-                  risk.id !== 'country' && (
+                  !['country', 'total'].includes(risk.id) && (
                     <RiskElement
                       key={risk.id}
                       title={risk.title}
