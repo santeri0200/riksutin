@@ -5,12 +5,15 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 
 import RenderAnswers from '../ResultPage/RenderAnswers'
 import { Entry, Survey } from '../../types'
+import RiskTable from '../ResultPage/RiskTable'
 
 const UserEntry = ({ entry, survey }: { entry: Entry; survey: Survey }) => {
   const [open, setOpen] = useState(false)
 
   const date = new Date(entry.createdAt).toLocaleDateString()
   const time = new Date(entry.createdAt).toLocaleTimeString()
+
+  const { answers, risks, country } = entry.data
 
   return (
     <>
@@ -32,7 +35,8 @@ const UserEntry = ({ entry, survey }: { entry: Entry; survey: Survey }) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <RenderAnswers survey={survey} resultData={entry.data} />
+              {risks && country && <RiskTable riskData={entry.data} />}
+              <RenderAnswers survey={survey} resultData={answers} />
             </Box>
           </Collapse>
         </TableCell>
