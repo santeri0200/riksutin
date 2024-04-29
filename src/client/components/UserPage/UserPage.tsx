@@ -1,42 +1,43 @@
 import React from 'react'
-import {
-  Box,
-  Paper,
-  Table,
-  TableBody,
-  TableContainer,
-  Typography,
-} from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import useSurvey from '../../hooks/useSurvey'
+import { Link } from 'react-router-dom'
 import styles from '../../styles'
 
 import { useUserEntries } from '../../hooks/useEntry'
-import UserEntry from './UserEntry'
 
 const { formStyles } = styles
 
 const UserPage = () => {
   const { entries } = useUserEntries()
-  const { survey } = useSurvey()
   const { t } = useTranslation()
 
-  if (!survey) return null
+  if (!entries) return null
 
   return (
     <Box sx={formStyles.formWrapper}>
       <Box sx={{ margin: '15px' }}>
         <Typography variant="h4">{t('userPage:previousEntries')}</Typography>
       </Box>
-      <TableContainer component={Paper}>
-        <Table sx={{ maxWidth: '40%' }} aria-label="entry table">
-          <TableBody>
-            {entries?.map((entry) => (
-              <UserEntry key={entry.id} entry={entry} survey={survey} />
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      {entries?.map((entry) => (
+        <Box
+          key={entry.id}
+          sx={{
+            m: 2,
+            p: 1.5,
+            border: 'solid',
+            borderColor: 'lightgray',
+            maxWidth: '200px',
+          }}
+        >
+          <Link to={`/user/${entry.id.toString()}`}>
+            <Typography variant="body1">
+              {new Date(entry.createdAt).toLocaleDateString()}{' '}
+              {new Date(entry.createdAt).toLocaleTimeString()}
+            </Typography>
+          </Link>
+        </Box>
+      ))}
     </Box>
   )
 }

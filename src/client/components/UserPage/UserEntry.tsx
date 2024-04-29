@@ -1,47 +1,29 @@
-import React, { useState } from 'react'
-import { TableRow, TableCell, IconButton, Collapse, Box } from '@mui/material'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import React from 'react'
+import { Box } from '@mui/material'
 
+import { useParams } from 'react-router-dom'
 import RenderAnswers from '../ResultPage/RenderAnswers'
-import { Entry, Survey } from '../../types'
 import RiskTable from '../ResultPage/RiskTable'
+import { useEntry } from '../../hooks/useEntry'
+import useSurvey from '../../hooks/useSurvey'
+import styles from '../../styles'
 
-const UserEntry = ({ entry, survey }: { entry: Entry; survey: Survey }) => {
-  const [open, setOpen] = useState(false)
+const { formStyles } = styles
 
-  const date = new Date(entry.createdAt).toLocaleDateString()
-  const time = new Date(entry.createdAt).toLocaleTimeString()
+const UserEntry = () => {
+  const { entryId } = useParams()
+  const { survey } = useSurvey()
+  const { entry } = useEntry(entryId)
+
+  if (!entry || !survey) return null
 
   const { answers, risks, country } = entry.data
 
   return (
-    <>
-      <TableRow>
-        <TableCell>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
-        <TableCell align="left">
-          {date} {time}
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              {risks && country && <RiskTable riskData={entry.data} />}
-              <RenderAnswers survey={survey} resultData={answers} />
-            </Box>
-          </Collapse>
-        </TableCell>
-      </TableRow>
-    </>
+    <Box sx={formStyles.formWrapper}>
+      {risks && country && <RiskTable riskData={entry.data} />}
+      <RenderAnswers survey={survey} resultData={answers} />
+    </Box>
   )
 }
 
