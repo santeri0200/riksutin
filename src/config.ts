@@ -27,7 +27,7 @@ export const LOCATION_KEY = 'riksutin_session_location'
 
 // eslint-disable-next-line no-nested-ternary
 export const FULL_URL = inProduction
-  ? 'https://riksutin.ext.ocp-prod-0.k8s.it.helsinki.fi'
+  ? 'https://risk-i.helsinki.fi'
   : inStaging
   ? 'https://toska-staging.cs.helsinki.fi/riksutin'
   : 'http://localhost:3000'
