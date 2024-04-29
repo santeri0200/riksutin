@@ -16,14 +16,16 @@ const UserPage = () => {
 
   return (
     <Box sx={formStyles.formWrapper}>
-      <Box sx={{ margin: '15px' }}>
-        <Typography variant="h4">{t('userPage:previousEntries')}</Typography>
+      <Box>
+        <Typography variant="h6" component="div" sx={{ mb: 2 }}>
+          {t('userPage:previousEntries')}
+        </Typography>
       </Box>
       {entries?.map((entry) => (
         <Box
           key={entry.id}
           sx={{
-            m: 2,
+            mb: 2,
             p: 1.5,
             border: 'solid',
             borderColor: 'lightgray',
