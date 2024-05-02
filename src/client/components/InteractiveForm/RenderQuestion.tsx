@@ -44,7 +44,7 @@ const QuestionText = ({
   )
 }
 
-const RenderQuestions = ({
+const RenderQuestion = ({
   control,
   watch,
   question,
@@ -121,7 +121,7 @@ const RenderQuestions = ({
         >
           {childQuestions &&
             childQuestions.map((children) => (
-              <RenderQuestions
+              <RenderQuestion
                 key={children.id}
                 control={control}
                 watch={watch}
@@ -137,4 +137,4 @@ const RenderQuestions = ({
   )
 }
 
-export default RenderQuestions
+export default RenderQuestion

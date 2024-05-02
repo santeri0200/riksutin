@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box, Button } from '@mui/material'
 
-import RenderQuestions from './RenderQuestions'
+import RenderQuestion from './RenderQuestion'
 import SurveyButtons from '../Common/SurveyButtons'
 
 import { useResultData } from '../../contexts/ResultDataContext'
@@ -33,7 +33,7 @@ const RenderSurvey = ({
         {questions.map((question) => (
           <Box key={question.id} sx={cardStyles.card}>
             {showQuestions && question.parentId === null && (
-              <RenderQuestions
+              <RenderQuestion
                 control={control}
                 watch={watch}
                 question={question}
