@@ -1,6 +1,12 @@
 import React from 'react'
 import { Controller } from 'react-hook-form'
-import { RadioGroup, FormControlLabel, Radio, Box } from '@mui/material'
+import {
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Box,
+  FormHelperText,
+} from '@mui/material'
 
 import { Locales, SingleChoiceType } from '@backend/types'
 
@@ -20,8 +26,8 @@ const SingleChoice = ({
         control={control}
         name={question.id.toString()}
         defaultValue=""
-        rules={{ required: true }}
-        render={({ field }) => (
+        rules={{ required: { value: true, message: 'required' } }}
+        render={({ field, fieldState: { error } }) => (
           <Box justifyContent="center">
             <RadioGroup {...field}>
               {question.optionData.options.map(
@@ -36,6 +42,9 @@ const SingleChoice = ({
                 )
               )}
             </RadioGroup>
+            <FormHelperText error>
+              {error ? error.message : null}
+            </FormHelperText>
           </Box>
         )}
       />

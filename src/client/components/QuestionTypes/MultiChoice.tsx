@@ -24,7 +24,6 @@ const MultiChoice = ({ control, question, children, language }: InputProps) => {
             name={`${question.id}.${choice.id}`}
             control={control}
             defaultValue={false}
-            rules={{ required: true }}
             render={({ field }) => (
               <FormControl sx={formStyles.formControl}>
                 <Box sx={formStyles.choiceBox}>

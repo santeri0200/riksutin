@@ -14,10 +14,12 @@ const Text = ({ control, question, defaultValue }: InputProps) => {
       control={control}
       name={question.id.toString()}
       defaultValue={defaultValue}
-      rules={{ required: question.id !== 7 }}
-      render={({ field: { onChange } }) => (
+      rules={{ required: { value: question.id !== 7, message: 'required' } }}
+      render={({ field: { onChange }, fieldState: { error } }) => (
         <Box justifyContent="center">
           <TextField
+            helperText={error ? error.message : null}
+            error={!!error}
             data-testid={`question-${question.id}`}
             onChange={onChange}
             fullWidth

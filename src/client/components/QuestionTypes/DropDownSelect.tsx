@@ -43,8 +43,8 @@ const DropDownSelect = ({
           control={control}
           name={question.id.toString()}
           defaultValue=""
-          rules={{ required: true }}
-          render={({ field: { onChange } }) => (
+          rules={{ required: { value: true, message: 'required' } }}
+          render={({ field: { onChange }, fieldState: { error } }) => (
             <Box justifyContent="center">
               <Autocomplete
                 disablePortal
@@ -62,6 +62,8 @@ const DropDownSelect = ({
                 sx={{ width: '50%' }}
                 renderInput={(params) => (
                   <TextField
+                    helperText={error ? error.message : null}
+                    error={!!error}
                     {...params}
                     label={
                       question.optionData.label

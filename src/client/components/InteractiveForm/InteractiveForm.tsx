@@ -37,12 +37,12 @@ const InteractiveForm = () => {
   const { language } = i18n
 
   const {
-    formState: { isSubmitted },
+    formState: { isValid },
     handleSubmit,
     control,
     watch,
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onSubmit',
     shouldUnregister: true,
     defaultValues: resultData,
   })
@@ -97,7 +97,7 @@ const InteractiveForm = () => {
               questions={survey.Questions}
               control={control}
               watch={watch}
-              isSubmitted={isSubmitted}
+              isSubmitted={isValid}
             />
           </form>
         </Grid>
