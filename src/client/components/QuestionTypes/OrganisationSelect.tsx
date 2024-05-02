@@ -44,6 +44,7 @@ const OrganisationList = ({
         control={control}
         name="selectOrganisation"
         defaultValue=""
+        rules={{ required: true }}
         render={({ field: { onChange } }) => (
           <Box justifyContent="center">
             <Autocomplete

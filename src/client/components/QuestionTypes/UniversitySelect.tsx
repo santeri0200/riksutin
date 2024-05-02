@@ -41,6 +41,7 @@ const UniversitySelect = ({
             control={control}
             name={question.id.toString()}
             defaultValue=""
+            rules={{ required: true }}
             render={({ field: { onChange } }) => (
               <Box justifyContent="center">
                 <Autocomplete

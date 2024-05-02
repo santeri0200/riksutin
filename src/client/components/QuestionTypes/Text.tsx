@@ -14,6 +14,7 @@ const Text = ({ control, question, defaultValue }: InputProps) => {
       control={control}
       name={question.id.toString()}
       defaultValue={defaultValue}
+      rules={{ required: question.id !== 7 }}
       render={({ field: { onChange } }) => (
         <Box justifyContent="center">
           <TextField

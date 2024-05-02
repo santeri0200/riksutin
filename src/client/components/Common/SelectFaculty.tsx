@@ -86,6 +86,7 @@ const SelectFaculty = ({ control }: InputProps) => {
       <Controller
         control={control}
         name="faculty"
+        rules={{ required: true }}
         defaultValue={userFaculties[0]?.code || extraOrganisations[0].code}
         render={({ field }) => (
           <FormControl sx={{ minWidth: 200 }}>

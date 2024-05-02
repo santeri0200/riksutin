@@ -20,6 +20,7 @@ const SingleChoice = ({
         control={control}
         name={question.id.toString()}
         defaultValue=""
+        rules={{ required: true }}
         render={({ field }) => (
           <Box justifyContent="center">
             <RadioGroup {...field}>
