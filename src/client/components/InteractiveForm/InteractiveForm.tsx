@@ -37,7 +37,7 @@ const InteractiveForm = () => {
   const { language } = i18n
 
   const {
-    formState: { isValid },
+    formState: { isSubmitted },
     handleSubmit,
     control,
     watch,
@@ -97,7 +97,7 @@ const InteractiveForm = () => {
               questions={survey.Questions}
               control={control}
               watch={watch}
-              isSubmitted={isValid}
+              isSubmitted={isSubmitted}
             />
           </form>
         </Grid>
