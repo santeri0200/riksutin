@@ -33,14 +33,19 @@ const QuestionText = ({
   const { t } = useTranslation()
 
   return (
-    <Typography component="span">
-      {question.id === 5 && watch('4') === 'multilateral'
-        ? t('questions:optionalPartnerOrganisationNameQuestion')
-        : question.title[language as keyof Locales]}
-      {question.text[language as keyof Locales] && (
-        <ShowMore text={question.text[language as keyof Locales]} />
-      )}
-    </Typography>
+    <>
+      <Typography component="span" sx={{ color: 'red' }}>
+        {question.id !== 7 && '* '}
+      </Typography>
+      <Typography component="span">
+        {question.id === 5 && watch('4') === 'multilateral'
+          ? t('questions:optionalPartnerOrganisationNameQuestion')
+          : question.title[language as keyof Locales]}
+        {question.text[language as keyof Locales] && (
+          <ShowMore text={question.text[language as keyof Locales]} />
+        )}
+      </Typography>
+    </>
   )
 }
 

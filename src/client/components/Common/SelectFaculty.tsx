@@ -81,7 +81,10 @@ const SelectFaculty = ({ control }: InputProps) => {
   return (
     <Box sx={cardStyles.questionsContainer}>
       <Box sx={{ marginBottom: '16px' }}>
-        <Markdown>{t('facultySelect:title')}</Markdown>
+        <Typography component="span" sx={{ color: 'red' }}>
+          {'* '}
+        </Typography>
+        <Typography component="span">{t('facultySelect:title')}</Typography>
       </Box>
       <Controller
         control={control}
