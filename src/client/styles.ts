@@ -197,6 +197,12 @@ const resultStyles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
+  answerBox: {
+    m: 2,
+    borderLeft: 1,
+    margin: '15px',
+    paddingLeft: '10px',
+  },
 }
 
 const footerStyles = {

@@ -68,38 +68,34 @@ const RenderAnswers = ({
 
   return (
     <>
-      <Typography variant="h6" component="div" sx={{ paddingTop: '20px' }}>
-        {t('results:answerBoxTitle')}
-      </Typography>
+      <Typography variant="h6">{t('results:answerBoxTitle')}</Typography>
       <Box sx={resultStyles.resultElementWrapper}>
-        {survey?.Questions.map((question) => (
-          <Box key={question.id}>
-            {!question.parentId && (
+        {survey?.Questions.map((currentQuestion) => (
+          <Box key={currentQuestion.id}>
+            {!currentQuestion.parentId && (
               <>
                 <Box sx={resultStyles.card}>
-                  <Typography variant="body1">
-                    <b>{question.title[language as keyof Locales]}</b>
-                    <br />
-                    {answers[question.id] as string}
+                  <Typography>
+                    <b>{currentQuestion.title[language as keyof Locales]}</b>
+                  </Typography>
+                  <Typography>
+                    {answers[currentQuestion.id] as string}
                   </Typography>
                 </Box>
                 {survey?.Questions.filter(
-                  (q) => q.parentId === question.id
-                )?.map((q) => (
-                  <Box key={q.id}>
-                    {answers[q.id] && (
-                      <Box
-                        sx={{
-                          m: 2,
-                          borderLeft: 1,
-                          margin: '15px',
-                          paddingLeft: '10px',
-                        }}
-                      >
-                        <Typography variant="body1">
-                          <b>{q.title[language as keyof Locales]}</b>
-                          <br />
-                          {answers[q.id]}
+                  (childQuestion) =>
+                    childQuestion.parentId === currentQuestion.id
+                )?.map((childQuestion) => (
+                  <Box key={childQuestion.id}>
+                    {answers[childQuestion.id] && (
+                      <Box sx={resultStyles.answerBox}>
+                        <Typography>
+                          <b>
+                            {childQuestion.title[language as keyof Locales]}
+                          </b>
+                        </Typography>
+                        <Typography>
+                          {answers[childQuestion.id] as string}
                         </Typography>
                       </Box>
                     )}
@@ -107,33 +103,25 @@ const RenderAnswers = ({
                 ))}
               </>
             )}
-            {question.id === 6 && answers[21] && (
-              <Box
-                sx={{
-                  m: 2,
-                  borderLeft: 1,
-                  margin: '15px',
-                  paddingLeft: '10px',
-                }}
-              >
-                <Typography variant="body1">
+            {currentQuestion.id === 6 && answers[21] && (
+              <Box sx={resultStyles.answerBox}>
+                <Typography>
                   <b>
                     {
-                      survey.Questions.find((q) => q.id === 21)?.title[
-                        language as keyof Locales
-                      ]
+                      survey.Questions.find(
+                        (childQuestion) => childQuestion.id === 21
+                      )?.title[language as keyof Locales]
                     }
                   </b>
-                  <br />
-                  {answers[21]}
                 </Typography>
               </Box>
             )}
-            {question.id === 1 && (
+            {currentQuestion.id === 1 && (
               <Box sx={resultStyles.card}>
-                <Typography variant="body1">
+                <Typography>
                   <b>{t('facultySelect:title')}</b>
-                  <br />
+                </Typography>
+                <Typography>
                   {
                     organisations.find(
                       (faculty) => faculty.code === answers.faculty
