@@ -46,15 +46,10 @@ const RenderAnswers = ({
   const multiChoiceAnswers = multiChoiceQuestions.map((question) => {
     const questionId = question.id
     const answer = resultData[questionId]
-    const trues = Object.entries(answer)
-      .filter((pair) => pair[1] === true)
-      .map((pair) => pair[0])
-      .flat(1)
-    const texts = trues.map(
-      (value) =>
-        question.optionData.options.find((o) => o.id === value)?.title[
-          language as keyof Locales
-        ]
+    const texts = answer.map(
+      (value: string) =>
+        question.optionData.options.find((option) => option.id === value)
+          ?.title[language as keyof Locales]
     )
 
     return { [questionId]: texts.join(', ') || '' }
