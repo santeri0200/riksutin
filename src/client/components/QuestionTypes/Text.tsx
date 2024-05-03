@@ -2,9 +2,11 @@ import React from 'react'
 import { Controller } from 'react-hook-form'
 import { Box, TextField } from '@mui/material'
 
+import { useTranslation } from 'react-i18next'
 import { InputProps } from '../../types'
 
 const Text = ({ control, question, defaultValue }: InputProps) => {
+  const { t } = useTranslation()
   if (!question) return null
 
   const props = question.optionData.options.find(({ attributes }) => attributes)
@@ -14,7 +16,12 @@ const Text = ({ control, question, defaultValue }: InputProps) => {
       control={control}
       name={question.id.toString()}
       defaultValue={defaultValue}
-      rules={{ required: { value: question.id !== 7, message: 'required' } }}
+      rules={{
+        required: {
+          value: question.id !== 7,
+          message: t('questions:requiredText'),
+        },
+      }}
       render={({ field: { onChange }, fieldState: { error } }) => (
         <Box justifyContent="center">
           <TextField

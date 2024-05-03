@@ -43,7 +43,9 @@ const DropDownSelect = ({
           control={control}
           name={question.id.toString()}
           defaultValue=""
-          rules={{ required: { value: true, message: 'required' } }}
+          rules={{
+            required: { value: true, message: t('questions:requiredText') },
+          }}
           render={({ field: { onChange }, fieldState: { error } }) => (
             <Box justifyContent="center">
               <Autocomplete

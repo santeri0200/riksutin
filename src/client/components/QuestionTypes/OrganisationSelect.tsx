@@ -44,7 +44,9 @@ const OrganisationList = ({
         control={control}
         name="selectOrganisation"
         defaultValue=""
-        rules={{ required: { value: true, message: 'required' } }}
+        rules={{
+          required: { value: true, message: t('questions:requiredText') },
+        }}
         render={({ field: { onChange }, fieldState: { error } }) => (
           <Box justifyContent="center">
             <Autocomplete

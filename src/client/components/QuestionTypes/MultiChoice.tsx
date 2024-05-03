@@ -10,9 +10,11 @@ import {
 
 import { MultipleChoiceType, Locales } from '@backend/types'
 
+import { useTranslation } from 'react-i18next'
 import { InputProps } from '../../types'
 
 const MultiChoice = ({ control, question, children, language }: InputProps) => {
+  const { t } = useTranslation()
   if (!question) return null
 
   return (
@@ -21,7 +23,9 @@ const MultiChoice = ({ control, question, children, language }: InputProps) => {
         name={question.id.toString()}
         control={control}
         defaultValue={[]}
-        rules={{ required: { value: true, message: 'required' } }}
+        rules={{
+          required: { value: true, message: t('questions:requiredText') },
+        }}
         render={({ field, fieldState: { error } }) => (
           <Box>
             <FormControl>

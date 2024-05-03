@@ -6,7 +6,8 @@
     "reset": "Start over",
     "openForm": "Continue to questions",
     "admin": "Administration",
-    "submitError": "Failed to submit results, please try again later"
+    "submitError": "Failed to submit results, please try again later",
+    "requiredText": "Required"
   },
   "footer": {
     "contactSupport": "Contact support: <mailTo>{{supportEmail}}</mailTo>"
@@ -26,7 +27,8 @@
     "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
     "loadingUniversities": "Loading",
     "selectUniversityInfoMessage": "Select a country to see options",
-    "addUniversityManually": "Add university manually"
+    "addUniversityManually": "Add university manually",
+    "requiredText": "Required"
   },
   "riskTable": {
     "countryRiskLevel": "Risk level of the partner country",

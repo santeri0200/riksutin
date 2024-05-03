@@ -10,6 +10,7 @@ import {
 
 import { Locales, SingleChoiceType } from '@backend/types'
 
+import { useTranslation } from 'react-i18next'
 import { InputProps } from '../../types'
 
 const SingleChoice = ({
@@ -18,6 +19,7 @@ const SingleChoice = ({
   children,
   language,
 }: InputProps) => {
+  const { t } = useTranslation()
   if (!question) return null
 
   return (
@@ -26,7 +28,9 @@ const SingleChoice = ({
         control={control}
         name={question.id.toString()}
         defaultValue=""
-        rules={{ required: { value: true, message: 'required' } }}
+        rules={{
+          required: { value: true, message: t('questions:requiredText') },
+        }}
         render={({ field, fieldState: { error } }) => (
           <Box justifyContent="center">
             <RadioGroup {...field}>
