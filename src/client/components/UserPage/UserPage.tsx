@@ -31,6 +31,7 @@ const UserPage = () => {
             borderColor: 'lightgray',
             maxWidth: '200px',
           }}
+          data-testid="entrybox"
         >
           <Link to={`/user/${entry.id.toString()}`}>
             <Typography variant="body1">
