@@ -51,7 +51,9 @@ const NavBar = () => {
           <Box sx={navStyles.navBox}>
             <img src={hyLogo} alt="University of Helsinki" width="40" />
             <Box ml="2rem">
-              <Typography sx={navStyles.appName}>{t('appName')}</Typography>
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                <Typography sx={navStyles.appName}>{t('appName')}</Typography>
+              </Link>
             </Box>
           </Box>
           <Box sx={{ display: 'flex' }}>
