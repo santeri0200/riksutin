@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import cron from 'node-cron'
 
 const scheduleCronJob = (

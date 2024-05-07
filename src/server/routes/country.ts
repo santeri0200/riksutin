@@ -6,22 +6,10 @@ import fetchSafetyLevelData from '../data/safetyLevel'
 import getCountryUniversities from '../data/whed/countryUniversities'
 import fetchSanctionsData from '../data/sanctions/sanctionsMap'
 import parseAcademicFreedom from '../data/academicfreedom/parseAcademicFreedom'
+import { CountryData } from '../types'
 
-const countryRouter = express.Router()
-
-countryRouter.get('/', async (_, res) => {
-  const data = await getCountries()
-
-  const countries = data.map(({ name, iso2Code }) => ({
-    name,
-    code: iso2Code,
-  }))
-
-  return res.status(200).send(countries)
-})
-
-countryRouter.get('/:code', async (req, res: any) => {
-  const { code } = req.params
+export const getCountryData = async (code: string | undefined) => {
+  if (!code) return null
   const countries = await getCountries()
 
   const countryName = countries.find(
@@ -46,6 +34,25 @@ countryRouter.get('/:code', async (req, res: any) => {
     sanctions,
     academicfreedom,
   }
+
+  return country as CountryData
+}
+
+const countryRouter = express.Router()
+
+countryRouter.get('/', async (_, res) => {
+  const data = await getCountries()
+
+  const countries = data.map(({ name, iso2Code }) => ({
+    name,
+    code: iso2Code,
+  }))
+
+  return res.status(200).send(countries)
+})
+
+countryRouter.get('/:code', async (req, res: any) => {
+  const country = await getCountryData(req.params.code)
 
   return res.status(200).send(country)
 })

@@ -144,3 +144,14 @@ export interface Question {
 export interface EntryWithUser extends Entry {
   User: User
 }
+
+export type CountryData = {
+  academicfreedom: number
+  code: string
+  corruption: number
+  stability: number
+  hci: number
+  safetyLevel: number
+  universities: string[]
+  sanctions: object[]
+}

@@ -43,8 +43,8 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test') {
 app.listen(PORT, async () => {
   await connectToDatabase()
   await seed()
-
   await setupAuthentication()
+  /*   await startRiskCron() */
 
   logger.info(`Server running on port ${PORT}`)
 })
