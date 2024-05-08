@@ -1,12 +1,11 @@
-import getCountries from '@backend/data/worldbank/countries'
+import { CountryData } from '../../types'
+import getCountries from '../../data/worldbank/countries'
 import { getCountryData } from '../../routes/country'
 import { Entry } from '../../db/models'
 import logger from '../logger'
 import scheduleCronJob from './schedule'
 
-const run = async () => {
-  logger.info('testing cron job')
-  const entry = await Entry.findOne({ where: { id: 210 } })
+const riskReEvaluation = async (entry: Entry) => {
   const answers = entry?.data.answers
   const countries = await getCountries()
 
@@ -31,22 +30,36 @@ const run = async () => {
       ? 1.5
       : 1
 
-  const updatedData = {
+  const reCalculatedData: CountryData = {
+    ...countryData,
     sanctions: sanctionsRiskLevel * sanctionsMultiplier,
     safetyLevel: safetyLevelMultiplier * countryData.safetyLevel,
-    gdpr: entry.data.country?.find((risk) => risk.id === 'GDPR')?.level,
+    gdpr: entry.data.country[0]?.gdpr,
   }
 
-  const updatedCountryData = { ...countryData, ...updatedData }
+  return reCalculatedData
+}
 
-  logger.info(
-    Object.values(updatedCountryData)
-      .filter((risk) => typeof risk === 'number')
-      .sort()
-  )
-  logger.info(entry.data.country?.map((c) => c.level).sort())
-
-  return null
+const run = async () => {
+  logger.info('testing cron job')
+  const entries = await Entry.findAll({ where: { id: [220] } })
+  entries.forEach(async (entry) => {
+    if (!entry) return
+    logger.info(entry.id)
+    const reCalculatedData = await riskReEvaluation(entry)
+    if (!reCalculatedData) return
+    // eslint-disable-next-line no-param-reassign
+    const updatedCountryArray = [...entry.data.country, reCalculatedData]
+    await entry.update({
+      data: {
+        answers: entry.data.answers,
+        risks: entry.data.risks,
+        country: updatedCountryArray,
+      },
+    })
+    const updatedObject = await entry.save({ fields: ['data'] })
+    logger.info(updatedObject)
+  })
 }
 
 const startRiskCron = async () => {

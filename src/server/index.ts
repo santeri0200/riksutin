@@ -14,6 +14,7 @@ import router from './routes'
 import setupAuthentication from './util/oidc'
 import { connectToDatabase } from './db/connection'
 import seed from './db/seeders'
+import startRiskCron from './util/cron/riskReEvaluation'
 
 const app = express()
 
