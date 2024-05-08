@@ -96,9 +96,9 @@ const totalRisk = (
     (value) => value.level !== (null || undefined)
   )
 
-  const allRisks = (riskArray.map((value) => value.level) as number[]).concat(
-    countryRiskValues ? countryRiskValues[1] : []
-  )
+  const allRisks = (riskArray.map((value) => value.level) as number[])
+    .concat(countryRiskValues ? countryRiskValues[1] : [])
+    .filter((value) => value)
 
   let totalRiskLevel = Math.round(
     (allRisks.reduce((a, b) => a + b, 0) / allRisks.length) *
