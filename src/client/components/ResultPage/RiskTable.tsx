@@ -50,6 +50,9 @@ const RiskTable = ({ riskData }: { riskData: RiskData }) => {
     countryInfoText = t(`countrySpecificTexts:globalSouth`)
   }
 
+  const firstCountryRisks = riskData.country[0]
+  console.log(riskData.country)
+
   return (
     <>
       <Typography data-cy="result-section-title" variant="h6" component="div">
@@ -80,14 +83,14 @@ const RiskTable = ({ riskData }: { riskData: RiskData }) => {
                   </Box>
                 </TableCell>
               </TableRow>
-              {riskData.country && countryRisk && (
+              {firstCountryRisks && countryRisk && (
                 <>
                   <RiskElement
                     title={t('riskTable:countryRiskLevel')}
                     level={riskData.risks[0].level}
                     infoText={countryInfoText}
                   />
-                  <CountryRisks countryRisks={riskData.country} />
+                  <CountryRisks countryRisks={firstCountryRisks} />
                 </>
               )}
               {riskData.risks.map(

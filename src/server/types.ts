@@ -117,7 +117,7 @@ export interface Risk {
 export interface RiskData {
   answers: FormValues
   risks: Risk[]
-  country: Risk[] | null
+  country: Array<Risk[] | null>
 }
 
 export interface EntryValues {

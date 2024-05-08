@@ -46,7 +46,7 @@ const getRiskValues = async (
   const riskData: RiskData = {
     answers: formdata,
     risks: filteredArray.concat(totalRiskObject),
-    country: countryRisks,
+    country: new Array(countryRisks),
   }
 
   return riskData
