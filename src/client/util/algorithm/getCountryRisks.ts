@@ -1,6 +1,5 @@
 import { Locales, Result } from '@backend/types'
-import { CountryData, FormValues } from '../../types'
-import { gdprRisk } from './risks'
+import { CountryData, FormValues, Risk } from '../../types'
 
 const getCountryRisks = (
   country: CountryData | undefined,
@@ -9,17 +8,6 @@ const getCountryRisks = (
   language: string
 ) => {
   if (!country || !results || !resultData) return null
-
-  const sanctionsRiskLevel = country.sanctions ? 2 : 1
-  const gdprRiskLevel = gdprRisk(country, resultData)
-  const sanctionsMultiplier =
-    sanctionsRiskLevel === 2 && resultData['11'].research ? 1.5 : 1
-
-  const safetyLevelMultiplier =
-    (country.safetyLevel === 2 || country.safetyLevel === 3) &&
-    (resultData['11'].studentMobility || resultData['11'].staffMobility)
-      ? 1.5
-      : 1
 
   const corruptionText = results.find(
     (r) => r.optionLabel === `corruptionLevel${country.corruption}`
@@ -37,13 +25,13 @@ const getCountryRisks = (
     (r) => r.optionLabel === `developmentLevel${country.hci}`
   )?.isSelected[language as keyof Locales]
   const gdprText = results.find(
-    (r) => r.optionLabel === `gdprRiskLevel${gdprRiskLevel}`
+    (r) => r.optionLabel === `gdprRiskLevel${country.gdpr}`
   )?.isSelected[language as keyof Locales]
   const sanctionsText = results.find(
-    (r) => r.optionLabel === `sanctionsRiskLevel${sanctionsRiskLevel}`
+    (r) => r.optionLabel === `sanctionsRiskLevel${country.sanctions}`
   )?.isSelected[language as keyof Locales]
 
-  const countryRisks = [
+  const countryRisks: Risk[] = [
     {
       id: 'corruption',
       title: 'riskTable:corruptionRank',
@@ -53,7 +41,7 @@ const getCountryRisks = (
     {
       id: 'safetyLevel',
       title: 'riskTable:safetyLevel',
-      level: country.safetyLevel * safetyLevelMultiplier,
+      level: country.safetyLevel,
       infoText: safetyLevelText,
     },
     {
@@ -77,13 +65,13 @@ const getCountryRisks = (
     {
       id: 'GDPR',
       title: 'GDPR',
-      level: gdprRiskLevel,
+      level: country.gdpr,
       infoText: gdprText,
     },
     {
       id: 'sanctions',
       title: 'riskTable:sanctions',
-      level: sanctionsRiskLevel * sanctionsMultiplier,
+      level: country.sanctions,
       infoText: sanctionsText,
     },
   ]

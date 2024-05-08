@@ -77,14 +77,14 @@ export interface Entry {
 export interface Risk {
   id: string
   title: string
-  level: number | null
+  level: any
   infoText?: string
 }
 
 export interface RiskData {
   answers: FormValues
   risks: Risk[]
-  country: Array<Risk[] | null>
+  country: CountryData[]
 }
 
 export type Country = {
@@ -100,5 +100,6 @@ export type CountryData = {
   hci: number
   safetyLevel: number
   universities: string[]
-  sanctions: object[]
+  sanctions: object[] | number
+  gdpr?: number | null
 }
