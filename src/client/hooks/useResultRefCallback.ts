@@ -5,7 +5,7 @@ const useResultRefCallback = () => {
     if (!resultDOMElement) return
 
     sessionStorage.setItem(
-      'curre-session-resultHTML',
+      'riksutin-session-resultHTML',
       resultDOMElement.innerHTML
     )
   }, [])

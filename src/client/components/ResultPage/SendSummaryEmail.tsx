@@ -10,8 +10,6 @@ import {
   Box,
   Button,
   Chip,
-  FormControlLabel,
-  Switch,
   TextField,
   Typography,
 } from '@mui/material'
@@ -28,14 +26,12 @@ import { ShareResultEmails, ShareResultsZod } from '../../../validators/emails'
 const SendSummaryEmail = () => {
   const { t } = useTranslation()
   const location = useLocation()
-  const [notes, setNotes] = useState('')
   const [isSent, setIsSent] = useState(false)
-  const [showNotes, setShowNotes] = useState(false)
   const { user, isLoading } = useLoggedInUser()
 
   const { cardStyles } = styles
 
-  const resultHTML = sessionStorage.getItem('curre-session-resultHTML')
+  const resultHTML = sessionStorage.getItem('riksutin-session-resultHTML')
 
   const {
     control,
@@ -62,7 +58,7 @@ const SendSummaryEmail = () => {
     if (errors?.emails || emails.length === 0) return
 
     const summaryEmailTemplate = ReactDOMServer.renderToString(
-      <SummaryEmailTemplate showNotes={showNotes} notes={notes} />
+      <SummaryEmailTemplate />
     )
 
     const subject = t('results:summaryEmailSubject')
@@ -93,30 +89,6 @@ const SendSummaryEmail = () => {
       </Typography>
       <Box sx={cardStyles.content}>
         <Box>
-          <FormControlLabel
-            control={
-              <Switch
-                onChange={() => setShowNotes(!showNotes)}
-                disabled={isSent}
-              />
-            }
-            label={t('results:showSummaryNotes')}
-          />
-          {showNotes && (
-            <TextField
-              sx={cardStyles.inputField}
-              required
-              size="small"
-              value={notes}
-              fullWidth
-              multiline
-              rows={10}
-              placeholder={t('results:summaryMailNotesPlaceholder') ?? ''}
-              onChange={({ target }) => setNotes(target.value)}
-              disabled={isSent}
-            />
-          )}
-
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="emails"
@@ -172,7 +144,6 @@ const SendSummaryEmail = () => {
               variant="contained"
               type="submit"
               sx={{ mt: 2 }}
-              disabled={!user?.email || isSent}
             >
               {t('results:sendSummaryMail')}
             </Button>

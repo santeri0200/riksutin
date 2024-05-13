@@ -10,6 +10,7 @@ import SurveyButtons from '../Common/SurveyButtons'
 import styles from '../../styles'
 import { LOCATION_KEY } from '../../../config'
 import { RiskData } from '../../types'
+import SendSummaryEmail from './SendSummaryEmail'
 
 const { resultStyles } = styles
 
@@ -46,6 +47,8 @@ const Results = ({
       </Typography>
 
       <RenderResults riskData={riskData} />
+
+      <SendSummaryEmail />
 
       <SurveyButtons>
         <Button data-cy="back-to-selections" onClick={onNavigateBack}>

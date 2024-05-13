@@ -1,15 +1,15 @@
 import axios from 'axios'
 
 import { PATE_URL } from '../util/config'
-import { inProduction, inStaging, appName } from '../../config'
+import { inProduction, appName } from '../../config'
 
 const settings = {
   hideToska: false,
   disableToska: true,
-  color: '#107eab',
-  header: 'Curre',
+  color: '#fc7f03',
+  header: 'Riksutin',
   headerFontColor: 'white',
-  dryrun: !inProduction || inStaging,
+  dryrun: !inProduction,
 }
 
 const pateClient = axios.create({
