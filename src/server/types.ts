@@ -155,4 +155,5 @@ export type CountryData = {
   universities: string[]
   sanctions: object[] | number
   gdpr?: number | null
+  createdAt: string
 }

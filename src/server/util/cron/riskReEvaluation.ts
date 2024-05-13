@@ -35,6 +35,7 @@ const riskReEvaluation = async (entry: Entry) => {
     sanctions: sanctionsRiskLevel * sanctionsMultiplier,
     safetyLevel: safetyLevelMultiplier * countryData.safetyLevel,
     gdpr: entry.data.country[0]?.gdpr,
+    createdAt: new Date().toISOString(),
   }
 
   return reCalculatedData
@@ -42,7 +43,7 @@ const riskReEvaluation = async (entry: Entry) => {
 
 const run = async () => {
   logger.info('testing cron job')
-  const entries = await Entry.findAll({ where: { id: [220] } })
+  const entries = await Entry.findAll({ where: { id: [228] } })
   entries.forEach(async (entry) => {
     if (!entry) return
     logger.info(entry.id)
@@ -63,7 +64,7 @@ const run = async () => {
 }
 
 const startRiskCron = async () => {
-  const cronTime = '*/2 * * * *'
+  const cronTime = '*/5 * * * *'
   logger.info('cron job activated')
   return scheduleCronJob(cronTime, run)
 }
