@@ -14,7 +14,7 @@ import getCountryRisks from '../../util/algorithm/getCountryRisks'
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
-import { RiskData } from '../../types'
+import { CountryData, RiskData } from '../../types'
 import CountryRisks from './CountryRisks'
 import { globalNorthCountries } from '../../util/countryLists'
 import useCountries from '../../hooks/useCountries'
@@ -22,7 +22,13 @@ import useResults from '../../hooks/useResults'
 
 const { resultStyles } = styles
 
-const RiskTable = ({ riskData }: { riskData: RiskData }) => {
+const RiskTable = ({
+  riskData,
+  countryData,
+}: {
+  riskData: RiskData
+  countryData: CountryData
+}) => {
   const { t, i18n } = useTranslation()
   const { language } = i18n
   const { results } = useResults(1)
@@ -55,7 +61,7 @@ const RiskTable = ({ riskData }: { riskData: RiskData }) => {
   }
 
   const countryRisksWithTexts = getCountryRisks(
-    riskData.country[0],
+    countryData,
     results,
     riskData.answers,
     language
