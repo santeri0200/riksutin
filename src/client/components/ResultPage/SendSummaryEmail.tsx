@@ -84,7 +84,7 @@ const SendSummaryEmail = () => {
 
   return (
     <Box sx={cardStyles.nestedSubSection}>
-      <Typography variant="body2">
+      <Typography variant="body1">
         {t('results:proceedEmailInfoText')}
       </Typography>
       <Box sx={cardStyles.content}>
@@ -144,6 +144,7 @@ const SendSummaryEmail = () => {
               variant="contained"
               type="submit"
               sx={{ mt: 2 }}
+              disabled={!user?.email || isSent}
             >
               {t('results:sendSummaryMail')}
             </Button>
