@@ -1,17 +1,37 @@
 import React from 'react'
 
-const SummaryEmailTemplate = () => (
-  <div>
-    <p>Hei</p>
+import { Locales } from '@backend/types'
 
-    <p>
-      Kiitos Kansainvälisen yhteistyön riskiarviosovelluksen käytöstä! Alla
-      yhteenveto valinnoistasi.
-    </p>
+const SummaryEmailTemplate = ({ language }: { language: keyof Locales }) => {
+  if (language === 'en') {
+    return (
+      <div>
+        <p>Hello</p>
 
-    <p>**********</p>
-    <br />
-  </div>
-)
+        <p>
+          Thank you for using the International collaboration risk assessment
+          app. Here is the summary of your choices.
+        </p>
+
+        <p>**********</p>
+        <br />
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <p>Hei</p>
+
+      <p>
+        Kiitos Kansainvälisen yhteistyön riskiarviosovelluksen käytöstä! Alla
+        yhteenveto valinnoistasi.
+      </p>
+
+      <p>**********</p>
+      <br />
+    </div>
+  )
+}
 
 export default SummaryEmailTemplate

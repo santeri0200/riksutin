@@ -14,6 +14,7 @@ import {
   Typography,
 } from '@mui/material'
 
+import { Locales } from '@backend/types'
 import useLoggedInUser from '../../hooks/useLoggedInUser'
 
 import SummaryEmailTemplate from '../../templates/SummaryEmailTemplate'
@@ -24,10 +25,12 @@ import sendEmail from '../../util/mailing'
 import { ShareResultEmails, ShareResultsZod } from '../../../validators/emails'
 
 const SendSummaryEmail = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const location = useLocation()
   const [isSent, setIsSent] = useState(false)
   const { user, isLoading } = useLoggedInUser()
+
+  const { language } = i18n
 
   const { cardStyles } = styles
 
@@ -58,7 +61,7 @@ const SendSummaryEmail = () => {
     if (errors?.emails || emails.length === 0) return
 
     const summaryEmailTemplate = ReactDOMServer.renderToString(
-      <SummaryEmailTemplate />
+      <SummaryEmailTemplate language={language as keyof Locales} />
     )
 
     const subject = t('results:summaryEmailSubject')
