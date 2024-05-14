@@ -22,6 +22,23 @@ export const useEntry = (entryId: string | undefined) => {
   return { entry, ...rest }
 }
 
+export const useEntries = () => {
+  const queryKey = 'entries'
+
+  const query = async (): Promise<Entry[]> => {
+    const { data } = await apiClient.get(`/entries`)
+
+    return data
+  }
+
+  const { data: entries, ...rest } = useQuery(queryKey, query, {
+    retry: false,
+    useErrorBoundary: true,
+  })
+
+  return { entries, ...rest }
+}
+
 export const useUserEntries = () => {
   const queryKey = 'userEntries'
 

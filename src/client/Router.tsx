@@ -13,6 +13,7 @@ import RenderEditResults from './components/Admin/EditResults/RenderEditResults'
 import EditRecommendations from './components/Admin/EditRecommendations/EditRecommendations'
 import RenderEditRecommendations from './components/Admin/EditRecommendations/RenderEditRecommenstations'
 import RenderEditSurvey from './components/Admin/EditSurvey/RenderEditSurvey'
+import Summary from './components/Admin/Summary/Summary'
 import RootBoundary from './components/Errors/RootBoundary'
 import NotFound from './components/Errors/NotFound'
 
@@ -47,7 +48,7 @@ const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <RenderEditSurvey />,
+              element: <Summary />,
             },
             {
               path: 'edit-questions',

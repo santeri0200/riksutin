@@ -13,7 +13,7 @@ import {
   Popper,
   Typography,
 } from '@mui/material'
-import { Language } from '@mui/icons-material'
+import { AdminPanelSettingsOutlined, Language } from '@mui/icons-material'
 import { useTranslation } from 'react-i18next'
 
 import { Link } from 'react-router-dom'
@@ -57,6 +57,14 @@ const NavBar = () => {
             </Box>
           </Box>
           <Box sx={{ display: 'flex' }}>
+            {user?.isAdmin && (
+              <Link to="/admin" style={{ textDecoration: 'none' }}>
+                <Button sx={{ marginRight: '25px' }}>
+                  <AdminPanelSettingsOutlined sx={navStyles.icon} />{' '}
+                  {t('admin')}
+                </Button>
+              </Link>
+            )}
             <Button variant="outlined" sx={{ marginRight: '25px' }}>
               <Link
                 to="/user"
