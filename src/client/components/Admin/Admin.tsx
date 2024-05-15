@@ -2,9 +2,11 @@ import React from 'react'
 import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
 
 import { Box, Tab, Tabs } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 import useLoggedInUser from '../../hooks/useLoggedInUser'
 
 const Admin = () => {
+  const { t } = useTranslation()
   const location = useLocation()
   const { user, isLoading } = useLoggedInUser()
 
@@ -30,7 +32,12 @@ const Admin = () => {
         scrollButtons
         allowScrollButtonsMobile
       >
-        <Tab component={Link} to="." label="Yhteenveto" value="summary" />
+        <Tab
+          component={Link}
+          to="."
+          label={t('admin:summaryTab')}
+          value="summary"
+        />
       </Tabs>
       <Outlet />
     </Box>

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useEntries } from '../../../hooks/useEntry'
 
 const Summary = () => {
+  const { t } = useTranslation()
   const { entries } = useEntries()
 
   if (!entries) return null
@@ -12,7 +14,7 @@ const Summary = () => {
     <Box sx={{ m: 2 }}>
       <Box>
         <Typography variant="h6" component="div" sx={{ mb: 2 }}>
-          Kaikki täytetyt kyselyt
+          {t('admin:summaryTitle')}
         </Typography>
       </Box>
       {entries?.map((entry) => (

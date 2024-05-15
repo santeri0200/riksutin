@@ -79,6 +79,8 @@
     "previousEntries": "Täyttämäsi kyselyt"
   },
   "admin": {
+    "summaryTab": "Yhteenveto",
+    "summaryTitle": "Kaikki täytetyt kyselyt",
     "selectDimension": "Valitse oppimismuoto",
     "selectQuestion": "Valitse kysymys",
     "selectLanguage": "Valitse kieli",

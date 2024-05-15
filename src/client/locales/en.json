@@ -80,6 +80,8 @@
     "previousEntries": "Your previous entries"
   },
   "admin": {
+    "summaryTab": "Summary",
+    "summaryTitle": "All entries",
     "selectDimension": "Select learning method",
     "selectQuestion": "Select question",
     "selectLanguage": "Select language",
