@@ -1,4 +1,4 @@
-import { Entry, Survey } from '../db/models'
+import { Entry, Survey, User } from '../db/models'
 
 import { EntryValues } from '../types'
 
@@ -32,14 +32,13 @@ export const getEntry = async (
   entryId: string,
   userId: string
 ): Promise<Entry> => {
-  const entry = await Entry.findOne({
-    where: { userId, id: entryId },
-    include: Survey,
-  })
+  const entry = await Entry.findByPk(entryId, { include: Survey })
 
   if (!entry) throw new NotFoundError('Entry not found')
 
-  if (entry.userId !== userId)
+  const user = await User.findByPk(userId)
+
+  if (entry.userId !== userId && !user?.isAdmin)
     throw new UnauthorizedError('Unauthorized access')
 
   return entry

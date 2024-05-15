@@ -51,6 +51,10 @@ const router = createBrowserRouter(
               element: <Summary />,
             },
             {
+              path: 'entry/:entryId',
+              element: <UserEntry />,
+            },
+            {
               path: 'edit-questions',
               element: <RenderEditQuestions />,
               children: [

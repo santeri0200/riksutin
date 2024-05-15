@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 import { useEntries } from '../../../hooks/useEntry'
 
 const Summary = () => {
@@ -26,10 +27,12 @@ const Summary = () => {
           }}
           data-testid="entrybox"
         >
-          <Typography variant="body1">
-            {new Date(entry.createdAt).toLocaleDateString()}{' '}
-            {new Date(entry.createdAt).toLocaleTimeString()}
-          </Typography>
+          <Link to={`./entry/${entry.id.toString()}`}>
+            <Typography variant="body1">
+              {new Date(entry.createdAt).toLocaleDateString()}{' '}
+              {new Date(entry.createdAt).toLocaleTimeString()}
+            </Typography>
+          </Link>
         </Box>
       ))}
     </Box>
