@@ -20,9 +20,11 @@ const Summary = () => {
   if (!entries) return null
 
   return (
-    <>
-      <Box sx={{ m: 2 }}>
-        <Typography variant="h6">Kaikki täytetyt kyselyt</Typography>
+    <Box sx={{ mx: 2, mt: 4 }}>
+      <Box sx={{ my: 4 }}>
+        <Typography variant="h5" sx={{ my: 4, pl: 1 }}>
+          Kaikki täytetyt kyselyt
+        </Typography>
       </Box>
       <TableContainer sx={{ m: 2 }}>
         <Table sx={{ maxWidth: '30rem' }} aria-label="simple table">
@@ -49,7 +51,7 @@ const Summary = () => {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Box>
   )
 }
 

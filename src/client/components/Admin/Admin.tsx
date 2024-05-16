@@ -38,6 +38,12 @@ const Admin = () => {
           label={t('admin:summaryTab')}
           value="summary"
         />
+        <Tab
+          component={Link}
+          to="./edit-survey"
+          label={t('admin:surveyTab')}
+          value="edit-survey"
+        />
       </Tabs>
       <Outlet />
     </Box>

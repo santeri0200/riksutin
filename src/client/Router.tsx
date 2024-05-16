@@ -55,6 +55,10 @@ const router = createBrowserRouter(
               element: <UserEntry />,
             },
             {
+              path: 'edit-survey',
+              element: <RenderEditSurvey />,
+            },
+            {
               path: 'edit-questions',
               element: <RenderEditQuestions />,
               children: [

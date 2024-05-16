@@ -81,6 +81,7 @@
   "admin": {
     "summaryTab": "Yhteenveto",
     "summaryTitle": "Kaikki täytetyt kyselyt",
+    "surveyTab": "Kyselyn muokkaus",
     "selectDimension": "Valitse oppimismuoto",
     "selectQuestion": "Valitse kysymys",
     "selectLanguage": "Valitse kieli",

@@ -82,6 +82,7 @@
   "admin": {
     "summaryTab": "Summary",
     "summaryTitle": "All entries",
+    "surveyTab": "Edit survey",
     "selectDimension": "Select learning method",
     "selectQuestion": "Select question",
     "selectLanguage": "Select language",
