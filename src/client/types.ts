@@ -1,4 +1,4 @@
-import { Locales, Question } from '@backend/types'
+import { Locales, Question, User } from '@backend/types'
 import { Control, UseFormWatch, UseFormRegister } from 'react-hook-form'
 
 import { FORM_DATA_KEY } from '../config'
@@ -72,6 +72,7 @@ export interface Entry {
   UserId: string
   createdAt: string
   survey: Survey
+  User: User
 }
 
 export interface Risk {

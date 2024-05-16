@@ -1,7 +1,7 @@
 import { User } from '../models'
 
 const user = {
-  id: 'hy-hlo-123',
+  id: 'hy-hlo-1441871',
   username: 'testuser',
   firstName: 'Testi',
   lastName: 'Kayttaja',

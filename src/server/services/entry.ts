@@ -7,7 +7,7 @@ import UnauthorizedError from '../errors/UnauthorizedError'
 
 export const getEntries = async (): Promise<Entry[]> => {
   const entries = await Entry.findAll({
-    include: Survey,
+    include: [Survey, User],
     order: [['updatedAt', 'DESC']],
   })
 
