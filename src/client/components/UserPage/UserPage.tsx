@@ -2,11 +2,8 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import styles from '../../styles'
 
 import { useUserEntries } from '../../hooks/useEntry'
-
-const { formStyles } = styles
 
 const UserPage = () => {
   const { entries } = useUserEntries()
@@ -15,7 +12,13 @@ const UserPage = () => {
   if (!entries) return null
 
   return (
-    <Box sx={formStyles.formWrapper}>
+    <Box
+      sx={{
+        alignSelf: 'flex-start',
+        width: '100%',
+        m: 3,
+      }}
+    >
       <Box>
         <Typography variant="h6" component="div" sx={{ mb: 2 }}>
           {t('userPage:previousEntries')}
