@@ -34,7 +34,7 @@ const Summary = () => {
           <TableHead>
             <TableRow>
               <TableCell>Päivämäärä</TableCell>
-              <TableCell align="center">Nimi</TableCell>
+              <TableCell align="center">Käyttäjä</TableCell>
               <TableCell align="center">Kokonaisriskitaso</TableCell>
             </TableRow>
           </TableHead>
