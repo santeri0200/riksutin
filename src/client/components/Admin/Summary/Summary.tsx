@@ -11,7 +11,10 @@ import {
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import styles from '../../../styles'
 import { useEntries } from '../../../hooks/useEntry'
+
+const { riskColors, resultStyles } = styles
 
 const Summary = () => {
   const { t } = useTranslation()
@@ -27,11 +30,12 @@ const Summary = () => {
         </Typography>
       </Box>
       <TableContainer sx={{ m: 2 }}>
-        <Table sx={{ maxWidth: '30rem' }} aria-label="simple table">
+        <Table sx={{ maxWidth: '40rem' }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Päivämäärä</TableCell>
-              <TableCell align="right">Nimi</TableCell>
+              <TableCell align="center">Nimi</TableCell>
+              <TableCell align="center">Kokonaisriskitaso</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -43,8 +47,35 @@ const Summary = () => {
                     {new Date(entry.createdAt).toLocaleTimeString()}
                   </Link>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="center">
                   {entry.User.firstName} {entry.User.lastName}
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Box
+                    sx={[
+                      {
+                        backgroundColor:
+                          riskColors[
+                            entry.data.risks.find((r) => r.id === 'total')
+                              ?.level > 3
+                              ? 3
+                              : entry.data.risks.find((r) => r.id === 'total')
+                                  ?.level
+                          ],
+                      },
+                      resultStyles.tableCell,
+                    ]}
+                  >
+                    {entry.data.risks.find((r) => r.id === 'total')?.level}
+                  </Box>
                 </TableCell>
               </TableRow>
             ))}
