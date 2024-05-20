@@ -1,5 +1,5 @@
-import { Question, CountryData, RiskData } from '@backend/types'
-import { Country, FormValues, Risk } from '@frontend/types'
+import { Country } from '@frontend/types'
+import { Question, CountryData, RiskData, FormValues, Risk } from '../../types'
 
 import { getQuestions } from '../../services/question'
 import { getCountries, getCountryData } from '../../routes/country'

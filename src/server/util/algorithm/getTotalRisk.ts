@@ -1,5 +1,5 @@
-import { FormValues, Risk } from '@frontend/types'
-import { Question, UpdatedCountryData } from '@backend/types'
+import { FormValues } from '@frontend/types'
+import { Question, UpdatedCountryData, Risk } from '@backend/types'
 import {
   totalCountryRisk,
   dualUseRisk,

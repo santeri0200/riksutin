@@ -1,5 +1,5 @@
-import { CountryData, FormValues } from '@frontend/types'
-import { Question, UpdatedCountryData } from '@backend/types'
+import { FormValues } from '@frontend/types'
+import { Question, UpdatedCountryData, CountryData } from '@backend/types'
 import {
   euCountries,
   eeaCountries,
