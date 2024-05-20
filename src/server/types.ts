@@ -157,3 +157,16 @@ export type CountryData = {
   gdpr?: number | null
   createdAt: string
 }
+
+export type UpdatedCountryData = {
+  sanctions: number
+  safetyLevel: number
+  gdpr: number | null
+  academicfreedom: number
+  code: string
+  corruption: number
+  stability: number
+  hci: number
+  universities: string[]
+  createdAt: string
+}

@@ -24,7 +24,7 @@ const createRiskData = async (formData: FormValues) => {
   const updatedCountryData = getCountryRisks(countryData, formData)
 
   const { totalRiskLevel, filteredArray } = getTotalRisk(
-    countryData,
+    updatedCountryData,
     questions,
     formData
   )

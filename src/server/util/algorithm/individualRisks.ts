@@ -1,5 +1,5 @@
 import { CountryData, FormValues } from '@frontend/types'
-import { Question } from '@backend/types'
+import { Question, UpdatedCountryData } from '@backend/types'
 import {
   euCountries,
   eeaCountries,
@@ -32,50 +32,28 @@ export const gdprRisk = (
   return null
 }
 
-export const countryRisk = ({
-  country,
-  resultData,
-}: {
-  country: CountryData | undefined
-  resultData: FormValues
-}) => {
-  if (!country) return null
+export const totalCountryRisk = (
+  updatedCountryData: UpdatedCountryData | undefined,
+  formData: FormValues
+) => {
+  if (!updatedCountryData || !formData) return null
 
-  const {
-    code,
-    universities,
-    safetyLevel,
-    sanctions,
-    createdAt,
-    gdpr,
-    ...riskValues
-  } = country
+  const { code, createdAt, universities, gdpr, ...numberRisks } =
+    updatedCountryData
 
-  const sanctionsRisk = sanctions ? 2 : 1
-  const sanctionsMultiplier =
-    sanctionsRisk === 2 && resultData['11'].research ? 1.5 : 1
+  const countryRisksFiltered: number[] = Object.values(numberRisks).concat(
+    gdpr as number
+  )
 
-  const safetyLevelMultiplier =
-    (safetyLevel === 2 || safetyLevel === 3) &&
-    (resultData['11'].studentMobility || resultData['11'].staffMobility)
-      ? 1.5
-      : 1
-
-  const gdprRiskValue = gdprRisk(country, resultData)
-  const riskList = Object.values(riskValues)
-    .concat(
-      safetyLevel * safetyLevelMultiplier,
-      sanctionsRisk * sanctionsMultiplier,
-      gdprRiskValue as number
-    )
-    .filter((value) => value !== null)
-
-  if (riskList === null || riskList.length === 0) return null
+  if (!countryRisksFiltered || countryRisksFiltered.length === 0) return null
 
   const totalCountryRiskLevel =
-    riskList.reduce((a, b) => a + b, 0) / riskList.length || 0
+    Math.round(
+      countryRisksFiltered.reduce((a, b) => a + b, 0) /
+        countryRisksFiltered.length
+    ) || 0
 
-  return [totalCountryRiskLevel, riskList]
+  return [totalCountryRiskLevel, countryRisksFiltered]
 }
 
 export const universityRisk = (

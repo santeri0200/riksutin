@@ -1,4 +1,4 @@
-import { CountryData, FormValues } from '../../types'
+import { CountryData, FormValues, UpdatedCountryData } from '../../types'
 import { gdprRisk } from './individualRisks'
 
 const getCountryRisks = (countryData: CountryData, formData: FormValues) => {
@@ -13,7 +13,7 @@ const getCountryRisks = (countryData: CountryData, formData: FormValues) => {
       ? 1.5
       : 1
 
-  const updatedCountryData = {
+  const updatedCountryData: UpdatedCountryData = {
     ...countryData,
     sanctions: sanctionsRiskLevel * sanctionsMultiplier,
     safetyLevel: safetyLevelMultiplier * countryData.safetyLevel,

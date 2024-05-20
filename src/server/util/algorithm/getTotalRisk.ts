@@ -1,21 +1,18 @@
-import { CountryData, FormValues, Risk } from '@frontend/types'
-import { Question } from '@backend/types'
+import { FormValues, Risk } from '@frontend/types'
+import { Question, UpdatedCountryData } from '@backend/types'
 import {
-  countryRisk,
+  totalCountryRisk,
   dualUseRisk,
   organisationRisk,
   universityRisk,
 } from './individualRisks'
 
 const getTotalRisk = (
-  country: CountryData | undefined,
+  country: UpdatedCountryData | undefined,
   questions: Question[],
   resultData: FormValues
-): {
-  totalRiskLevel: number
-  filteredArray: Risk[]
-} => {
-  const countryRiskValues = countryRisk({ country, resultData })
+) => {
+  const countryRiskValues = totalCountryRisk(country, resultData)
 
   const roleMultiplier = resultData[9] === 'coordinator' ? 1.2 : 1
   const durationMultiplier = resultData[12] === 'longDuration' ? 1.2 : 1
