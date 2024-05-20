@@ -1,5 +1,6 @@
 import express from 'express'
 
+import createRiskData from '../util/algorithm/createRiskData'
 import adminHandler from '../middleware/admin'
 import {
   createEntry,
@@ -35,12 +36,18 @@ entryRouter.get('/:entryId', async (req: RequestWithUser, res: any) => {
 
 entryRouter.post('/:surveyId', async (req: RequestWithUser, res: any) => {
   const { surveyId } = req.params
-  const { sessionToken } = req.body as EntryValues
+  const { sessionToken, data } = req.body
   const userId = req.user?.id || `publicUser-${sessionToken}`
 
-  const entry = await createEntry(userId, surveyId, req.body)
+  const riskData = await createRiskData(data)
 
-  return res.status(201).send(entry)
+  if (!riskData) return res.status(500).send('Error when calculating risks')
+
+  const updatedData: EntryValues = { sessionToken, data: riskData }
+
+  const entry = await createEntry(userId, surveyId, updatedData)
+
+  return res.status(201).send(entry.data)
 })
 
 export default entryRouter

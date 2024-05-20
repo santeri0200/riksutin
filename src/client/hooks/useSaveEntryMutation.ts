@@ -1,14 +1,15 @@
 import { v4 as uuidv4 } from 'uuid'
 import { useMutation } from 'react-query'
 
-import { RiskData } from '../types'
+import { Entry } from '@backend/db/models'
+import { FormValues, RiskData } from '../types'
 
 import apiClient from '../util/apiClient'
 
 import { SESSION_TOKEN } from '../../config'
 
 const useSaveEntryMutation = (surveyId: number | undefined) => {
-  const mutationFn = async (data: RiskData) => {
+  const mutationFn = async (data: FormValues) => {
     let sessionToken = sessionStorage.getItem(SESSION_TOKEN)
 
     if (!sessionToken) {
@@ -17,10 +18,12 @@ const useSaveEntryMutation = (surveyId: number | undefined) => {
       sessionToken = sessionId
     }
 
-    await apiClient.post(`/entries/${surveyId}`, {
+    const entry: Entry = await apiClient.post(`/entries/${surveyId}`, {
       data,
       sessionToken,
     })
+
+    return entry
   }
 
   const mutation = useMutation(mutationFn)

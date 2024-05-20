@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { enqueueSnackbar } from 'notistack'
 import { Box, Grid } from '@mui/material'
 
-import getRiskValues from '../../util/algorithm/getRiskValues'
 import useResults from '../../hooks/useResults'
 import useSurvey from '../../hooks/useSurvey'
 import usePersistForm from '../../hooks/usePersistForm'
@@ -23,7 +22,7 @@ import { FORM_DATA_KEY, LOCATION_KEY } from '../../../config'
 const InteractiveForm = () => {
   const { survey, isLoading } = useSurvey()
   const { results } = useResults(survey?.id)
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const mutation = useSaveEntryMutation(survey?.id)
   const [riskData, setRiskData] = useState<RiskData>()
 
@@ -33,8 +32,6 @@ const InteractiveForm = () => {
   const { resultData, setResultData } = useResultData()
 
   const { formStyles } = styles
-
-  const { language } = i18n
 
   const {
     formState: { isSubmitted },
@@ -53,31 +50,21 @@ const InteractiveForm = () => {
 
   const onSubmit = async (data: FormValues) => {
     const submittedData = data
-
-    const formDataWithRisks = await getRiskValues(
-      submittedData,
-      survey.Questions,
-      results,
-      language
-    )
-
-    setRiskData(formDataWithRisks)
     setResultData(submittedData)
-    mutation
-      .mutateAsync(formDataWithRisks)
-      .then(() => {
-        sessionStorage.setItem(LOCATION_KEY, 'results')
-        setShowResults(true)
-
-        document
-          ?.getElementById('survey-main-section')
-          ?.scrollIntoView({ behavior: 'smooth' })
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.log(error)
-        enqueueSnackbar(t('common:submitError'), { variant: 'error' })
-      })
+    try {
+      const createdData = await mutation.mutateAsync(submittedData)
+      const risks = createdData.data
+      sessionStorage.setItem(LOCATION_KEY, 'results')
+      setShowResults(true)
+      document
+        ?.getElementById('survey-main-section')
+        ?.scrollIntoView({ behavior: 'smooth' })
+      setRiskData(risks)
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error)
+      enqueueSnackbar(t('common:submitError'), { variant: 'error' })
+    }
   }
 
   return (

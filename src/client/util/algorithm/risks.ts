@@ -41,7 +41,15 @@ export const countryRisk = ({
 }) => {
   if (!country) return null
 
-  const { code, universities, safetyLevel, sanctions, ...riskValues } = country
+  const {
+    code,
+    universities,
+    safetyLevel,
+    sanctions,
+    createdAt,
+    gdpr,
+    ...riskValues
+  } = country
 
   const sanctionsRisk = sanctions ? 2 : 1
   const sanctionsMultiplier =
@@ -60,11 +68,12 @@ export const countryRisk = ({
       sanctionsRisk * sanctionsMultiplier,
       gdprRiskValue as number
     )
-    .filter((value) => value != null)
+    .filter((value) => value !== null)
 
-  const totalCountryRiskLevel = Math.round(
-    riskList.reduce((a, b) => a + b, 0) / riskList.length
-  )
+  if (riskList === null || riskList.length === 0) return null
+
+  const totalCountryRiskLevel =
+    Math.round(riskList.reduce((a, b) => a + b, 0) / riskList.length) || 0
 
   return [totalCountryRiskLevel, riskList]
 }
