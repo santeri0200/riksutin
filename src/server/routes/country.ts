@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { fetchData } from '@backend/data/worldbank/util'
+import { fetchData } from '../data/worldbank/util'
 import getCountryIndicator from '../data/worldbank/indicator'
 import fetchSafetyLevelData from '../data/safetyLevel'
 import getCountryUniversities from '../data/whed/countryUniversities'
