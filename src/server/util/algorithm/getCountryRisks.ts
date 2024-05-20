@@ -1,82 +1,26 @@
-import { Locales, Result } from '@backend/types'
-import { CountryData, FormValues, Risk } from '../../types'
+import { CountryData, FormValues } from '../../types'
+import { gdprRisk } from './individualRisks'
 
-const getCountryRisks = (
-  country: CountryData | undefined,
-  results: Result[],
-  resultData: FormValues,
-  language: string
-) => {
-  if (!country || !results || !resultData) return null
+const getCountryRisks = (countryData: CountryData, formData: FormValues) => {
+  const sanctionsRiskLevel = countryData.sanctions ? 2 : 1
+  const gdprRiskLevel = gdprRisk(countryData, formData)
+  const sanctionsMultiplier =
+    sanctionsRiskLevel === 2 && formData['11'].research ? 1.5 : 1
 
-  const corruptionText = results.find(
-    (r) => r.optionLabel === `corruptionLevel${country.corruption}`
-  )?.isSelected[language as keyof Locales]
-  const safetyLevelText = results.find(
-    (r) => r.optionLabel === `safetyLevel${country.safetyLevel}`
-  )?.isSelected[language as keyof Locales]
-  const academicFreedomText = results.find(
-    (r) => r.optionLabel === `academicFreedomLevel${country.academicfreedom}`
-  )?.isSelected[language as keyof Locales]
-  const politicalStabilityText = results.find(
-    (r) => r.optionLabel === `politicalStabilityLevel${country.stability}`
-  )?.isSelected[language as keyof Locales]
-  const humanDevelopmentText = results.find(
-    (r) => r.optionLabel === `developmentLevel${country.hci}`
-  )?.isSelected[language as keyof Locales]
-  const gdprText = results.find(
-    (r) => r.optionLabel === `gdprRiskLevel${country.gdpr}`
-  )?.isSelected[language as keyof Locales]
-  const sanctionsText = results.find(
-    (r) => r.optionLabel === `sanctionsRiskLevel${country.sanctions}`
-  )?.isSelected[language as keyof Locales]
+  const safetyLevelMultiplier =
+    (countryData.safetyLevel === 2 || countryData.safetyLevel === 3) &&
+    (formData['11'].studentMobility || formData['11'].staffMobility)
+      ? 1.5
+      : 1
 
-  const countryRisks: Risk[] = [
-    {
-      id: 'corruption',
-      title: 'riskTable:corruptionRank',
-      level: country.corruption,
-      infoText: corruptionText,
-    },
-    {
-      id: 'safetyLevel',
-      title: 'riskTable:safetyLevel',
-      level: country.safetyLevel,
-      infoText: safetyLevelText,
-    },
-    {
-      id: 'academicFreedom',
-      title: 'riskTable:academicFreedom',
-      level: country.academicfreedom,
-      infoText: academicFreedomText,
-    },
-    {
-      id: 'politicalStability',
-      title: 'riskTable:stabilityRank',
-      level: country.stability,
-      infoText: politicalStabilityText,
-    },
-    {
-      id: 'HCI',
-      title: 'riskTable:HCIrank',
-      level: country.hci,
-      infoText: humanDevelopmentText,
-    },
-    {
-      id: 'GDPR',
-      title: 'GDPR',
-      level: country.gdpr,
-      infoText: gdprText,
-    },
-    {
-      id: 'sanctions',
-      title: 'riskTable:sanctions',
-      level: country.sanctions,
-      infoText: sanctionsText,
-    },
-  ]
+  const updatedCountryData = {
+    ...countryData,
+    sanctions: sanctionsRiskLevel * sanctionsMultiplier,
+    safetyLevel: safetyLevelMultiplier * countryData.safetyLevel,
+    gdpr: gdprRiskLevel,
+  }
 
-  return countryRisks
+  return updatedCountryData
 }
 
 export default getCountryRisks

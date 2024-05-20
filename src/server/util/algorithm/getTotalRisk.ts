@@ -1,18 +1,16 @@
 import { CountryData, FormValues, Risk } from '@frontend/types'
-import { Question, Result, Locales } from '@backend/types'
+import { Question } from '@backend/types'
 import {
   countryRisk,
   dualUseRisk,
   organisationRisk,
   universityRisk,
-} from './risks'
+} from './individualRisks'
 
-const totalRisk = (
+const getTotalRisk = (
   country: CountryData | undefined,
   questions: Question[],
-  results: Result[],
-  resultData: FormValues,
-  language: string
+  resultData: FormValues
 ): {
   totalRiskLevel: number
   filteredArray: Risk[]
@@ -43,14 +41,6 @@ const totalRisk = (
       id: 'university',
       title: 'riskTable:universityRiskLevel',
       level: universityRisk(resultData['20'], resultData['21']),
-      infoText: results.find(
-        (r) =>
-          r.optionLabel ===
-          `universityRiskLevel${universityRisk(
-            resultData['20'],
-            resultData['21']
-          )}`
-      )?.isSelected[language as keyof Locales],
     },
     {
       id: 'duration',
@@ -63,17 +53,11 @@ const totalRisk = (
       id: 'dualUse',
       title: 'riskTable:dualUseRiskLevel',
       level: dualUseRiskValue,
-      infoText: results.find(
-        (r) => r.optionLabel === `dualUseRiskLevel${dualUseRiskValue}`
-      )?.isSelected[language as keyof Locales],
     },
     {
       id: 'organisation',
       title: 'riskTable:organisationRiskLevel',
       level: organisationRiskValue,
-      infoText: results.find(
-        (r) => r.optionLabel === `organisationRiskLevel${organisationRiskValue}`
-      )?.isSelected[language as keyof Locales],
     },
     {
       id: 'economic',
@@ -86,9 +70,6 @@ const totalRisk = (
       id: 'ethical',
       title: 'riskTable:ethicalRiskLevel',
       level: ethicalRiskValue,
-      infoText: results.find(
-        (r) => r.optionLabel === `ethicalRiskLevel${ethicalRiskValue}`
-      )?.isSelected[language as keyof Locales],
     },
   ]
 
@@ -113,4 +94,4 @@ const totalRisk = (
   return { totalRiskLevel, filteredArray }
 }
 
-export default totalRisk
+export default getTotalRisk
