@@ -1,19 +1,35 @@
 import express from 'express'
 
-import getCountries from '../data/worldbank/countries'
+import { fetchData } from '@backend/data/worldbank/util'
 import getCountryIndicator from '../data/worldbank/indicator'
 import fetchSafetyLevelData from '../data/safetyLevel'
 import getCountryUniversities from '../data/whed/countryUniversities'
 import fetchSanctionsData from '../data/sanctions/sanctionsMap'
 import parseAcademicFreedom from '../data/academicfreedom/parseAcademicFreedom'
 import { CountryData } from '../types'
+import { Info, Country } from '../data/worldbank/types'
+
+type Response = [Info, Country[]]
+
+export const getCountries = async () => {
+  const [info, data]: Response = await fetchData(`countries`)
+
+  const filtered = data.filter(({ region }) => region.value !== 'Aggregates')
+
+  const countries = filtered.map(({ name, iso2Code }) => ({
+    name,
+    code: iso2Code,
+  }))
+
+  return countries
+}
 
 export const getCountryData = async (code: string | undefined) => {
   if (!code) return null
   const countries = await getCountries()
 
   const countryName = countries.find(
-    (country) => country.iso2Code === code.toUpperCase()
+    (country) => country.code === code.toUpperCase()
   )?.name
 
   const corruption = await getCountryIndicator(code, 'CC.PER.RNK')
@@ -41,12 +57,7 @@ export const getCountryData = async (code: string | undefined) => {
 const countryRouter = express.Router()
 
 countryRouter.get('/', async (_, res) => {
-  const data = await getCountries()
-
-  const countries = data.map(({ name, iso2Code }) => ({
-    name,
-    code: iso2Code,
-  }))
+  const countries = await getCountries()
 
   return res.status(200).send(countries)
 })
