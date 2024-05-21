@@ -77,7 +77,9 @@
   },
   "userPage": {
     "userPageButton": "Your profile",
-    "previousEntries": "Your previous entries"
+    "previousEntries": "Your previous entries",
+    "tableDate": "Date",
+    "tableTotalRiskLevel": "Total risk level"
   },
   "admin": {
     "summaryTab": "Summary",

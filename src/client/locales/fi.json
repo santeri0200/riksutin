@@ -76,7 +76,9 @@
   },
   "userPage": {
     "userPageButton": "Omat tiedot",
-    "previousEntries": "Täyttämäsi kyselyt"
+    "previousEntries": "Täyttämäsi kyselyt",
+    "tableDate": "Päivämäärä",
+    "tableTotalRiskLevel": "Kokonaisriskitaso"
   },
   "admin": {
     "summaryTab": "Yhteenveto",
