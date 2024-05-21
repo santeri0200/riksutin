@@ -1,5 +1,5 @@
 import { Locales, Result } from '@backend/types'
-import { CountryData, FormValues, Risk } from '../../types'
+import { CountryData, FormValues, Risk } from '../types'
 
 const getCountryRisks = (
   country: CountryData | undefined,

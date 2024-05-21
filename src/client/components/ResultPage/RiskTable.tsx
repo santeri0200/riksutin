@@ -11,7 +11,7 @@ import {
 } from '@mui/material'
 
 import { Locales } from '@backend/types'
-import getCountryRiskTexts from '../../util/algorithm/getCountryRiskTexts'
+import getCountryRiskTexts from '../../util/getCountryRiskTexts'
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
@@ -20,7 +20,7 @@ import CountryRisks from './CountryRisks'
 import { globalNorthCountries } from '../../util/countryLists'
 import useCountries from '../../hooks/useCountries'
 import useResults from '../../hooks/useResults'
-import getRiskTexts from '../../util/algorithm/getRiskTexts'
+import getRiskTexts from '../../util/getRiskTexts'
 
 const { resultStyles } = styles
 
