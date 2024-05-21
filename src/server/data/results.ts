@@ -4,7 +4,7 @@ const getResultData = (): Result[] => [
   {
     id: 1,
     surveyId: 1,
-    optionLabel: 'corruptionLevel1',
+    optionLabel: 'corruption1',
     isSelected: {
       fi: 'Yhteistyökumppanin sijaintimaassa korruptio ei ole merkittävä riski.',
       sv: 'Your collaboration partner is located in a country, where corruption does not pose a serious risk.',
@@ -21,7 +21,7 @@ const getResultData = (): Result[] => [
   {
     id: 2,
     surveyId: 1,
-    optionLabel: 'corruptionLevel2',
+    optionLabel: 'corruption2',
     isSelected: {
       fi: '*Yhteistyökumppanin sijaintimaassa korruption riski on kohonnut. Ota tämä huomioon yhteistyön suunnittelussa ja toteutuksessa.*',
       sv: '*Your collaboration partner is located in a country, where the risk of corruption is elevated. Take this into account in planning and implementing your collaboration.*',
@@ -38,7 +38,7 @@ const getResultData = (): Result[] => [
   {
     id: 3,
     surveyId: 1,
-    optionLabel: 'corruptionLevel3',
+    optionLabel: 'corruption3',
     isSelected: {
       fi: '*Yhteistyökumppanin sijaintimaassa korruption riski on merkittävä. Ota tämä huomioon yhteistyön suunnittelussa ja toteutuksessa ja varmistu, ettet osallistu korruptioon.*',
       sv: '*Your collaboration partner is located in a country, where the risk of corruption is significant. Take this into account in planning and implementing your collaboration, and make sure you do not engage in corruption.*',
@@ -106,7 +106,7 @@ const getResultData = (): Result[] => [
   {
     id: 7,
     surveyId: 1,
-    optionLabel: 'developmentLevel1',
+    optionLabel: 'HCI1',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee kehittyneessä maassa.*',
       sv: '*Your partner is located in a developed country.*',
@@ -123,7 +123,7 @@ const getResultData = (): Result[] => [
   {
     id: 8,
     surveyId: 1,
-    optionLabel: 'developmentLevel2',
+    optionLabel: 'HCI2',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee vähemmän kehittyneessä maassa, millä saattaa olla vaikutusta yhteistyön suunnitteluun ja toteutukseen.*',
       sv: '*Your partner is located in a less-developed country, which might affect planning and implementing the collaboration.*',
@@ -140,7 +140,7 @@ const getResultData = (): Result[] => [
   {
     id: 9,
     surveyId: 1,
-    optionLabel: 'developmentLevel3',
+    optionLabel: 'HCI3',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee vähiten kehittyneessä maassa. Tämä ei itsessään ole välttämättä riski, mutta ota tämä kuitenkin huomioon yhteistyön suunnittelussa ja toteutuksessa*',
       sv: '*Your partner is located in a least developed country. In and by itself, this is not a risk, but you should still take this into account in planning and implementing phases.*',
@@ -157,7 +157,7 @@ const getResultData = (): Result[] => [
   {
     id: 10,
     surveyId: 1,
-    optionLabel: 'academicFreedomLevel1',
+    optionLabel: 'academicFreedom1',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee maassa, jossa akateeminen vapaus on hyvällä tasolla.*',
       sv: '*Your collaboration partner is located in a country, where academic freedom is at a good level.*',
@@ -174,7 +174,7 @@ const getResultData = (): Result[] => [
   {
     id: 11,
     surveyId: 1,
-    optionLabel: 'academicFreedomLevel2',
+    optionLabel: 'academicFreedom2',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee maassa, jossa akateeminen vapaus on jonkin verran rajoitettua. Huomioi tämä yhteistyön toteutuksessa.*',
       sv: '*Your collaboration partner is located in a country, where academic freedom is somewhat restricted. Take this into account in implementation.*',
@@ -191,7 +191,7 @@ const getResultData = (): Result[] => [
   {
     id: 12,
     surveyId: 1,
-    optionLabel: 'academicFreedomLevel3',
+    optionLabel: 'academicFreedom3',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee maassa, jossa akateeminen vapaus on hyvin rajoitettua. Harkitse yhteistyötä tarkasti tästä ja yliopiston [arvojen](https://www.helsinki.fi/fi/tutustu-meihin/strategia-talous-ja-laatu/strategia-2021-2030/arvot) näkökulmasta*',
       sv: "*Your collaboration partner is located in a country, where academic freedom very restricted. Consider your collaboration, and whether it is compatible with University's [values](https://www.helsinki.fi/en/about-us/strategy-economy-and-quality/strategic-plan-2021-2030/values)*",
@@ -208,7 +208,7 @@ const getResultData = (): Result[] => [
   {
     id: 13,
     surveyId: 1,
-    optionLabel: 'politicalStabilityLevel1',
+    optionLabel: 'politicalStability1',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee poliittisesti vakaassa maassa.*',
       sv: '*Your collaboration partner is located in a politically stable country.*',
@@ -225,7 +225,7 @@ const getResultData = (): Result[] => [
   {
     id: 14,
     surveyId: 1,
-    optionLabel: 'politicalStabilityLevel2',
+    optionLabel: 'politicalStability2',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee poliittisesti melko epävakaassa maassa.*',
       sv: '*Your collaboration partner is located in a politically somewhat unstable country.*',
@@ -242,7 +242,7 @@ const getResultData = (): Result[] => [
   {
     id: 15,
     surveyId: 1,
-    optionLabel: 'politicalStabilityLevel3',
+    optionLabel: 'politicalStability3',
     isSelected: {
       fi: '*Yhteistyökumppanisi sijaitsee poliittisesti epävakaassa maassa.*',
       sv: '*Your collaboration partner is located in a politically unstable country.*',
@@ -259,7 +259,7 @@ const getResultData = (): Result[] => [
   {
     id: 16,
     surveyId: 1,
-    optionLabel: 'totalRiskLevel1',
+    optionLabel: 'total1',
     isSelected: {
       fi: '*Yhteistyön kokonaisriski on alhainen. Yhteistyössä voi kuitenkin esiintyä tunnistamattomia riskejä ja nyt arvioitujen asioiden riskitaso saattaa muuttua jatkossa.*',
       sv: '*Risk level is low. However, the collaboration may entail unidentified risks and the risks assessed here may change in the future.*',
@@ -276,7 +276,7 @@ const getResultData = (): Result[] => [
   {
     id: 17,
     surveyId: 1,
-    optionLabel: 'totalRiskLevel2',
+    optionLabel: 'total2',
     isSelected: {
       fi: '*Yhteistyön kokonaisriskitaso on kohonnut. Kiinnitä erityistä huomiota kohonneisiin riskeihin ja mieti niiden hallintaa. Toteuta tarvittaessa yksityiskohtaisempi riskiarvio.*',
       sv: '*Risk-level is elevated. Pay attention to individual risks and their management. Undertake a more detailed risk assessment, if necessary.*',
@@ -293,7 +293,7 @@ const getResultData = (): Result[] => [
   {
     id: 18,
     surveyId: 1,
-    optionLabel: 'totalRiskLevel3',
+    optionLabel: 'total3',
     isSelected: {
       fi: '*Yhteistyön kokonaisriskitaso on merkittävä. Yksityiskohtaisemman riskiarvion toteuttaminen on suositeltavaa. Ryhdy myös toimenpiteisiin tunnistettujen riskien hallitsemiseksi.*',
       sv: '*Risk level is high. It is highly recommendable to undertake a more detailed risk assessment, and take action on individual risks indentified here.*',
@@ -310,7 +310,7 @@ const getResultData = (): Result[] => [
   {
     id: 19,
     surveyId: 1,
-    optionLabel: 'gdprRiskLevel1',
+    optionLabel: 'GDPR1',
     isSelected: {
       fi: '*Antamisesi tietojen perusteella yhteistyöhön ei kohdistu tietousuojamielessä erityisiä vaatimuksia mutta varmistu, että henkilötietoja ei yhteistyössä tarvitse luovuttaa.*',
       sv: '',
@@ -327,7 +327,7 @@ const getResultData = (): Result[] => [
   {
     id: 20,
     surveyId: 1,
-    optionLabel: 'gdprRiskLevel2',
+    optionLabel: 'GDPR2',
     isSelected: {
       fi: '*Henkilötietojen luovuttamista koskee EU:n GDPR-sääntely. Yhteistyökumppanisi sijaintimaa kuuluu helpotetun menettelyn mukaisiin maihin, mutta tutustu tarkempiin ohjeisiin [Flammassa.](https://flamma.helsinki.fi/fi/group/turvallisuus/tietosuoja#menu10)',
       sv: '*Handing over personal data requires GDPR compliance. Your partner is located in a country with limited compliance requirements, but please review instructions at [Flamma.](https://flamma.helsinki.fi/en/group/turvallisuus/tietosuoja)*',
@@ -344,7 +344,7 @@ const getResultData = (): Result[] => [
   {
     id: 21,
     surveyId: 1,
-    optionLabel: 'gdprRiskLevel3',
+    optionLabel: 'GDPR3',
     isSelected: {
       fi: '*Henkilötietojen luovuttamista koskee EU:n GDPR-sääntely. Tutustu tarkempiin ohjeisiin [Flammassa.](https://flamma.helsinki.fi/fi/group/turvallisuus/tietosuoja#menu10)*',
       sv: '*Handing over personal data requires GDPR compliance. Please review instructions at [Flamma.](https://flamma.helsinki.fi/en/group/turvallisuus/tietosuoja)*',
@@ -361,7 +361,7 @@ const getResultData = (): Result[] => [
   {
     id: 22,
     surveyId: 1,
-    optionLabel: 'organisationRiskLevel1',
+    optionLabel: 'organisation1',
     isSelected: {
       fi: '*Yhteistyökumppani löytyy EU:n komission rahoittamiskelpoisten organisaatioiden listalta, joten sitä voidaan pitää luotettavana.*',
       sv: '',
@@ -378,7 +378,7 @@ const getResultData = (): Result[] => [
   {
     id: 23,
     surveyId: 1,
-    optionLabel: 'organisationRiskLevel2',
+    optionLabel: 'organisation2',
     isSelected: {
       fi: '*Yhteistyökumppani ei kuulu EUn komission tunnistamiin kumppaniorganisaatioihin, mutta sen kanssa on tehty aiempaa yhteistyötä. Jos luotat edelleen yhteistyökumppaniin, voit edetä yhteistyön suunnittelussa ja toteutuksessa.*',
       sv: '',
@@ -395,7 +395,7 @@ const getResultData = (): Result[] => [
   {
     id: 24,
     surveyId: 1,
-    optionLabel: 'organisationRiskLevel3',
+    optionLabel: 'organisation3',
     isSelected: {
       fi: '*Yhteistyökumppani ei kuulu EUn komission tunnistamiin kumppaniorganisaatioihin, eikä sen kanssa ole tehty aiempaa yhteistyötä. Selvitä kumppanin taustat ennen yhteistyöhön sitoutmista ja sen aloittamista.*',
       sv: '',
@@ -412,7 +412,7 @@ const getResultData = (): Result[] => [
   {
     id: 25,
     surveyId: 1,
-    optionLabel: 'dualUseRiskLevel1',
+    optionLabel: 'dualUse1',
     isSelected: {
       fi: '*Antamiesi tietojen perusteella yhteistyö ei sisällä kaksoiskäyttöriskejä. Jos tästä kuitenkin on jotain epävarmuutta, tutustu yliopiston ohjeisiin.*',
       sv: '',
@@ -429,7 +429,7 @@ const getResultData = (): Result[] => [
   {
     id: 26,
     surveyId: 1,
-    optionLabel: 'dualUseRiskLevel2',
+    optionLabel: 'dualUse2',
     isSelected: {
       fi: '*Olet ilmoittanut, että ei ole tiedossa onko yhteistyössä mahdollisuus siihen, että kumppanille siirtyy sotilaskäyttöön soveltuvaa teknologiaa tai osaamista. Intressimme ja myös lakisääteinen velvollisuutemme on varmistaa, että asiantuntijuuttamme tai teknologiaamme ei päädy sotilaalliseen loppukäyttöön pakotemaissa. Tutustu tarkasti Flammassa oleviin ohjeisiin ja ota yhteyttä tarvittaessa yliopiston tutkimuspalveluiden asiantuntijoihin.*',
       sv: '',
@@ -446,7 +446,7 @@ const getResultData = (): Result[] => [
   {
     id: 27,
     surveyId: 1,
-    optionLabel: 'dualUseRiskLevel3',
+    optionLabel: 'dualUse3',
     isSelected: {
       fi: '*Olet ilmoittanut, että yhteistyössä on mahdollisuus siihen, että kumppanille siirtyy sotilaskäyttöön soveltuvaa teknologiaa tai osaamista. Intressimme ja myös lakisääteinen velvollisuutemme on varmistaa, että asiantuntijuuttamme tai teknologiaamme ei päädy sotilaalliseen loppukäyttöön pakotemaissa. Tutustu tarkasti Flammassa oleviin ohjeisiin ja ota yhteyttä tarvittaessa yliopiston tutkimuspalveluiden asiantuntijoihin.*',
       sv: '',
@@ -463,7 +463,7 @@ const getResultData = (): Result[] => [
   {
     id: 28,
     surveyId: 1,
-    optionLabel: 'universityRiskLevel1',
+    optionLabel: 'university1',
     isSelected: {
       fi: '*Yhteistyöyliopisto on listattu World Higher Education -tietokannassa ja kuuluu lisäksi johonkin seuraavista: Euroopan tai maailman ylipistojen liitto (EUA/IAU), Magna Charta Observatory, Scholars at Risk.*',
       sv: '',
@@ -480,7 +480,7 @@ const getResultData = (): Result[] => [
   {
     id: 29,
     surveyId: 1,
-    optionLabel: 'universityRiskLevel2',
+    optionLabel: 'university2',
     isSelected: {
       fi: '*Yhteistyöyliopisto on listattu World Higher Education -tietokannassa mutta ei ole Euroopan tai maailman yliopistojen liiton, Magna Charta Observatoryn tai Scholars at Risk -verkoston jäsen.*',
       sv: '',
@@ -497,7 +497,7 @@ const getResultData = (): Result[] => [
   {
     id: 30,
     surveyId: 1,
-    optionLabel: 'universityRiskLevel3',
+    optionLabel: 'university3',
     isSelected: {
       fi: '*Yhteistyöyliopistoa ei löydy World Higher Education -tietokannasta. Varmista, että kyseessä on maansa virallisesti hyväksyttyihin kuuluva yliopisto.*',
       sv: '',
@@ -514,7 +514,7 @@ const getResultData = (): Result[] => [
   {
     id: 31,
     surveyId: 1,
-    optionLabel: 'ethicalRiskLevel1',
+    optionLabel: 'ethical1',
     isSelected: {
       fi: '*Ilmoituksesi perusteella yhteistyössä ei ole erityisiä eettisiä haasteita.*',
       sv: '',
@@ -531,7 +531,7 @@ const getResultData = (): Result[] => [
   {
     id: 32,
     surveyId: 1,
-    optionLabel: 'ethicalRiskLevel2',
+    optionLabel: 'ethical2',
     isSelected: {
       fi: '*Et ole varma yhteistyön eettisistä riskeistä. Voit halutessasi konsultoida yliopiston eettistä asiantuntijaneuvostoa (https://flamma.helsinki.fi/fi/group/yliopisto/eettinen-asiantuntijaneuvosto).*',
       sv: '',
@@ -548,7 +548,7 @@ const getResultData = (): Result[] => [
   {
     id: 33,
     surveyId: 1,
-    optionLabel: 'ethicalRiskLevel3',
+    optionLabel: 'ethical3',
     isSelected: {
       fi: '*Olet arvioinut yhteistyön eettiset riskit merkittäviksi. Suositus on, että konsultoit yliopiston eettistä asiantuntijaneuvostoa (https://flamma.helsinki.fi/fi/group/yliopisto/eettinen-asiantuntijaneuvosto) ennen yhteistyöhön sitoutuista.*',
       sv: '',
@@ -565,7 +565,7 @@ const getResultData = (): Result[] => [
   {
     id: 34,
     surveyId: 1,
-    optionLabel: 'sanctionsRiskLevel2',
+    optionLabel: 'sanctions2',
     isSelected: {
       fi: '*Lue lisää maahan kohdistuvista pakotteista [sanctionsmap.eu](https://sanctionsmap.eu/#/main)-sivulta*',
       sv: '',

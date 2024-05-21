@@ -10,7 +10,8 @@ import {
   Typography,
 } from '@mui/material'
 
-import getCountryRisks from '../../util/algorithm/getCountryRisks'
+import { Locales } from '@backend/types'
+import getCountryRiskTexts from '../../util/algorithm/getCountryRiskTexts'
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
@@ -19,6 +20,7 @@ import CountryRisks from './CountryRisks'
 import { globalNorthCountries } from '../../util/countryLists'
 import useCountries from '../../hooks/useCountries'
 import useResults from '../../hooks/useResults'
+import getRiskTexts from '../../util/algorithm/getRiskTexts'
 
 const { resultStyles } = styles
 
@@ -46,7 +48,9 @@ const RiskTable = ({
 
   if (!totalRisk) return null
 
-  let totalRiskText = totalRisk.infoText
+  let totalRiskText = results.find(
+    (r) => r.optionLabel === `total${totalRisk.level}`
+  )?.isSelected[language as keyof Locales]
 
   if (selectedCountryCode === ('RU' || 'BY')) {
     totalRiskText += t(`countrySpecificTexts:RU`)
@@ -60,8 +64,15 @@ const RiskTable = ({
     countryInfoText = t(`countrySpecificTexts:globalSouth`)
   }
 
-  const countryRisksWithTexts = getCountryRisks(
+  const countryRisksWithTexts = getCountryRiskTexts(
     countryData,
+    results,
+    riskData.answers,
+    language
+  )
+
+  const otherRisksWithTexts = getRiskTexts(
+    riskData.risks,
     results,
     riskData.answers,
     language
@@ -107,7 +118,7 @@ const RiskTable = ({
                   <CountryRisks countryRisks={countryRisksWithTexts} />
                 </>
               )}
-              {riskData.risks.map(
+              {otherRisksWithTexts?.map(
                 (risk) =>
                   !['country', 'total'].includes(risk.id) && (
                     <RiskElement

@@ -10,25 +10,24 @@ const getCountryRisks = (
   if (!country || !results || !resultData) return null
 
   const corruptionText = results.find(
-    (r) => r.optionLabel === `corruptionLevel${country.corruption}`
+    (r) => r.optionLabel === `corruption${country.corruption}`
   )?.isSelected[language as keyof Locales]
   const safetyLevelText = results.find(
     (r) => r.optionLabel === `safetyLevel${country.safetyLevel}`
   )?.isSelected[language as keyof Locales]
   const academicFreedomText = results.find(
-    (r) => r.optionLabel === `academicFreedomLevel${country.academicfreedom}`
+    (r) => r.optionLabel === `academicFreedom${country.academicfreedom}`
   )?.isSelected[language as keyof Locales]
   const politicalStabilityText = results.find(
-    (r) => r.optionLabel === `politicalStabilityLevel${country.stability}`
+    (r) => r.optionLabel === `politicalStability${country.stability}`
   )?.isSelected[language as keyof Locales]
   const humanDevelopmentText = results.find(
-    (r) => r.optionLabel === `developmentLevel${country.hci}`
+    (r) => r.optionLabel === `HCI${country.hci}`
   )?.isSelected[language as keyof Locales]
-  const gdprText = results.find(
-    (r) => r.optionLabel === `gdprRiskLevel${country.gdpr}`
-  )?.isSelected[language as keyof Locales]
+  const gdprText = results.find((r) => r.optionLabel === `GDPR${country.gdpr}`)
+    ?.isSelected[language as keyof Locales]
   const sanctionsText = results.find(
-    (r) => r.optionLabel === `sanctionsRiskLevel${country.sanctions}`
+    (r) => r.optionLabel === `sanctions${country.sanctions}`
   )?.isSelected[language as keyof Locales]
 
   const countryRisks: Risk[] = [

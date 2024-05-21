@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { useMutation } from 'react-query'
 
 import { Entry } from '@backend/db/models'
-import { FormValues, RiskData } from '../types'
+import { FormValues } from '../types'
 
 import apiClient from '../util/apiClient'
 
