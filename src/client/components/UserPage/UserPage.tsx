@@ -49,7 +49,7 @@ const UserPage = () => {
           </TableHead>
           <TableBody>
             {entries.map((entry) => (
-              <TableRow key={entry.id}>
+              <TableRow key={entry.id} data-testid="entrybox">
                 <TableCell component="th" scope="row">
                   <Link to={`/user/${entry.id.toString()}`}>
                     {new Date(entry.createdAt).toLocaleDateString()}{' '}
