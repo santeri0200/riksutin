@@ -146,7 +146,7 @@ test.describe('results', () => {
 
   test('user page exists and has content', async () => {
     await page.getByRole('link', { name: 'Omat tiedot' }).click()
-    await expect(page.getByText('Täyttämäsi kyselyt')).toBeVisible()
+    await expect(page.getByText('Aikaisemmat riskiarviosi')).toBeVisible()
     await expect(page.getByTestId('entrybox').first()).toBeVisible()
   })
 })
