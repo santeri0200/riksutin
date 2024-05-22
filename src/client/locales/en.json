@@ -80,7 +80,8 @@
     "previousEntries": "Your previous risk assessments",
     "tableDate": "Date",
     "tableTotalRiskLevel": "Total risk level",
-    "noPreviousEntries": "No previous risk assessments"
+    "noPreviousEntries": "No previous risk assessments",
+    "projectName": "Name of the collaboration project"
   },
   "admin": {
     "summaryTab": "Summary",

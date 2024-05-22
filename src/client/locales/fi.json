@@ -79,7 +79,8 @@
     "previousEntries": "Aikaisemmat riskiarviosi",
     "tableDate": "Päivämäärä",
     "tableTotalRiskLevel": "Kokonaisriskitaso",
-    "noPreviousEntries": "Ei aikaisempia riskiarvioita"
+    "noPreviousEntries": "Ei aikaisempia riskiarvioita",
+    "projectName": "Yhteistyöprojektin nimi"
   },
   "admin": {
     "summaryTab": "Yhteenveto",

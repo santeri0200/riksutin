@@ -44,7 +44,8 @@ const Summary = () => {
         <Table sx={{ maxWidth: '40rem' }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Päivämäärä</TableCell>
+              <TableCell>Yhteistyöprojektin nimi</TableCell>
+              <TableCell align="center">Päivämäärä</TableCell>
               <TableCell align="center">Käyttäjä</TableCell>
               <TableCell align="center">Kokonaisriskitaso</TableCell>
             </TableRow>
@@ -53,12 +54,15 @@ const Summary = () => {
             {entriesWithData.map((entry) => (
               <TableRow key={entry.id}>
                 <TableCell component="th" scope="row">
-                  <Link to={`./entry/${entry.id.toString()}`}>
-                    {new Date(entry.createdAt).toLocaleDateString()}{' '}
-                    {new Date(entry.createdAt).toLocaleTimeString()}
+                  <Link to={`/user/${entry.id.toString()}`}>
+                    {entry.data.answers['3']}
                   </Link>
                 </TableCell>
-                <TableCell align="center">
+                <TableCell component="th" scope="row">
+                  {new Date(entry.createdAt).toLocaleDateString()}{' '}
+                  {new Date(entry.createdAt).toLocaleTimeString()}
+                </TableCell>
+                <TableCell align="center" colSpan={1}>
                   {entry.User.firstName} {entry.User.lastName}
                 </TableCell>
                 <TableCell

@@ -40,7 +40,7 @@ const UserPage = () => {
         width: '100%',
         bgcolor: 'background.paper',
         mx: 2,
-        mt: 4,
+        mt: 2,
       }}
     >
       <Box sx={{ my: 4 }}>
@@ -52,6 +52,7 @@ const UserPage = () => {
         <Table sx={{ maxWidth: '30rem' }} aria-label="simple table">
           <TableHead>
             <TableRow>
+              <TableCell>{t('userPage:projectName')}</TableCell>
               <TableCell>{t('userPage:tableDate')}</TableCell>
               <TableCell align="center">
                 {t('userPage:tableTotalRiskLevel')}
@@ -63,9 +64,12 @@ const UserPage = () => {
               <TableRow key={entry.id} data-testid="entrybox">
                 <TableCell component="th" scope="row">
                   <Link to={`/user/${entry.id.toString()}`}>
-                    {new Date(entry.createdAt).toLocaleDateString()}{' '}
-                    {new Date(entry.createdAt).toLocaleTimeString()}
+                    {entry.data.answers['3']}
                   </Link>
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {new Date(entry.createdAt).toLocaleDateString()}{' '}
+                  {new Date(entry.createdAt).toLocaleTimeString()}
                 </TableCell>
                 <TableCell
                   align="center"
