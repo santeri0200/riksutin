@@ -824,8 +824,8 @@ const getQuestionData = async (): Promise<Question[]> => [
     priority: 1,
     title: {
       fi: 'Yhteistyöorganisaation nimi',
-      sv: 'Name of the partner organisation',
-      en: 'name of the partner organisation',
+      sv: '',
+      en: 'Name of the partner organisation',
     },
     text: {
       fi: '',
