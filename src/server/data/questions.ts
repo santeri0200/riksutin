@@ -810,9 +810,9 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Other university',
     },
     text: {
-      fi: '',
+      fi: 'Kirjoita tähän yhteistyöyliopiston nimi, jos sitä ei löydy yllä olevasta listasta.',
       sv: '',
-      en: '',
+      en: 'In case the your university partner does not appear on the list above, please write the name of the institution here.',
     },
     optionData: { type: 'text', options: [] },
     visibility: {},
