@@ -20,7 +20,18 @@ const UserPage = () => {
   const { entries } = useUserEntries()
   const { t } = useTranslation()
 
-  if (!entries) return null
+  const entriesWithData = entries?.filter(
+    (entry) => entry.data.answers && entry.data.country && entry.data.risks
+  )
+
+  if (!entriesWithData)
+    return (
+      <Box sx={{ m: 3 }}>
+        <Typography variant="h6" sx={{ my: 4, pl: 1 }}>
+          {t('userPage:noPreviousEntries')}
+        </Typography>
+      </Box>
+    )
 
   return (
     <Box
@@ -48,7 +59,7 @@ const UserPage = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {entries.map((entry) => (
+            {entriesWithData.map((entry) => (
               <TableRow key={entry.id} data-testid="entrybox">
                 <TableCell component="th" scope="row">
                   <Link to={`/user/${entry.id.toString()}`}>

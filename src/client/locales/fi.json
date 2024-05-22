@@ -76,9 +76,10 @@
   },
   "userPage": {
     "userPageButton": "Omat tiedot",
-    "previousEntries": "Täyttämäsi kyselyt",
+    "previousEntries": "Aikaisemmat riskiarviosi",
     "tableDate": "Päivämäärä",
-    "tableTotalRiskLevel": "Kokonaisriskitaso"
+    "tableTotalRiskLevel": "Kokonaisriskitaso",
+    "noPreviousEntries": "Ei aikaisempia riskiarvioita"
   },
   "admin": {
     "summaryTab": "Yhteenveto",
