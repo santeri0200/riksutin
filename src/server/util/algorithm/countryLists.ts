@@ -56,4 +56,5 @@ export const globalNorthCountries = [
   'US',
   'KR',
   'IL',
+  'RU',
 ]
