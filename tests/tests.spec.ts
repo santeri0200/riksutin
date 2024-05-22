@@ -2,7 +2,7 @@ import { test, expect, Page } from '@playwright/test'
 
 test('has title', async ({ page }) => {
   await page.goto('/')
-  await expect(page).toHaveTitle(/Riksutin/)
+  await expect(page).toHaveTitle(/Risk-i/)
 })
 
 test.describe.configure({ mode: 'serial' })
