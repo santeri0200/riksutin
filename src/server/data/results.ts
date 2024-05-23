@@ -579,6 +579,57 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 35,
+    surveyId: 1,
+    optionLabel: 'economic3',
+    isSelected: {
+      fi: '*Yhteistyön taloudellinen laajuus on huomattava, ja siihen liittyvä riskitaso on merkittävä*',
+      sv: '',
+      en: '*The financial scope the collaboration is siginificant and poses a substantial risk*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 36,
+    surveyId: 1,
+    optionLabel: 'economic2',
+    isSelected: {
+      fi: '*Yhteistyön taloudellinen laajuus on kohtalainen ja siihen liittyvä riskitaso on kohonnut*',
+      sv: '',
+      en: '*The financial scope of the collaboration is moderate, and the related risk level is elevated*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 37,
+    surveyId: 1,
+    optionLabel: 'economic1',
+    isSelected: {
+      fi: '*Yhteistyön taloudellinen laajuus ei ole merkittävä, eikä muodosta merkittävää riskiä*',
+      sv: '',
+      en: '*The financial scope of the collaboration is not significant, and does not pose a substantial risk*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData
