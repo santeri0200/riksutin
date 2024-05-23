@@ -779,9 +779,9 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: 6,
     priority: 0,
     title: {
-      fi: 'Mikä?',
-      sv: 'What?',
-      en: 'What?',
+      fi: 'Yhteistyöyliopiston nimi',
+      sv: '',
+      en: 'Name of the partner university',
     },
     text: {
       fi: 'Valitse listasta yhteistyöyliopistosi nimi.',
@@ -805,9 +805,9 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: 20,
     priority: 0,
     title: {
-      fi: 'Muu yliopisto',
-      sv: 'Other university',
-      en: 'Other university',
+      fi: 'Yhteistyöyliopiston nimi',
+      sv: '',
+      en: 'Name of the partner university',
     },
     text: {
       fi: 'Kirjoita tähän yhteistyöyliopiston nimi, jos sitä ei löydy yllä olevasta listasta.',
