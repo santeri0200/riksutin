@@ -40,10 +40,17 @@ entryRouter.get('/:entryId/update', async (req: RequestWithUser, res: any) => {
   const userId = req.user?.id
 
   const entry = await getEntry(entryId, userId)
+  const updatedRisks = await riskReEvaluation(entry)
 
-  const updatedEntry = await riskReEvaluation(entry)
+  if (!updatedRisks) return null
 
-  return res.status(200).send(updatedEntry)
+  await entry.update({
+    data: updatedRisks,
+  })
+
+  const updatedObject = await entry.save({ fields: ['data'] })
+
+  return res.status(200).send(updatedObject)
 })
 
 entryRouter.post('/:surveyId', async (req: RequestWithUser, res: any) => {
