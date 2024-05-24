@@ -80,7 +80,8 @@
     "tableDate": "Päivämäärä",
     "tableTotalRiskLevel": "Kokonaisriskitaso",
     "noPreviousEntries": "Ei aikaisempia riskiarvioita",
-    "projectName": "Yhteistyöprojektin nimi"
+    "projectName": "Yhteistyöprojektin nimi",
+    "updateRiskAssessment": "Päivitä riskiarvio"
   },
   "admin": {
     "summaryTab": "Yhteenveto",

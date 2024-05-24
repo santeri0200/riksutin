@@ -81,7 +81,8 @@
     "tableDate": "Date",
     "tableTotalRiskLevel": "Total risk level",
     "noPreviousEntries": "No previous risk assessments",
-    "projectName": "Name of the collaboration project"
+    "projectName": "Name of the collaboration project",
+    "updateRiskAssessment": "Update risk assessment"
   },
   "admin": {
     "summaryTab": "Summary",

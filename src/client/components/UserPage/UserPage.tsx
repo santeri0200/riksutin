@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Box,
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -49,7 +50,7 @@ const UserPage = () => {
         </Typography>
       </Box>
       <TableContainer sx={{ m: 2 }}>
-        <Table sx={{ maxWidth: '30rem' }} aria-label="simple table">
+        <Table sx={{ maxWidth: '45rem' }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>{t('userPage:projectName')}</TableCell>
@@ -97,6 +98,9 @@ const UserPage = () => {
                   >
                     {entry.data.risks.find((r) => r.id === 'total')?.level}
                   </Box>
+                </TableCell>
+                <TableCell colSpan={2}>
+                  <Button>{t('userPage:updateRiskAssessment')}</Button>
                 </TableCell>
               </TableRow>
             ))}
