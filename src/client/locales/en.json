@@ -83,7 +83,8 @@
     "noPreviousEntries": "No previous risk assessments",
     "projectName": "Name of the collaboration project",
     "updateRiskAssessment": "Update risk assessment",
-    "updateSuccess": "Risks were updated successfully!"
+    "updateSuccess": "Risks were updated successfully!",
+    "backButton": "Return to summary page"
   },
   "admin": {
     "summaryTab": "Summary",

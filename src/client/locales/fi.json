@@ -82,7 +82,8 @@
     "noPreviousEntries": "Ei aikaisempia riskiarvioita",
     "projectName": "Yhteistyöprojektin nimi",
     "updateRiskAssessment": "Päivitä riskiarvio",
-    "updateSuccess": "Riskien uudelleenarviointi onnistui!"
+    "updateSuccess": "Riskien uudelleenarviointi onnistui!",
+    "backButton": "Palaa yhteenvetonäkymään"
   },
   "admin": {
     "summaryTab": "Yhteenveto",

@@ -1,8 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react'
-import { Box, Tab, Tabs } from '@mui/material'
+import { Box, Button, Tab, Tabs } from '@mui/material'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import RenderAnswers from '../ResultPage/RenderAnswers'
 import RiskTable from '../ResultPage/RiskTable'
 import { useEntry } from '../../hooks/useEntry'
@@ -42,6 +44,7 @@ const UserEntry = () => {
   const { survey } = useSurvey()
   const { entry } = useEntry(entryId)
   const [tabValue, setTabValue] = useState(0)
+  const { t } = useTranslation()
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue)
@@ -53,6 +56,14 @@ const UserEntry = () => {
 
   return (
     <Box sx={formStyles.formWrapper}>
+      <Box sx={{ width: '100%', my: 2 }}>
+        <Link to="/user" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Button variant="outlined">
+            <ArrowBackIcon sx={{ mr: 1 }} />
+            {t('userPage:backButton')}
+          </Button>
+        </Link>
+      </Box>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={tabValue} onChange={handleChange}>
           <Tab sx={{ color: 'black' }} label={formatDate(entry.createdAt)} />
