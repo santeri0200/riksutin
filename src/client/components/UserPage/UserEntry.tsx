@@ -49,32 +49,34 @@ const UserEntry = () => {
 
   if (!entry || !survey) return null
 
-  const { answers, risks, country } = entry.data
+  const { answers, country, updatedData } = entry.data
 
   return (
     <Box sx={formStyles.formWrapper}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={tabValue} onChange={handleChange}>
-          {country.map((countryData, index) => (
-            <Tab
-              key={index}
-              sx={{ color: 'black' }}
-              label={formatDate(countryData.createdAt || entry.createdAt)}
-            />
-          ))}
+          <Tab sx={{ color: 'black' }} label={formatDate(entry.createdAt)} />
+          {updatedData &&
+            updatedData.map((updated, index) => (
+              <Tab
+                key={index}
+                sx={{ color: 'black' }}
+                label={formatDate(updated.createdAt)}
+              />
+            ))}
         </Tabs>
       </Box>
-      {risks &&
-        country &&
-        country.map((countryData, index) => (
-          <TabPanel key={index} value={tabValue} index={index}>
-            <RiskTable
-              key={index}
-              riskData={entry.data}
-              countryData={countryData}
-            />
+
+      <TabPanel value={tabValue} index={0}>
+        <RiskTable riskData={entry.data} countryData={country[0]} />
+      </TabPanel>
+      {updatedData &&
+        updatedData.map((updated, index) => (
+          <TabPanel key={index} value={tabValue} index={index + 1}>
+            <RiskTable riskData={updated} countryData={country[0]} />
           </TabPanel>
         ))}
+
       <RenderAnswers survey={survey} resultData={answers} />
     </Box>
   )
