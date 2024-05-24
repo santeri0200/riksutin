@@ -11,14 +11,16 @@ export const riskReEvaluation = async (entry: Entry) => {
   const reCalculatedData = await createRiskData(answers)
   if (!reCalculatedData) return null
 
+  const reCalculatedDataObject = {
+    createdAt: new Date().toISOString(),
+    ...reCalculatedData,
+  }
+
   const dataWithRecalculatedValues: RiskData = {
-    updatedData: !entry.data.updatedData
-      ? new Array({ createdAt: new Date().toISOString(), ...reCalculatedData })
-      : entry.data.updatedData.concat({
-          createdAt: new Date().toISOString(),
-          ...reCalculatedData,
-        }),
     ...entry.data,
+    updatedData: !entry.data.updatedData
+      ? new Array(reCalculatedDataObject)
+      : entry.data.updatedData.concat(reCalculatedDataObject),
   }
 
   await entry.update({
@@ -26,8 +28,6 @@ export const riskReEvaluation = async (entry: Entry) => {
   })
 
   const updatedObject = await entry.save({ fields: ['data'] })
-  logger.info(updatedObject)
-  logger.info(updatedObject.data.updatedData)
 
   return updatedObject
 }
@@ -42,7 +42,7 @@ const run = async () => {
 }
 
 const startRiskCron = async () => {
-  const cronTime = '0 12 * * 0'
+  const cronTime = '0 0 * * 0'
   logger.info('Cron job activated')
   return scheduleCronJob(cronTime, run)
 }

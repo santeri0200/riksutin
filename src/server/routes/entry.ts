@@ -1,5 +1,6 @@
 import express from 'express'
 
+import { riskReEvaluation } from '../util/cron/riskReEvaluation'
 import createRiskData from '../util/algorithm/createRiskData'
 import adminHandler from '../middleware/admin'
 import {
@@ -32,6 +33,17 @@ entryRouter.get('/:entryId', async (req: RequestWithUser, res: any) => {
   const entry = await getEntry(entryId, userId)
 
   return res.status(200).send(entry)
+})
+
+entryRouter.get('/:entryId/update', async (req: RequestWithUser, res: any) => {
+  const { entryId } = req.params
+  const userId = req.user?.id
+
+  const entry = await getEntry(entryId, userId)
+
+  const updatedEntry = await riskReEvaluation(entry)
+
+  return res.status(200).send(updatedEntry)
 })
 
 entryRouter.post('/:surveyId', async (req: RequestWithUser, res: any) => {

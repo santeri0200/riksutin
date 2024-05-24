@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Button,
@@ -12,18 +12,30 @@ import {
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { enqueueSnackbar } from 'notistack'
 import styles from '../../styles'
 import { useUserEntries } from '../../hooks/useEntry'
+import { useUpdateEntryRisks } from '../../hooks/useSaveEntryMutation'
 
 const { riskColors, resultStyles } = styles
 
 const UserPage = () => {
   const { entries } = useUserEntries()
   const { t } = useTranslation()
+  const mutation = useUpdateEntryRisks()
+  const [updateButtonClicked, setUpdateButtonClicked] = useState('')
 
   const entriesWithData = entries?.filter(
     (entry) => entry.data.answers && entry.data.country && entry.data.risks
   )
+
+  const handleUpdateRiskAssessment = async (entryId: string) => {
+    setUpdateButtonClicked(entryId)
+    await mutation.mutateAsync(entryId)
+    enqueueSnackbar('Riskien uudelleenarviointi onnistui', {
+      variant: 'success',
+    })
+  }
 
   if (!entriesWithData)
     return (
@@ -100,7 +112,14 @@ const UserPage = () => {
                   </Box>
                 </TableCell>
                 <TableCell colSpan={2}>
-                  <Button>{t('userPage:updateRiskAssessment')}</Button>
+                  <Button
+                    onClick={() =>
+                      handleUpdateRiskAssessment(entry.id.toString())
+                    }
+                    disabled={updateButtonClicked === entry.id.toString()}
+                  >
+                    {t('userPage:updateRiskAssessment')}
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

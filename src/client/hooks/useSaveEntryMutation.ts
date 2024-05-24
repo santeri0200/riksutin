@@ -8,7 +8,7 @@ import apiClient from '../util/apiClient'
 
 import { SESSION_TOKEN } from '../../config'
 
-const useSaveEntryMutation = (surveyId: number | undefined) => {
+export const useSaveEntryMutation = (surveyId: number | undefined) => {
   const mutationFn = async (data: FormValues) => {
     let sessionToken = sessionStorage.getItem(SESSION_TOKEN)
 
@@ -31,4 +31,11 @@ const useSaveEntryMutation = (surveyId: number | undefined) => {
   return mutation
 }
 
-export default useSaveEntryMutation
+export const useUpdateEntryRisks = () => {
+  const mutationFn = async (entryId: string) => {
+    await apiClient.get(`/entries/${entryId}/update`)
+  }
+  const mutation = useMutation(mutationFn)
+
+  return mutation
+}

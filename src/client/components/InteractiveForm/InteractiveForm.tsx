@@ -7,7 +7,7 @@ import { Box, Grid } from '@mui/material'
 import useResults from '../../hooks/useResults'
 import useSurvey from '../../hooks/useSurvey'
 import usePersistForm from '../../hooks/usePersistForm'
-import useSaveEntryMutation from '../../hooks/useSaveEntryMutation'
+import { useSaveEntryMutation } from '../../hooks/useSaveEntryMutation'
 
 import HelloBanner from './HelloBanner'
 import RenderSurvey from './RenderSurvey'
