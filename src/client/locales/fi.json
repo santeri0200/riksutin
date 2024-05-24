@@ -81,7 +81,8 @@
     "tableTotalRiskLevel": "Kokonaisriskitaso",
     "noPreviousEntries": "Ei aikaisempia riskiarvioita",
     "projectName": "Yhteistyöprojektin nimi",
-    "updateRiskAssessment": "Päivitä riskiarvio"
+    "updateRiskAssessment": "Päivitä riskiarvio",
+    "updateSuccess": "Riskien uudelleenarviointi onnistui!"
   },
   "admin": {
     "summaryTab": "Yhteenveto",

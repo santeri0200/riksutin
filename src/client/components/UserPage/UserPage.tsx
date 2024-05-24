@@ -32,7 +32,7 @@ const UserPage = () => {
   const handleUpdateRiskAssessment = async (entryId: string) => {
     setUpdateButtonClicked(entryId)
     await mutation.mutateAsync(entryId)
-    enqueueSnackbar('Riskien uudelleenarviointi onnistui', {
+    enqueueSnackbar(t('userPage:updateSuccess'), {
       variant: 'success',
     })
   }

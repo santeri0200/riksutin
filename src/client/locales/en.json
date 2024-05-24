@@ -82,7 +82,8 @@
     "tableTotalRiskLevel": "Total risk level",
     "noPreviousEntries": "No previous risk assessments",
     "projectName": "Name of the collaboration project",
-    "updateRiskAssessment": "Update risk assessment"
+    "updateRiskAssessment": "Update risk assessment",
+    "updateSuccess": "Risks were updated successfully!"
   },
   "admin": {
     "summaryTab": "Summary",
