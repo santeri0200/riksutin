@@ -118,6 +118,12 @@ export interface RiskData {
   answers: FormValues
   risks: Risk[]
   country: CountryData[]
+  updatedData?: {
+    answers: FormValues
+    risks: Risk[]
+    country: CountryData[]
+    createdAt: string
+  }[]
 }
 
 export interface EntryValues {

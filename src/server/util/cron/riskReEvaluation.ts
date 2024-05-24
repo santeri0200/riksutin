@@ -1,71 +1,49 @@
-import { CountryData } from '../../types'
-import getCountries from '../../data/worldbank/countries'
-import { getCountryData } from '../../routes/country'
+import { RiskData } from '../../types'
 import { Entry } from '../../db/models'
 import logger from '../logger'
 import scheduleCronJob from './schedule'
+import createRiskData from '../algorithm/createRiskData'
 
-const riskReEvaluation = async (entry: Entry) => {
+export const riskReEvaluation = async (entry: Entry) => {
   const answers = entry?.data.answers
-  const countries = await getCountries()
+  if (!answers || !entry) return null
 
-  if (!countries || !answers || !entry) return null
-  const countryName = answers['8']
+  const reCalculatedData = await createRiskData(answers)
+  if (!reCalculatedData) return null
 
-  const selectedCountryCode = countries?.find(
-    (country) => country.name === (countryName as unknown as string)
-  )?.iso2Code
-  const countryData = await getCountryData(selectedCountryCode)
-
-  if (!countryData) return null
-
-  const sanctionsRiskLevel = countryData.sanctions ? 2 : 1
-
-  const sanctionsMultiplier =
-    sanctionsRiskLevel === 2 && answers['11'].research ? 1.5 : 1
-
-  const safetyLevelMultiplier =
-    (countryData.safetyLevel === 2 || countryData.safetyLevel === 3) &&
-    (answers['11'].studentMobility || answers['11'].staffMobility)
-      ? 1.5
-      : 1
-
-  const reCalculatedData: CountryData = {
-    ...countryData,
-    sanctions: sanctionsRiskLevel * sanctionsMultiplier,
-    safetyLevel: safetyLevelMultiplier * countryData.safetyLevel,
-    gdpr: entry.data.country[0]?.gdpr,
-    createdAt: new Date().toISOString(),
+  const dataWithRecalculatedValues: RiskData = {
+    updatedData: !entry.data.updatedData
+      ? new Array({ createdAt: new Date().toISOString(), ...reCalculatedData })
+      : entry.data.updatedData.concat({
+          createdAt: new Date().toISOString(),
+          ...reCalculatedData,
+        }),
+    ...entry.data,
   }
 
-  return reCalculatedData
+  await entry.update({
+    data: dataWithRecalculatedValues,
+  })
+
+  const updatedObject = await entry.save({ fields: ['data'] })
+  logger.info(updatedObject)
+  logger.info(updatedObject.data.updatedData)
+
+  return updatedObject
 }
 
 const run = async () => {
-  logger.info('testing cron job')
-  const entries = await Entry.findAll({ where: { id: [228] } })
+  logger.info('Recalculating data')
+  const entries = await Entry.findAll({ where: { id: [1] } })
   entries.forEach(async (entry) => {
     if (!entry) return
-    logger.info(entry.id)
-    const reCalculatedData = await riskReEvaluation(entry)
-    if (!reCalculatedData) return
-    // eslint-disable-next-line no-param-reassign
-    const updatedCountryArray = [...entry.data.country, reCalculatedData]
-    await entry.update({
-      data: {
-        answers: entry.data.answers,
-        risks: entry.data.risks,
-        country: updatedCountryArray,
-      },
-    })
-    const updatedObject = await entry.save({ fields: ['data'] })
-    logger.info(updatedObject)
+    await riskReEvaluation(entry)
   })
 }
 
 const startRiskCron = async () => {
-  const cronTime = '*/5 * * * *'
-  logger.info('cron job activated')
+  const cronTime = '0 12 * * 0'
+  logger.info('Cron job activated')
   return scheduleCronJob(cronTime, run)
 }
 
