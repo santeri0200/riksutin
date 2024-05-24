@@ -23,21 +23,39 @@ export const riskReEvaluation = async (entry: Entry) => {
       : entry.data.updatedData.concat(reCalculatedDataObject),
   }
 
-  await entry.update({
-    data: dataWithRecalculatedValues,
-  })
-
-  const updatedObject = await entry.save({ fields: ['data'] })
-
-  return updatedObject
+  return dataWithRecalculatedValues
 }
 
 const run = async () => {
   logger.info('Recalculating data')
-  const entries = await Entry.findAll({ where: { id: [1] } })
+  const entries = await Entry.findAll()
   entries.forEach(async (entry) => {
-    if (!entry) return
-    await riskReEvaluation(entry)
+    const updatedRisks = await riskReEvaluation(entry)
+
+    if (!updatedRisks) return null
+
+    const updatedTotalRiskLevel = updatedRisks.risks.find(
+      (risk) => risk.id === 'total'
+    )?.level
+
+    try {
+      if (
+        updatedTotalRiskLevel === 3 &&
+        updatedTotalRiskLevel >
+          entry.data.risks.find((risk) => risk.id === 'total')?.level
+      ) {
+        await entry.update({
+          data: updatedRisks,
+        })
+
+        const updatedObject = await entry.save({ fields: ['data'] })
+        return updatedObject
+      }
+    } catch {
+      logger.error('Updating risks failed')
+    }
+
+    return null
   })
 }
 
