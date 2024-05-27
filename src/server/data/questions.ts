@@ -802,7 +802,7 @@ const getQuestionData = async (): Promise<Question[]> => [
   {
     id: 21,
     surveyId: 1,
-    parentId: 20,
+    parentId: 6,
     priority: 0,
     title: {
       fi: 'Yhteistyöyliopiston nimi',
@@ -815,7 +815,7 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'In case the your university partner does not appear on the list above, please write the name of the institution here.',
     },
     optionData: { type: 'text', options: [] },
-    visibility: {},
+    visibility: { options: [] },
   },
   {
     id: 22,

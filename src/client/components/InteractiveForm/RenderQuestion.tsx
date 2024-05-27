@@ -32,6 +32,8 @@ const QuestionText = ({
 }) => {
   const { t } = useTranslation()
 
+  if (question.id === 20) return null
+
   return (
     <>
       <Typography component="span" sx={{ color: 'red' }}>
