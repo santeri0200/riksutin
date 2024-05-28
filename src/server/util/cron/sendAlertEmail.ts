@@ -1,4 +1,4 @@
-import sendEmail from '@backend/mailer/pate'
+import sendEmail from '../../mailer/pate'
 
 const sendAlertEmail = async (email: string, projectName: string) => {
   const subject = ''
