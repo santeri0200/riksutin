@@ -67,7 +67,7 @@ const run = async () => {
 }
 
 const startRiskCron = async () => {
-  const cronTime = '0 0 * * 0'
+  const cronTime = '0 12 * * 1'
   logger.info('Cron job activated')
   return scheduleCronJob(cronTime, run)
 }
