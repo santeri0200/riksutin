@@ -54,7 +54,7 @@ const run = async () => {
         const user = await User.findByPk(entry.userId)
 
         if (user) {
-          await sendAlertEmail(user.email, entry.data.answers[3])
+          await sendAlertEmail(user.email, entry.data.answers[3], user.language)
         }
         return updatedObject
       }
