@@ -7,12 +7,7 @@ import { enqueueSnackbar } from 'notistack'
 
 import { ChoiceType, Locales, Question } from '@backend/types'
 
-import {
-  useDeleteOptionMutation,
-  useEditOptionMutation,
-} from '../../../hooks/useOptionMutation'
-
-import DeleteDialog from '../DeleteDialog'
+import { useEditOptionMutation } from '../../../hooks/useOptionMutation'
 
 import { OptionUpdates } from '../../../../server/types'
 
@@ -127,59 +122,23 @@ const EditOptions = ({
   question: Question
   language: keyof Locales
 }) => {
-  const { t, i18n } = useTranslation()
-  const [openAlert, setOpenAlert] = useState(false)
-  const mutation = useDeleteOptionMutation(question.id, option.id)
-
-  const selectedLanguage = i18n.language
-
-  const optionTitle = `${option.title[selectedLanguage as keyof Locales]}`
-
-  const handleDelete = async () => {
-    try {
-      await mutation.mutateAsync()
-      enqueueSnackbar(t('admin:deleteSuccess'), { variant: 'success' })
-      setOpenAlert(false)
-    } catch (error: any) {
-      enqueueSnackbar(error.message, { variant: 'error' })
-    }
-  }
+  const { t } = useTranslation()
 
   return (
-    <>
-      <Button
-        sx={{
-          ml: 4,
-          alignSelf: 'center',
-        }}
-        variant="outlined"
-        color="error"
-        onClick={() => setOpenAlert(!openAlert)}
-      >
-        {t('admin:optionRemove')} {`'${optionTitle}'`}
-      </Button>
-      <DeleteDialog
-        open={openAlert}
-        title={`${t('admin:optionRemoveOptionInfo')} '${optionTitle}'`}
-        content={t('admin:optionRemoveOptionContent')}
-        setOpen={setOpenAlert}
-        onSubmit={handleDelete}
+    <Box mb={2} display="flex">
+      <OptionItem
+        option={option}
+        optionNumber={optionNumber}
+        question={question}
+        language={'fi' as keyof Locales}
       />
-      <Box mb={5} display="flex">
-        <OptionItem
-          option={option}
-          optionNumber={optionNumber}
-          question={question}
-          language={'fi' as keyof Locales}
-        />
-        <OptionItem
-          option={option}
-          optionNumber={optionNumber}
-          question={question}
-          language={language}
-        />
-      </Box>
-    </>
+      <OptionItem
+        option={option}
+        optionNumber={optionNumber}
+        question={question}
+        language={language}
+      />
+    </Box>
   )
 }
 
