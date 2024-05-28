@@ -131,7 +131,7 @@ export interface EntryValues {
   sessionToken: string
 }
 export interface FormValues {
-  [key: number]: Record<string, { [key: string]: boolean }>
+  [key: number]: any
   faculty: string
   selectOrganisation: string
 }

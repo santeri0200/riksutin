@@ -1,8 +1,9 @@
 import { RiskData } from '../../types'
-import { Entry } from '../../db/models'
+import { Entry, User } from '../../db/models'
 import logger from '../logger'
 import scheduleCronJob from './schedule'
 import createRiskData from '../algorithm/createRiskData'
+import sendAlertEmail from './sendAlertEmail'
 
 export const riskReEvaluation = async (entry: Entry) => {
   const answers = entry?.data.answers
@@ -49,6 +50,12 @@ const run = async () => {
         })
 
         const updatedObject = await entry.save({ fields: ['data'] })
+
+        const user = await User.findByPk(entry.userId)
+
+        if (user) {
+          await sendAlertEmail(user.email, entry.data.answers[3])
+        }
         return updatedObject
       }
     } catch {
