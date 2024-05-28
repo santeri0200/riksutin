@@ -68,19 +68,6 @@ const SurveyItem = ({
     >
       <Box sx={{ mb: 2 }}>
         <Typography sx={{ display: 'flex', mb: 2 }} variant="h6">
-          {t('admin:surveyTitle')}
-          <Typography ml={1}>{language}</Typography>
-        </Typography>
-        <MDEditor
-          data-color-mode="light"
-          height={200}
-          value={surveyTitle}
-          onChange={setSurveyTitle}
-        />
-      </Box>
-
-      <Box sx={{ mb: 2 }}>
-        <Typography sx={{ display: 'flex', mb: 2 }} variant="h6">
           {t('admin:surveyText')}
           <Typography ml={1}>{language}</Typography>
         </Typography>
