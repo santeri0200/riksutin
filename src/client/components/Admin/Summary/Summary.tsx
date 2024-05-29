@@ -40,6 +40,21 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
   const table = useMaterialReactTable({
     columns,
     data: tableValues,
+    enableRowSelection: true, // enable some features
+    enableColumnOrdering: true, // enable a feature for all columns
+    enableGlobalFilter: false, // turn off a feature
+    muiTableBodyRowProps: { hover: false },
+    muiTableBodyCellProps: {
+      sx: {
+        border: '1px solid rgba(81, 81, 81, .5)',
+      },
+    },
+    muiTablePaperProps: {
+      sx: {
+        border: '1px solid rgba(81, 81, 81, .2)',
+      },
+    },
+    // eslint-disable-next-line @typescript-eslint/no-shadow
   })
 
   return <MaterialReactTable table={table} />
@@ -74,7 +89,21 @@ const Summary = () => {
     total: entry.data.risks.find((r) => r.id === 'total')?.level,
   }))
 
-  return <Table tableValues={tableValues} />
+  return (
+    <>
+      <Typography variant="h5" m={4}>
+        Kaikki valmiit riskiarviot
+      </Typography>
+      <Box
+        sx={{
+          width: '90%',
+          px: 8,
+        }}
+      >
+        <Table tableValues={tableValues} />
+      </Box>
+    </>
+  )
 }
 
 export default Summary
