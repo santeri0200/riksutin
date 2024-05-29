@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next'
 import { Box, Typography } from '@mui/material'
 import { useEntries } from '../../../hooks/useEntry'
 import useQuestions from '../../../hooks/useQuestions'
-// example data type
 
 type TableValues = {
   projectName: string
@@ -54,7 +53,6 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
         border: '1px solid rgba(81, 81, 81, .2)',
       },
     },
-    // eslint-disable-next-line @typescript-eslint/no-shadow
   })
 
   return <MaterialReactTable table={table} />
