@@ -16,7 +16,7 @@ const Admin = () => {
 
   const pathParts = location.pathname.split('/').filter(Boolean)
 
-  const tab = pathParts.length !== 2 ? 'summary' : pathParts[1]
+  const tab = pathParts.length === 1 ? 'summary' : pathParts[1]
 
   return (
     <Box
