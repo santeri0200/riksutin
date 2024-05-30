@@ -24,6 +24,7 @@ const Admin = () => {
         alignSelf: 'flex-start',
         width: '100%',
         bgcolor: 'background.paper',
+        m: 3,
       }}
     >
       <Tabs

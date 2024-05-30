@@ -3,15 +3,12 @@ import React, { useState } from 'react'
 import { Box, Button, Tab, Tabs } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import RenderAnswers from '../ResultPage/RenderAnswers'
 import RiskTable from '../ResultPage/RiskTable'
 import { useEntry } from '../../hooks/useEntry'
 import useSurvey from '../../hooks/useSurvey'
-import styles from '../../styles'
-
-const { formStyles } = styles
 
 interface TabPanelProps {
   children: React.ReactNode
@@ -34,7 +31,18 @@ const TabPanel = (props: TabPanelProps) => {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && (
+        <Box
+          sx={{
+            alignSelf: 'flex-start',
+            width: '100%',
+            bgcolor: 'background.paper',
+            m: 5,
+          }}
+        >
+          {children}
+        </Box>
+      )}
     </div>
   )
 }
@@ -43,6 +51,7 @@ const UserEntry = () => {
   const { entryId } = useParams()
   const { survey } = useSurvey()
   const { entry } = useEntry(entryId)
+  const location = useLocation()
   const [tabValue, setTabValue] = useState(0)
   const { t } = useTranslation()
 
@@ -50,14 +59,19 @@ const UserEntry = () => {
     setTabValue(newValue)
   }
 
+  const parentRoute = location.pathname.split('/')[1]
+
   if (!entry || !survey) return null
 
   const { answers, country, updatedData } = entry.data
 
   return (
-    <Box sx={formStyles.formWrapper}>
+    <Box sx={{ m: 3 }}>
       <Box sx={{ width: '100%', my: 2 }}>
-        <Link to="/user" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link
+          to={`/${parentRoute}`}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
           <Button variant="outlined">
             <ArrowBackIcon sx={{ mr: 1 }} />
             {t('userPage:backButton')}
