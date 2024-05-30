@@ -34,7 +34,7 @@ const params = {
 }
 
 const checkAdmin = (iamGroups: string[]) =>
-  iamGroups.some((iamGroup) => ['grp-toska'].includes(iamGroup))
+  iamGroups.some((iamGroup) => ['grp-toska', 'grp-risk-i'].includes(iamGroup))
 
 const getClient = async () => {
   const issuer = await Issuer.discover(OIDC_ISSUER)
