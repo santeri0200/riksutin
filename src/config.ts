@@ -1,4 +1,4 @@
-export const appName = 'Riksutin'
+export const appName = 'Risk-i'
 
 export const contactEmail = ''
 
