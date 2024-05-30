@@ -8,7 +8,7 @@ import UnauthorizedError from '../errors/UnauthorizedError'
 export const getEntries = async (): Promise<Entry[]> => {
   const entries = await Entry.findAll({
     include: [Survey, User],
-    order: [['updatedAt', 'DESC']],
+    order: [['createdAt', 'DESC']],
   })
 
   return entries
@@ -20,7 +20,7 @@ export const getUserEntries = async (userId: string): Promise<Entry[]> => {
       userId,
     },
     include: Survey,
-    order: [['updatedAt', 'DESC']],
+    order: [['createdAt', 'DESC']],
   })
 
   if (!entries) throw new NotFoundError('Entries not found')
