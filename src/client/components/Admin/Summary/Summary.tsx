@@ -9,6 +9,7 @@ import {
   type MRT_ColumnDef,
 } from 'material-react-table'
 import { Box, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 import { useEntries } from '../../../hooks/useEntry'
 import useQuestions from '../../../hooks/useQuestions'
 import styles from '../../../styles'
@@ -16,12 +17,14 @@ import styles from '../../../styles'
 const { riskColors } = styles
 
 type TableValues = {
+  id: number
   projectName: string
   date: string
   user: string
   total: number
 }
 const columnNames = {
+  id: 'ID',
   projectName: 'Yhteistyöprojektin nimi',
   date: 'Päivämäärä',
   user: 'Käyttäjä',
@@ -36,7 +39,7 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
             header: columnNames[columnId as keyof TableValues] ?? columnId,
             accessorKey: columnId,
             id: columnId,
-            Cell: ({ cell }) => (
+            Cell: ({ cell, row }) => (
               <Box
                 component="span"
                 sx={() => ({
@@ -53,7 +56,13 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
                   }),
                 })}
               >
-                {cell.getValue<number>()}
+                {columnId === 'projectName' ? (
+                  <Link to={`./entry/${row.getValue('id')}`}>
+                    {cell.getValue<string>()}
+                  </Link>
+                ) : (
+                  cell.getValue<number>()
+                )}
               </Box>
             ),
           }))
@@ -78,6 +87,7 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
         border: '1px solid rgba(81, 81, 81, .2)',
       },
     },
+    initialState: { columnVisibility: { id: false } },
   })
 
   return <MaterialReactTable table={table} />
@@ -103,6 +113,7 @@ const Summary = () => {
     )
 
   const tableValues: TableValues[] = entriesWithData.map((entry) => ({
+    id: entry.id,
     projectName: entry.data.answers[3],
     date: `${new Date(entry.createdAt).toLocaleDateString()} ${new Date(
       entry.createdAt
