@@ -1,14 +1,19 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable no-nested-ternary */
 import React, { useMemo } from 'react'
-// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   MaterialReactTable,
   useMaterialReactTable,
   type MRT_ColumnDef,
 } from 'material-react-table'
-import { useTranslation } from 'react-i18next'
 import { Box, Typography } from '@mui/material'
 import { useEntries } from '../../../hooks/useEntry'
 import useQuestions from '../../../hooks/useQuestions'
+import styles from '../../../styles'
+
+const { riskColors } = styles
 
 type TableValues = {
   projectName: string
@@ -31,6 +36,26 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
             header: columnNames[columnId as keyof TableValues] ?? columnId,
             accessorKey: columnId,
             id: columnId,
+            Cell: ({ cell }) => (
+              <Box
+                component="span"
+                sx={() => ({
+                  ...(columnId === 'total' && {
+                    backgroundColor:
+                      cell.getValue<number>() === 1
+                        ? riskColors[1]
+                        : cell.getValue<number>() === 2
+                        ? riskColors[2]
+                        : riskColors[3],
+                    borderRadius: '0.25rem',
+                    fontWeight: 'bold',
+                    p: '0.75rem',
+                  }),
+                })}
+              >
+                {cell.getValue<number>()}
+              </Box>
+            ),
           }))
         : [],
     [tableValues]
@@ -59,7 +84,6 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
 }
 
 const Summary = () => {
-  const { t } = useTranslation()
   const { entries } = useEntries()
   const { questions } = useQuestions(1)
 
@@ -94,7 +118,7 @@ const Summary = () => {
       </Typography>
       <Box
         sx={{
-          width: '90%',
+          width: '100%',
           px: 8,
         }}
       >
