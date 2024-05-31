@@ -16,7 +16,7 @@ import {
 import { AdminPanelSettingsOutlined, Language } from '@mui/icons-material'
 import { useTranslation } from 'react-i18next'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useLoggedInUser from '../../hooks/useLoggedInUser'
 
 import styles from '../../styles'
@@ -24,6 +24,7 @@ import hyLogo from '../../assets/hy_logo.svg'
 
 const NavBar = () => {
   const { t, i18n } = useTranslation()
+  const navigate = useNavigate()
   const { user, isLoading } = useLoggedInUser()
   const [openLanguageSelect, setOpenLanguageSelect] = useState(false)
   const anchorRef = useRef<HTMLButtonElement>(null)
@@ -40,6 +41,11 @@ const NavBar = () => {
     setOpenLanguageSelect(false)
   }
 
+  const navigateToMainPage = () => {
+    sessionStorage.clear()
+    navigate('/')
+  }
+
   const { navStyles } = styles
 
   if (isLoading) return null
@@ -51,9 +57,9 @@ const NavBar = () => {
           <Box sx={navStyles.navBox}>
             <img src={hyLogo} alt="University of Helsinki" width="40" />
             <Box ml="2rem">
-              <Link to="/" style={{ textDecoration: 'none' }}>
+              <Button onClick={() => navigateToMainPage()}>
                 <Typography sx={navStyles.appName}>{t('appName')}</Typography>
-              </Link>
+              </Button>
             </Box>
           </Box>
           <Box sx={{ display: 'flex' }}>
