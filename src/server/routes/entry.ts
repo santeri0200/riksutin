@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { riskReEvaluation } from '../util/cron/riskReEvaluation'
+import { riskReEvaluation } from '../util/cron/riskReEvaluation/riskReEvaluation'
 import createRiskData from '../util/algorithm/createRiskData'
 import adminHandler from '../middleware/admin'
 import {

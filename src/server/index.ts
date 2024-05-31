@@ -14,7 +14,8 @@ import router from './routes'
 import setupAuthentication from './util/oidc'
 import { connectToDatabase } from './db/connection'
 import seed from './db/seeders'
-import startRiskCron from './util/cron/riskReEvaluation'
+import startRiskCron from './util/cron/riskReEvaluation/riskReEvaluation'
+import startCountryCron from './util/cron/highRiskCountries/highRiskCountries'
 
 const app = express()
 
@@ -48,6 +49,7 @@ app.listen(PORT, async () => {
   if (inProduction) {
     await startRiskCron()
   }
+  await startCountryCron()
 
   logger.info(`Server running on port ${PORT}`)
 })
