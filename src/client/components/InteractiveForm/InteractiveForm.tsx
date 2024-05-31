@@ -58,7 +58,7 @@ const InteractiveForm = () => {
       setShowResults(true)
       document
         ?.getElementById('survey-main-section')
-        ?.scrollIntoView({ behavior: 'smooth' })
+        ?.scrollIntoView({ behavior: 'instant' })
       setRiskData(risks)
     } catch (error) {
       // eslint-disable-next-line no-console
