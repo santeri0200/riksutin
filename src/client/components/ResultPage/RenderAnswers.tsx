@@ -30,8 +30,8 @@ const RenderAnswers = ({
     (question) => question.optionData.type === 'multipleChoice'
   )
 
-  const singleChoiceQuestions = survey.Questions.filter(
-    (question) => question.optionData.type === 'singleChoice'
+  const singleChoiceQuestions = survey.Questions.filter((question) =>
+    ['singleChoice', 'consortiumSelect'].includes(question.optionData.type)
   )
 
   const singleChoiceAnswers = singleChoiceQuestions.map((question) => {
@@ -86,20 +86,36 @@ const RenderAnswers = ({
                   (childQuestion) =>
                     childQuestion.parentId === currentQuestion.id
                 )?.map((childQuestion) => (
-                  <Box key={childQuestion.id}>
-                    {answers[childQuestion.id] && (
+                  <>
+                    <Box key={childQuestion.id}>
+                      {answers[childQuestion.id] && (
+                        <Box sx={resultStyles.answerBox}>
+                          <Typography>
+                            <b>
+                              {childQuestion.title[language as keyof Locales]}
+                            </b>
+                          </Typography>
+                          <Typography>
+                            {answers[childQuestion.id] as string}
+                          </Typography>
+                        </Box>
+                      )}
+                    </Box>
+                    {childQuestion.id === 26 && answers[27] && (
                       <Box sx={resultStyles.answerBox}>
                         <Typography>
                           <b>
-                            {childQuestion.title[language as keyof Locales]}
+                            {
+                              survey.Questions.find((q) => q.id === 27)?.title[
+                                language as keyof Locales
+                              ]
+                            }
                           </b>
                         </Typography>
-                        <Typography>
-                          {answers[childQuestion.id] as string}
-                        </Typography>
+                        <Typography>{answers[27].join(', ')}</Typography>
                       </Box>
                     )}
-                  </Box>
+                  </>
                 ))}
               </>
             )}
