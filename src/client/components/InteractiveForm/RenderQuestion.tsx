@@ -19,6 +19,7 @@ import SelectFaculty from '../Common/SelectFaculty'
 import OrganisationSelect from '../QuestionTypes/OrganisationSelect'
 import UniversitySelect from '../QuestionTypes/UniversitySelect'
 import ConsortiumSelect from '../QuestionTypes/ConsortiumSelect'
+import HighRiskCountrySelect from '../QuestionTypes/HighRiskCountriesSelect'
 
 const { cardStyles } = styles
 
@@ -99,6 +100,7 @@ const RenderQuestion = ({
     organisationSelect: OrganisationSelect,
     universitySelect: UniversitySelect,
     consortiumSelect: ConsortiumSelect,
+    highRiskCountrySelect: HighRiskCountrySelect,
   }
 
   const QuestionType =

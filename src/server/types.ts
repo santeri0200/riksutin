@@ -101,6 +101,7 @@ export type PossibleChoiceTypes =
   | 'organisationSelect'
   | 'universitySelect'
   | 'consortiumSelect'
+  | 'highRiskCountrySelect'
 
 export interface OptionData {
   type: PossibleChoiceTypes

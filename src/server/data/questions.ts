@@ -1018,9 +1018,49 @@ const getQuestionData = async (): Promise<Question[]> => [
     },
     optionData: {
       type: 'consortiumSelect',
-      options: [],
+      options: [
+        {
+          id: 'yesHighRiskCountries',
+          label: 'yesHighRiskCountries',
+          title: {
+            fi: 'Kyllä',
+            sv: '',
+            en: 'Yes',
+          },
+        },
+        {
+          id: 'noHighRiskCountries',
+          label: 'noHighRiskCountries',
+          title: {
+            fi: 'Ei',
+            sv: '',
+            en: 'noHighRiskCountries',
+          },
+        },
+      ],
     },
     visibility: { options: ['multilateral'] },
+  },
+  {
+    id: 27,
+    surveyId: 1,
+    parentId: 26,
+    priority: 0,
+    title: {
+      fi: 'Valitse konsortioon kuuluvat maat',
+      sv: '',
+      en: 'Select countries that belong to the consortium',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'highRiskCountrySelect',
+      options: [],
+    },
+    visibility: { options: ['yesHighRiskCountries'] },
   },
 ]
 
