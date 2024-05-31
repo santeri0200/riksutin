@@ -1,5 +1,6 @@
 import express from 'express'
 
+import { get } from '../util/redis'
 import { fetchData } from '../data/worldbank/util'
 import getCountryIndicator from '../data/worldbank/indicator'
 import fetchSafetyLevelData from '../data/safetyLevel'
@@ -55,6 +56,12 @@ export const getCountryData = async (code: string | undefined) => {
 }
 
 const countryRouter = express.Router()
+
+countryRouter.get('/highrisk', async (req, res: any) => {
+  const highRiskCountries = await get('high risk countries')
+
+  return res.status(200).send(highRiskCountries)
+})
 
 countryRouter.get('/', async (_, res) => {
   const countries = await getCountries()

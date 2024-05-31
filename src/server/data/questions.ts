@@ -1001,6 +1001,27 @@ const getQuestionData = async (): Promise<Question[]> => [
     },
     visibility: {},
   },
+  {
+    id: 26,
+    surveyId: 1,
+    parentId: 4,
+    priority: 0,
+    title: {
+      fi: 'Kuuluuko konsortioon yliopistoja tai muita organisaatioita seuraavista maista',
+      sv: '',
+      en: 'Does the consortium include universities or other organisations from the following countries',
+    },
+    text: {
+      fi: '',
+      sv: '',
+      en: '',
+    },
+    optionData: {
+      type: 'consortiumSelect',
+      options: [],
+    },
+    visibility: { options: ['multilateral'] },
+  },
 ]
 
 export default getQuestionData
