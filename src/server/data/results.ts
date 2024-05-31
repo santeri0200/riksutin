@@ -630,6 +630,57 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 38,
+    surveyId: 1,
+    optionLabel: 'consortium1',
+    isSelected: {
+      fi: '*Monenkeskisessä yhteistyössäsi ei ole  yhteistyökumppaneita, jotka sijaitsevan korkean riski maissa*',
+      sv: '',
+      en: '*Your multilateral collaboration does not include partners from high-risk countries*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 39,
+    surveyId: 1,
+    optionLabel: 'consortium2',
+    isSelected: {
+      fi: '*Monenkeskisessä yhteistyössäsi on yksi yhteistyökumppani, joka sijaitsee korkean riski maassa. Harkitse, edelyttääkö tämä erityisiä riskien arvioinnin jatkotoimia ja ole tarvittaessa yhteydesssä risk-i@helsinki.fi*',
+      sv: '',
+      en: '*Your multilateral collaboration includes a partner from a high-risk country. Please consider, if this warrants further risk assessment actions. You may also consult risk-i@helsinki.fi*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 40,
+    surveyId: 1,
+    optionLabel: 'consortium3',
+    isSelected: {
+      fi: '*Monenkeskisessä yhteistyössäsi on useampia yhteistyökumppaneita, jotka sijaitsevat korkean riski maissa. Ota tarvittaessa yhteydesssä risk-i@helsinki.fi*',
+      sv: '',
+      en: '*Your multilateral collaboration includes several partners from a high-risk country. Please consult risk-i@helsinki.fi*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData

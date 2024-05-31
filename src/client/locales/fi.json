@@ -38,6 +38,7 @@
     "organisationRiskLevel": "Yhteistyöorganisaation riskitaso",
     "ethicalRiskLevel": "Eettinen riskitaso",
     "totalRiskLevel": "**Yhteistyön kokonaisriskitaso**",
+    "consortiumRiskLevel": "Monenkeskeisyyden riskitaso",
     "noRisk": "*Ei erityistä riskiä*",
     "corruptionRank": "Korruptio",
     "stabilityRank": "Poliittinen vakaus",

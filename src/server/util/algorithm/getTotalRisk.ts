@@ -7,6 +7,19 @@ import {
   universityRisk,
 } from './individualRisks'
 
+const consortiumRisk = (
+  highRisk: string,
+  selectedCountries: string[] | undefined
+) => {
+  if (highRisk === 'noHighRiskCountries') {
+    return 1
+  }
+  if (selectedCountries && selectedCountries.length >= 2) {
+    return 3
+  }
+  return 2
+}
+
 const getTotalRisk = (
   country: UpdatedCountryData | undefined,
   questions: Question[],
@@ -87,6 +100,15 @@ const getTotalRisk = (
   )
 
   if (allRisks.filter((value) => value === 3).length >= 3) totalRiskLevel = 3
+
+  if (resultData[26]) {
+    const consortium: Risk = {
+      id: 'consortium',
+      title: 'riskTable:consortiumRiskLevel',
+      level: consortiumRisk(resultData[26], resultData[27]),
+    }
+    filteredArray.push(consortium)
+  }
 
   return { totalRiskLevel, filteredArray }
 }

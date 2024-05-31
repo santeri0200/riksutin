@@ -39,6 +39,7 @@
     "organisationRiskLevel": "Risk level of the partner organisation",
     "ethicalRiskLevel": "Ethical risk level",
     "totalRiskLevel": "**Total risk level of the project**",
+    "consortiumRiskLevel": "Multilateral risk level",
     "noRisk": "*No identifiable risk*",
     "corruptionRank": "Corruption",
     "stabilityRank": "Political stability",
