@@ -28,17 +28,13 @@ const InteractiveForm = () => {
 
   const sessionLocation = sessionStorage.getItem(LOCATION_KEY)
   const [showResults, setShowResults] = useState(sessionLocation === 'results')
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const { resultData, setResultData } = useResultData()
 
   const { formStyles } = styles
 
-  const {
-    formState: { isSubmitted },
-    handleSubmit,
-    control,
-    watch,
-  } = useForm({
+  const { handleSubmit, control, watch } = useForm({
     mode: 'onSubmit',
     shouldUnregister: true,
     defaultValues: resultData,
@@ -60,6 +56,7 @@ const InteractiveForm = () => {
         ?.getElementById('survey-main-section')
         ?.scrollIntoView({ behavior: 'instant' })
       setRiskData(risks)
+      setIsSubmitted(true)
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error)
