@@ -63,7 +63,7 @@
     "proceedToExit": "Yes",
     "proceedToConsultation": "No",
     "proceedEmailInfoText": "If you would like to receive a summary in your email, press the send button below.",
-    "summaryEmailSubject": "Riksutin summary",
+    "summaryEmailSubject": "Risk Report",
     "sendSummaryMail": "Send summary",
     "showSummaryNotes": "I would like to add notes",
     "summaryMailNotesPlaceholder": "Add notes here if needed",

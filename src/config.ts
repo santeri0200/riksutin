@@ -1,4 +1,4 @@
-export const appName = 'Risk-i'
+export const appName = 'Riskiarviointi'
 
 export const contactEmail = ''
 

@@ -9,8 +9,12 @@ const SummaryEmailTemplate = ({ language }: { language: keyof Locales }) => {
         <p>Hello</p>
 
         <p>
-          Thank you for using the International collaboration risk assessment
-          app. Here is the summary of your choices.
+          You have completed an international collaboration risk assessment, and
+          the results are available below this message. You may make use of the
+          results in any way necessary. Pleas note that you may renew the
+          assessment, if there are material changes in your collaboration. You
+          will also get an update, should conditions change significantly. If
+          necessary, please contact risk-i@helsinki.
         </p>
 
         <p>**********</p>
@@ -24,8 +28,12 @@ const SummaryEmailTemplate = ({ language }: { language: keyof Locales }) => {
       <p>Hei</p>
 
       <p>
-        Kiitos Kansainvälisen yhteistyön riskiarviosovelluksen käytöstä! Alla
-        yhteenveto valinnoistasi.
+        Olet täyttänyt kansainvälisen yhteistyön riskiarviolomakkeen ja alla on
+        arvioinnin tulokset, joita voit hyödyntää haluamallasi tavalla.
+        Huomioithan, että voit päivittää itse riskiarvioinnin, jos hankkeessasi
+        tapahtuu olennaisia muutoksia. Saat myös automaattisesti päivityksen,
+        jos olosuhteissa tapahtuu merkittäviä muutoksia. Ole tarvittaessa
+        yhteydessä risk-i@helsinki.fi.
       </p>
 
       <p>**********</p>
