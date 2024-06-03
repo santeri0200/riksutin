@@ -1,5 +1,6 @@
 import express from 'express'
 
+import { getHighRiskCountries } from '../util/cron/highRiskCountries/highRiskCountries'
 import { get } from '../util/redis'
 import { fetchData } from '../data/worldbank/util'
 import getCountryIndicator from '../data/worldbank/indicator'
@@ -58,7 +59,14 @@ export const getCountryData = async (code: string | undefined) => {
 const countryRouter = express.Router()
 
 countryRouter.get('/highrisk', async (req, res: any) => {
-  const highRiskCountries = await get('high risk countries')
+  const cached: {
+    name: string
+    code: string
+  }[] = await get('high risk countries')
+
+  if (cached) return res.status(200).send(cached)
+
+  const highRiskCountries = await getHighRiskCountries()
 
   return res.status(200).send(highRiskCountries)
 })

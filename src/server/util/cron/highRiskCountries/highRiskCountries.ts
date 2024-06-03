@@ -23,8 +23,7 @@ const calculateTotalRisk = async (countryCode: string) => {
   return totalCountryRiskLevel
 }
 
-const run = async () => {
-  logger.info('Getting high risk countries')
+export const getHighRiskCountries = async () => {
   const countries = await getCountries()
   const highRiskCountries = []
 
@@ -36,12 +35,13 @@ const run = async () => {
     }
   }
   set('high risk countries', highRiskCountries)
+  return highRiskCountries
 }
 
 const startCountryCron = async () => {
   const cronTime = '0 0 * * 0'
   logger.info('Cron job scheduled')
-  return scheduleCronJob(cronTime, run)
+  return scheduleCronJob(cronTime, getHighRiskCountries)
 }
 
 export default startCountryCron
