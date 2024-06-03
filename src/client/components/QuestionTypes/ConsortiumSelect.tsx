@@ -26,6 +26,8 @@ const ConsortiumSelect = ({
 
   if (!question || !countries) return null
 
+  countries.sort((a, b) => a.name.localeCompare(b.name))
+
   return (
     <Box>
       <List
