@@ -10,6 +10,7 @@ import fetchSanctionsData from '../data/sanctions/sanctionsMap'
 import parseAcademicFreedom from '../data/academicfreedom/parseAcademicFreedom'
 import { CountryData } from '../types'
 import { Info, Country } from '../data/worldbank/types'
+import parseRuleOfLaw from '../data/ruleOfLaw/parseRuleOfLaw'
 
 type Response = [Info, Country[]]
 
@@ -41,6 +42,7 @@ export const getCountryData = async (code: string | undefined) => {
   const universities = await getCountryUniversities(countryName)
   const sanctions = await fetchSanctionsData(code)
   const academicfreedom = parseAcademicFreedom(code)
+  const ruleOfLaw = parseRuleOfLaw(countryName)
 
   const country = {
     code,
@@ -51,6 +53,7 @@ export const getCountryData = async (code: string | undefined) => {
     universities,
     sanctions,
     academicfreedom,
+    ruleOfLaw,
   }
 
   return country as CountryData

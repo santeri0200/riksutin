@@ -1,0 +1,143 @@
+Country,Country Code,Region,Income Group*,WJP Rule of Law Index: Overall Score
+Afghanistan,AFG,South Asia,Low,0.317554167452693
+Albania,ALB,Eastern Europe & Central Asia,Upper middle,0.484087228390272
+Algeria,DZA,Middle East & North Africa,Lower middle,0.489303953465787
+Angola,AGO,Sub-Saharan Africa,Lower middle,0.425021457872271
+Antigua and Barbuda,ATG,Latin America & Caribbean,High,0.634682953524566
+Argentina,ARG,Latin America & Caribbean,Upper middle,0.545862220490145
+Australia,AUS,East Asia & Pacific,High,0.798333349755788
+Austria,AUT,EU + EFTA + North America,High,0.800185662399807
+The Bahamas,BHS,Latin America & Caribbean,High,0.593342783552989
+Bangladesh,BGD,South Asia,Lower middle,0.384800224587799
+Barbados,BRB,Latin America & Caribbean,High,0.657813071022025
+Belarus,BLR,Eastern Europe & Central Asia,Upper middle,0.45190210562813
+Belgium,BEL,EU + EFTA + North America,High,0.783772197006411
+Belize,BLZ,Latin America & Caribbean,Upper middle,0.49158612131351
+Benin,BEN,Sub-Saharan Africa,Lower middle,0.484121552239736
+Bolivia,BOL,Latin America & Caribbean,Lower middle,0.37355336553412
+Bosnia and Herzegovina,BIH,Eastern Europe & Central Asia,Upper middle,0.513938488695065
+Botswana,BWA,Sub-Saharan Africa,Upper middle,0.592750098220353
+Brazil,BRA,Latin America & Caribbean,Upper middle,0.489949091167642
+Bulgaria,BGR,EU + EFTA + North America,Upper middle,0.556276307095853
+Burkina Faso,BFA,Sub-Saharan Africa,Low,0.473656642968758
+Cambodia,KHM,East Asia & Pacific,Lower middle,0.31139079471308
+Cameroon,CMR,Sub-Saharan Africa,Lower middle,0.354212842094701
+Canada,CAN,EU + EFTA + North America,High,0.800009255338545
+Chile,CHL,Latin America & Caribbean,High,0.662146934237039
+China,CHN,East Asia & Pacific,Upper middle,0.467350611896209
+Colombia,COL,Latin America & Caribbean,Upper middle,0.48173347297056
+"Congo, Dem. Rep.",COD,Sub-Saharan Africa,Low,0.344685636352759
+"Congo, Rep.",COG,Sub-Saharan Africa,Lower middle,0.400696575611784
+Costa Rica,CRI,Latin America & Caribbean,Upper middle,0.682240720376199
+Cote d'Ivoire,CIV,Sub-Saharan Africa,Lower middle,0.44874673661729
+Croatia,HRV,EU + EFTA + North America,High,0.614118841811366
+Cyprus,CYP,EU + EFTA + North America,High,0.676614326468055
+Czechia,CZE,EU + EFTA + North America,High,0.732781848467799
+Denmark,DNK,EU + EFTA + North America,High,0.899463856076313
+Dominica,DMA,Latin America & Caribbean,Upper middle,0.577688110359031
+Dominican Republic,DOM,Latin America & Caribbean,Upper middle,0.4879557885881
+Ecuador,ECU,Latin America & Caribbean,Upper middle,0.471528015396979
+"Egypt, Arab Rep.",EGY,Middle East & North Africa,Lower middle,0.348346272513466
+El Salvador,SLV,Latin America & Caribbean,Lower middle,0.445985507131758
+Estonia,EST,EU + EFTA + North America,High,0.816689709096418
+Ethiopia,ETH,Sub-Saharan Africa,Low,0.380531321544387
+Finland,FIN,EU + EFTA + North America,High,0.874657294273855
+France,FRA,EU + EFTA + North America,High,0.728061848896664
+Gabon,GAB,Sub-Saharan Africa,Upper middle,0.392042127275075
+The Gambia,GMB,Sub-Saharan Africa,Low,0.488034305064437
+Georgia,GEO,Eastern Europe & Central Asia,Upper middle,0.603754545174302
+Germany,DEU,EU + EFTA + North America,High,0.83446079593622
+Ghana,GHA,Sub-Saharan Africa,Lower middle,0.548999924025827
+Greece,GRC,EU + EFTA + North America,High,0.605062832945898
+Grenada,GRD,Latin America & Caribbean,Upper middle,0.602208127482668
+Guatemala,GTM,Latin America & Caribbean,Upper middle,0.437644525993823
+Guinea,GIN,Sub-Saharan Africa,Low,0.413007208456051
+Guyana,GUY,Latin America & Caribbean,Upper middle,0.501292556971687
+Haiti,HTI,Latin America & Caribbean,Lower middle,0.340008788251539
+Honduras,HND,Latin America & Caribbean,Lower middle,0.412271473860678
+"Hong Kong SAR, China",HKG,East Asia & Pacific,High,0.726098526280743
+Hungary,HUN,EU + EFTA + North America,High,0.514986409819789
+India,IND,South Asia,Lower middle,0.493537623713199
+Indonesia,IDN,East Asia & Pacific,Lower middle,0.53240248225457
+"Iran, Islamic Rep.",IRN,Middle East & North Africa,Lower middle,0.385872410004975
+Ireland,IRL,EU + EFTA + North America,High,0.811853233544836
+Italy,ITA,EU + EFTA + North America,High,0.665518965750025
+Jamaica,JAM,Latin America & Caribbean,Upper middle,0.574292858803495
+Japan,JPN,East Asia & Pacific,High,0.785782987587544
+Jordan,JOR,Middle East & North Africa,Upper middle,0.547872636649033
+Kazakhstan,KAZ,Eastern Europe & Central Asia,Upper middle,0.533660695149023
+Kenya,KEN,Sub-Saharan Africa,Lower middle,0.456011329771876
+"Korea, Rep.",KOR,East Asia & Pacific,High,0.736425864365344
+Kosovo,XKX,Eastern Europe & Central Asia,Upper middle,0.561565854341356
+Kuwait,KWT,Middle East & North Africa,High,0.584264428884458
+Kyrgyz Republic,KGZ,Eastern Europe & Central Asia,Lower middle,0.453598696057391
+Latvia,LVA,EU + EFTA + North America,High,0.727389570586545
+Lebanon,LBN,Middle East & North Africa,Lower middle,0.447063850851978
+Liberia,LBR,Sub-Saharan Africa,Low,0.437163277444425
+Lithuania,LTU,EU + EFTA + North America,High,0.767680140976451
+Luxembourg,LUX,EU + EFTA + North America,High,0.833299462762841
+Madagascar,MDG,Sub-Saharan Africa,Low,0.429821218817783
+Malawi,MWI,Sub-Saharan Africa,Low,0.521738169339204
+Malaysia,MYS,East Asia & Pacific,Upper middle,0.569979674747191
+Mali,MLI,Sub-Saharan Africa,Low,0.401702366395175
+Malta,MLT,EU + EFTA + North America,High,0.67979840356655
+Mauritania,MRT,Sub-Saharan Africa,Lower middle,0.361252931947859
+Mauritius,MUS,Sub-Saharan Africa,Upper middle,0.609479702288711
+Mexico,MEX,Latin America & Caribbean,Upper middle,0.417390946442467
+Moldova,MDA,Eastern Europe & Central Asia,Upper middle,0.5286133223395
+Mongolia,MNG,East Asia & Pacific,Lower middle,0.533738670841594
+Montenegro,MNE,Eastern Europe & Central Asia,Upper middle,0.563788033812842
+Morocco,MAR,Middle East & North Africa,Lower middle,0.483547854165061
+Mozambique,MOZ,Sub-Saharan Africa,Low,0.384030128687051
+Myanmar,MMR,East Asia & Pacific,Lower middle,0.348895041965378
+Namibia,NAM,Sub-Saharan Africa,Upper middle,0.614899754042255
+Nepal,NPL,South Asia,Lower middle,0.516136518878345
+Netherlands,NLD,EU + EFTA + North America,High,0.832457378395535
+New Zealand,NZL,East Asia & Pacific,High,0.825487622930471
+Nicaragua,NIC,Latin America & Caribbean,Lower middle,0.34577269338644
+Niger,NER,Sub-Saharan Africa,Low,0.440250812923604
+Nigeria,NGA,Sub-Saharan Africa,Lower middle,0.410838738358028
+North Macedonia,MKD,Eastern Europe & Central Asia,Upper middle,0.528896623057148
+Norway,NOR,EU + EFTA + North America,High,0.892149352218429
+Pakistan,PAK,South Asia,Lower middle,0.377147763864245
+Panama,PAN,Latin America & Caribbean,High,0.514349320863494
+Paraguay,PRY,Latin America & Caribbean,Upper middle,0.462891854120844
+Peru,PER,Latin America & Caribbean,Upper middle,0.486295730477017
+Philippines,PHL,East Asia & Pacific,Lower middle,0.460190670255136
+Poland,POL,EU + EFTA + North America,High,0.638910964759709
+Portugal,PRT,EU + EFTA + North America,High,0.682963730374671
+Romania,ROU,EU + EFTA + North America,High,0.630478052813918
+Russian Federation,RUS,Eastern Europe & Central Asia,Upper middle,0.436149626648098
+Rwanda,RWA,Sub-Saharan Africa,Low,0.629274091722166
+Senegal,SEN,Sub-Saharan Africa,Lower middle,0.553664694371934
+Serbia,SRB,Eastern Europe & Central Asia,Upper middle,0.481863584070788
+Sierra Leone,SLE,Sub-Saharan Africa,Low,0.439459934769484
+Singapore,SGP,East Asia & Pacific,High,0.776167119939217
+Slovak Republic,SVK,EU + EFTA + North America,High,0.658992129181909
+Slovenia,SVN,EU + EFTA + North America,High,0.687769081578531
+South Africa,ZAF,Sub-Saharan Africa,Upper middle,0.569381036284746
+Spain,ESP,EU + EFTA + North America,High,0.721093862995695
+Sri Lanka,LKA,South Asia,Lower middle,0.498525481090556
+St. Kitts and Nevis,KNA,Latin America & Caribbean,High,0.63314849730385
+St. Lucia,LCA,Latin America & Caribbean,Upper middle,0.616592310760747
+St. Vincent and the Grenadines,VCT,Latin America & Caribbean,Upper middle,0.625373425273627
+Sudan,SDN,Sub-Saharan Africa,Low,0.362031474229619
+Suriname,SUR,Latin America & Caribbean,Upper middle,0.491565589524451
+Sweden,SWE,EU + EFTA + North America,High,0.854190506255237
+Tanzania,TZA,Sub-Saharan Africa,Lower middle,0.465470970128967
+Thailand,THA,East Asia & Pacific,Upper middle,0.490259762238683
+Togo,TGO,Sub-Saharan Africa,Low,0.453775276738705
+Trinidad and Tobago,TTO,Latin America & Caribbean,High,0.518451238070469
+Tunisia,TUN,Middle East & North Africa,Lower middle,0.515284243457779
+Turkiye,TUR,Eastern Europe & Central Asia,Upper middle,0.413819927831429
+Uganda,UGA,Sub-Saharan Africa,Low,0.390723163731029
+Ukraine,UKR,Eastern Europe & Central Asia,Lower middle,0.485303150295129
+United Arab Emirates,ARE,Middle East & North Africa,High,0.63538567661923
+United Kingdom,GBR,EU + EFTA + North America,High,0.784222156854433
+United States,USA,EU + EFTA + North America,High,0.703255968948021
+Uruguay,URY,Latin America & Caribbean,High,0.71654774841925
+Uzbekistan,UZB,Eastern Europe & Central Asia,Lower middle,0.496468400804026
+"Venezuela, RB",VEN,Latin America & Caribbean,Upper middle,0.263803985320371
+Vietnam,VNM,East Asia & Pacific,Lower middle,0.486356831159481
+Zambia,ZMB,Sub-Saharan Africa,Low,0.449726122840631
+Zimbabwe,ZWE,Sub-Saharan Africa,Lower middle,0.396526539040555

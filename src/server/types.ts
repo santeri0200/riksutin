@@ -163,7 +163,8 @@ export type CountryData = {
   universities: string[]
   sanctions: object[] | number
   gdpr?: number | null
-  createdAt: string
+  createdAt?: string
+  ruleOfLaw: number
 }
 
 export type UpdatedCountryData = {
@@ -176,5 +177,6 @@ export type UpdatedCountryData = {
   stability: number
   hci: number
   universities: string[]
-  createdAt: string
+  createdAt?: string
+  ruleOfLaw: number
 }
