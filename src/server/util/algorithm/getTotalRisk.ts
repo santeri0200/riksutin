@@ -50,7 +50,7 @@ const getTotalRisk = (
     {
       id: 'university',
       title: 'riskTable:universityRiskLevel',
-      level: universityRisk(resultData['20'], resultData['21']),
+      level: universityRisk(resultData['20'], country?.universities),
     },
     {
       id: 'duration',

@@ -57,15 +57,15 @@ export const totalCountryRisk = (
 }
 
 export const universityRisk = (
-  university: string | undefined,
-  other: string | undefined
+  university: string,
+  countryUniversities: string[] | undefined
 ) => {
-  if (other) {
-    return 3
-  }
-  if (university) {
+  if (!countryUniversities) return null
+
+  if (countryUniversities.includes(university)) {
     return 1
   }
+  return 3
 
   return null
 }

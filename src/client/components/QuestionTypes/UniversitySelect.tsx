@@ -12,19 +12,21 @@ import LoadingProgress from '../Common/LoadingProgress'
 import ShowMore from '../Common/ShowMore'
 
 const AdditionalTextField = ({
+  question,
   control,
 }: {
+  question: Question
   control: Control<any> | undefined
 }) => {
   const { t } = useTranslation()
   return (
     <Controller
       control={control}
-      name="21"
+      name={question.id.toString()}
       defaultValue=""
       rules={{
         required: {
-          value: true,
+          value: question.id !== 7,
           message: t('questions:requiredText'),
         },
       }}
@@ -33,7 +35,7 @@ const AdditionalTextField = ({
           <TextField
             helperText={error ? error.message : null}
             error={!!error}
-            data-testid="question-21"
+            data-testid={`question-${question.id}`}
             onChange={onChange}
             defaultValue=""
             sx={{ width: '50%' }}
@@ -118,7 +120,7 @@ const UniversitySelect = ({
                   />
                 </Box>
               ) : (
-                <AdditionalTextField control={control} />
+                <AdditionalTextField question={question} control={control} />
               )
             }
           />
