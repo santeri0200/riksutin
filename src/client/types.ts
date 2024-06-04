@@ -110,4 +110,5 @@ export type CountryData = {
   sanctions: object[] | number
   gdpr?: number | null
   createdAt?: string
+  ruleOfLaw?: number
 }

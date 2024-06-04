@@ -86,8 +86,8 @@ const RenderAnswers = ({
                   (childQuestion) =>
                     childQuestion.parentId === currentQuestion.id
                 )?.map((childQuestion) => (
-                  <>
-                    <Box key={childQuestion.id}>
+                  <Box key={childQuestion.id}>
+                    <Box>
                       {answers[childQuestion.id] && (
                         <Box sx={resultStyles.answerBox}>
                           <Typography>
@@ -115,7 +115,7 @@ const RenderAnswers = ({
                         <Typography>{answers[27].join(', ')}</Typography>
                       </Box>
                     )}
-                  </>
+                  </Box>
                 ))}
               </>
             )}

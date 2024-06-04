@@ -73,6 +73,11 @@ const getCountryRisks = (
       level: country.sanctions,
       infoText: sanctionsText,
     },
+    {
+      id: 'ruleOfLaw',
+      title: 'riskTable:ruleOfLaw',
+      level: country.ruleOfLaw,
+    },
   ]
 
   return countryRisks
