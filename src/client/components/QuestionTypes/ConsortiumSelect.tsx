@@ -13,7 +13,37 @@ import { useTranslation } from 'react-i18next'
 import { Controller } from 'react-hook-form'
 import { Locales, SingleChoiceType } from '@backend/types'
 import { InputProps } from '../../types'
-import { useHighRiskCountries } from '../../hooks/useCountries'
+
+const highRiskCountries = [
+  { name: 'Afghanistan', code: 'AF' },
+  { name: 'Bangladesh', code: 'BD' },
+  { name: 'Belarus', code: 'BY' },
+  { name: 'Congo, Dem. Rep.', code: 'CD' },
+  { name: 'Egypt, Arab Rep.', code: 'EG' },
+  { name: 'Guinea', code: 'GN' },
+  { name: 'Guatemala', code: 'GT' },
+  { name: 'Haiti', code: 'HT' },
+  { name: 'Iran, Islamic Rep.', code: 'IR' },
+  { name: 'Lebanon', code: 'LB' },
+  { name: 'Moldova', code: 'MD' },
+  { name: 'Madagascar', code: 'MG' },
+  { name: 'Mexico', code: 'MX' },
+  { name: 'Mali', code: 'ML' },
+  { name: 'Myanmar', code: 'MM' },
+  { name: 'Mozambique', code: 'MZ' },
+  { name: 'Niger', code: 'NE' },
+  { name: 'Nigeria', code: 'NG' },
+  { name: 'Nicaragua', code: 'NI' },
+  { name: 'Pakistan', code: 'PK' },
+  { name: 'Sudan', code: 'SD' },
+  { name: 'Tunisia', code: 'TN' },
+  { name: 'Turkiye', code: 'TR' },
+  { name: 'Uganda', code: 'UG' },
+  { name: 'Ukraine', code: 'UA' },
+  { name: 'Venezuela, RB', code: 'VE' },
+  { name: 'Yemen, Rep.', code: 'YE' },
+  { name: 'Zimbabwe', code: 'ZW' },
+]
 
 const ConsortiumSelect = ({
   control,
@@ -21,12 +51,11 @@ const ConsortiumSelect = ({
   children,
   language,
 }: InputProps) => {
-  const { countries } = useHighRiskCountries()
   const { t } = useTranslation()
 
-  if (!question || !countries) return null
+  if (!question) return null
 
-  countries.sort((a, b) => a.name.localeCompare(b.name))
+  highRiskCountries.sort((a, b) => a.name.localeCompare(b.name))
 
   return (
     <Box>
@@ -41,7 +70,7 @@ const ConsortiumSelect = ({
           '& ul': { padding: 0 },
         }}
       >
-        {countries.map((country) => (
+        {highRiskCountries.map((country) => (
           <ListItem key={country.code}>{country.name}</ListItem>
         ))}
       </List>
