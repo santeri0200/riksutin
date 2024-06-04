@@ -465,9 +465,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'university1',
     isSelected: {
-      fi: '*Yhteistyöyliopisto on listattu World Higher Education -tietokannassa ja kuuluu lisäksi johonkin seuraavista: Euroopan tai maailman ylipistojen liitto (EUA/IAU), Magna Charta Observatory, Scholars at Risk.*',
+      fi: '*Yhteistyöyliopisto on listattu World Higher Education -tietokannassa.*',
       sv: '',
-      en: '*Collaboration university is listed in the World Higher Education database and is a member of European University Association, International University Association, Magna Charta Observatory or Scholars at Risk network.*',
+      en: '*Partner university is listed in the World Higher Education database.*',
     },
     data: {
       allDimensions: {
@@ -482,9 +482,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'university2',
     isSelected: {
-      fi: '*Yhteistyöyliopisto on listattu World Higher Education -tietokannassa mutta ei ole Euroopan tai maailman yliopistojen liiton, Magna Charta Observatoryn tai Scholars at Risk -verkoston jäsen.*',
+      fi: '*Yhteistyöyliopisto on listattu World Higher Education -tietokannassa.*',
       sv: '',
-      en: '*Collaboration university is listed in the World Higher Education database but is not a member of European University Association, International University Association, Magna Charta Observatory or Scholars at Risk network.*',
+      en: '*Partner university is listed in the World Higher Education database.*',
     },
     data: {
       allDimensions: {
