@@ -1,7 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box, Button } from '@mui/material'
+import LoadingButton from '@mui/lab/LoadingButton'
 
+import { Question } from '@backend/types'
+import { Control, UseFormWatch } from 'react-hook-form/dist/types'
 import RenderQuestion from './RenderQuestion'
 import SurveyButtons from '../Common/SurveyButtons'
 
@@ -15,7 +19,14 @@ const RenderSurvey = ({
   control,
   watch,
   isSubmitted,
-}: InputProps) => {
+  submitButtonLoading,
+}: {
+  control: Control<any>
+  watch: UseFormWatch<any>
+  questions: Question[]
+  isSubmitted: boolean
+  submitButtonLoading: boolean
+}) => {
   const { t, i18n } = useTranslation()
 
   const { resultData } = useResultData()
@@ -54,14 +65,15 @@ const RenderSurvey = ({
             </Button>
           ) : (
             <SurveyButtons>
-              <Button
+              <LoadingButton
                 sx={formStyles.stackButton}
                 type="submit"
                 data-cy="submit-form-button"
                 variant="contained"
+                loading={submitButtonLoading}
               >
                 {isSubmitted ? t('updateSubmit') : t('submit')}
-              </Button>
+              </LoadingButton>
             </SurveyButtons>
           )}
         </Box>

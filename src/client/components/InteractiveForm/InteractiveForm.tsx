@@ -29,6 +29,7 @@ const InteractiveForm = () => {
   const sessionLocation = sessionStorage.getItem(LOCATION_KEY)
   const [showResults, setShowResults] = useState(sessionLocation === 'results')
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitButtonLoading, setSubmitButtonLoading] = useState(false)
 
   const { resultData, setResultData } = useResultData()
 
@@ -45,6 +46,7 @@ const InteractiveForm = () => {
   if (!survey || isLoading || !results) return null
 
   const onSubmit = async (data: FormValues) => {
+    setSubmitButtonLoading(true)
     const submittedData = data
     setResultData(submittedData)
     try {
@@ -62,6 +64,7 @@ const InteractiveForm = () => {
       console.log(error)
       enqueueSnackbar(t('common:submitError'), { variant: 'error' })
     }
+    setSubmitButtonLoading(false)
   }
 
   return (
@@ -82,6 +85,7 @@ const InteractiveForm = () => {
               control={control}
               watch={watch}
               isSubmitted={isSubmitted}
+              submitButtonLoading={submitButtonLoading}
             />
           </form>
         </Grid>
