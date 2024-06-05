@@ -7,14 +7,12 @@ import {
   universityRisk,
 } from './individualRisks'
 
-const consortiumRisk = (
-  highRisk: string,
-  selectedCountries: string[] | undefined
-) => {
-  if (highRisk === 'noHighRiskCountries') {
+const consortiumRisk = (selectedCountries: string[] | undefined) => {
+  if (!selectedCountries) return 1
+  if (selectedCountries?.length === 0) {
     return 1
   }
-  if (selectedCountries && selectedCountries.length >= 2) {
+  if (selectedCountries.length >= 2) {
     return 3
   }
   return 2
@@ -105,7 +103,7 @@ const getTotalRisk = (
     const consortium: Risk = {
       id: 'consortium',
       title: 'riskTable:consortiumRiskLevel',
-      level: consortiumRisk(resultData[26], resultData[27]),
+      level: consortiumRisk(resultData[26]),
     }
     filteredArray.push(consortium)
   }

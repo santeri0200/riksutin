@@ -96,25 +96,13 @@ const RenderAnswers = ({
                             </b>
                           </Typography>
                           <Typography>
-                            {answers[childQuestion.id] as string}
+                            {childQuestion.id === 26
+                              ? answers[childQuestion.id].join(', ')
+                              : (answers[childQuestion.id] as string)}
                           </Typography>
                         </Box>
                       )}
                     </Box>
-                    {childQuestion.id === 26 && answers[27] && (
-                      <Box sx={resultStyles.answerBox}>
-                        <Typography>
-                          <b>
-                            {
-                              survey.Questions.find((q) => q.id === 27)?.title[
-                                language as keyof Locales
-                              ]
-                            }
-                          </b>
-                        </Typography>
-                        <Typography>{answers[27].join(', ')}</Typography>
-                      </Box>
-                    )}
                   </Box>
                 ))}
               </>
