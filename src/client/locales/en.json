@@ -24,7 +24,7 @@
     "autocompleteLabel": "Organisation"
   },
   "questions": {
-    "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
+    "additionalPartnerOrganisationCountryQuestion": "Home country of the coordinating partner organisation",
     "loadingUniversities": "Loading",
     "selectUniversityInfoMessage": "Select a country to see options",
     "addUniversityManually": "Add university manually",

@@ -41,8 +41,8 @@ const QuestionText = ({
         {![7, 26].includes(question.id) && '* '}
       </Typography>
       <Typography component="span">
-        {question.id === 5 && watch('4') === 'multilateral'
-          ? t('questions:optionalPartnerOrganisationNameQuestion')
+        {question.id === 8 && watch('4') === 'multilateral'
+          ? t('questions:additionalPartnerOrganisationCountryQuestion')
           : question.title[language as keyof Locales]}
         {question.text[language as keyof Locales] && (
           <ShowMore text={question.text[language as keyof Locales]} />

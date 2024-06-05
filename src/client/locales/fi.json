@@ -23,7 +23,7 @@
     "autocompleteLabel": "Organisaatio"
   },
   "questions": {
-    "optionalPartnerOrganisationNameQuestion": "Koordinoivan yhteistyöorganisaation nimi",
+    "additionalPartnerOrganisationCountryQuestion": "Koordinoivan yhteistyöorganisaation sijaintimaa",
     "loadingUniversities": "Ladataan",
     "selectUniversityInfoMessage": "Valitse sijaintimaa nähdäksesi vaihtoehdot",
     "addUniversityManually": "Lisää yliopisto itse",
