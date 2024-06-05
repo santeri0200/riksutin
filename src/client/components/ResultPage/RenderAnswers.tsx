@@ -30,8 +30,8 @@ const RenderAnswers = ({
     (question) => question.optionData.type === 'multipleChoice'
   )
 
-  const singleChoiceQuestions = survey.Questions.filter((question) =>
-    ['singleChoice', 'consortiumSelect'].includes(question.optionData.type)
+  const singleChoiceQuestions = survey.Questions.filter(
+    (question) => question.optionData.type === 'singleChoice'
   )
 
   const singleChoiceAnswers = singleChoiceQuestions.map((question) => {
