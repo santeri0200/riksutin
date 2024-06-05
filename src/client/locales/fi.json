@@ -55,9 +55,9 @@
     "globalSouth": "*Yhteistyökumppanisi sijoittuu globaaliin etelään. Tällaisessa yhteistyössä on syytä huomioida UniPID-verkoston ja TENK:in laatimat erityiset eettiset periaatteet: https://www.unipid.fi/for-society/responsible-global-academic-partnerships/complementary-ethical-guidelines-for-global-south-academic-partnerships/*"
   },
   "results": {
-    "title": "Yhteenveto valinnoistasi",
+    "title": "Yhteistyöhankkeen riskiprofiili",
     "riskTableTitle": "Yhteistyön riskit",
-    "answerBoxTitle": "Vastauksesi",
+    "answerBoxTitle": "Yhteenveto valinnoistasi",
     "resultsMessage": "Listasimme sinulle vielä alle yhteevedon valinnoista",
     "proceedTitle": "Löysitkö etsimäsi?",
     "proceedToExit": "Kyllä",
