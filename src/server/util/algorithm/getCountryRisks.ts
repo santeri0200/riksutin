@@ -2,10 +2,10 @@ import { CountryData, FormValues, UpdatedCountryData } from '../../types'
 import { gdprRisk } from './individualRisks'
 
 const getCountryRisks = (countryData: CountryData, formData: FormValues) => {
-  const sanctionsRiskLevel = countryData.sanctions ? 2 : 1
+  const sanctionsRiskLevel = countryData.sanctions ? 3 : 1
   const gdprRiskLevel = gdprRisk(countryData, formData)
   const sanctionsMultiplier =
-    sanctionsRiskLevel === 2 && formData['11'].research ? 1.5 : 1
+    sanctionsRiskLevel === 3 && formData['11'].research ? 1.5 : 1
 
   const safetyLevelMultiplier =
     (countryData.safetyLevel === 2 || countryData.safetyLevel === 3) &&
