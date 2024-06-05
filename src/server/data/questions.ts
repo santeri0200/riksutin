@@ -202,7 +202,7 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'Home country of partner organisation',
     },
     text: {
-      fi: 'Jos kyseessä on kahdenvälinen yhteistyö, valitse kumppanin sijaintimaa listasta. Jos kyseessä on monenkeskinen yhteistyö, valitse listasta koordinoivan yliopiston sijaintimaa',
+      fi: 'Jos kyseessä on kahdenvälinen yhteistyö, valitse kumppanin sijaintimaa listasta. Jos kyseessä on monenkeskinen yhteistyö, valitse listasta koordinoivan organisaation sijaintimaa',
       sv: '',
       en: 'In the case of bilateral collaboration, choose the country of location of your partner from the list. In the case of multilateral colllaboration, choose the country of the co-ordinating organisation',
     },
