@@ -1007,9 +1007,9 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: 4,
     priority: 0,
     title: {
-      fi: 'Kuuluuko konsortioon yliopistoja tai muita organisaatioita seuraavista maista',
+      fi: 'Valitse listasta kaikki ne erityisen riskin maat, jonka yliopistoja tai muita organisaatioita konsortioosi kuuluu.',
       sv: '',
-      en: 'Does the consortium include universities or other organisations from the following countries',
+      en: 'Select all applicable countries of especial risks, whose universities or other organisations belong to you consortium',
     },
     text: {
       fi: '',
@@ -1017,27 +1017,8 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: '',
     },
     optionData: {
-      type: 'consortiumSelect',
-      options: [
-        {
-          id: 'yesHighRiskCountries',
-          label: 'yesHighRiskCountries',
-          title: {
-            fi: 'Kyllä',
-            sv: '',
-            en: 'Yes',
-          },
-        },
-        {
-          id: 'noHighRiskCountries',
-          label: 'noHighRiskCountries',
-          title: {
-            fi: 'Ei',
-            sv: '',
-            en: 'noHighRiskCountries',
-          },
-        },
-      ],
+      type: 'highRiskCountrySelect',
+      options: [],
     },
     visibility: { options: ['multilateral'] },
   },
@@ -1060,7 +1041,7 @@ const getQuestionData = async (): Promise<Question[]> => [
       type: 'highRiskCountrySelect',
       options: [],
     },
-    visibility: { options: ['yesHighRiskCountries'] },
+    visibility: { options: [] },
   },
 ]
 

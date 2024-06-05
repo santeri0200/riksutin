@@ -46,14 +46,11 @@ const HighRiskCountrySelect = ({ control, question, children }: InputProps) => {
   if (!question) return null
 
   return (
-    <>
+    <Box py={1}>
       <Controller
         control={control}
         name={question.id.toString()}
         defaultValue=""
-        rules={{
-          required: { value: true, message: t('questions:requiredText') },
-        }}
         render={({ field: { onChange }, fieldState: { error } }) => (
           <Box justifyContent="center">
             <Autocomplete
@@ -84,7 +81,7 @@ const HighRiskCountrySelect = ({ control, question, children }: InputProps) => {
         )}
       />
       {children}
-    </>
+    </Box>
   )
 }
 

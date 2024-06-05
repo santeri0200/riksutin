@@ -39,7 +39,7 @@ const QuestionText = ({
   return (
     <>
       <Typography component="span" sx={{ color: 'red' }}>
-        {question.id !== 7 && '* '}
+        {![7, 26].includes(question.id) && '* '}
       </Typography>
       <Typography component="span">
         {question.id === 5 && watch('4') === 'multilateral'
