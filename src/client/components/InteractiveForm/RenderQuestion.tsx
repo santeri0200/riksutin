@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { Locales, PossibleChoiceTypes, Question } from '@backend/types'
@@ -43,6 +44,8 @@ const QuestionText = ({
       <Typography component="span">
         {question.id === 8 && watch('4') === 'multilateral'
           ? t('questions:additionalPartnerOrganisationCountryQuestion')
+          : question.id === 6 && watch('4') === 'multilateral'
+          ? t('questions:additionalPartnerOrganisationTypeQuestion')
           : question.title[language as keyof Locales]}
         {question.text[language as keyof Locales] && (
           <ShowMore text={question.text[language as keyof Locales]} />

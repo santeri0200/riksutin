@@ -25,6 +25,7 @@
   },
   "questions": {
     "additionalPartnerOrganisationCountryQuestion": "Home country of the coordinating partner organisation",
+    "additionalPartnerOrganisationTypeQuestion": "Type of the coordinating partner organisation",
     "loadingUniversities": "Loading",
     "selectUniversityInfoMessage": "Select a country to see options",
     "addUniversityManually": "Add university manually",

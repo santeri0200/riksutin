@@ -24,6 +24,7 @@
   },
   "questions": {
     "additionalPartnerOrganisationCountryQuestion": "Koordinoivan yhteistyöorganisaation sijaintimaa",
+    "additionalPartnerOrganisationTypeQuestion": "Koordinoivan yhteistyöorganisaation tyyppi",
     "loadingUniversities": "Ladataan",
     "selectUniversityInfoMessage": "Valitse sijaintimaa nähdäksesi vaihtoehdot",
     "addUniversityManually": "Lisää yliopisto itse",
