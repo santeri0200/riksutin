@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Locales } from '@backend/types'
@@ -76,7 +77,23 @@ const RenderAnswers = ({
               <>
                 <Box sx={resultStyles.card}>
                   <Typography>
-                    <b>{currentQuestion.title[language as keyof Locales]}</b>
+                    {currentQuestion.id === 8 &&
+                    resultData[4] === 'multilateral' ? (
+                      <b>
+                        {t(
+                          'questions:additionalPartnerOrganisationCountryQuestion'
+                        )}
+                      </b>
+                    ) : currentQuestion.id === 6 &&
+                      resultData[4] === 'multilateral' ? (
+                      <b>
+                        {t(
+                          'questions:additionalPartnerOrganisationTypeQuestion'
+                        )}
+                      </b>
+                    ) : (
+                      <b>{currentQuestion.title[language as keyof Locales]}</b>
+                    )}
                   </Typography>
                   <Typography>
                     {answers[currentQuestion.id] as string}
