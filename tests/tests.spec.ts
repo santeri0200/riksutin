@@ -99,7 +99,7 @@ test.describe('results', () => {
 
   test('risk table and answers are visible after submitting', async () => {
     await expect(page.getByText('Yhteistyön riskit')).toBeVisible()
-    await expect(page.getByText('Vastauksesi')).toBeVisible()
+    await expect(page.getByText('Yhteenveto valinnoistasi')).toBeVisible()
   })
 
   test('risk table has content', async () => {
