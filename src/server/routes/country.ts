@@ -11,6 +11,7 @@ import parseAcademicFreedom from '../data/academicfreedom/parseAcademicFreedom'
 import { CountryData } from '../types'
 import { Info, Country } from '../data/worldbank/types'
 import parseRuleOfLaw from '../data/ruleOfLaw/parseRuleOfLaw'
+import parseHumanDevelopment from '../data/humanDevelopment/parseHumanDevelopment'
 
 type Response = [Info, Country[]]
 
@@ -37,7 +38,7 @@ export const getCountryData = async (code: string | undefined) => {
 
   const corruption = await getCountryIndicator(code, 'CC.PER.RNK')
   const stability = await getCountryIndicator(code, 'PV.PER.RNK')
-  const hci = await getCountryIndicator(code, 'HD.HCI.OVRL')
+  const hci = parseHumanDevelopment(countryName)
   const safetyLevel = await fetchSafetyLevelData(code)
   const universities = await getCountryUniversities(countryName)
   const sanctions = await fetchSanctionsData(code)
