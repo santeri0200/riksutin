@@ -117,7 +117,7 @@ test.describe('results', () => {
       page.getByText('Poliittinen vakaus', { exact: true })
     ).toBeVisible()
     await expect(
-      page.getByText('Inhimillinen kehitys', { exact: true })
+      page.getByText('Maan kehittyneisyys', { exact: true })
     ).toBeVisible()
     await expect(page.getByText('GDPR', { exact: true })).toBeVisible()
     await expect(page.getByText('Pakotteet', { exact: true })).toBeVisible()
