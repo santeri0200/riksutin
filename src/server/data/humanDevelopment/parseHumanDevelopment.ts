@@ -1,6 +1,5 @@
 import fs from 'fs'
 import { parse } from 'csv-parse/sync'
-import { riskLevelCheck } from '../worldbank/util'
 
 const parseHumanDevelopment = (name: string | undefined) => {
   if (!name) return null
