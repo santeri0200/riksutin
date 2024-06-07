@@ -81,6 +81,15 @@ const getTotalRisk = (
     },
   ]
 
+  if (resultData[26]) {
+    const consortium: Risk = {
+      id: 'consortium',
+      title: 'riskTable:consortiumRiskLevel',
+      level: consortiumRisk(resultData[26]),
+    }
+    riskArray.push(consortium)
+  }
+
   const filteredArray = riskArray.filter(
     (value) => value.level !== (null || undefined)
   )
@@ -98,15 +107,6 @@ const getTotalRisk = (
   )
 
   if (allRisks.filter((value) => value === 3).length >= 3) totalRiskLevel = 3
-
-  if (resultData[26]) {
-    const consortium: Risk = {
-      id: 'consortium',
-      title: 'riskTable:consortiumRiskLevel',
-      level: consortiumRisk(resultData[26]),
-    }
-    filteredArray.push(consortium)
-  }
 
   return { totalRiskLevel, filteredArray }
 }
