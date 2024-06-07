@@ -1,17 +1,18 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Box, Button } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import LoadingButton from '@mui/lab/LoadingButton'
 
-import { Question } from '@backend/types'
+import { Locales, Question } from '@backend/types'
 import { Control, UseFormWatch } from 'react-hook-form/dist/types'
+import { useFormState } from 'react-hook-form'
 import RenderQuestion from './RenderQuestion'
 import SurveyButtons from '../Common/SurveyButtons'
 
 import { useResultData } from '../../contexts/ResultDataContext'
 
-import { InputProps } from '../../types'
 import styles from '../../styles'
 
 const RenderSurvey = ({
@@ -28,15 +29,20 @@ const RenderSurvey = ({
   submitButtonLoading: boolean
 }) => {
   const { t, i18n } = useTranslation()
+  const { dirtyFields, defaultValues, errors } = useFormState({ control })
 
   const { resultData } = useResultData()
   const [showQuestions, setShowQuestions] = useState(Boolean(resultData))
 
-  if (!questions || !watch) return null
+  if (!questions || !watch || !defaultValues) return null
 
   const { cardStyles, formStyles } = styles
 
   const { language } = i18n
+
+  const requiredFields = Object.keys(defaultValues).filter(
+    (value) => !['1', '2', '7', 'faculty'].includes(value)
+  )
 
   return (
     <Box sx={cardStyles.outerBox}>
@@ -54,7 +60,28 @@ const RenderSurvey = ({
             )}
           </Box>
         ))}
-
+        {Object.values(errors).length !== 0 && (
+          <Box sx={{ p: 2 }}>
+            <Typography>
+              {t('questions:requiredQuestionsNeedAnswers')}
+            </Typography>
+            <ul>
+              {requiredFields
+                .filter((id) => !Object.keys(dirtyFields).includes(id))
+                .map((id) => (
+                  <li key={id}>
+                    <Typography color="red">
+                      {
+                        questions.find((q) => q.id.toString() === id)?.title[
+                          language as keyof Locales
+                        ]
+                      }
+                    </Typography>
+                  </li>
+                ))}
+            </ul>
+          </Box>
+        )}
         <Box sx={formStyles.stackBox}>
           {!showQuestions ? (
             <Button

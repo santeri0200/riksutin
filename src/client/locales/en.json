@@ -29,7 +29,8 @@
     "loadingUniversities": "Loading",
     "selectUniversityInfoMessage": "Select a country to see options",
     "addUniversityManually": "Add university manually",
-    "requiredText": "Required"
+    "requiredText": "Required",
+    "requiredQuestionsNeedAnswers": "Answer the following required questions:"
   },
   "riskTable": {
     "countryRiskLevel": "Risk level of the partner country",
