@@ -681,6 +681,57 @@ const getResultData = (): Result[] => [
       },
     },
   },
+  {
+    id: 41,
+    surveyId: 1,
+    optionLabel: 'ruleOfLaw1',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee maassa, joka on oikeusvaltiio, mikä tarkoittaa muun muasssa, että sopimuksiin liittyvä oikeussuoja on lähtökohtaisesti vahva. Tämä on kuitenkin vain perusta ja yhteistyösopimus on joka tapauksessa syytä laatia huolella.*',
+      sv: '',
+      en: '*Your collaboration partner is located in a country, where rule of law is prevalent and agreements are normally followed and respected. As this is merely the point of departure, it is still necessary to  draw up an agreement with appropriate care.*',
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 42,
+    surveyId: 1,
+    optionLabel: 'ruleOfLaw2',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee maassa, jossa oikeusvaltioperiaate toteutuu vain osittain. Kiinnitä huomiota yhteistyösopimuksen muotoiluihin erityisesti valittavan oikeuspaikan ja riidanratkaisumekanisimien osalta. Konsultoi tarvittaessa yliopiston asiantuntijajuristeja.*',
+      sv: '',
+      en: "*Your collaboration partner is located in a country, where rule of law is only partially adhered. Pay emphasis in the clauses concerning legal venue and resolution of disagreements in the collaboration agreement. Consider also consulting University's legal experts.*",
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
+  {
+    id: 43,
+    surveyId: 1,
+    optionLabel: 'ruleOfLaw3',
+    isSelected: {
+      fi: '*Yhteistyökumppanisi sijaitsee maassa, jossa oikeusvaltioperiaate on vakavasti vaarantunut. Varmistu siitä, että yhteistyösopimuksen muotoilut oikeuspaikan ja riidanratkaisumekanismien osalta on mietiitty tarkasti ja konsultoi yliopiston asiantuntijajuristeja.*',
+      sv: '',
+      en: "*Your collaboration partner is located in a country, which does not adhere to rule of law. Please ensure that your collaboration agreenent has clearly defined clauses for legal venue and resolution of disagreements. You should consult University's legal experts.*",
+    },
+    data: {
+      allDimensions: {
+        fi: '',
+        sv: '',
+        en: '',
+      },
+    },
+  },
 ]
 
 export default getResultData

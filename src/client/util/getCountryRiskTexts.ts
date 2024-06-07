@@ -29,6 +29,9 @@ const getCountryRisks = (
   const sanctionsText = results.find(
     (r) => r.optionLabel === `sanctions${country.sanctions}`
   )?.isSelected[language as keyof Locales]
+  const ruleOfLawText = results.find(
+    (r) => r.optionLabel === `ruleOfLaw${country.ruleOfLaw}`
+  )?.isSelected[language as keyof Locales]
 
   const countryRisks: Risk[] = [
     {
@@ -77,6 +80,7 @@ const getCountryRisks = (
       id: 'ruleOfLaw',
       title: 'riskTable:ruleOfLaw',
       level: country.ruleOfLaw,
+      infoText: ruleOfLawText,
     },
   ]
 
