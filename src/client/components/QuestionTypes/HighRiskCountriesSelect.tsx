@@ -16,6 +16,8 @@ const HighRiskCountrySelect = ({ control, question, children }: InputProps) => {
 
   if (!question || !countries) return null
 
+  countries.sort((a, b) => a.name.localeCompare(b.name))
+
   return (
     <Box py={1}>
       <Controller
