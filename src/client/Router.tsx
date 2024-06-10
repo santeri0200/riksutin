@@ -8,10 +8,6 @@ import UserEntry from './components/UserPage/UserEntry'
 import Admin from './components/Admin/Admin'
 import EditQuestions from './components/Admin/EditQuestions/EditQuestions'
 import RenderEditQuestions from './components/Admin/EditQuestions/RenderEditQuestions'
-import EditResults from './components/Admin/EditResults/EditResults'
-import RenderEditResults from './components/Admin/EditResults/RenderEditResults'
-import EditRecommendations from './components/Admin/EditRecommendations/EditRecommendations'
-import RenderEditRecommendations from './components/Admin/EditRecommendations/RenderEditRecommenstations'
 import RenderEditSurvey from './components/Admin/EditSurvey/RenderEditSurvey'
 import Summary from './components/Admin/Summary/Summary'
 import RootBoundary from './components/Errors/RootBoundary'
@@ -65,26 +61,6 @@ const router = createBrowserRouter(
                 {
                   path: ':questionId',
                   element: <EditQuestions />,
-                },
-              ],
-            },
-            {
-              path: 'edit-results/',
-              element: <RenderEditResults />,
-              children: [
-                {
-                  path: ':questionId/:dimensionId?',
-                  element: <EditResults />,
-                },
-              ],
-            },
-            {
-              path: 'edit-recommendations',
-              element: <RenderEditRecommendations />,
-              children: [
-                {
-                  path: ':recommendationId',
-                  element: <EditRecommendations />,
                 },
               ],
             },
