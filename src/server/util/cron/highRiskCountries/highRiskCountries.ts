@@ -40,7 +40,7 @@ export const getHighRiskCountries = async () => {
 }
 
 const startCountryCron = async () => {
-  const cronTime = '0 13 * * 1'
+  const cronTime = '0 18 * * 1'
   logger.info('Cron job scheduled')
   return scheduleCronJob(cronTime, getHighRiskCountries)
 }
