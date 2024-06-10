@@ -7,43 +7,14 @@ import { useTranslation } from 'react-i18next'
 import { Locales } from '@backend/types'
 
 import { InputProps } from '../../types'
-
-const highRiskCountries = [
-  { name: 'Afghanistan', code: 'AF' },
-  { name: 'Bangladesh', code: 'BD' },
-  { name: 'Belarus', code: 'BY' },
-  { name: 'Congo, Dem. Rep.', code: 'CD' },
-  { name: 'Egypt, Arab Rep.', code: 'EG' },
-  { name: 'Guinea', code: 'GN' },
-  { name: 'Guatemala', code: 'GT' },
-  { name: 'Haiti', code: 'HT' },
-  { name: 'Iran, Islamic Rep.', code: 'IR' },
-  { name: 'Lebanon', code: 'LB' },
-  { name: 'Moldova', code: 'MD' },
-  { name: 'Madagascar', code: 'MG' },
-  { name: 'Mexico', code: 'MX' },
-  { name: 'Mali', code: 'ML' },
-  { name: 'Myanmar', code: 'MM' },
-  { name: 'Mozambique', code: 'MZ' },
-  { name: 'Niger', code: 'NE' },
-  { name: 'Nigeria', code: 'NG' },
-  { name: 'Nicaragua', code: 'NI' },
-  { name: 'Pakistan', code: 'PK' },
-  { name: 'Sudan', code: 'SD' },
-  { name: 'Tunisia', code: 'TN' },
-  { name: 'Turkiye', code: 'TR' },
-  { name: 'Uganda', code: 'UG' },
-  { name: 'Ukraine', code: 'UA' },
-  { name: 'Venezuela, RB', code: 'VE' },
-  { name: 'Yemen, Rep.', code: 'YE' },
-  { name: 'Zimbabwe', code: 'ZW' },
-]
+import { useHighRiskCountries } from '../../hooks/useCountries'
 
 const HighRiskCountrySelect = ({ control, question, children }: InputProps) => {
-  const { t, i18n } = useTranslation()
+  const { countries } = useHighRiskCountries()
+  const { i18n } = useTranslation()
   const { language } = i18n
 
-  if (!question) return null
+  if (!question || !countries) return null
 
   return (
     <Box py={1}>
@@ -59,7 +30,7 @@ const HighRiskCountrySelect = ({ control, question, children }: InputProps) => {
               id={`select-${question.id.toString()}`}
               options={
                 // eslint-disable-next-line no-nested-ternary
-                highRiskCountries.map((country) => country.name)
+                countries.map((country) => country.name)
               }
               getOptionLabel={(option) => option}
               onChange={(e, data) => onChange(data)}
