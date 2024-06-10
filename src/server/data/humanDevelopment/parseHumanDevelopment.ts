@@ -8,8 +8,8 @@ const parseHumanDevelopment = (name: string | undefined) => {
   const fileContents = fs.readFileSync(filePath, 'utf8')
   const records: any[] = parse(fileContents, { delimiter: ',' })
 
-  const countryRecord = records.find(
-    (record: string[]) => record[0].toUpperCase() === name.toUpperCase()
+  const countryRecord = records.find((record: string[]) =>
+    record[0].toUpperCase().includes(name.toUpperCase())
   )
 
   if (!countryRecord) return null
