@@ -9,7 +9,6 @@ import useLoggedInUser from '../../hooks/useLoggedInUser'
 import MultiChoice from '../QuestionTypes/MultiChoice'
 import SingleChoice from '../QuestionTypes/SingleChoice'
 import Text from '../QuestionTypes/Text'
-import DropDownSelect from '../QuestionTypes/DropDownSelect'
 import ShowMore from '../Common/ShowMore'
 
 import { InputProps } from '../../types'
@@ -20,6 +19,7 @@ import SelectFaculty from '../Common/SelectFaculty'
 import OrganisationSelect from '../QuestionTypes/OrganisationSelect'
 import UniversitySelect from '../QuestionTypes/UniversitySelect'
 import HighRiskCountrySelect from '../QuestionTypes/HighRiskCountriesSelect'
+import CountrySelect from '../QuestionTypes/CountrySelect'
 
 const { cardStyles } = styles
 
@@ -98,7 +98,7 @@ const RenderQuestion = ({
     multipleChoice: MultiChoice,
     info: SingleChoice,
     text: Text,
-    select: DropDownSelect,
+    countrySelect: CountrySelect,
     organisationSelect: OrganisationSelect,
     universitySelect: UniversitySelect,
     highRiskCountrySelect: HighRiskCountrySelect,

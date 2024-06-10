@@ -97,7 +97,7 @@ export type PossibleChoiceTypes =
   | 'multipleChoice'
   | 'info'
   | 'text'
-  | 'select'
+  | 'countrySelect'
   | 'organisationSelect'
   | 'universitySelect'
   | 'highRiskCountrySelect'

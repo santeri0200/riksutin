@@ -207,7 +207,7 @@ const getQuestionData = async (): Promise<Question[]> => [
       en: 'In the case of bilateral collaboration, choose the country of location of your partner from the list. In the case of multilateral colllaboration, choose the country of the co-ordinating organisation',
     },
     optionData: {
-      type: 'select',
+      type: 'countrySelect',
       options: [],
       label: {
         fi: 'Valitse sijaintimaa',
