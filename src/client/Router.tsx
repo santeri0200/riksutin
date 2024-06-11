@@ -14,6 +14,8 @@ import RootBoundary from './components/Errors/RootBoundary'
 import NotFound from './components/Errors/NotFound'
 
 import { PUBLIC_URL } from '../config'
+import RenderEditResults from './components/Admin/EditResults/RenderEditResults'
+import EditResults from './components/Admin/EditResults/EditResults'
 
 const router = createBrowserRouter(
   [
@@ -61,6 +63,16 @@ const router = createBrowserRouter(
                 {
                   path: ':questionId',
                   element: <EditQuestions />,
+                },
+              ],
+            },
+            {
+              path: 'edit-results',
+              element: <RenderEditResults />,
+              children: [
+                {
+                  path: ':questionId',
+                  element: <EditResults />,
                 },
               ],
             },

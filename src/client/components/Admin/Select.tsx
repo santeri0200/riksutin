@@ -31,6 +31,7 @@ import useRecommendations from '../../hooks/useRecommendations'
 import { allSelection, languages } from './config'
 
 import sortQuestions from '../../util/questions'
+import useResults from '../../hooks/useResults'
 
 type HandleChange = (event: SelectChangeEvent) => void
 
@@ -134,43 +135,34 @@ export const ResultDimensionSelect = () => {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
-  const { questionId, dimensionId: persistDimensionId } = useParams()
 
-  const [dimensionId, setDimensionId] = useState('allDimensions')
+  const [resultId, setResultId] = useState('result')
+  const { results } = useResults(1)
 
-  useEffect(() => {
-    if (persistDimensionId) setDimensionId(persistDimensionId)
+  if (!results) return null
 
-    if (questionId && !persistDimensionId) {
-      navigate({
-        pathname: `./${questionId}/${dimensionId}`,
-        search: location.search,
-      })
-    }
-  }, [dimensionId, location.search, navigate, persistDimensionId, questionId])
-
-  const handleDimensionChange = (event: SelectChangeEvent) => {
-    setDimensionId(event.target.value)
+  const handleResultChange = (event: SelectChangeEvent) => {
+    setResultId(event.target.value)
 
     navigate({
-      pathname: `./${questionId}/${event.target.value}`,
+      pathname: `./${event.target.value}`,
       search: location.search,
     })
   }
 
   const language = i18n.language as keyof Locales
 
-  const dimensionSelections = [allSelection]
+  results.sort((a, b) => a.optionLabel.localeCompare(b.optionLabel))
 
   return (
     <SelectWrapper
       label={t('admin:selectDimension')}
-      value={dimensionId}
-      handleChange={handleDimensionChange}
+      value={resultId}
+      handleChange={handleResultChange}
     >
-      {dimensionSelections.map(({ id, title }) => (
+      {results.map(({ id, optionLabel }) => (
         <MenuItem key={id} value={id}>
-          {title[language]}
+          {optionLabel}
         </MenuItem>
       ))}
     </SelectWrapper>
