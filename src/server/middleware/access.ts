@@ -1,4 +1,5 @@
 import morgan from 'morgan'
+import { RequestWithUser } from '../types'
 import { inProduction } from '../../config'
 import logger from '../util/logger'
 
@@ -11,7 +12,7 @@ type AccessLogger = (arg0: ReturnVoid) => ReturnType<Morgan>
 const access = morgan as unknown as AccessLogger
 
 const accessLogger = access((tokens, req, res) => {
-  const { uid } = req.headers
+  const { user } = req as RequestWithUser
 
   const method = tokens.method(req, res)
   const url = tokens.url(req, res)
@@ -23,7 +24,7 @@ const accessLogger = access((tokens, req, res) => {
 
   const additionalInfo = inProduction
     ? {
-        userId: uid,
+        userId: user?.id,
         method,
         url,
         status,
