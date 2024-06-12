@@ -1,14 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useEffect, useState } from 'react'
-import {
-  useLocation,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from 'react-router-dom'
-import { Control, Controller } from 'react-hook-form'
+import React from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { HexColorInput, HexColorPicker } from 'react-colorful'
 import {
   Box,
   FormControl,
@@ -16,19 +9,12 @@ import {
   Select,
   SelectChangeEvent,
   MenuItem,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
 } from '@mui/material'
 
 import { Locales } from '@backend/types'
 
 import useSurvey from '../../hooks/useSurvey'
 import useQuestions from '../../hooks/useQuestions'
-import useRecommendations from '../../hooks/useRecommendations'
-
-import { languages } from './config'
 
 import sortQuestions from '../../util/questions'
 import useResults from '../../hooks/useResults'
@@ -60,76 +46,6 @@ const SelectWrapper = ({
     </FormControl>
   </Box>
 )
-
-export const DialogSelect = ({
-  label,
-  value,
-  control,
-  children,
-  defaultValue = '',
-}: {
-  label: string
-  value: string
-  control: Control<any>
-  children: React.ReactNode
-  // eslint-disable-next-line react/require-default-props
-  defaultValue?: any
-}) => (
-  <Controller
-    control={control}
-    name={value}
-    defaultValue={defaultValue}
-    render={({ field }) => (
-      <FormControl fullWidth>
-        <InputLabel>{label}</InputLabel>
-        <Select {...field} size="medium" label={label}>
-          {children}
-        </Select>
-      </FormControl>
-    )}
-  />
-)
-
-export const LanguageSelect = () => {
-  const { t, i18n } = useTranslation()
-  const language = i18n.language as keyof Locales
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [selectedLanguage, setSelectedLanguage] = useState<keyof Locales>('en')
-
-  useEffect(() => {
-    const persistLanguage = searchParams.get('transLang')
-
-    if (persistLanguage) setSelectedLanguage(persistLanguage as keyof Locales)
-
-    if (!persistLanguage) setSearchParams({ transLang: selectedLanguage })
-  }, [searchParams, selectedLanguage, setSearchParams])
-
-  const handleLanguageChange = (event: SelectChangeEvent) => {
-    const newLanguage = event.target.value as keyof Locales
-
-    setSelectedLanguage(newLanguage)
-    setSearchParams({ language: newLanguage })
-  }
-
-  return (
-    <Box sx={{ width: '20vw' }}>
-      <FormControl fullWidth>
-        <FormLabel>{t('admin:selectLanguage')}</FormLabel>
-        <RadioGroup defaultValue="en" onChange={handleLanguageChange} row>
-          {languages.map(({ id, title }) => (
-            <FormControlLabel
-              key={id}
-              value={id}
-              control={<Radio />}
-              label={title[language]}
-              checked={selectedLanguage === id}
-            />
-          ))}
-        </RadioGroup>
-      </FormControl>
-    </Box>
-  )
-}
 
 export const ResultSelect = () => {
   const { i18n } = useTranslation()
@@ -208,54 +124,3 @@ export const QuestionSelect = () => {
     </SelectWrapper>
   )
 }
-
-export const RecommendationSelect = () => {
-  const { t } = useTranslation()
-  const navigate = useNavigate()
-  const location = useLocation()
-  const { recommendationId } = useParams()
-
-  const { survey } = useSurvey()
-  const { recommendations, isSuccess } = useRecommendations(survey?.id)
-
-  const handleRecommendationChange = (event: SelectChangeEvent) => {
-    navigate({
-      pathname: `./${event.target.value}`,
-      search: location.search,
-    })
-  }
-
-  if (!isSuccess || !recommendations) return null
-
-  return (
-    <SelectWrapper
-      label={t('admin:selectRecommendation')}
-      value={recommendationId || ''}
-      handleChange={handleRecommendationChange}
-    >
-      {recommendations.map(({ id, label }) => (
-        <MenuItem key={id} value={id}>
-          {label}
-        </MenuItem>
-      ))}
-    </SelectWrapper>
-  )
-}
-
-export const ColorSelect = ({
-  label,
-  value,
-  setValue,
-}: {
-  label: string
-  value: string
-  setValue: (newColor: string) => void
-}) => (
-  <Box sx={{ my: 4 }}>
-    <InputLabel>{label}</InputLabel>
-    <Box sx={{ mt: 2 }}>
-      <HexColorPicker color={value} onChange={setValue} />
-      <HexColorInput color={value} onChange={setValue} />
-    </Box>
-  </Box>
-)
