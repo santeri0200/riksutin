@@ -11,10 +11,10 @@ const getResultData = (): Result[] => [
       en: 'Your collaboration partner is located in a country, where corruption does not pose a serious risk".',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Korruptio, 1',
         sv: '',
-        en: '',
+        en: 'Corruption, 1',
       },
     },
   },
@@ -28,10 +28,10 @@ const getResultData = (): Result[] => [
       en: '*Your collaboration partner is located in a country, where the risk of corruption is elevated. Take this into account in planning and implementing your collaboration.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Korruptio, 2',
         sv: '',
-        en: '',
+        en: 'Corruption, 2',
       },
     },
   },
@@ -45,10 +45,10 @@ const getResultData = (): Result[] => [
       en: '*Your collaboration partner is located in a country, where the risk of corruption is significant. Take this into account in planning and implementing your collaboration, and make sure you do not engage in corruption.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Korruptio, 3',
         sv: '',
-        en: '',
+        en: 'Corruption, 3',
       },
     },
   },
@@ -62,10 +62,10 @@ const getResultData = (): Result[] => [
       en: '*Travelling to this country is not restricted. Feel free to find additional information from the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Turvallisuustaso, 1',
         sv: '',
-        en: '',
+        en: 'Safety level, 1',
       },
     },
   },
@@ -79,10 +79,10 @@ const getResultData = (): Result[] => [
       en: '*Travelling to this country may be restricted. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Turvallisuustaso, 2',
         sv: '',
-        en: '',
+        en: 'Safety level, 2',
       },
     },
   },
@@ -96,10 +96,10 @@ const getResultData = (): Result[] => [
       en: '*Travelling to this country is not possible at the moment. Please review details at the Ministry of Foreign Affairs [travel advisory](https://um.fi/matkustustiedotteet-a-o), in Finnish only. University`s travel safety instructions are available at https://flamma.helsinki.fi/en/group/matkustaminen/matkustusturvallisuus*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Turvallisuustaso, 3',
         sv: '',
-        en: '',
+        en: 'Safety level, 3',
       },
     },
   },
@@ -113,10 +113,10 @@ const getResultData = (): Result[] => [
       en: '*Your partner is located in a developed country.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Maan kehittyneisyys, 1',
         sv: '',
-        en: '',
+        en: 'Human development, 1',
       },
     },
   },
@@ -130,10 +130,10 @@ const getResultData = (): Result[] => [
       en: '*Your partner is located in a less-developed country, which might affect planning and implementing the collaboration.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Maan kehittyneisyys, 2',
         sv: '',
-        en: '',
+        en: 'Human development, 2',
       },
     },
   },
@@ -147,10 +147,10 @@ const getResultData = (): Result[] => [
       en: '*Your partner is located in a least developed country. In and by itself, this is not a risk, but you should still take this into account in planning and implementing phases.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Maan kehittyneisyys, 3',
         sv: '',
-        en: '',
+        en: 'Human development, 3',
       },
     },
   },
@@ -164,10 +164,10 @@ const getResultData = (): Result[] => [
       en: '*Your collaboration partner is located in a country, where academic freedom is at a good level.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Akateeminen vapaus, 1',
         sv: '',
-        en: '',
+        en: 'Academic freedom, 1',
       },
     },
   },
@@ -181,10 +181,10 @@ const getResultData = (): Result[] => [
       en: '*Your collaboration partner is located in a country, where academic freedom is somewhat restricted. Take this into account in implementation.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Akateeminen vapaus, 2',
         sv: '',
-        en: '',
+        en: 'Academic freedom, 2',
       },
     },
   },
@@ -198,10 +198,10 @@ const getResultData = (): Result[] => [
       en: "*Your collaboration partner is located in a country, where academic freedom very restricted. Consider your collaboration, and whether it is compatible with University's [values](https://www.helsinki.fi/en/about-us/strategy-economy-and-quality/strategic-plan-2021-2030/values)*",
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Akateeminen vapaus, 3',
         sv: '',
-        en: '',
+        en: 'Academic freedom, 3',
       },
     },
   },
@@ -215,10 +215,10 @@ const getResultData = (): Result[] => [
       en: '*Your collaboration partner is located in a politically stable country.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Poliittinen vakaus, 1',
         sv: '',
-        en: '',
+        en: 'Political stability, 1',
       },
     },
   },
@@ -232,10 +232,10 @@ const getResultData = (): Result[] => [
       en: '*Your collaboration partner is located in a politically somewhat unstable country.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Poliittinen vakaus, 2',
         sv: '',
-        en: '',
+        en: 'Political stability, 2',
       },
     },
   },
@@ -249,10 +249,10 @@ const getResultData = (): Result[] => [
       en: '*Your collaboration partner is located in a politically unstable country.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Poliittinen vakaus, 3',
         sv: '',
-        en: '',
+        en: 'Political stability, 3',
       },
     },
   },
@@ -266,10 +266,10 @@ const getResultData = (): Result[] => [
       en: '*Risk level is low. However, the collaboration may entail unidentified risks and the risks assessed here may change in the future.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Kokonaisriskitaso, 1',
         sv: '',
-        en: '',
+        en: 'Total risk level, 1',
       },
     },
   },
@@ -283,10 +283,10 @@ const getResultData = (): Result[] => [
       en: '*Risk-level is elevated. Pay attention to individual risks and their management. Undertake a more detailed risk assessment, if necessary.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Kokonaisriskitaso, 2',
         sv: '',
-        en: '',
+        en: 'Total risk level, 2',
       },
     },
   },
@@ -300,10 +300,10 @@ const getResultData = (): Result[] => [
       en: '*Risk level is high. It is highly recommendable to undertake a more detailed risk assessment, and take action on individual risks indentified here.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Kokonaisriskitaso, 3',
         sv: '',
-        en: '',
+        en: 'Total risk level, 3',
       },
     },
   },
@@ -317,10 +317,10 @@ const getResultData = (): Result[] => [
       en: '*Based on the information you have provided, GDPR is not applicable, but please double check, if this really is the case.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'GDPR, 1',
         sv: '',
-        en: '',
+        en: 'GDPR, 1',
       },
     },
   },
@@ -334,10 +334,10 @@ const getResultData = (): Result[] => [
       en: '*Handing over personal data requires GDPR compliance. Your partner is located in a country with limited compliance requirements, but please review instructions at [Flamma.](https://flamma.helsinki.fi/en/group/turvallisuus/tietosuoja)*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'GDPR, 2',
         sv: '',
-        en: '',
+        en: 'GDPR, 2',
       },
     },
   },
@@ -351,10 +351,10 @@ const getResultData = (): Result[] => [
       en: '*Handing over personal data requires GDPR compliance. Please review instructions at [Flamma.](https://flamma.helsinki.fi/en/group/turvallisuus/tietosuoja)*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'GDPR, 3',
         sv: '',
-        en: '',
+        en: 'GDPR, 3',
       },
     },
   },
@@ -368,10 +368,10 @@ const getResultData = (): Result[] => [
       en: "*Partner organisation appeard on the EU Commission's list ot eligible organisations, and may be trusted.*",
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Organisaatio, 1',
         sv: '',
-        en: '',
+        en: 'Organisation, 1',
       },
     },
   },
@@ -385,10 +385,10 @@ const getResultData = (): Result[] => [
       en: '*Partner organisation does not appear on EU Comission list of approved organisations, but there is a history of previous collaboration. If you continue to trust the partner organisation, you can go ahead and continue planinning and implementing the collaboration.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Organisaatio, 2',
         sv: '',
-        en: '',
+        en: 'Organisation, 2',
       },
     },
   },
@@ -402,10 +402,10 @@ const getResultData = (): Result[] => [
       en: "*Partner organisation does not appear on EU Comission list of approved organisations, and there is no history of previous collaboration. Please investigate the partner's background before committing to collaboration.*",
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Organisaatio, 3',
         sv: '',
-        en: '',
+        en: 'Organisation, 3',
       },
     },
   },
@@ -419,10 +419,10 @@ const getResultData = (): Result[] => [
       en: '*Based on your response, this collaboration does not pose Dual Use risks. If there is any doubt, please review the instructions at Flamma.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Kaksikäyttötuotteet, 1',
         sv: '',
-        en: '',
+        en: 'Dual use, 1',
       },
     },
   },
@@ -436,10 +436,10 @@ const getResultData = (): Result[] => [
       en: '*According to the information provided, the possibility of military technology or related knowledge being tranferred to the partner in question in not certain. It is our interest, and legal requirement to ensure that our expertise or technology does not end up in military use in sanctioned countries. Please review related instructions in Flamma and contact Research Services experts, if necessary..*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Kaksikäyttötuotteet, 2',
         sv: '',
-        en: '',
+        en: 'Dual use, 2',
       },
     },
   },
@@ -453,10 +453,10 @@ const getResultData = (): Result[] => [
       en: '*According to the information provided, there is a possibility of military technology or related knowledge being tranferred to the partner in question. It is our interest, and legal requirement to ensure that our expertise or technology does not end up in military use in sanctioned countries. Please review related instructions in Flamma and contact Research Services experts, if necessary.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Kaksikäyttötuotteet, 3',
         sv: '',
-        en: '',
+        en: 'Dual use, 3',
       },
     },
   },
@@ -470,10 +470,10 @@ const getResultData = (): Result[] => [
       en: '*Partner university is listed in the World Higher Education database.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Yliopisto, 1',
         sv: '',
-        en: '',
+        en: 'University, 1',
       },
     },
   },
@@ -487,10 +487,10 @@ const getResultData = (): Result[] => [
       en: '*Partner university is listed in the World Higher Education database.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Yliopisto, 2',
         sv: '',
-        en: '',
+        en: 'University, 2',
       },
     },
   },
@@ -504,10 +504,10 @@ const getResultData = (): Result[] => [
       en: '*Collaboration university is not part of the World Higher Education database. Please take steps to make sure, the partner is a legitimate university.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Yliopisto, 3',
         sv: '',
-        en: '',
+        en: 'University, 3',
       },
     },
   },
@@ -521,10 +521,10 @@ const getResultData = (): Result[] => [
       en: '*Based on the information you have provided, there are no specific ethical challenges in the collaboration.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Eettisyys, 1',
         sv: '',
-        en: '',
+        en: 'Ethics, 1',
       },
     },
   },
@@ -538,10 +538,10 @@ const getResultData = (): Result[] => [
       en: 'You are not sure if the collaboration includes ethical risks.',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Eettisyys, 2',
         sv: '',
-        en: '',
+        en: 'Ethics, 2',
       },
     },
   },
@@ -555,10 +555,10 @@ const getResultData = (): Result[] => [
       en: 'You have assessed the ethical risks of the collaboration as significant.',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Eettisyys, 3',
         sv: '',
-        en: '',
+        en: 'Ethics, 3',
       },
     },
   },
@@ -572,10 +572,10 @@ const getResultData = (): Result[] => [
       en: '*Read more information about the sanctions at [sanctionsmap.eu](https://sanctionsmap.eu/#/main)*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Pakotteet, 2',
         sv: '',
-        en: '',
+        en: 'Sanctions, 2',
       },
     },
   },
@@ -589,10 +589,10 @@ const getResultData = (): Result[] => [
       en: '*The financial scope the collaboration is siginificant and poses a substantial risk*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Taloudellinen riski, 3',
         sv: '',
-        en: '',
+        en: 'Economical risk, 3',
       },
     },
   },
@@ -606,10 +606,10 @@ const getResultData = (): Result[] => [
       en: '*The financial scope of the collaboration is moderate, and the related risk level is elevated*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Taloudellinen riski, 2',
         sv: '',
-        en: '',
+        en: 'Economical risk, 2',
       },
     },
   },
@@ -623,10 +623,10 @@ const getResultData = (): Result[] => [
       en: '*The financial scope of the collaboration is not significant, and does not pose a substantial risk*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Taloudellinen riski, 1',
         sv: '',
-        en: '',
+        en: 'Economical risk, 1',
       },
     },
   },
@@ -640,10 +640,10 @@ const getResultData = (): Result[] => [
       en: '*Your multilateral collaboration does not include partners from high-risk countries*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Monenkeskeisyys, 1',
         sv: '',
-        en: '',
+        en: 'Multilateral, 1',
       },
     },
   },
@@ -657,10 +657,10 @@ const getResultData = (): Result[] => [
       en: '*Your multilateral collaboration includes a partner from a high-risk country. Please consider, if this warrants further risk assessment actions. You may also consult risk-i@helsinki.fi*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Monenkeskeisyys, 2',
         sv: '',
-        en: '',
+        en: 'Multilateral, 2',
       },
     },
   },
@@ -674,10 +674,10 @@ const getResultData = (): Result[] => [
       en: '*Your multilateral collaboration includes several partners from a high-risk country. Please consult risk-i@helsinki.fi*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Monenkeskeisyys, 3',
         sv: '',
-        en: '',
+        en: 'Multilateral, 3',
       },
     },
   },
@@ -691,10 +691,10 @@ const getResultData = (): Result[] => [
       en: '*Your collaboration partner is located in a country, where rule of law is prevalent and agreements are normally followed and respected. As this is merely the point of departure, it is still necessary to  draw up an agreement with appropriate care.*',
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Oikeusvaltio, 1',
         sv: '',
-        en: '',
+        en: 'Rule of law, 1',
       },
     },
   },
@@ -708,10 +708,10 @@ const getResultData = (): Result[] => [
       en: "*Your collaboration partner is located in a country, where rule of law is only partially adhered. Pay emphasis in the clauses concerning legal venue and resolution of disagreements in the collaboration agreement. Consider also consulting University's legal experts.*",
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Oikeusvaltio, 2',
         sv: '',
-        en: '',
+        en: 'Rule of law, 2',
       },
     },
   },
@@ -725,10 +725,10 @@ const getResultData = (): Result[] => [
       en: "*Your collaboration partner is located in a country, which does not adhere to rule of law. Please ensure that your collaboration agreenent has clearly defined clauses for legal venue and resolution of disagreements. You should consult University's legal experts.*",
     },
     data: {
-      allDimensions: {
-        fi: '',
+      title: {
+        fi: 'Oikeusvaltio, 3',
         sv: '',
-        en: '',
+        en: 'Rule of law, 3',
       },
     },
   },
