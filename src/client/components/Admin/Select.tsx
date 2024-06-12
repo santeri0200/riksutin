@@ -28,7 +28,7 @@ import useSurvey from '../../hooks/useSurvey'
 import useQuestions from '../../hooks/useQuestions'
 import useRecommendations from '../../hooks/useRecommendations'
 
-import { allSelection, languages } from './config'
+import { languages } from './config'
 
 import sortQuestions from '../../util/questions'
 import useResults from '../../hooks/useResults'
@@ -131,19 +131,15 @@ export const LanguageSelect = () => {
   )
 }
 
-export const ResultDimensionSelect = () => {
-  const { t, i18n } = useTranslation()
+export const ResultSelect = () => {
+  const { i18n } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
 
-  const [resultId, setResultId] = useState('result')
+  const { resultId } = useParams()
   const { results } = useResults(1)
 
-  if (!results) return null
-
   const handleResultChange = (event: SelectChangeEvent) => {
-    setResultId(event.target.value)
-
     navigate({
       pathname: `./${event.target.value}`,
       search: location.search,
@@ -152,17 +148,21 @@ export const ResultDimensionSelect = () => {
 
   const language = i18n.language as keyof Locales
 
-  results.sort((a, b) => a.optionLabel.localeCompare(b.optionLabel))
+  if (!results) return null
+
+  results.sort((a, b) =>
+    a.data.title[language].localeCompare(b.data.title[language])
+  )
 
   return (
     <SelectWrapper
-      label={t('admin:selectDimension')}
-      value={resultId}
+      label="Valitse tulosteksti"
+      value={resultId || ''}
       handleChange={handleResultChange}
     >
-      {results.map(({ id, optionLabel }) => (
+      {results.map(({ id, data }) => (
         <MenuItem key={id} value={id}>
-          {optionLabel}
+          {data.title[language]}
         </MenuItem>
       ))}
     </SelectWrapper>

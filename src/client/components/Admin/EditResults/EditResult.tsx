@@ -1,65 +1,34 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState, useEffect } from 'react'
 import MDEditor from '@uiw/react-md-editor'
-import { Box, Typography, Button } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import { enqueueSnackbar } from 'notistack'
 import { useTranslation } from 'react-i18next'
 
-import { Locales, Result, ChoiceType, SingleChoiceType } from '@backend/types'
+import { Locales, Result } from '@backend/types'
 
-import {
-  useDeleteResultMutation,
-  useEditResultMutation,
-} from '../../../hooks/useResultMutation'
-
-import DeleteDialog from '../DeleteDialog'
+import { useEditResultMutation } from '../../../hooks/useResultMutation'
 
 const ResultItem = ({
-  dimensionId,
   language,
-  optionData,
   result,
 }: {
-  dimensionId: string
   language: keyof Locales
-  optionData: SingleChoiceType | undefined
   result: Result
 }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const mutation = useEditResultMutation(result.id)
 
-  const selectedLanguage = i18n.language
-
-  const { isSelected, data } = result
-
-  const resultData = data[dimensionId]
+  const { data, isSelected } = result
 
   const [resultIsSelected, setResultIsSelected] = useState<any>('')
-  const [resultContent, setResultContent] = useState<any>('')
-
-  useEffect(() => {
-    if (!resultData) {
-      setResultContent('')
-      return
-    }
-
-    setResultContent(resultData[language])
-  }, [language, resultData])
 
   useEffect(() => {
     setResultIsSelected(isSelected[language])
   }, [language, isSelected])
 
   const handleSave = async () => {
-    if (!data[dimensionId]) {
-      data[dimensionId] = {
-        en: '',
-        fi: '',
-        sv: '',
-      }
-    }
     isSelected[language] = resultIsSelected
-    data[dimensionId][language] = resultContent
 
     try {
       await mutation.mutateAsync({ data, isSelected })
@@ -69,7 +38,7 @@ const ResultItem = ({
     }
   }
 
-  if (!optionData || !resultIsSelected) return null
+  if (!resultIsSelected) return null
 
   return (
     <Box
@@ -85,30 +54,11 @@ const ResultItem = ({
       }}
     >
       <Box sx={{ mb: 2 }}>
-        <Typography sx={{ display: 'flex', mb: 2 }} variant="h6">
-          {t('admin:resultTitle')}{' '}
-          {`'${optionData.title[selectedLanguage as keyof Locales]}'`}
-          <Typography ml={1}>{language}</Typography>
-        </Typography>
         <MDEditor
           data-color-mode="light"
           height={200}
           value={resultIsSelected}
           onChange={setResultIsSelected}
-        />
-      </Box>
-
-      <Box sx={{ mb: 2 }}>
-        <Typography sx={{ display: 'flex', mb: 2 }} variant="h6">
-          {t('admin:resultText')}{' '}
-          {`'${optionData.title[selectedLanguage as keyof Locales]}'`}
-          <Typography ml={1}>{language}</Typography>
-        </Typography>
-        <MDEditor
-          data-color-mode="light"
-          height={400}
-          value={resultContent}
-          onChange={setResultContent}
         />
       </Box>
 
@@ -120,73 +70,16 @@ const ResultItem = ({
 }
 
 const EditResult = ({
-  dimensionId,
   language,
-  options,
   result,
 }: {
-  dimensionId: string
   language: keyof Locales
-  options: ChoiceType
   result: Result
-}) => {
-  const { t, i18n } = useTranslation()
-  const mutation = useDeleteResultMutation(result.id)
-  const [openAlert, setOpenAlert] = useState(false)
-
-  const selectedLanguage = i18n.language
-
-  const option = options.find(({ label }) => label === result.optionLabel)
-  const optionTitle = `${option?.title[selectedLanguage as keyof Locales]}`
-
-  if (!option) return null
-
-  const handleDelete = async () => {
-    try {
-      await mutation.mutateAsync()
-      enqueueSnackbar(t('admin:deleteSuccess'), { variant: 'success' })
-      setOpenAlert(false)
-    } catch (error: any) {
-      enqueueSnackbar(error.message, { variant: 'error' })
-    }
-  }
-
-  return (
-    <>
-      <Button
-        sx={{
-          ml: 4,
-          alignSelf: 'center',
-        }}
-        variant="outlined"
-        color="error"
-        onClick={() => setOpenAlert(!openAlert)}
-      >
-        {t('admin:resultRemove')} {`'${optionTitle}'`}
-      </Button>
-      <DeleteDialog
-        open={openAlert}
-        title={`${t('admin:resultRemoveResultInfo')} '${optionTitle}'`}
-        content={t('admin:resultRemoveResultContent')}
-        setOpen={setOpenAlert}
-        onSubmit={handleDelete}
-      />
-      <Box mb={5} display="flex">
-        <ResultItem
-          dimensionId={dimensionId}
-          language={'fi' as keyof Locales}
-          optionData={option}
-          result={result}
-        />
-        <ResultItem
-          dimensionId={dimensionId}
-          language={language}
-          optionData={option}
-          result={result}
-        />
-      </Box>
-    </>
-  )
-}
+}) => (
+  <Box mb={5} display="flex">
+    <ResultItem language={'fi' as keyof Locales} result={result} />
+    <ResultItem language={language} result={result} />
+  </Box>
+)
 
 export default EditResult

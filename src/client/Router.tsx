@@ -71,7 +71,7 @@ const router = createBrowserRouter(
               element: <RenderEditResults />,
               children: [
                 {
-                  path: ':questionId',
+                  path: ':resultId',
                   element: <EditResults />,
                 },
               ],
