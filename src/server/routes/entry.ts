@@ -1,5 +1,6 @@
 import express from 'express'
 
+import { Entry } from '../db/models'
 import { riskReEvaluation } from '../util/cron/riskReEvaluation/riskReEvaluation'
 import createRiskData from '../util/algorithm/createRiskData'
 import adminHandler from '../middleware/admin'
@@ -52,6 +53,22 @@ entryRouter.get('/:entryId/update', async (req: RequestWithUser, res: any) => {
 
   return res.status(200).send(updatedObject)
 })
+
+entryRouter.delete(
+  '/:entryId/delete',
+  async (req: RequestWithUser, res: any) => {
+    const { entryId } = req.params
+    if (!req.user?.isAdmin) throw new Error('Unauthorized')
+
+    const entry = await Entry.findByPk(entryId)
+
+    if (!entry) return res.status(404).send('Entry not found')
+
+    await entry.destroy()
+
+    return res.status(204).send()
+  }
+)
 
 entryRouter.post('/:surveyId', async (req: RequestWithUser, res: any) => {
   const { surveyId } = req.params
