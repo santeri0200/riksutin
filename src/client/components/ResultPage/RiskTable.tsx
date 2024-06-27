@@ -56,12 +56,14 @@ const RiskTable = ({
     totalRiskText += t(`countrySpecificTexts:RU`)
   }
 
-  let countryInfoText = ''
+  let countryInfoText =
+    results.find((r) => r.optionLabel === `country${countryRisk?.level}`)
+      ?.isSelected[language as keyof Locales] ?? ''
 
   if (selectedCountryCode === 'CN') {
-    countryInfoText = t(`countrySpecificTexts:CN`)
+    countryInfoText += t(`countrySpecificTexts:CN`)
   } else if (!globalNorthCountries.includes(selectedCountryCode as string)) {
-    countryInfoText = t(`countrySpecificTexts:globalSouth`)
+    countryInfoText += t(`countrySpecificTexts:globalSouth`)
   }
 
   const countryRisksWithTexts = getCountryRiskTexts(
@@ -112,7 +114,7 @@ const RiskTable = ({
                 <>
                   <RiskElement
                     title={t('riskTable:countryRiskLevel')}
-                    level={riskData.risks[0].level}
+                    level={countryRisk.level}
                     infoText={countryInfoText}
                   />
                   <CountryRisks countryRisks={countryRisksWithTexts} />

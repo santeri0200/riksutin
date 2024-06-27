@@ -52,9 +52,9 @@
     "multiplierInfoText": "Alla mainittujen riskitekijöiden lisäksi kokonaisriskiin vaikuttavat antamasi tiedot Helsingin yliopiston roolista yhteistyössä, yhteistyön kesto, yhteistyösopimuksen olemassaolo ja aiempi yhteistyö."
   },
   "countrySpecificTexts": {
-    "CN": "*Yhteistyössä Kiinan kanssa on syytä huomioida erityisesti Kiinan puolustusteollisuutta lähellä olevat yliopistot ja joko rajoittaa yhteistyötä, tai teettää erillinen, yksilöidympi riskiarvio. Lista näistä yliopistoista löytyy https://unitracker.aspi.org.au/. Lisäksi kannattaa huomioida kansallinen ohjeistus: https://okm.fi/en/-/recommendations-for-academic-cooperation-with-china*",
+    "CN": "\n*Yhteistyössä Kiinan kanssa on syytä huomioida erityisesti Kiinan puolustusteollisuutta lähellä olevat yliopistot ja joko rajoittaa yhteistyötä, tai teettää erillinen, yksilöidympi riskiarvio. Lista näistä yliopistoista löytyy https://unitracker.aspi.org.au/. Lisäksi kannattaa huomioida kansallinen ohjeistus: https://okm.fi/en/-/recommendations-for-academic-cooperation-with-china*",
     "RU": "\n\n**Venäjän hyökättyä Ukrainaan helmikuussa 2022, yliopisto asetti rajoituksia institutionaaliseen yhteistyöhön venäläisten ja valkovenäläisten organisaatioiden kanssa. Tutustu näihin rajoituksiin:  https://www.helsinki.fi/fi/ajankohtaista/ukrainan-sota**",
-    "globalSouth": "*Yhteistyökumppanisi sijoittuu globaaliin etelään. Tällaisessa yhteistyössä on syytä huomioida UniPID-verkoston ja TENK:in laatimat erityiset eettiset periaatteet: https://www.unipid.fi/for-society/responsible-global-academic-partnerships/complementary-ethical-guidelines-for-global-south-academic-partnerships/*"
+    "globalSouth": "\n*Yhteistyökumppanisi sijoittuu globaaliin etelään. Tällaisessa yhteistyössä on syytä huomioida UniPID-verkoston ja TENK:in laatimat erityiset eettiset periaatteet: https://www.unipid.fi/for-society/responsible-global-academic-partnerships/complementary-ethical-guidelines-for-global-south-academic-partnerships/*"
   },
   "results": {
     "title": "Yhteistyöhankkeen riskiprofiili",
