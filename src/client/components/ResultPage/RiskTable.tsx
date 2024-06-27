@@ -15,8 +15,7 @@ import getCountryRiskTexts from '../../util/getCountryRiskTexts'
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
-import { CountryData, RiskData } from '../../types'
-import CountryRisks from './CountryRisks'
+import { CountryData, Risk, RiskData } from '../../types'
 import { globalNorthCountries } from '../../util/countryLists'
 import useCountries from '../../hooks/useCountries'
 import useResults from '../../hooks/useResults'
@@ -117,7 +116,15 @@ const RiskTable = ({
                     level={countryRisk.level}
                     infoText={countryInfoText}
                   />
-                  <CountryRisks countryRisks={countryRisksWithTexts} />
+                  {countryRisksWithTexts.map((risk: Risk) => (
+                    <RiskElement
+                      key={risk.id}
+                      level={risk.level}
+                      title={risk.title}
+                      infoText={risk.infoText}
+                      style={{ paddingLeft: '30px' }}
+                    />
+                  ))}
                 </>
               )}
               {otherRisksWithTexts?.map(
