@@ -63,7 +63,7 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
                 })}
               >
                 {columnId === 'projectName' ? (
-                  <Link to={`./entry/${row.getValue('id')}`}>
+                  <Link to={`/admin/entry/${row.getValue('id')}`}>
                     {cell.getValue<string>()}
                   </Link>
                 ) : (
@@ -77,6 +77,7 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
   )
 
   const handleDeleteRiskAssessment = (row: MRT_Row<TableValues>) => {
+    // eslint-disable-next-line no-alert
     if (!window.confirm('Haluatko poistaa valitun riskiarvion?')) return
 
     try {

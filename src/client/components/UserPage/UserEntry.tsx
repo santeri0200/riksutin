@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Box, Button, Tab, Tabs } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import RenderAnswers from '../ResultPage/RenderAnswers'
 import RiskTable from '../ResultPage/RiskTable'
@@ -51,15 +51,12 @@ const UserEntry = () => {
   const { entryId } = useParams()
   const { survey } = useSurvey()
   const { entry } = useEntry(entryId)
-  const location = useLocation()
   const [tabValue, setTabValue] = useState(0)
   const { t } = useTranslation()
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue)
   }
-
-  const parentRoute = location.pathname.split('/')[1]
 
   if (!entry || !survey) return null
 
@@ -69,7 +66,7 @@ const UserEntry = () => {
     <Box sx={{ m: 3 }}>
       <Box sx={{ width: '100%', my: 2 }}>
         <Link
-          to={`/${parentRoute}`}
+          to="/admin/summary"
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <Button variant="outlined">
