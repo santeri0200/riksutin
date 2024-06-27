@@ -565,7 +565,7 @@ const getResultData = (): Result[] => [
   {
     id: 34,
     surveyId: 1,
-    optionLabel: 'sanctions2',
+    optionLabel: 'sanctions3',
     isSelected: {
       fi: '*Lue lisää maahan kohdistuvista pakotteista [sanctionsmap.eu](https://sanctionsmap.eu/#/main)-sivulta*',
       sv: '',
@@ -573,9 +573,9 @@ const getResultData = (): Result[] => [
     },
     data: {
       title: {
-        fi: 'Pakotteet, 2',
+        fi: 'Pakotteet, 3',
         sv: '',
-        en: 'Sanctions, 2',
+        en: 'Sanctions, 3',
       },
     },
   },
@@ -729,6 +729,74 @@ const getResultData = (): Result[] => [
         fi: 'Oikeusvaltio, 3',
         sv: '',
         en: 'Rule of law, 3',
+      },
+    },
+  },
+  {
+    id: 44,
+    surveyId: 1,
+    optionLabel: 'country1',
+    isSelected: {
+      fi: '*Maan yhteenlaskettu kokonaisriskitaso on matala*',
+      sv: '',
+      en: '*Total risk level of the selected country is low*',
+    },
+    data: {
+      title: {
+        fi: 'Maa, 1',
+        sv: '',
+        en: 'Country, 1',
+      },
+    },
+  },
+  {
+    id: 45,
+    surveyId: 1,
+    optionLabel: 'country2',
+    isSelected: {
+      fi: '*Maan yhteenlaskettu kokonaisriskitaso on kohonnut*',
+      sv: '',
+      en: '*Total risk level of the selected country is elevated*',
+    },
+    data: {
+      title: {
+        fi: 'Maa, 2',
+        sv: '',
+        en: 'Country, 2',
+      },
+    },
+  },
+  {
+    id: 46,
+    surveyId: 1,
+    optionLabel: 'country3',
+    isSelected: {
+      fi: '*Maan yhteenlaskettu kokonaisriskitaso on korkea*',
+      sv: '',
+      en: '*Total risk level of the selected country is high*',
+    },
+    data: {
+      title: {
+        fi: 'Maa, 3',
+        sv: '',
+        en: 'Country, 3',
+      },
+    },
+  },
+  {
+    id: 47,
+    surveyId: 1,
+    optionLabel: 'sanctions1',
+    isSelected: {
+      fi: '*Maahan ei kohdistu pakotteita*',
+      sv: '',
+      en: '*There are no sanctions*',
+    },
+    data: {
+      title: {
+        fi: 'Pakotteet, 1',
+        sv: '',
+        en: 'Sanctions, 1',
       },
     },
   },
