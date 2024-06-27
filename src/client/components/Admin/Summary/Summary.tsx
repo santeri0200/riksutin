@@ -4,14 +4,18 @@
 /* eslint-disable no-nested-ternary */
 import React, { useMemo } from 'react'
 import {
+  MRT_Row,
   MaterialReactTable,
   useMaterialReactTable,
   type MRT_ColumnDef,
 } from 'material-react-table'
-import { Box, Typography } from '@mui/material'
+import { Box, IconButton, Typography } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 import { Link } from 'react-router-dom'
+import { enqueueSnackbar } from 'notistack'
 import { useEntries } from '../../../hooks/useEntry'
 import useQuestions from '../../../hooks/useQuestions'
+import useDeleteEntryMutation from '../../../hooks/useDeleteEntryMutation'
 import styles from '../../../styles'
 
 const { riskColors } = styles
@@ -32,6 +36,8 @@ const columnNames = {
 } as const
 
 const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
+  const deleteMutation = useDeleteEntryMutation()
+
   const columns = useMemo<MRT_ColumnDef<TableValues>[]>(
     () =>
       tableValues.length
@@ -70,12 +76,23 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
     [tableValues]
   )
 
+  const handleDeleteRiskAssessment = (row: MRT_Row<TableValues>) => {
+    if (!window.confirm('Haluatko poistaa valitun riskiarvion?')) return
+
+    try {
+      deleteMutation.mutate(row.original.id.toString())
+      enqueueSnackbar('Riskiarvio poistettu', { variant: 'success' })
+    } catch (error: any) {
+      enqueueSnackbar(error.message, { variant: 'error' })
+    }
+  }
+
   const table = useMaterialReactTable({
     columns,
     data: tableValues,
-    enableRowSelection: true, // enable some features
     enableColumnOrdering: true, // enable a feature for all columns
     enableGlobalFilter: false, // turn off a feature
+    enableRowActions: true,
     muiTableBodyRowProps: { hover: false },
     muiTableBodyCellProps: {
       sx: {
@@ -88,6 +105,11 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
       },
     },
     initialState: { columnVisibility: { id: false } },
+    renderRowActions: ({ row }) => (
+      <IconButton onClick={() => handleDeleteRiskAssessment(row)}>
+        <DeleteIcon />
+      </IconButton>
+    ),
   })
 
   return <MaterialReactTable table={table} />
