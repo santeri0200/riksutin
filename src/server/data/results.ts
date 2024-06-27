@@ -6,9 +6,9 @@ const getResultData = (): Result[] => [
     surveyId: 1,
     optionLabel: 'corruption1',
     isSelected: {
-      fi: 'Yhteistyökumppanin sijaintimaassa korruptio ei ole merkittävä riski.',
-      sv: 'Your collaboration partner is located in a country, where corruption does not pose a serious risk.',
-      en: 'Your collaboration partner is located in a country, where corruption does not pose a serious risk".',
+      fi: '*Yhteistyökumppanin sijaintimaassa korruptio ei ole merkittävä riski*.',
+      sv: '*Your collaboration partner is located in a country, where corruption does not pose a serious risk*.',
+      en: '*Your collaboration partner is located in a country, where corruption does not pose a serious risk*.',
     },
     data: {
       title: {
