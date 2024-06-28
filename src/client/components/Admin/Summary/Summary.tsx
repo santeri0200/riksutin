@@ -9,8 +9,10 @@ import {
   useMaterialReactTable,
   type MRT_ColumnDef,
 } from 'material-react-table'
-import { Box, IconButton, Typography } from '@mui/material'
+import { Box, Button, IconButton, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
+import FileDownloadIcon from '@mui/icons-material/FileDownload'
+import { utils, writeFile } from 'xlsx'
 import { Link } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
 import { useEntries } from '../../../hooks/useEntry'
@@ -88,11 +90,25 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
     }
   }
 
+  const handleExportRows = (rows: MRT_Row<TableValues>[]) => {
+    const date = new Date()
+    const timeStamp = `${date.getDate()}${
+      date.getMonth() + 1
+    }${date.getFullYear()}_${date.getHours()}${date.getMinutes()}${date.getSeconds()}`
+    const fileName = `risk_i_summary_${timeStamp}.xlsx`
+
+    const originalData = rows.map((r) => r.original)
+    const worksheet = utils.json_to_sheet(originalData)
+    const workbook = utils.book_new()
+    utils.book_append_sheet(workbook, worksheet, 'Riskiarviot')
+    writeFile(workbook, fileName, { compression: true })
+  }
+
   const table = useMaterialReactTable({
     columns,
     data: tableValues,
-    enableColumnOrdering: true, // enable a feature for all columns
-    enableGlobalFilter: false, // turn off a feature
+    enableColumnOrdering: true,
+    enableGlobalFilter: false,
     enableRowActions: true,
     muiTableBodyRowProps: { hover: false },
     muiTableBodyCellProps: {
@@ -110,6 +126,28 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
       <IconButton onClick={() => handleDeleteRiskAssessment(row)}>
         <DeleteIcon />
       </IconButton>
+    ),
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    renderTopToolbarCustomActions: ({ table }) => (
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '16px',
+          padding: '8px',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Button
+          disabled={table.getPrePaginationRowModel().rows.length === 0}
+          onClick={() =>
+            handleExportRows(table.getPrePaginationRowModel().rows)
+          }
+          startIcon={<FileDownloadIcon />}
+          variant="outlined"
+        >
+          Luo XLSX-tiedosto
+        </Button>
+      </Box>
     ),
   })
 
