@@ -64,7 +64,7 @@ const NavBar = () => {
           </Box>
           <Box sx={{ display: 'flex' }}>
             {user?.isAdmin && (
-              <Link to="/admin" style={{ textDecoration: 'none' }}>
+              <Link to="/admin/summary" style={{ textDecoration: 'none' }}>
                 <Button sx={{ marginRight: '25px' }}>
                   <AdminPanelSettingsOutlined sx={navStyles.icon} />{' '}
                   {t('admin')}
