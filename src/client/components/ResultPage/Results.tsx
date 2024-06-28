@@ -2,8 +2,6 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box, Button, Typography } from '@mui/material'
 
-import useSurvey from '../../hooks/useSurvey'
-
 import RenderResults from './RenderResults'
 import SurveyButtons from '../Common/SurveyButtons'
 
@@ -22,9 +20,8 @@ const Results = ({
   riskData: RiskData
 }) => {
   const { t } = useTranslation()
-  const { survey } = useSurvey()
 
-  if (!survey || !riskData) return null
+  if (!riskData) return null
 
   const onNavigateBack = () => {
     sessionStorage.setItem(LOCATION_KEY, 'form')
