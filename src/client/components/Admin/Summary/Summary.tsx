@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable no-nested-ternary */
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import {
   MRT_Row,
   MaterialReactTable,
@@ -15,6 +15,8 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload'
 import { utils, writeFile } from 'xlsx'
 import { Link } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
+import { Question } from '@backend/types'
+import { Entry } from '../../../types'
 import { useEntries } from '../../../hooks/useEntry'
 import useQuestions from '../../../hooks/useQuestions'
 import useDeleteEntryMutation from '../../../hooks/useDeleteEntryMutation'
@@ -23,28 +25,47 @@ import styles from '../../../styles'
 const { riskColors } = styles
 
 type TableValues = {
-  id: number
-  projectName: string
-  date: string
-  user: string
-  total: number
+  [key: string]: any
 }
-const columnNames = {
-  id: 'ID',
-  projectName: 'Yhteistyöprojektin nimi',
-  date: 'Päivämäärä',
-  user: 'Käyttäjä',
-  total: 'Kokonaisriskitaso',
-} as const
 
-const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
+const createTableData = (entries: Entry[], questions: Question[]) => {
+  const questionIds = questions.map((q) => q.id)
+
+  const updatedEntries: any[] = []
+
+  entries.forEach((entry) => {
+    const resultData = Object.fromEntries(
+      questionIds.map((id) => [id.toString(), entry.data.answers[id] ?? ''])
+    )
+    const tableValues = {
+      id: entry.id,
+      projectName: entry.data.answers[3],
+      date: `${new Date(entry.createdAt).toLocaleDateString()} ${new Date(
+        entry.createdAt
+      ).toLocaleTimeString()}`,
+      user: `${entry.User.firstName} ${entry.User.lastName}`,
+      total: entry.data.risks.find((r) => r.id === 'total')?.level,
+    }
+    const obj = { ...tableValues, ...resultData }
+    updatedEntries.push(obj)
+  })
+  return updatedEntries
+}
+
+const Table = ({
+  tableValues,
+  questionTitles,
+}: {
+  tableValues: TableValues[]
+  questionTitles: { [key: string]: string }
+}) => {
   const deleteMutation = useDeleteEntryMutation()
 
   const columns = useMemo<MRT_ColumnDef<TableValues>[]>(
     () =>
       tableValues.length
         ? Object.keys(tableValues[0]).map((columnId) => ({
-            header: columnNames[columnId as keyof TableValues] ?? columnId,
+            header: questionTitles[columnId] ?? columnId,
             accessorKey: columnId,
             id: columnId,
             Cell: ({ cell, row }) => (
@@ -77,6 +98,17 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
         : [],
     [tableValues]
   )
+
+  const columnIds = Object.keys(tableValues[0])
+
+  const [columnOrder, setColumnOrder] = useState([
+    'projectName',
+    'date',
+    'total',
+    ...columnIds,
+  ])
+
+  if (!columnOrder) return null
 
   const handleDeleteRiskAssessment = (row: MRT_Row<TableValues>) => {
     // eslint-disable-next-line no-alert
@@ -127,6 +159,10 @@ const Table = ({ tableValues }: { tableValues: TableValues[] }) => {
         <DeleteIcon />
       </IconButton>
     ),
+    state: {
+      columnOrder,
+    },
+    onColumnOrderChange: setColumnOrder,
     // eslint-disable-next-line @typescript-eslint/no-shadow
     renderTopToolbarCustomActions: ({ table }) => (
       <Box
@@ -158,9 +194,9 @@ const Summary = () => {
   const { entries } = useEntries()
   const { questions } = useQuestions(1)
 
-  if (!questions) return null
+  if (!questions || !entries) return null
 
-  const entriesWithData = entries?.filter(
+  const entriesWithData = entries.filter(
     (entry) => entry.data.answers && entry.data.country && entry.data.risks
   )
 
@@ -173,15 +209,11 @@ const Summary = () => {
       </Box>
     )
 
-  const tableValues: TableValues[] = entriesWithData.map((entry) => ({
-    id: entry.id,
-    projectName: entry.data.answers[3],
-    date: `${new Date(entry.createdAt).toLocaleDateString()} ${new Date(
-      entry.createdAt
-    ).toLocaleTimeString()}`,
-    user: `${entry.User.firstName} ${entry.User.lastName}`,
-    total: entry.data.risks.find((r) => r.id === 'total')?.level,
-  }))
+  const updatedEntries = createTableData(entriesWithData, questions)
+
+  const questionTitles = Object.fromEntries(
+    questions.map((q) => [q.id.toString(), q.title.fi])
+  )
 
   return (
     <>
@@ -194,7 +226,7 @@ const Summary = () => {
           px: 8,
         }}
       >
-        <Table tableValues={tableValues} />
+        <Table tableValues={updatedEntries} questionTitles={questionTitles} />
       </Box>
     </>
   )
