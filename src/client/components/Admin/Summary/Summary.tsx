@@ -29,15 +29,53 @@ type TableValues = {
 }
 
 const createTableData = (entries: Entry[], questions: Question[]) => {
+  const multiChoiceQuestions = questions
+    .filter(
+      (question) =>
+        question.optionData.type ===
+        ('multipleChoice' || 'highRiskCountrySelect')
+    )
+    .map((q) => q.id)
+
+  const singleChoiceQuestions = questions
+    .filter((question) => question.optionData.type === 'singleChoice')
+    .map((q) => q.id)
+
   const questionIds = questions.map((q) => q.id)
 
   const updatedEntries: any[] = []
 
   entries.forEach((entry) => {
-    const resultData = Object.fromEntries(
-      questionIds.map((id) => [id.toString(), entry.data.answers[id] ?? ''])
+    const formData = Object.fromEntries(
+      questionIds.map((id) => [id, entry.data.answers[id] ?? ''])
     )
-    const tableValues = {
+
+    const formattedFormData = Object.fromEntries(
+      Object.entries(formData).map((pair) => {
+        const idAsInt = parseInt(pair[0], 10)
+        if (singleChoiceQuestions.includes(idAsInt)) {
+          const text = questions
+            .find((q) => q.id === idAsInt)
+            ?.optionData.options.find((o: { id: any }) => o.id === pair[1])
+            ?.title.fi
+          return [pair[0], text]
+        }
+        if (multiChoiceQuestions.includes(idAsInt)) {
+          const texts = pair[1].map(
+            (value: string) =>
+              questions
+                .find((q) => q.id === idAsInt)
+                ?.optionData.options.find((option) => option.id === value)
+                ?.title.fi
+          )
+
+          return [pair[0], texts.join(', ') ?? '']
+        }
+        return pair
+      })
+    )
+
+    const additionalValues = {
       id: entry.id,
       projectName: entry.data.answers[3],
       date: `${new Date(entry.createdAt).toLocaleDateString()} ${new Date(
@@ -46,9 +84,10 @@ const createTableData = (entries: Entry[], questions: Question[]) => {
       user: `${entry.User.firstName} ${entry.User.lastName}`,
       total: entry.data.risks.find((r) => r.id === 'total')?.level,
     }
-    const obj = { ...tableValues, ...resultData }
+    const obj = { ...additionalValues, ...formattedFormData }
     updatedEntries.push(obj)
   })
+
   return updatedEntries
 }
 
@@ -209,7 +248,7 @@ const Summary = () => {
       </Box>
     )
 
-  const updatedEntries = createTableData(entriesWithData, questions)
+  const tableData = createTableData(entriesWithData, questions)
 
   const questionTitles = Object.fromEntries(
     questions.map((q) => [q.id.toString(), q.title.fi])
@@ -226,7 +265,7 @@ const Summary = () => {
           px: 8,
         }}
       >
-        <Table tableValues={updatedEntries} questionTitles={questionTitles} />
+        <Table tableValues={tableData} questionTitles={questionTitles} />
       </Box>
     </>
   )
