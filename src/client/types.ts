@@ -34,15 +34,6 @@ export interface PersistForm {
   sessionStorageKey: SurveySave
 }
 
-/** Represents the recommendation data that is fetched form database API /recommendations/{surveyID} */
-export interface Recommendation {
-  id: number
-  label: string
-  type: string
-  title: Locales
-  text: Locales
-}
-
 export interface Dimension {
   id: string
   label: string

@@ -9,7 +9,6 @@ import errorHandler from '../middleware/error'
 import accessLogger from '../middleware/access'
 import facultyRouter from './faculty'
 import surveyRouter from './survey'
-import recommendationRouter from './recommendation'
 import resultRouter from './result'
 import summaryRouter from './summary'
 import entryRouter from './entry'
@@ -41,7 +40,6 @@ router.get('/error', () => {
 router.use('/faculties', facultyRouter)
 router.use('/surveys', surveyRouter)
 router.use('/questions', questionRouter)
-router.use('/recommendations', recommendationRouter)
 router.use('/results', resultRouter)
 router.use('/summary', summaryRouter)
 router.use('/entries', entryRouter)

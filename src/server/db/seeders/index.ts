@@ -1,7 +1,6 @@
 import logger from '../../util/logger'
 import seedSurveys from './surveys'
 import seedQuestions from './questions'
-import seedRecommendations from './recommendations'
 import seedResults from './results'
 import seedUsers from './user'
 
@@ -12,7 +11,6 @@ const seed = async () => {
   try {
     await seedSurveys()
     await seedQuestions()
-    await seedRecommendations()
     await seedResults()
     await seedUsers()
     logger.info('Seeding successful')
