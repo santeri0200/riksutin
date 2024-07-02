@@ -16,11 +16,13 @@ import { utils, writeFile } from 'xlsx'
 import { Link } from 'react-router-dom'
 import { enqueueSnackbar } from 'notistack'
 import { Question } from '@backend/types'
-import { Entry } from '../../../types'
+import { Entry, Faculty } from '../../../types'
 import { useEntries } from '../../../hooks/useEntry'
 import useQuestions from '../../../hooks/useQuestions'
 import useDeleteEntryMutation from '../../../hooks/useDeleteEntryMutation'
 import styles from '../../../styles'
+import useFaculties from '../../../hooks/useFaculties'
+import { extraOrganisations } from '../../../util/organisations'
 
 const { riskColors } = styles
 
@@ -28,7 +30,11 @@ type TableValues = {
   [key: string]: any
 }
 
-const createTableData = (entries: Entry[], questions: Question[]) => {
+const createTableData = (
+  entries: Entry[],
+  questions: Question[],
+  faculties: Faculty[]
+) => {
   const multiChoiceQuestions = questions
     .filter(
       (question) =>
@@ -46,6 +52,11 @@ const createTableData = (entries: Entry[], questions: Question[]) => {
   const updatedEntries: any[] = []
 
   entries.forEach((entry) => {
+    if (entry.data.answers.selectOrganisation) {
+      // eslint-disable-next-line no-param-reassign
+      entry.data.answers[22] = entry.data.answers.selectOrganisation
+    }
+
     const formData = Object.fromEntries(
       questionIds.map((id) => [id, entry.data.answers[id] ?? ''])
     )
@@ -64,7 +75,7 @@ const createTableData = (entries: Entry[], questions: Question[]) => {
           const texts = pair[1].map(
             (value: string) =>
               questions
-                .find((q) => q.id === idAsInt)
+                .find((question) => question.id === idAsInt)
                 ?.optionData.options.find((option) => option.id === value)
                 ?.title.fi
           )
@@ -81,10 +92,14 @@ const createTableData = (entries: Entry[], questions: Question[]) => {
       date: `${new Date(entry.createdAt).toLocaleDateString()} ${new Date(
         entry.createdAt
       ).toLocaleTimeString()}`,
-      user: `${entry.User.firstName} ${entry.User.lastName}`,
       total: entry.data.risks.find((r) => r.id === 'total')?.level,
     }
-    const obj = { ...additionalValues, ...formattedFormData }
+
+    const faculty = faculties.find((f) => f.code === entry.data.answers.faculty)
+      ?.name.fi
+
+    const obj = { ...additionalValues, ...formattedFormData, faculty }
+
     updatedEntries.push(obj)
   })
 
@@ -144,6 +159,8 @@ const Table = ({
     'projectName',
     'date',
     'total',
+    '1',
+    'faculty',
     ...columnIds,
   ])
 
@@ -232,8 +249,11 @@ const Table = ({
 const Summary = () => {
   const { entries } = useEntries()
   const { questions } = useQuestions(1)
+  const { faculties, isLoading: facultiesLoading } = useFaculties()
 
-  if (!questions || !entries) return null
+  if (!questions || !entries || facultiesLoading || !faculties) return null
+
+  const organisations = faculties.concat(extraOrganisations)
 
   const entriesWithData = entries.filter(
     (entry) => entry.data.answers && entry.data.country && entry.data.risks
@@ -248,7 +268,7 @@ const Summary = () => {
       </Box>
     )
 
-  const tableData = createTableData(entriesWithData, questions)
+  const tableData = createTableData(entriesWithData, questions, organisations)
 
   const questionTitles = Object.fromEntries(
     questions.map((q) => [q.id.toString(), q.title.fi])
