@@ -145,9 +145,14 @@ const Table = ({
     initialState: { columnVisibility: { id: false } },
     renderRowActions: ({ row }) => (
       <IconButton onClick={() => handleDeleteRiskAssessment(row)}>
-        <DeleteIcon />
+        <DeleteIcon color="error" />
       </IconButton>
     ),
+    displayColumnDefOptions: {
+      'mrt-row-actions': {
+        header: '',
+      },
+    },
     state: {
       columnOrder,
     },
