@@ -29,5 +29,5 @@ export const LOCATION_KEY = 'riksutin_session_location'
 export const FULL_URL = inProduction
   ? 'https://risk-i.helsinki.fi'
   : inStaging
-  ? 'https://toska-staging.cs.helsinki.fi/riksutin'
+  ? 'https://riksutin.ext.ocp-test-0.k8s.it.helsinki.fi/'
   : 'http://localhost:3000'
