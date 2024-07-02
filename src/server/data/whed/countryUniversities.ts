@@ -2,7 +2,7 @@ import jsdom from 'jsdom'
 
 import { set, get } from '../../util/redis'
 
-const baseUrl = 'https://www.whed.net'
+const baseUrl = 'https://whed.net'
 
 const fetchData = async (countryName: string) => {
   // eslint-disable-next-line no-param-reassign
@@ -49,11 +49,15 @@ const parseHTML = (html: string): string[] => {
 const getCountryUniversities = async (countryName: string | undefined) => {
   if (!countryName) return null
 
-  const html = await fetchData(countryName)
+  try {
+    const html = await fetchData(countryName)
+    const universityNames = parseHTML(html)
 
-  const universityNames = parseHTML(html)
-
-  return universityNames
+    return universityNames
+  } catch (error) {
+    console.log(error)
+    return []
+  }
 }
 
 export default getCountryUniversities
