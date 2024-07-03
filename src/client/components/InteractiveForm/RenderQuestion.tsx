@@ -80,11 +80,8 @@ const RenderQuestion = ({
     const parent = watch(question.parentId.toString())
 
     if (typeof parent === 'object') {
-      const questionSelectionToArray = Object.keys(parent).filter(
-        (k) => parent[k]
-      )
       const hasAllValuesSelected = question.visibility.options.some((x) =>
-        questionSelectionToArray.includes(x)
+        parent.includes(x)
       )
 
       if (!hasAllValuesSelected) return null
