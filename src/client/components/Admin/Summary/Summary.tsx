@@ -118,8 +118,13 @@ const Table = ({
     }${date.getFullYear()}_${date.getHours()}${date.getMinutes()}${date.getSeconds()}`
     const fileName = `risk_i_summary_${timeStamp}.xlsx`
 
-    const originalData = rows.map((r) => r.original)
-    const worksheet = utils.json_to_sheet(originalData)
+    const data = rows.map((r) => Object.values(r.original))
+    const sheetData = [
+      Object.values(questionTitles).concat(
+        Object.values(additionalColumnNames)
+      ),
+    ].concat(data)
+    const worksheet = utils.json_to_sheet(sheetData)
     const workbook = utils.book_new()
     utils.book_append_sheet(workbook, worksheet, 'Riskiarviot')
     writeFile(workbook, fileName, { compression: true })
