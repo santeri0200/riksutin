@@ -743,9 +743,9 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: 9,
     priority: 0,
     title: {
-      fi: 'Mikä?',
-      sv: 'What?',
-      en: 'What?',
+      fi: 'Mikä muu rooli?',
+      sv: '',
+      en: 'Which other role?',
     },
     text: {
       fi: '',
@@ -761,9 +761,9 @@ const getQuestionData = async (): Promise<Question[]> => [
     parentId: 11,
     priority: 0,
     title: {
-      fi: 'Mikä?',
-      sv: 'What?',
-      en: 'What?',
+      fi: 'Mikä muu yhteistyön muoto?',
+      sv: '',
+      en: 'Which other collaboration form?',
     },
     text: {
       fi: '',
