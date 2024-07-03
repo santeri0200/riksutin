@@ -93,6 +93,7 @@ const OrganisationSelect = ({
             <TextField
               data-testid={`question-${question.id}`}
               onChange={onChange}
+              fullWidth
             />
           </Box>
         )}
