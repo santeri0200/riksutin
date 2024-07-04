@@ -1,5 +1,5 @@
 import { CountryData, FormValues, UpdatedCountryData } from '../../types'
-import { gdprRisk } from './individualRisks'
+import { gdprRisk } from './utils'
 
 const getCountryRisks = (countryData: CountryData, formData: FormValues) => {
   const sanctionsRiskLevel = countryData.sanctions ? 3 : 1

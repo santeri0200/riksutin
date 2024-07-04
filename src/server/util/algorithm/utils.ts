@@ -96,3 +96,14 @@ export const organisationRisk = (resultData: FormValues) => {
     return 3
   return null
 }
+
+export const consortiumRisk = (selectedCountries: string[] | undefined) => {
+  if (!selectedCountries) return 1
+  if (selectedCountries?.length === 0) {
+    return 1
+  }
+  if (selectedCountries.length >= 2) {
+    return 3
+  }
+  return 2
+}

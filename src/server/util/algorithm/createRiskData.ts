@@ -1,43 +1,32 @@
 import { Country } from '@frontend/types'
-import { Question, CountryData, RiskData, FormValues, Risk } from '../../types'
+import { RiskData, FormValues } from '../../types'
 
 import { getQuestions } from '../../services/question'
 import { getCountries, getCountryData } from '../../routes/country'
-import getTotalRisk from './getTotalRisk'
 import getCountryRisks from './getCountryRisks'
+import getOtherRisks from './getOtherRisks'
+import getTotalRisk from './getTotalRisk'
 
 const createRiskData = async (formData: FormValues) => {
   const countries: Country[] = await getCountries()
-  const questions: Question[] = await getQuestions('1')
+  const questions = await getQuestions('1')
 
-  const selectedCountry: any = formData['8']
+  const selectedCountry: string = formData['8']
   const selectedCountryCode = countries?.find(
     (country) => country.name === selectedCountry
   )?.code
 
-  const countryData: CountryData | null = await getCountryData(
-    selectedCountryCode
-  )
+  const countryData = await getCountryData(selectedCountryCode)
 
   if (!countryData) return null
 
   const updatedCountryData = getCountryRisks(countryData, formData)
-
-  const { totalRiskLevel, filteredArray } = getTotalRisk(
-    updatedCountryData,
-    questions,
-    formData
-  )
-
-  const totalRiskObject: Risk = {
-    id: 'total',
-    title: 'riskTable:totalRiskLevel',
-    level: totalRiskLevel,
-  }
+  const otherRisks = getOtherRisks(updatedCountryData, questions, formData)
+  const totalRisk = getTotalRisk(otherRisks, updatedCountryData, formData)
 
   const riskData: RiskData = {
     answers: formData,
-    risks: filteredArray.concat(totalRiskObject),
+    risks: otherRisks.concat(totalRisk),
     country: new Array(updatedCountryData),
   }
 
