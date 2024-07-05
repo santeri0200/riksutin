@@ -13,15 +13,15 @@ Riksutin (officially known as **Risk-i** or **International collaboration risk a
 
 ### Survey
 
-The main part of the app is a form that includes multiple questions about the project.
+The main part of the app is a form that includes multiple questions about the project. [Docs](./docs/Survey.md) include a more detailed explanation.
 
 ### Risk calculation
 
-After sending the entry to backend, the app calculates different risk levels for the project. The risks are based on the form and the data for calculating risks is either fetched from different external data sources or from `data/results.ts`. More information on the algorithm is found in the docs (coming soon).
+After sending the entry to backend, the app calculates different risk levels for the project. The risks are based on the form and the data for calculating risks is either fetched from different external data sources or from `data/results.ts`. More information on the algorithm is found in the [docs](./docs/Algorithm.md).
 
 ### Results
 
-The results page contains the risks in a table format which contains three columns: name, level and info text. The list of answers to the form is found below the table
+The results page contains the risks in a table format which contains three columns: name, level and info text. The list of answers to the form is found below the table.
 
 ### User page
 
@@ -31,18 +31,7 @@ The user page contains a summary of the user's entries.
 
 Four tabs can be found in the admin page:
 
-- Summary
-
-Contains a table of all the entries. The table can be exported to .xlsx file.
-
-- Edit survey
-
-There the admin can edit general survey texts and order of the questions.
-
-- Edit questions
-
-As the name suggests, this tab is for editing question titles and info texts.
-
-- Edit results
-
-Here one can edit the result titles and info texts.
+- **Summary**: this tab contains a table of all the entries. The table can be exported as .xlsx file.
+- **Edit survey**: here the admin can edit general survey texts and order of the questions.
+- **Edit questions**: as the name suggests, this tab is for editing question titles and info texts.
+- **Edit results**: here the admin can edit the result titles and info texts.
