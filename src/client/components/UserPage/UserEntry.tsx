@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Box, Button, Tab, Tabs } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import RenderAnswers from '../ResultPage/RenderAnswers'
 import RiskTable from '../ResultPage/RiskTable'
@@ -49,6 +49,7 @@ const TabPanel = (props: TabPanelProps) => {
 
 const UserEntry = () => {
   const { entryId } = useParams()
+  const location = useLocation()
   const { survey } = useSurvey()
   const { entry } = useEntry(entryId)
   const [tabValue, setTabValue] = useState(0)
@@ -62,11 +63,14 @@ const UserEntry = () => {
 
   const { answers, country, updatedData } = entry.data
 
+  const parentPage =
+    location.pathname.split('/')[1] === 'admin' ? '/admin/summary' : '/user'
+
   return (
     <Box sx={{ m: 3 }}>
       <Box sx={{ width: '100%', my: 2 }}>
         <Link
-          to="/admin/summary"
+          to={parentPage}
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <Button variant="outlined">
