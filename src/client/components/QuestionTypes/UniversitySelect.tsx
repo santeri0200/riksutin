@@ -51,12 +51,10 @@ const UniversitySelect = ({
   question,
   selectedCountry,
 }: InputProps) => {
-  const { country } = useCountry(selectedCountry)
+  const { country, isLoading } = useCountry(selectedCountry)
   const { t, i18n } = useTranslation()
   const [showUniversityList, setShowUniversityList] = useState(true)
   const { language } = i18n
-
-  if (!question) return null
 
   if (!selectedCountry)
     return (
@@ -64,6 +62,10 @@ const UniversitySelect = ({
         <i>{t('questions:selectUniversityInfoMessage')}</i>
       </Box>
     )
+
+  if (!question) return null
+
+  if (isLoading) return <LoadingProgress />
 
   return (
     <>
@@ -81,50 +83,42 @@ const UniversitySelect = ({
         )}
       </Typography>
       <Box>
-        {!country ? (
-          <LoadingProgress />
-        ) : (
-          <Controller
-            control={control}
-            name={question.id.toString()}
-            defaultValue=""
-            rules={{
-              required: { value: true, message: t('questions:requiredText') },
-            }}
-            render={({ field: { onChange }, fieldState: { error } }) =>
-              showUniversityList ? (
-                <Box>
-                  <Autocomplete
-                    disablePortal
-                    id={`select-${question.id.toString()}`}
-                    options={
-                      country?.universities || question.optionData.options
-                    }
-                    getOptionLabel={(option) => option}
-                    onChange={(e, data) => onChange(data)}
-                    sx={{ width: '50%' }}
-                    renderInput={(params) => (
-                      <TextField
-                        helperText={error ? error.message : null}
-                        error={!!error}
-                        {...params}
-                        label={
-                          question.optionData.label
-                            ? question.optionData.label[
-                                language as keyof Locales
-                              ]
-                            : ''
-                        }
-                      />
-                    )}
-                  />
-                </Box>
-              ) : (
-                <AdditionalTextField question={question} control={control} />
-              )
-            }
-          />
-        )}
+        <Controller
+          control={control}
+          name={question.id.toString()}
+          defaultValue=""
+          rules={{
+            required: { value: true, message: t('questions:requiredText') },
+          }}
+          render={({ field: { onChange }, fieldState: { error } }) =>
+            showUniversityList ? (
+              <Box>
+                <Autocomplete
+                  disablePortal
+                  id={`select-${question.id.toString()}`}
+                  options={country?.universities || question.optionData.options}
+                  getOptionLabel={(option) => option}
+                  onChange={(e, data) => onChange(data)}
+                  sx={{ width: '50%' }}
+                  renderInput={(params) => (
+                    <TextField
+                      helperText={error ? error.message : null}
+                      error={!!error}
+                      {...params}
+                      label={
+                        question.optionData.label
+                          ? question.optionData.label[language as keyof Locales]
+                          : ''
+                      }
+                    />
+                  )}
+                />
+              </Box>
+            ) : (
+              <AdditionalTextField question={question} control={control} />
+            )
+          }
+        />
         <Button
           onClick={() => setShowUniversityList(!showUniversityList)}
           sx={{ m: 2 }}
