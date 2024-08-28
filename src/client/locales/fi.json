@@ -16,6 +16,9 @@
     "inputLabel": "Tiedekunta",
     "infoMessage": "Tietoa tiedekuntasi ohjeistuksesta"
   },
+  "universitySelect": {
+    "textFieldInfo": "Kirjoita tähän yhteistyöyliopiston nimi"
+  },
   "organisationSelect": {
     "searchButton": "Hae",
     "listInfoText": "Valitse yhteistyökumppanisi nimi listalta",

@@ -75,7 +75,7 @@ const UniversitySelect = ({
       <Typography component="span">
         {question.title[language as keyof Locales]}
         {!showUniversityList ? (
-          <ShowMore text="Kirjoita tähän yhteistyöyliopiston nimi, jos sitä ei löydy yllä olevasta listasta." />
+          <ShowMore text={t('universitySelect:textFieldInfo')} />
         ) : (
           question.text[language as keyof Locales] && (
             <ShowMore text={question.text[language as keyof Locales]} />

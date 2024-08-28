@@ -17,6 +17,9 @@
     "inputLabel": "Faculty",
     "infoMessage": "Information about your faculty's guidelines"
   },
+  "universitySelect": {
+    "textFieldInfo": "Write the name of the partner university here"
+  },
   "organisationSelect": {
     "searchButton": "Search",
     "listInfoText": "Select your partner organisation from the list",
