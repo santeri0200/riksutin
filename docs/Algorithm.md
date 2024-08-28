@@ -16,14 +16,14 @@ This app contains an algorithm that calculates different risks for the project b
 
 The object includes the following data. The source for data is in the brackets:
 
-- Academic freedom (CSV)
-- Corruption (Worldbank API)
-- Human development index (CSV)
-- Safety level (Ministry for Foreign Affairs of Finland's matkustustiedotteet, RSS feed)
-- Sanctions (EU sanctions map API)
-- Political stability (Worldbank API)
-- Rule of Law (CSV)
-- Universities (WHED, web scraper)
+- Academic freedom ([CSV](../src/server/data/academicfreedom/academicfreedom.csv))
+- Corruption ([Worldbank API](https://api.worldbank.org/v2))
+- Human development index ([CSV](../src/server/data/humanDevelopment/humanDevelopment.csv))
+- Political stability ([Worldbank API](https://api.worldbank.org/v2))
+- Safety level ([Ministry for Foreign Affairs of Finland's matkustustiedotteet](https://um.fi/o/rss?dctype=matkustustiedotteet), RSS feed)
+- Sanctions ([EU sanctions map API](https://sanctionsmap.eu/api/v1/regime))
+- Rule of Law ([CSV](../src/server/data/ruleOfLaw/ruleOfLaw.csv))
+- Universities ([WHED](https://whed.net/results_institutions.php), scraper)
 
 Risk levels of sanctions, safety level and universities are calculated based on the form data.
 
