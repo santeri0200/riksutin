@@ -202,7 +202,7 @@ const Summary = () => {
     (entry) => entry.data.answers && entry.data.country && entry.data.risks
   )
 
-  if (!entriesWithData)
+  if (entriesWithData.length === 0)
     return (
       <Box sx={{ m: 3 }}>
         <Typography variant="h6" sx={{ my: 4, pl: 1 }}>
