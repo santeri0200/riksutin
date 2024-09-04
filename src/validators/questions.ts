@@ -4,7 +4,7 @@ export const NewQuestionZod = z.object({
   parentId: z.number().nullish().default(null),
   title: z.object({
     fi: z.string().nonempty(),
-    sv: z.string().nonempty(),
+    sv: z.string(),
     en: z.string().nonempty(),
   }),
   text: z.object({
@@ -18,13 +18,13 @@ export const NewQuestionZod = z.object({
       z.object({
         title: z.object({
           fi: z.string().nonempty(),
-          sv: z.string().nonempty(),
+          sv: z.string(),
           en: z.string().nonempty(),
         }),
         data: z
           .object({
             fi: z.string().nonempty(),
-            sv: z.string().nonempty(),
+            sv: z.string(),
             en: z.string().nonempty(),
           })
           .optional(),
@@ -43,7 +43,7 @@ export type NewQuestion = z.infer<typeof NewQuestionZod>
 export const UpdatedQuestionZod = z.object({
   title: z.object({
     fi: z.string().nonempty(),
-    sv: z.string().nonempty(),
+    sv: z.string(),
     en: z.string().nonempty(),
   }),
   text: z.object({

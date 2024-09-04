@@ -3,7 +3,7 @@ import { z } from 'zod'
 export const UpdatedSurveyInfoZod = z.object({
   title: z.object({
     fi: z.string().nonempty(),
-    sv: z.string().nonempty(),
+    sv: z.string(),
     en: z.string().nonempty(),
   }),
   text: z.object({
