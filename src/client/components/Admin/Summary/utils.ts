@@ -8,8 +8,8 @@ const createTableData = (
   const multiChoiceQuestions = questions
     .filter(
       (question) =>
-        question.optionData.type ===
-        ('multipleChoice' || 'highRiskCountrySelect')
+        question.optionData.type === 'multipleChoice' ||
+        question.optionData.type === 'highRiskCountrySelect'
     )
     .map((q) => q.id)
 

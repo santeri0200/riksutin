@@ -51,7 +51,7 @@ const RiskTable = ({
     (r) => r.optionLabel === `total${totalRisk.level}`
   )?.isSelected[language as keyof Locales]
 
-  if (selectedCountryCode === ('RU' || 'BY')) {
+  if (selectedCountryCode === 'RU' || selectedCountryCode === 'BY') {
     totalRiskText += t(`countrySpecificTexts:RU`)
   }
 
