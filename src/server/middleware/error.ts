@@ -4,7 +4,7 @@ import { ValidationError, UniqueConstraintError } from 'sequelize'
 import Sentry from '@sentry/node'
 
 import logger from '../util/logger'
-import { inProduction } from '../../config'
+import { inProduction } from '../util/config'
 
 import ZodValidationError from '../errors/ValidationError'
 

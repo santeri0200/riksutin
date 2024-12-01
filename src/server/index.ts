@@ -8,8 +8,12 @@ import express from 'express'
 import session from 'express-session'
 import passport from 'passport'
 
-import { inE2EMode, inProduction } from '../config'
-import { PORT, SESSION_SECRET } from './util/config'
+import {
+  SERVER_PORT,
+  SESSION_SECRET,
+  inE2EMode,
+  inProduction,
+} from './util/config'
 import { redisStore } from './util/redis'
 import logger from './util/logger'
 import router from './routes'
@@ -47,7 +51,7 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test') {
   app.get('*', (_, res) => res.sendFile(INDEX_PATH))
 }
 
-app.listen(PORT, async () => {
+app.listen(SERVER_PORT, async () => {
   await connectToDatabase()
   await seed()
   await setupAuthentication()
@@ -56,5 +60,5 @@ app.listen(PORT, async () => {
   }
   await startCountryCron()
 
-  logger.info(`Server running on port ${PORT}`)
+  logger.info(`Server running on port ${SERVER_PORT}`)
 })

@@ -1,5 +1,5 @@
 import { Faculty } from '@frontend/types'
-import { inE2EMode } from '../../config'
+import { inE2EMode } from '../util/config'
 import mockFaculty from '../mocs/faculty'
 
 import { getOrganisationData, getUserOrganisations } from '../util/jami'
