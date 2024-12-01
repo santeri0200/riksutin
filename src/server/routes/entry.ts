@@ -1,6 +1,8 @@
 import express from 'express'
 
+import type { EntryValues, RequestWithUser } from '@types'
 import { Entry } from '../db/models'
+
 import { riskReEvaluation } from '../util/cron/riskReEvaluation/riskReEvaluation'
 import createRiskData from '../util/algorithm/createRiskData'
 import adminHandler from '../middleware/admin'
@@ -10,8 +12,6 @@ import {
   getEntry,
   getUserEntries,
 } from '../services/entry'
-
-import { EntryValues, RequestWithUser } from '../types'
 
 const entryRouter = express.Router()
 

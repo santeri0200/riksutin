@@ -1,4 +1,5 @@
-import { CountryData, FormValues, UpdatedCountryData } from '../../types'
+import type { CountryData, FormValues, UpdatedCountryData } from '@types'
+
 import { gdprRisk } from './utils'
 
 const getCountryRisks = (countryData: CountryData, formData: FormValues) => {

@@ -8,10 +8,9 @@ import {
   FormHelperText,
 } from '@mui/material'
 
-import { MultipleChoiceType, Locales } from '@backend/types'
+import type { MultipleChoiceType, Locales, InputProps } from '@types'
 
 import { useTranslation } from 'react-i18next'
-import { InputProps } from '../../types'
 
 const MultiChoice = ({ control, question, children, language }: InputProps) => {
   const { t } = useTranslation()

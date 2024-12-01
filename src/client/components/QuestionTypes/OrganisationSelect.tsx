@@ -3,8 +3,9 @@ import React from 'react'
 import { Control, Controller } from 'react-hook-form'
 import { Box, TextField, Autocomplete, Typography } from '@mui/material'
 
+import type { InputProps } from '@types'
+
 import { useTranslation } from 'react-i18next'
-import { InputProps } from '../../types'
 import useOrganisations from '../../hooks/useOrganisations'
 import LoadingProgress from '../Common/LoadingProgress'
 

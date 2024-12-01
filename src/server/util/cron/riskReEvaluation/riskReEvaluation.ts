@@ -1,5 +1,6 @@
-import { RiskData } from '../../../types'
+import type { RiskData } from '@types'
 import { Entry, User } from '../../../db/models'
+
 import logger from '../../logger'
 import scheduleCronJob from '../schedule'
 import createRiskData from '../../algorithm/createRiskData'

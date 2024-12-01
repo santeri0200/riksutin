@@ -4,9 +4,8 @@ import { Autocomplete, Box, TextField } from '@mui/material'
 
 import { useTranslation } from 'react-i18next'
 
-import { Locales } from '@backend/types'
+import type { Locales, InputProps } from '@types'
 
-import { InputProps } from '../../types'
 import { useHighRiskCountries } from '../../hooks/useCountries'
 
 const HighRiskCountrySelect = ({ control, question, children }: InputProps) => {

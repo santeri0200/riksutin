@@ -10,12 +10,12 @@ import {
   Typography,
 } from '@mui/material'
 
-import { Locales } from '@backend/types'
+import type { Locales, CountryData, Risk, RiskData } from '@types'
+
 import getCountryRiskTexts from '../../util/getCountryRiskTexts'
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
-import { CountryData, Risk, RiskData } from '../../types'
 import { globalNorthCountries } from '../../util/countryLists'
 import useCountries from '../../hooks/useCountries'
 import useResults from '../../hooks/useResults'

@@ -1,5 +1,4 @@
-import { FormValues } from '@frontend/types'
-import { UpdatedCountryData, Risk } from '../../types'
+import type { FormValues, UpdatedCountryData, Risk } from '@types'
 import { totalCountryRisk } from './utils'
 
 const getTotalRisk = (

@@ -1,4 +1,4 @@
-import { Faculty } from '@frontend/types'
+import type { Faculty } from '@types'
 import { inE2EMode } from '../util/config'
 import mockFaculty from '../mocs/faculty'
 

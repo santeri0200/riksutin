@@ -1,5 +1,4 @@
-import { Question } from '@backend/types'
-import { Entry, Faculty } from '../../../types'
+import type { Question, Entry, Faculty } from '@types'
 
 const createTableData = (
   entries: Entry[],

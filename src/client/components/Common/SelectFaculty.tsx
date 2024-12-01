@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@mui/material'
 
-import { Locales } from '@backend/types'
+import type { Locales, InputProps, Faculty } from '@types'
 
 import useFaculties from '../../hooks/useFaculties'
 import useUserFaculties from '../../hooks/useUserFaculties'
@@ -22,7 +22,6 @@ import ShowMore from './ShowMore'
 import { extraOrganisations, organisationInfos } from '../../util/organisations'
 
 import styles from '../../styles'
-import { InputProps, Faculty } from '../../types'
 
 const sortFaculties = (faculties: Faculty[], language: keyof Locales) => {
   const sortedFaculties = faculties.sort((a, b) => {

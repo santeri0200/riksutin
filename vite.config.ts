@@ -24,6 +24,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      '@types': 'src/types.d.ts',
+      '@db/models': 'src/server/db/models',
       '@client/config': 'src/config.ts',
     },
   },
