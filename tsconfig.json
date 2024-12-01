@@ -22,7 +22,8 @@
     "baseUrl": ".",
     "paths": {
       "@frontend/types": ["src/client/types.ts"],
-      "@backend/types": ["src/server/types.ts"]
+      "@backend/types": ["src/server/types.ts"],
+      "@client/config": ["src/config.ts"]
     }
   },
   "include": ["src"],

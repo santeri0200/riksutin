@@ -2,11 +2,12 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box, Button, Typography } from '@mui/material'
 
+import { LOCATION_KEY } from '@client/config'
+
 import RenderResults from './RenderResults'
 import SurveyButtons from '../Common/SurveyButtons'
 
 import styles from '../../styles'
-import { LOCATION_KEY } from '../../../config'
 import { RiskData } from '../../types'
 import SendSummaryEmail from './SendSummaryEmail'
 

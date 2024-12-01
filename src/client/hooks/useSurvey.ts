@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 
-import { DEFAULT_SURVEY_NAME } from '../../config'
+import { DEFAULT_SURVEY_NAME } from '@client/config'
 
 import apiClient from '../util/apiClient'
 

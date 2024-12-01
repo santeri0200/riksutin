@@ -6,7 +6,7 @@ import {
   inE2EMode,
   SENTRY_DNS,
   SENTRY_GIT_SHA,
-} from '../../config'
+} from '@client/config'
 
 const initializeSentry = () => {
   if (!inProduction || inStaging || inE2EMode) return
