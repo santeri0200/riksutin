@@ -1,11 +1,11 @@
 import type { Faculty } from '@types'
-import { inE2EMode } from '../util/config'
+import { inDevelopment, inE2EMode } from '../util/config'
 import mockFaculty from '../mocs/faculty'
 
 import { getOrganisationData, getUserOrganisations } from '../util/jami'
 
 export const getFaculties = async (): Promise<Faculty[]> => {
-  if (inE2EMode) return mockFaculty
+  if (inDevelopment || inE2EMode) return mockFaculty
 
   const organisationData = (await getOrganisationData()) || []
 
@@ -18,7 +18,7 @@ export const getUserFaculties = async (
   userId: string,
   iamGroups: string[]
 ): Promise<Faculty[]> => {
-  if (inE2EMode) return mockFaculty
+  if (inDevelopment || inE2EMode) return mockFaculty
 
   if (!userId) return []
 
