@@ -33,6 +33,7 @@
     "transpileOnly": true,
     "files": true,
     "experimentalResolver": true,
+    "experimentalSpecifierResolution": "node",
     "compilerOptions": {
       "module": "esnext",
       "resolveJsonModule": false
