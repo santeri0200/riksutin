@@ -1,5 +1,4 @@
-import { Country } from '@frontend/types'
-import { RiskData, FormValues } from '../../types'
+import type { Country, RiskData, FormValues } from '@types'
 
 import { getQuestions } from '../../services/question'
 import { getCountries, getCountryData } from '../../routes/country'

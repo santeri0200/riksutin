@@ -1,9 +1,9 @@
 import { useMutation } from 'react-query'
 
+import { DEFAULT_SURVEY_NAME } from '@client/config'
+
 import apiClient from '../util/apiClient'
 import queryClient from '../util/queryClient'
-
-import { DEFAULT_SURVEY_NAME } from '../../config'
 
 import { UpdatedSurveyInfo } from '../../validators/survey'
 

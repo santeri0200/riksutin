@@ -1,6 +1,5 @@
+import type { EntryValues } from '@types'
 import { Entry, Survey, User } from '../db/models'
-
-import { EntryValues } from '../types'
 
 import NotFoundError from '../errors/NotFoundError'
 import UnauthorizedError from '../errors/UnauthorizedError'

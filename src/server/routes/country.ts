@@ -1,5 +1,7 @@
 import express from 'express'
 
+import type { CountryData } from '@types'
+
 import { getHighRiskCountries } from '../util/cron/highRiskCountries/highRiskCountries'
 import { get } from '../util/redis'
 import { fetchData } from '../data/worldbank/util'
@@ -8,7 +10,6 @@ import fetchSafetyLevelData from '../data/safetyLevel'
 import getCountryUniversities from '../data/whed/countryUniversities'
 import fetchSanctionsData from '../data/sanctions/sanctionsMap'
 import parseAcademicFreedom from '../data/academicfreedom/parseAcademicFreedom'
-import { CountryData } from '../types'
 import { Info, Country } from '../data/worldbank/types'
 import parseRuleOfLaw from '../data/ruleOfLaw/parseRuleOfLaw'
 import parseHumanDevelopment from '../data/humanDevelopment/parseHumanDevelopment'

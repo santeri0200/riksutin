@@ -1,13 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react'
+import { useFormState } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Box, Button, Typography } from '@mui/material'
 import LoadingButton from '@mui/lab/LoadingButton'
 
-import { Locales, Question } from '@backend/types'
-import { Control, UseFormWatch } from 'react-hook-form/dist/types'
-import { useFormState } from 'react-hook-form'
+import type { Locales, Question } from '@types'
+import type { Control, UseFormWatch } from 'react-hook-form/dist/types'
+
 import RenderQuestion from './RenderQuestion'
 import SurveyButtons from '../Common/SurveyButtons'
 

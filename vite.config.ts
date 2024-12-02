@@ -22,4 +22,11 @@ export default defineConfig({
   define: {
     'process.env': process.env,
   },
+  resolve: {
+    alias: {
+      '@types': 'src/types.d.ts',
+      '@db/models': 'src/server/db/models',
+      '@client/config': 'src/config.ts',
+    },
+  },
 })

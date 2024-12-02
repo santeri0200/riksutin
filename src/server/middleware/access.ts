@@ -1,5 +1,7 @@
 import morgan from 'morgan'
-import { RequestWithUser } from '../types'
+
+import type { RequestWithUser } from '@types'
+
 import { inProduction } from '../util/config'
 import logger from '../util/logger'
 

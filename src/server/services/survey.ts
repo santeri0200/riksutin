@@ -1,8 +1,9 @@
+import { Question, Survey } from '../db/models'
+
 import {
   UpdatedSurveyInfo,
   UpdatedSurveyInfoZod,
 } from '../../validators/survey'
-import { Question, Survey } from '../db/models'
 
 import NotFoundError from '../errors/NotFoundError'
 import ZodValidationError from '../errors/ValidationError'

@@ -10,12 +10,12 @@ import {
   Typography,
 } from '@mui/material'
 
-import { Locales } from '@backend/types'
+import type { Locales, CountryData, Risk, RiskData } from '@types'
+
 import getCountryRiskTexts from '../../util/getCountryRiskTexts'
 import RiskElement from './RiskElement'
 
 import styles from '../../styles'
-import { CountryData, Risk, RiskData } from '../../types'
 import { globalNorthCountries } from '../../util/countryLists'
 import useCountries from '../../hooks/useCountries'
 import useResults from '../../hooks/useResults'
@@ -51,7 +51,7 @@ const RiskTable = ({
     (r) => r.optionLabel === `total${totalRisk.level}`
   )?.isSelected[language as keyof Locales]
 
-  if (selectedCountryCode === ('RU' || 'BY')) {
+  if (selectedCountryCode === 'RU' || selectedCountryCode === 'BY') {
     totalRiskText += t(`countrySpecificTexts:RU`)
   }
 

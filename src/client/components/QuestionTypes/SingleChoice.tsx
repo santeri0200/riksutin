@@ -8,10 +8,9 @@ import {
   FormHelperText,
 } from '@mui/material'
 
-import { Locales, SingleChoiceType } from '@backend/types'
+import type { Locales, SingleChoiceType, InputProps } from '@types'
 
 import { useTranslation } from 'react-i18next'
-import { InputProps } from '../../types'
 
 const SingleChoice = ({
   control,

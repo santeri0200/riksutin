@@ -18,7 +18,13 @@
     "target": "esnext",
     "useDefineForClassFields": true,
     "strictNullChecks": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@types": ["src/types.d.ts"],
+      "@db/models": ["src/server/db/models"],
+      "@client/config": ["src/config.ts"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
@@ -27,6 +33,7 @@
     "transpileOnly": true,
     "files": true,
     "experimentalResolver": true,
+    "experimentalSpecifierResolution": "node",
     "compilerOptions": {
       "module": "esnext",
       "resolveJsonModule": false

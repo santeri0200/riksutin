@@ -1,5 +1,5 @@
-import { FormValues } from '@frontend/types'
-import { Question, UpdatedCountryData, Risk } from '@backend/types'
+import type { FormValues, Question, UpdatedCountryData, Risk } from '@types'
+
 import {
   totalCountryRisk,
   dualUseRisk,
@@ -73,7 +73,7 @@ const getOtherRisks = (
   }
 
   const filteredArray = riskArray.filter(
-    (value) => value.level !== (null || undefined)
+    (value) => value.level !== null && value.level !== undefined
   )
 
   return filteredArray
