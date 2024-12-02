@@ -36,11 +36,28 @@ export const createResult = async (
       'Validation of the new result inputs failed',
       request.error.issues
     )
-  const { data } = request
 
+  /**
+    The request data provided by Zod's safeParser is nullish.
+    This means that we have to make sure the values exist for the strict `Locale` -type.
+
+    - @santeri0200
+  */
+  const { data: requestData } = request
+  const { optionLabel, isSelected, data } = requestData
   const newResult = await Result.create({
     surveyId: Number(surveyId),
-    ...data,
+    optionLabel,
+    isSelected: {
+      fi: isSelected.fi || '',
+      sv: isSelected.sv || '',
+      en: isSelected.en || '',
+    },
+    data: {
+      fi: data.fi || '',
+      sv: data.sv || '',
+      en: data.en || '',
+    },
   })
 
   return newResult
