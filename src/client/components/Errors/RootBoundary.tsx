@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
-import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
+import {
+  ErrorResponse,
+  isRouteErrorResponse,
+  useRouteError,
+} from 'react-router-dom'
 
 import * as Sentry from '@sentry/browser'
 
@@ -12,7 +16,13 @@ const RootBoundary = () => {
 
   useEffect(() => {
     if (isRouteErrorResponse(error)) {
-      Sentry.captureException(error.error)
+      /**
+        HACK: `error.error` is not valid syntax with the type infered from isRouteErrorResponse().
+        It has been replaced with typed error. Type being `any` both cases are undefined behavior. 
+
+        - @santeri0200
+      */
+      Sentry.captureException(error as ErrorResponse)
     } else {
       Sentry.captureException(error)
     }
