@@ -21,12 +21,12 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "@types": ["src/types.d.ts"],
+      "@types": ["types/index.d.ts"],
       "@db/models": ["src/server/db/models"],
       "@client/config": ["src/config.ts"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "types"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "ts-node": {
     "esm": true,

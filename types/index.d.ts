@@ -1,5 +1,5 @@
-export * from './types/frontend'
-export * from './types/backend'
+export * from './frontend'
+export * from './backend'
 
 export type Locales = {
   fi: string
