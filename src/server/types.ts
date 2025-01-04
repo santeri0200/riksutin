@@ -2,9 +2,9 @@ import { Request } from 'express'
 import { Entry } from './db/models'
 
 export type Locales = {
-  fi: string
-  en: string
-  sv: string
+  fi?: string
+  en?: string
+  sv?: string
 }
 
 export type Programme = {
