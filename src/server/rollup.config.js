@@ -1,17 +1,41 @@
 import { defineConfig } from 'rollup'
 import resolve from '@rollup/plugin-node-resolve'
-import typescript from '@rollup/plugin-typescript'
+import swc from '@rollup/plugin-swc'
+
+import path from 'path'
 
 export default defineConfig({
-  input: 'src/server/index.ts',
+  input: 'index.ts',
   output: {
-    file: 'server.js',
+    file: '../../server.js',
     format: 'module',
   },
   plugins: [
-    resolve(),
-    typescript({
-      tsconfig: 'src/server/tsconfig.json',
+    resolve({
+      extensions: [".ts"],
+    }),
+    swc({
+      swc: {
+      	"isModule": "unknown",
+      	"module": {
+      		"type": "nodenext",
+      		"noInterop": false
+      	},
+        jsc: {
+      		"target": "esnext",
+      		"parser": {
+      			"syntax": "typescript",
+      			"tsx": false,
+      			"exportDefaultFrom": false
+      		},
+
+          baseUrl: path.resolve("../.."),
+          paths: {
+            "@config": ["src/config.ts"],
+            "@validators/*": ["src/validators/*"]
+          }
+        }
+      }
     }),
   ],
   external: (id) => {

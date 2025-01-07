@@ -1,6 +1,7 @@
 import morgan from 'morgan'
+
+import { inProduction } from '@config'
 import { RequestWithUser } from '../types'
-import { inProduction } from '../../config'
 import logger from '../util/logger'
 
 // Morgan excepts a log format string to be returned, but here a separate logger is used instead.

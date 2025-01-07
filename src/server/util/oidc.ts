@@ -7,7 +7,7 @@ import {
 } from 'openid-client'
 import passport from 'passport'
 
-import { inE2EMode } from '../../config'
+import { inE2EMode } from '@config'
 import {
   OIDC_ISSUER,
   OIDC_CLIENT_ID,

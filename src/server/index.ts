@@ -6,7 +6,7 @@ import express from 'express'
 import session from 'express-session'
 import passport from 'passport'
 
-import { inE2EMode, inProduction } from '../config'
+import { inE2EMode, inProduction } from '@config'
 import { PORT, SESSION_SECRET } from './util/config'
 import { redisStore } from './util/redis'
 import logger from './util/logger'

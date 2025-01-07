@@ -1,11 +1,10 @@
-import { Result, Survey } from '../db/models'
-
 import {
   NewResult,
   NewResultZod,
   UpdatedResult,
   UpdatedResultZod,
-} from '../../validators/results'
+} from '@validators/results'
+import { Result, Survey } from '../db/models'
 
 import NotFoundError from '../errors/NotFoundError'
 import ZodValidationError from '../errors/ValidationError'

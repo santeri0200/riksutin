@@ -1,0 +1,47 @@
+{
+  "name": "server",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "dependencies": {
+    "@sentry/node": "^7.31.1",
+    "@sentry/tracing": "^7.31.1",
+    "axios": "^1.2.3",
+    "connect-redis": "^7.1.0",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.5.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "express-session": "^1.17.3",
+    "ioredis": "^5.3.2",
+    "jsdom": "^22.1.0",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.2",
+    "openid-client": "^5.4.3",
+    "passport": "^0.7.0",
+    "rss-parser": "^3.13.0",
+    "sequelize": "^6.28.0",
+    "umzug": "^3.8.1",
+    "uuid": "^9.0.0",
+    "winston": "^3.13.1",
+    "winston-gelf-transporter": "^1.0.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-swc": "^0.4.0",
+    "@types/connect-redis": "^0.0.23",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.7",
+    "@types/jsdom": "^21.1.3",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^20.0.0",
+    "@types/node-cron": "^3.0.8",
+    "@types/passport": "^1.0.12",
+    "rollup": "^4.29.1"
+  }
+}
