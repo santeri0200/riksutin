@@ -1,7 +1,7 @@
 import { Locales, Question, User } from '@backend/types'
 import { Control, UseFormWatch, UseFormRegister } from 'react-hook-form'
 
-import { FORM_DATA_KEY } from '../config'
+import { FORM_DATA_KEY } from '@config'
 
 export interface Faculty {
   code: string

@@ -1,13 +1,14 @@
 import React from 'react'
 import { Box, Typography, Link } from '@mui/material'
 import { Trans, useTranslation } from 'react-i18next'
-import styles from '../styles'
 
+import { supportEmail } from '@config'
+
+import styles from '../styles'
 import toskaColor from '../assets/toscalogo_color.svg'
-import { supportEmail } from '../../config'
 
 const Footer = () => {
-  const { t } = useTranslation()
+  const { t: _ } = useTranslation()
 
   const { footerStyles } = styles
 

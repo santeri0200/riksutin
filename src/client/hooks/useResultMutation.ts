@@ -1,11 +1,11 @@
 import { useMutation } from 'react-query'
 
+import { NewResult, UpdatedResult } from '@validators/results'
+
 import useSurvey from './useSurvey'
 
 import apiClient from '../util/apiClient'
 import queryClient from '../util/queryClient'
-
-import { NewResult, UpdatedResult } from '../../validators/results'
 
 export const useCreateResultMutation = () => {
   const { survey } = useSurvey()

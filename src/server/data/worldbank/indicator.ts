@@ -7,7 +7,7 @@ const getCountryIndicator = async (
   countryCode: string,
   indicatorCode: string
 ) => {
-  const [info, data]: Response = await fetchData(
+  const [_, data]: Response = await fetchData(
     `country/${countryCode}/indicator/${indicatorCode}`
   )
 

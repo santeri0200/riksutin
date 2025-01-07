@@ -2,10 +2,9 @@
 import { useMutation } from 'react-query'
 
 import { Locales } from '@backend/types'
+import { NewDimension } from '@validators/options'
 
 import useSurvey from './useSurvey'
-
-import { NewDimension } from '../../validators/options'
 
 import apiClient from '../util/apiClient'
 import queryClient from '../util/queryClient'

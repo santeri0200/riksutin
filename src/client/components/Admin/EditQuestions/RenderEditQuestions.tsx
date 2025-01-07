@@ -6,7 +6,8 @@ import { Box } from '@mui/material'
 import { QuestionSelect } from '../Select'
 
 const RenderEditQuestions = () => {
-  const { t } = useTranslation()
+  const { t: _ } = useTranslation()
+
   return (
     <Box sx={{ mx: 2, mt: 8 }}>
       <Box

@@ -1,5 +1,7 @@
 import jsdom from 'jsdom'
 
+import logger from '../../util/logger'
+
 import { set, get } from '../../util/redis'
 
 const baseUrl = 'https://whed.net'
@@ -55,7 +57,7 @@ const getCountryUniversities = async (countryName: string | undefined) => {
 
     return universityNames
   } catch (error) {
-    console.log(error)
+    logger.error(error)
     return []
   }
 }
