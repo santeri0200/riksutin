@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv'
 
-import { inProduction } from '../../config'
+import { inProduction } from '@config'
 
 dotenv.config()
 

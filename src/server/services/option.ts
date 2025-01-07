@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from 'uuid'
 
-import { Question, Result } from '../db/models'
 import {
   NewOption,
   OptionZod,
   UpdatedOption,
   UpdatedOptionZod,
-} from '../../validators/options'
+} from '@validators/options'
+import { Question, Result } from '../db/models'
 
 import NotFoundError from '../errors/NotFoundError'
 import ZodValidationError from '../errors/ValidationError'

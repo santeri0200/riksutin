@@ -1,7 +1,7 @@
 import express from 'express'
 import passport from 'passport'
 
-import { PUBLIC_URL } from '../../config'
+import { PUBLIC_URL } from '@config'
 
 const loginRouter = express.Router()
 

@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import { Handlers as SentryHandlers } from '@sentry/node'
 
-import { inDevelopment, inE2EMode, inAcualStaging } from '../../config'
+import { inDevelopment, inE2EMode, inAcualStaging } from '@config'
 import userMiddleware from '../middleware/user'
 import initializeSentry from '../util/sentry'
 import errorHandler from '../middleware/error'

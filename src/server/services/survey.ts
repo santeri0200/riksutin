@@ -1,7 +1,4 @@
-import {
-  UpdatedSurveyInfo,
-  UpdatedSurveyInfoZod,
-} from '../../validators/survey'
+import { UpdatedSurveyInfo, UpdatedSurveyInfoZod } from '@validators/survey'
 import { Question, Survey } from '../db/models'
 
 import NotFoundError from '../errors/NotFoundError'

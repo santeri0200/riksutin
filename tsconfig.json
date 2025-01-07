@@ -15,9 +15,13 @@
     "strictNullChecks": false,
     "noImplicitAny": false,
 
+    "baseUrl": ".",
     "paths": {
-      "@frontend/types": ["./src/client/types.ts"],
-      "@backend/types": ["./src/server/types.ts"]
+      "@frontend/types": ["src/client/types.ts"],
+      "@backend/types": ["src/server/types.ts"],
+
+      "@config": ["src/config.ts"],
+      "@validators/*": ["src/validators/*"]
     }
   }
 }

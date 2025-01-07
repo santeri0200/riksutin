@@ -1,4 +1,4 @@
-import { DEFAULT_SURVEY_NAME } from '../../config'
+import { DEFAULT_SURVEY_NAME } from '@config'
 
 const getSurveyData = () => ({
   id: 1,
