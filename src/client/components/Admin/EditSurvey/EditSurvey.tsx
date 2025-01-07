@@ -5,13 +5,11 @@ import { Box, Typography, Button } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { enqueueSnackbar } from 'notistack'
 
+import { Survey } from '@frontend/types'
 import { Locales } from '@backend/types'
+import { UpdatedSurveyInfo } from '@validators/survey'
 
 import { useEditSurveyMutation } from '../../../hooks/useSurveyMutation'
-
-import { Survey } from '../../../types'
-
-import { UpdatedSurveyInfo } from '../../../../validators/survey'
 
 const SurveyItem = ({
   language,

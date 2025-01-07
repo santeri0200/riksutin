@@ -1,6 +1,8 @@
 import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+import { PUBLIC_URL } from '@config'
+
 import App from './App'
 import InteractiveForm from './components/InteractiveForm/InteractiveForm'
 import UserPage from './components/UserPage/UserPage'
@@ -13,7 +15,6 @@ import Summary from './components/Admin/Summary/Summary'
 import RootBoundary from './components/Errors/RootBoundary'
 import NotFound from './components/Errors/NotFound'
 
-import { PUBLIC_URL } from '../config'
 import RenderEditResults from './components/Admin/EditResults/RenderEditResults'
 import EditResults from './components/Admin/EditResults/EditResults'
 

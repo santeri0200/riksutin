@@ -19,12 +19,11 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
 import { Locales, Question } from '@backend/types'
+import { UpdatedQuestionLocation } from '@validators/questions'
 
 import { useEditQuestionPriorityMutation } from '../../../hooks/useQuestionMutation'
 
 import QuestionItemMenu from './QuestionItemMenu'
-
-import { UpdatedQuestionLocation } from '../../../../validators/questions'
 
 interface PositionHandleProps {
   question: Question

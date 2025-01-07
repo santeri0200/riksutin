@@ -16,7 +16,7 @@ import parseHumanDevelopment from '../data/humanDevelopment/parseHumanDevelopmen
 type Response = [Info, Country[]]
 
 export const getCountries = async () => {
-  const [info, data]: Response = await fetchData(`countries`)
+  const [_, data]: Response = await fetchData(`countries`)
 
   const filtered = data.filter(({ region }) => region.value !== 'Aggregates')
 

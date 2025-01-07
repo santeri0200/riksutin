@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { PUBLIC_URL } from '../../config'
+import { PUBLIC_URL } from '@config'
 
 const baseURL = `${PUBLIC_URL}/api`
 

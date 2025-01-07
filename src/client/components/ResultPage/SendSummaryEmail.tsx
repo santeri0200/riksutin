@@ -14,6 +14,8 @@ import {
   Typography,
 } from '@mui/material'
 
+import { ShareResultEmails, ShareResultsZod } from '@validators/emails'
+
 import { Locales } from '@backend/types'
 import useLoggedInUser from '../../hooks/useLoggedInUser'
 
@@ -21,8 +23,6 @@ import SummaryEmailTemplate from '../../templates/SummaryEmailTemplate'
 
 import styles from '../../styles'
 import sendEmail from '../../util/mailing'
-
-import { ShareResultEmails, ShareResultsZod } from '../../../validators/emails'
 
 const SendSummaryEmail = () => {
   const { t, i18n } = useTranslation()
