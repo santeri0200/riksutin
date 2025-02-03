@@ -62,9 +62,9 @@ export interface InfoType {
 }
 
 export type Locales = {
-  fi: string
-  en: string
-  sv: string
+  fi?: string
+  en?: string
+  sv?: string
 }
 
 export interface User {
