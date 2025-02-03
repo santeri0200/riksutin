@@ -4,7 +4,7 @@ import { useMutation } from 'react-query'
 import { SESSION_TOKEN } from '@config'
 
 import { Entry } from '@backend/db/models'
-import { FormValues } from '@frontend/types'
+import type { FormValues } from '@types'
 
 import apiClient from '../util/apiClient'
 

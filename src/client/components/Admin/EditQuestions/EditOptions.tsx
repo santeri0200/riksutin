@@ -5,7 +5,7 @@ import { Box, Typography, Button } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { enqueueSnackbar } from 'notistack'
 
-import { ChoiceType, Locales, Question, OptionUpdates } from '@backend/types'
+import { ChoiceType, Locales, Question, OptionUpdates } from '@types'
 
 import { useEditOptionMutation } from '../../../hooks/useOptionMutation'
 

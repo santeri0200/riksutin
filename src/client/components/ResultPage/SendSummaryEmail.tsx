@@ -16,7 +16,7 @@ import {
 
 import { ShareResultEmails, ShareResultsZod } from '@validators/emails'
 
-import { Locales } from '@backend/types'
+import type { Locales } from '@types'
 import useLoggedInUser from '../../hooks/useLoggedInUser'
 
 import SummaryEmailTemplate from '../../templates/SummaryEmailTemplate'
