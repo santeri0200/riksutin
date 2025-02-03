@@ -1,6 +1,6 @@
 import { useMutation } from 'react-query'
 
-import { Locales } from '@backend/types'
+import type { Locales } from '@types'
 import { NewOption } from '@validators/options'
 
 import useSurvey from './useSurvey'

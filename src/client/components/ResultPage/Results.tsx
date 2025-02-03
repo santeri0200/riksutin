@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Box, Button, Typography } from '@mui/material'
 
 import { LOCATION_KEY } from '@config'
-import { RiskData } from '@frontend/types'
+import type { RiskData } from '@types'
 
 import RenderResults from './RenderResults'
 import SurveyButtons from '../Common/SurveyButtons'

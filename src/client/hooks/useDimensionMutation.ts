@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useMutation } from 'react-query'
 
-import { Locales } from '@backend/types'
+import type { Locales } from '@types'
 import { NewDimension } from '@validators/options'
 
 import useSurvey from './useSurvey'

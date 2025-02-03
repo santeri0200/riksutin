@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 
 import { FORM_DATA_KEY } from '@config'
-import { FormValues } from '@frontend/types'
+import type { FormValues } from '@types'
 
 interface ResultDataContextValue {
   resultData: FormValues

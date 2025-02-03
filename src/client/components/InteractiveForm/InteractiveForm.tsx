@@ -5,7 +5,7 @@ import { enqueueSnackbar } from 'notistack'
 import { Box, Grid } from '@mui/material'
 
 import { FORM_DATA_KEY, LOCATION_KEY } from '@config'
-import { FormValues, RiskData } from '@frontend/types'
+import type { FormValues, RiskData } from '@types'
 
 import useResults from '../../hooks/useResults'
 import useSurvey from '../../hooks/useSurvey'
