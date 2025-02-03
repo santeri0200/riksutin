@@ -1,4 +1,4 @@
-import { Info, Indicator } from './types'
+import type { Info, Indicator } from '@backend/types'
 import { fetchData, getLatestIndicator, riskLevelCheck } from './util'
 
 type Response = [Info, Indicator[]]
@@ -7,7 +7,7 @@ const getCountryIndicator = async (
   countryCode: string,
   indicatorCode: string
 ) => {
-  const [info, data]: Response = await fetchData(
+  const [_, data]: Response = await fetchData(
     `country/${countryCode}/indicator/${indicatorCode}`
   )
 

@@ -5,7 +5,8 @@ import { Box, Typography, Button } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { enqueueSnackbar } from 'notistack'
 
-import { Locales, Question } from '@backend/types'
+import type { Locales, Question } from '@types'
+import { UpdatedQuestion } from '@validators/questions'
 
 import {
   useDeleteQuestionMutation,
@@ -13,8 +14,6 @@ import {
 } from '../../../hooks/useQuestionMutation'
 
 import DeleteDialog from '../DeleteDialog'
-
-import { UpdatedQuestion } from '../../../../validators/questions'
 
 const QuestionItem = ({
   language,

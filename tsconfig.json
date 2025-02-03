@@ -1,35 +1,29 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "Node",
     "moduleDetection": "force",
     "allowJs": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "lib": ["es2022", "DOM", "DOM.Iterable", "esnext"],
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "noEmit": true,
     "strict": true,
-    "target": "esnext",
     "useDefineForClassFields": true,
     "strictNullChecks": false,
-    "noImplicitAny": false
-  },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }],
-  "ts-node": {
-    "esm": true,
-    "transpileOnly": true,
-    "files": true,
-    "experimentalResolver": true,
-    "compilerOptions": {
-      "module": "esnext",
-      "resolveJsonModule": false
+    "noImplicitAny": false,
+
+    "baseUrl": ".",
+    "paths": {
+      "@types": ["src/types.ts"],
+      "@frontend/types": ["src/client/types.ts"],
+      "@backend/types": ["src/server/types.ts"],
+      "@backend/db/models": ["src/server/db/models/index.ts"],
+
+      "@config": ["src/config.ts"],
+      "@validators/*": ["src/validators/*"]
     }
   }
 }

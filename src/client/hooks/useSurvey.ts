@@ -1,10 +1,9 @@
 import { useQuery } from 'react-query'
 
-import { DEFAULT_SURVEY_NAME } from '../../config'
+import { DEFAULT_SURVEY_NAME } from '@config'
+import { Survey } from '@frontend/types'
 
 import apiClient from '../util/apiClient'
-
-import { Survey } from '../types'
 
 const useSurvey = (name = DEFAULT_SURVEY_NAME) => {
   const queryKey = ['survey', name]

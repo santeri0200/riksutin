@@ -1,7 +1,6 @@
 import { Op } from 'sequelize'
 import { v4 as uuidv4 } from 'uuid'
 
-import { Question, Survey } from '../db/models'
 import {
   NewQuestion,
   NewQuestionZod,
@@ -9,7 +8,8 @@ import {
   UpdatedQuestionLocation,
   UpdatedQuestionLocationZod,
   UpdatedQuestionZod,
-} from '../../validators/questions'
+} from '@validators/questions'
+import { Question, Survey } from '../db/models'
 
 import { nextAvailablePriority } from '../util/question'
 

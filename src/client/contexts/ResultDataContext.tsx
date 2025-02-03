@@ -6,8 +6,8 @@ import React, {
   useState,
 } from 'react'
 
-import { FORM_DATA_KEY } from '../../config'
-import { FormValues } from '../types'
+import { FORM_DATA_KEY } from '@config'
+import type { FormValues } from '@types'
 
 interface ResultDataContextValue {
   resultData: FormValues
