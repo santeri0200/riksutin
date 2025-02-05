@@ -17,12 +17,9 @@ ARG STAGING
 ENV REACT_APP_STAGING=$STAGING
 
 # Setup
-COPY package* ./
-RUN npm ci -f --omit-dev --ignore-scripts
-COPY . .
-
-RUN npm run build
+COPY --chmod=776 . .
+RUN npm ci 
+RUN node_modules/.bin/vite build src/client/
 
 EXPOSE 8000
-
-CMD ["npm", "run", "start:prod"]
+ENTRYPOINT ["npm", "run", "start:test"]
