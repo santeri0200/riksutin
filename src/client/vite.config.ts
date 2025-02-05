@@ -4,6 +4,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  cacheDir: '../../node_modules/.vite',
   plugins: [react(), tsconfigPaths()],
   server: {
     proxy: {
