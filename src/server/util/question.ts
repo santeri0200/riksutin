@@ -1,4 +1,4 @@
-import { Question } from '../db/models'
+import { Question } from '@dbmodels'
 
 // eslint-disable-next-line import/prefer-default-export
 export const nextAvailablePriority = async (parentId: number | null) => {

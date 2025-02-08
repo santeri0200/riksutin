@@ -9,7 +9,7 @@ import {
   UpdatedQuestionLocationZod,
   UpdatedQuestionZod,
 } from '@validators/questions'
-import { Question, Survey } from '../db/models'
+import { Question, Survey } from '@dbmodels'
 
 import { nextAvailablePriority } from '../util/question'
 

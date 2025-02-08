@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Box, TextField, Autocomplete, Typography } from '@mui/material'
 
-import type { InputProps } from '@frontend/types'
+import type { InputProps } from '@client/types'
 
 import useOrganisations from '../../hooks/useOrganisations'
 import LoadingProgress from '../Common/LoadingProgress'

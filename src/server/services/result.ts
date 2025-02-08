@@ -4,7 +4,7 @@ import {
   UpdatedResult,
   UpdatedResultZod,
 } from '@validators/results'
-import { Result, Survey } from '../db/models'
+import { Result, Survey } from '@dbmodels'
 
 import NotFoundError from '../errors/NotFoundError'
 import ZodValidationError from '../errors/ValidationError'

@@ -8,15 +8,15 @@ import {
 import passport from 'passport'
 
 import { inE2EMode, inDevelopment, inAcualStaging } from '@config'
+import type { User as UserType } from '@types'
+import type { UserInfo } from '@server/types'
+import { User } from '@dbmodels'
 import {
   OIDC_ISSUER,
   OIDC_CLIENT_ID,
   OIDC_CLIENT_SECRET,
   OIDC_REDIRECT_URI,
 } from './config'
-import type { User as UserType } from '@types'
-import type { UserInfo } from '@backend/types'
-import { User } from '../db/models'
 
 const params = {
   claims: {

@@ -1,6 +1,6 @@
 import express from 'express'
 
-import type { RequestWithUser } from '@backend/types'
+import type { RequestWithUser } from '@server/types'
 
 import {
   createQuestion,

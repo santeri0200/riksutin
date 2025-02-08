@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { enqueueSnackbar } from 'notistack'
 
 import type { Locales } from '@types'
-import type { Survey } from '@frontend/types'
+import type { Survey } from '@client/types'
 import { UpdatedSurveyInfo } from '@validators/survey'
 
 import { useEditSurveyMutation } from '../../../hooks/useSurveyMutation'

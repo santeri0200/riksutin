@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 
 import type { Locales, SingleChoiceType } from '@types'
-import type { InputProps } from '@frontend/types'
+import type { InputProps } from '@client/types'
 
 const SingleChoice = ({
   control,

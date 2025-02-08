@@ -1,5 +1,5 @@
 import type { Faculty, Question } from '@types'
-import type { Entry } from '@frontend/types'
+import type { Entry } from '@client/types'
 
 export type TableValues = {
   [key: string]: string

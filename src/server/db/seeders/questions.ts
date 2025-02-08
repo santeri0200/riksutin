@@ -1,4 +1,4 @@
-import { Question } from '../models'
+import { Question } from '@dbmodels'
 import getQuestionData from '../../data/questions'
 
 const seedQuestions = async () => {

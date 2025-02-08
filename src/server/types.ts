@@ -1,7 +1,7 @@
 import type { BaseCountry, CountryData, Locales, RiskData, User } from '@types'
 
 import { Request } from 'express'
-import { Entry } from './db/models'
+import { Entry } from '@dbmodels'
 
 type Region = {
   id: string

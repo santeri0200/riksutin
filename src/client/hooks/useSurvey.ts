@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 
 import { DEFAULT_SURVEY_NAME } from '@config'
-import { Survey } from '@frontend/types'
+import { Survey } from '@client/types'
 
 import apiClient from '../util/apiClient'
 

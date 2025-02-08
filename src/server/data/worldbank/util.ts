@@ -1,4 +1,4 @@
-import type { Indicator } from '@backend/types'
+import type { Indicator } from '@server/types'
 import { set, get } from '../../util/redis'
 
 const baseUrl = 'https://api.worldbank.org/v2'

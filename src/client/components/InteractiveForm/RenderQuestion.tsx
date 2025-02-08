@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { Box, Typography } from '@mui/material'
 
 import type { Locales, PossibleChoiceTypes, Question } from '@types'
-import type { InputProps } from '@frontend/types'
+import type { InputProps } from '@client/types'
 
 import useLoggedInUser from '../../hooks/useLoggedInUser'
 import MultiChoice from '../QuestionTypes/MultiChoice'
