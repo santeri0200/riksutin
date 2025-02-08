@@ -6,7 +6,7 @@ import {
   UpdatedOption,
   UpdatedOptionZod,
 } from '@validators/options'
-import { Question, Result } from '../db/models'
+import { Question, Result } from '@dbmodels'
 
 import NotFoundError from '../errors/NotFoundError'
 import ZodValidationError from '../errors/ValidationError'

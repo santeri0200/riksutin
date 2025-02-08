@@ -1,5 +1,5 @@
 import type { FormValues, Risk } from '@types'
-import type { UpdatedCountryData } from '@backend/types'
+import type { UpdatedCountryData } from '@server/types'
 
 import { totalCountryRisk } from './utils'
 

@@ -5,7 +5,7 @@ import { Autocomplete, Box, Button, TextField, Typography } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 
 import type { Locales, Question } from '@types'
-import type { InputProps } from '@frontend/types'
+import type { InputProps } from '@client/types'
 
 import useCountry from '../../hooks/useCountryData'
 import LoadingProgress from '../Common/LoadingProgress'

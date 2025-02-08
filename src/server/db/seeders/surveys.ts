@@ -1,4 +1,4 @@
-import { Survey } from '../models'
+import { Survey } from '@dbmodels'
 import getSurveyData from '../../data/survey'
 
 const seedSurveys = async () => {

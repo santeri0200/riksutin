@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 
 import type { MultipleChoiceType, Locales } from '@types'
-import type { InputProps } from '@frontend/types'
+import type { InputProps } from '@client/types'
 
 const MultiChoice = ({ control, question, children, language }: InputProps) => {
   const { t } = useTranslation()

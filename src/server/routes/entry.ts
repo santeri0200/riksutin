@@ -1,8 +1,8 @@
 import express from 'express'
 
-import type { EntryValues, RequestWithUser } from '@backend/types'
+import type { EntryValues, RequestWithUser } from '@server/types'
 
-import { Entry } from '../db/models'
+import { Entry } from '@dbmodels'
 import { riskReEvaluation } from '../util/cron/riskReEvaluation/riskReEvaluation'
 import createRiskData from '../util/algorithm/createRiskData'
 import adminHandler from '../middleware/admin'

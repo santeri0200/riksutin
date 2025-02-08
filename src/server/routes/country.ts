@@ -1,7 +1,7 @@
 import express from 'express'
 
-import type { BaseCountry, CountryData } from '@types'
-import type { Info, FullCountry } from '@backend/types'
+import type { CountryData } from '@types'
+import type { Info, FullCountry } from '@server/types'
 
 import { getHighRiskCountries } from '../util/cron/highRiskCountries/highRiskCountries'
 import { get } from '../util/redis'

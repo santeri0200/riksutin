@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Box, Typography } from '@mui/material'
 
 import type { FormValues, Locales } from '@types'
-import type { Survey } from '@frontend/types'
+import type { Survey } from '@client/types'
 
 import { extraOrganisations } from '../../util/organisations'
 

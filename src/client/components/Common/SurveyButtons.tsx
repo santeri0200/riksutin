@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Stack } from '@mui/material'
 
-import type { InputProps } from '@frontend/types'
+import type { InputProps } from '@client/types'
 
 import ResetForm from './ResetForm'
 

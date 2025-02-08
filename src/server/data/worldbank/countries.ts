@@ -1,4 +1,4 @@
-import type { Info, FullCountry } from '@backend/types'
+import type { Info, FullCountry } from '@server/types'
 import { fetchData } from './util'
 
 type Response = [Info, FullCountry[]]

@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 
 import type { Faculty, Locales } from '@types'
-import type { InputProps } from '@frontend/types'
+import type { InputProps } from '@client/types'
 
 import useFaculties from '../../hooks/useFaculties'
 import useUserFaculties from '../../hooks/useUserFaculties'

@@ -1,4 +1,4 @@
-import { Result } from '../models'
+import { Result } from '@dbmodels'
 import getResultData from '../../data/results'
 
 const seedResults = async () => {

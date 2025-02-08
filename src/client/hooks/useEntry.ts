@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 
-import type { Entry } from '@frontend/types'
+import type { Entry } from '@client/types'
 
 import apiClient from '../util/apiClient'
 

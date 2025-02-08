@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import type { PersistForm } from '@frontend/types'
+import type { PersistForm } from '@client/types'
 
 const usePersistForm = ({ value, sessionStorageKey }: PersistForm) =>
   useEffect(() => {

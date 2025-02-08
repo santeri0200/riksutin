@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Box, TextField } from '@mui/material'
 
-import type { InputProps } from '@frontend/types'
+import type { InputProps } from '@client/types'
 
 const Text = ({ control, question, defaultValue }: InputProps) => {
   const { t } = useTranslation()

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import type { OrganisationData } from '@backend/types'
+import type { OrganisationData } from '@server/types'
 
 import { JAMI_URL, API_TOKEN } from './config'
 

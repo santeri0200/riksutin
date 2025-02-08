@@ -1,4 +1,4 @@
-import type { Info, Indicator } from '@backend/types'
+import type { Info, Indicator } from '@server/types'
 import { fetchData, getLatestIndicator, riskLevelCheck } from './util'
 
 type Response = [Info, Indicator[]]

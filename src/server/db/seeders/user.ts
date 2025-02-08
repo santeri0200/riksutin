@@ -1,4 +1,4 @@
-import { User } from '../models'
+import { User } from '@dbmodels'
 
 const user = {
   id: 'hy-hlo-1441871',
