@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import type { OrganisationData } from '@server/types'
 
-import { JAMI_URL, API_TOKEN } from './config'
+import { JAMI_URL, API_TOKEN } from '@server/config'
 
 export const jamiClient = axios.create({
   baseURL: JAMI_URL,

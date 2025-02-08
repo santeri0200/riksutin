@@ -23,6 +23,7 @@
       "@dbmodels": ["src/server/db/models/index.ts"],
 
       "@config": ["src/config.ts"],
+      "@server/config": ["src/server/util/config.ts"],
       "@validators/*": ["src/validators/*"]
     }
   }

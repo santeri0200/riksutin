@@ -1,7 +1,7 @@
 import Redis from 'ioredis'
 import RedisStore from 'connect-redis'
 
-import { REDIS_HOST } from './config'
+import { REDIS_HOST } from '@server/config'
 
 const ttl = 60 * 60 * 24 * 30 // 30 days
 

@@ -9,7 +9,7 @@ import session from 'express-session'
 import passport from 'passport'
 
 import { inE2EMode, inProduction } from '@config'
-import { PORT, SESSION_SECRET } from './util/config'
+import { PORT, SESSION_SECRET } from '@server/config'
 import { redisStore } from './util/redis'
 import logger from './util/logger'
 import router from './routes'

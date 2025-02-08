@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import { inProduction, appName } from '@config'
-import { PATE_URL } from '../util/config'
+import { PATE_URL } from '@server/config'
 
 const settings = {
   hideToska: false,
