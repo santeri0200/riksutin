@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {
@@ -22,7 +22,7 @@ interface QuestionMenuProps {
 const QuestionItemMenu = ({ question }: QuestionMenuProps) => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 
   const open = Boolean(anchorEl)
 

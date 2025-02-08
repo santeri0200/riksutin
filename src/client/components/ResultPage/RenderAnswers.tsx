@@ -1,5 +1,4 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box, Typography } from '@mui/material'
 

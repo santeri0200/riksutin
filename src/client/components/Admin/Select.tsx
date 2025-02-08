@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {

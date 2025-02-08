@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { Locales } from '@types'
 
 const SummaryEmailTemplate = ({ language }: { language: keyof Locales }) => {

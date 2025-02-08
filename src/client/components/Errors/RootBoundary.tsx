@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 
 import * as Sentry from '@sentry/browser'

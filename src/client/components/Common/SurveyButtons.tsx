@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Stack } from '@mui/material'
 
 import type { InputProps } from '@client/types'
