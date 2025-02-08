@@ -1,5 +1,4 @@
 /* eslint-disable react/require-default-props */
-import React from 'react'
 import { Box, TableCell, TableRow } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import Markdown from '../Common/Markdown'

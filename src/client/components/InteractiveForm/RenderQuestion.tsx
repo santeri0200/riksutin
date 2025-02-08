@@ -1,5 +1,4 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react'
 import { UseFormWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 

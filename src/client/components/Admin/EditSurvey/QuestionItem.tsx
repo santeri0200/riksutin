@@ -1,4 +1,3 @@
-import React from 'react'
 import { enqueueSnackbar } from 'notistack'
 import { useTranslation } from 'react-i18next'
 import {

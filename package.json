@@ -76,7 +76,8 @@
           "ignoreRestSiblings": true,
           "varsIgnorePattern": "^_"
         }
-      ]
+      ],
+      "react/react-in-jsx-scope": "off"
     }
   },
   "prettier": {

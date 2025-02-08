@@ -1,4 +1,4 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -15,12 +15,12 @@ initializeI18n()
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <QueryClientProvider client={queryClient}>
       <CssBaseline>
         <Router />
       </CssBaseline>
       <ReactQueryDevtools position="bottom-right" />
     </QueryClientProvider>
-  </React.StrictMode>
+  </StrictMode>
 )

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import MDEditor from '@uiw/react-md-editor'
 import { Box, Typography, Button } from '@mui/material'
 import { useTranslation } from 'react-i18next'

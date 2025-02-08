@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable no-nested-ternary */
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import {
   MRT_Row,
   MaterialReactTable,
