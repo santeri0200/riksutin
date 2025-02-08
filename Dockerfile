@@ -27,6 +27,5 @@ COPY --chmod=776 . .
 RUN npm ci 
 RUN node_modules/.bin/vite build src/client/
 
-EXPOSE 3000
 EXPOSE 8000
-ENTRYPOINT ["npm", "run", "start:test"]
+CMD ["npm", "run", "start:test"]
