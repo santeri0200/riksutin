@@ -22,12 +22,10 @@ ENV DATABASE_URL=${DATABASE_URL}
 ARG REDIS_HOST
 ENV REDIS_HOST=${REDIS_HOST}
 
-RUN echo $REACT_APP_E2E
-
 # HACK: We give the files xrw rights as vite can't read it's config.
 COPY --chmod=776 . .
 RUN npm ci 
 RUN node_modules/.bin/vite build src/client/
 
 EXPOSE 8000
-CMD ["npm", "run", "start:test"]
+CMD ["npm", "run", "start:prod"]
