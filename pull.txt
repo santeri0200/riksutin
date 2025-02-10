@@ -1,0 +1,107 @@
+name: Run tests on pull request
+
+on:
+  push:
+    branches: [rebuild-ci, ci-test]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build_server:
+    runs-on: ubuntu-latest
+    name: Build server
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build server
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: server:latest
+          outputs: type=docker,dest=/tmp/server.tar
+          build-args:
+            E2E="true"
+        env:
+          DOCKER_BUILD_SUMMARY: false
+      - name: Upload server
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-image
+          path: /tmp/server.tar
+  
+  setup_services:
+    runs-on: ubuntu-latest
+    name: Setup services
+    needs:
+      - build_server
+
+    services:
+      db:
+        image: postgres:15.7
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        # Set health checks to wait until redis has started
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download server
+        uses: actions/download-artifact@v4
+        with:
+          name: server-image
+      - name: Load server
+        run: docker load < server.tar
+      - name: Run server
+        run: docker run -d --network host -p 8000:8000 --name server server
+
+      - name: Wait for server container
+        run: |
+          until docker inspect -f '{{.State.Health.Status}}' server | grep -q "healthy"; do
+            sleep 1
+          done
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          CI: true
+
+      - name: Server logs
+        if: failure()
+        run: docker logs server -t --tail=100
+
+      - name: Postgres logs
+        if: failure()
+        run: docker logs "${{ job.services.db.id }}"
+
+      - name: Inspect server
+        if: failure()
+        run: docker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}{{$key}} {{end}}' server
+
+      - name: Run-down server
+        if: always()
+        run: docker stop server

@@ -3,8 +3,7 @@ version: '3.5'
 services:
   app:
     build:
-      context: ./
-      dockerfile: dev.Dockerfile
+      context: .
     image: riksutin_dev
     environment:
       - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres

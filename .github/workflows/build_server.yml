@@ -1,0 +1,54 @@
+name: Build and setup server
+
+on:
+  workflow_call:
+    inputs:
+      PUSH:
+        required: true
+        type: boolean
+      BASE_PATH:
+        required: false
+        type: string
+      GIT_SHA:
+        required: false
+        type: string
+      STAGING:
+        required: false
+        type: boolean
+      E2E:
+        required: false
+        type: boolean
+
+jobs:
+  build_server:
+    name: Setup server
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build server
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          build-args: |
+            DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres
+            REDIS_HOST=localhost
+            GIT_SHA=${{ inputs.GIT_SHA }}
+            BASE_PATH=${{ inputs.BASE_PATH }}
+            E2E=${{ inputs.E2E }}
+            STAGING=${{ inputs.STAGING }}
+          push: ${{ inputs.PUSH }}
+          tags: server:latest
+          outputs: type=docker,dest=${{ runner.temp }}/server.tar
+        env:
+          DOCKER_BUILD_SUMMARY: false
+
+      - if: ${{ !inputs.PUSH }}
+        name: Upload server artifacts to runner
+        uses: actions/upload-artifact@v4
+        with:
+          retention-days: 1
+          name: server-image
+          path: ${{ runner.temp }}/server.tar
