@@ -23,7 +23,7 @@ ARG REDIS_HOST
 ENV REDIS_HOST=${REDIS_HOST}
 
 COPY package* ./
-RUN npm ci -f --omit-dev --ignore-scripts --workspaces
+RUN npm ci
 COPY . .
 
 EXPOSE 8000
