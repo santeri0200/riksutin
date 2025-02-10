@@ -23,6 +23,8 @@ ARG REDIS_HOST
 ENV REDIS_HOST=${REDIS_HOST}
 
 COPY package* ./
+COPY src/client/package.json ./src/client/
+COPY src/server/package.json ./src/server/
 RUN npm ci
 COPY . .
 
