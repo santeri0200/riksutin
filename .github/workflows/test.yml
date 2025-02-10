@@ -80,7 +80,7 @@ jobs:
 
       - name: Postgres logs
         if: failure()
-        run: docker logs ${{ job.services.postgres.id }} -t
+        run: docker logs ${{ job.services.db.id }} -t
 
       - name: Run-down server
         if: always()
