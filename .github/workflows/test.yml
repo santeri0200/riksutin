@@ -75,6 +75,10 @@ jobs:
         if: failure()
         run: docker logs server -t --tail=500
 
+      - name: Postgres logs
+        if: failure()
+        run: docker logs ${{ jobs.run_tests.services.postgres.id }} -t --tail=500
+
       - name: Run-down server
         if: always()
         run: docker stop server
