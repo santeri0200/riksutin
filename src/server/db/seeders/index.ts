@@ -5,9 +5,6 @@ import seedResults from './results'
 import seedUsers from './user'
 
 const seed = async () => {
-  // eslint-disable-next-line no-promise-executor-return
-  await new Promise<void>((resolve) => setTimeout(() => resolve(), 1_000))
-
   try {
     await seedSurveys()
     await seedQuestions()
