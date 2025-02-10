@@ -15,7 +15,7 @@ jobs:
     uses: ./.github/workflows/build_server.yml
     with:
       PUSH: false
-      E2E: "true"
+      E2E: true
 
   run_tests:
     name: Run tests
