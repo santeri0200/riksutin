@@ -73,7 +73,7 @@ jobs:
 
       - name: Server logs
         if: failure()
-        run: docker logs server -t --tail=100
+        run: docker logs server -t --tail=500
 
       - name: Run-down server
         if: always()
