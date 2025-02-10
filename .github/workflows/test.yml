@@ -64,7 +64,6 @@ jobs:
         run: npm ci
 
       - name: Server inter-logs
-        if: failure()
         run: docker logs server -t
 
       - name: Install Playwright Browsers
