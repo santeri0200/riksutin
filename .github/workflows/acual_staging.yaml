@@ -1,8 +1,9 @@
 name: Test and deploy to staging
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - master
 
 jobs:
   test:
@@ -20,7 +21,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           image: riksutin
-          tags: staging ${{ github.sha }}
+          tags: acual_staging ${{ github.sha }}
           containerfiles: |
             ./Dockerfile
           build-args: |
