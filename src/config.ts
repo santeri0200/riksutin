@@ -8,6 +8,8 @@ export const inDevelopment = process.env.NODE_ENV === 'development'
 
 export const inStaging = process.env.REACT_APP_STAGING === 'true'
 
+export const inAcualStaging = process.env.ACUAL_STAGING || false
+
 export const inProduction = !inStaging && process.env.NODE_ENV === 'production'
 
 export const inE2EMode = process.env.REACT_APP_E2E === 'true'

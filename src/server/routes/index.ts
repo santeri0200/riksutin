@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import { Handlers as SentryHandlers } from '@sentry/node'
 
-import { inDevelopment, inE2EMode } from '../../config'
+import { inDevelopment, inE2EMode, inAcualStaging } from '../../config'
 import userMiddleware from '../middleware/user'
 import initializeSentry from '../util/sentry'
 import errorHandler from '../middleware/error'
@@ -28,7 +28,7 @@ router.use(SentryHandlers.tracingHandler())
 router.use(cors())
 router.use(express.json())
 
-if (inDevelopment || inE2EMode) router.use(userMiddleware)
+if (inDevelopment || inE2EMode || inAcualStaging) router.use(userMiddleware)
 
 router.use(accessLogger)
 

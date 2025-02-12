@@ -28,6 +28,7 @@ jobs:
             BASE_PATH=
             GIT_SHA=${{ github.sha }}
             STAGING=true
+            ACUAL_STAGING=true
 
       - name: Push to quay.io
         uses: redhat-actions/push-to-registry@v2
