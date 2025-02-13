@@ -21,7 +21,7 @@ const initializeI18n = () =>
     defaultNS: 'common',
   })
 
-// eslint-disable-next-line
+// eslint-disable-next-line no-underscore-dangle
 window.__i18n__ = i18n
 
 export default initializeI18n

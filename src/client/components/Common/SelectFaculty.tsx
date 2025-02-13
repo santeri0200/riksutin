@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -17,7 +16,6 @@ import type { InputProps } from '@client/types'
 import useFaculties from '../../hooks/useFaculties'
 import useUserFaculties from '../../hooks/useUserFaculties'
 
-import Markdown from './Markdown'
 import ShowMore from './ShowMore'
 
 import { extraOrganisations, organisationInfos } from '../../util/organisations'
@@ -35,7 +33,7 @@ const sortFaculties = (faculties: Faculty[], language: keyof Locales) => {
   return sortedFaculties
 }
 
-const { cardStyles, formStyles } = styles
+const { cardStyles } = styles
 
 const FacultyInfo = ({ faculty }: { faculty: Faculty | undefined }) => {
   const { t, i18n } = useTranslation()

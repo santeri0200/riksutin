@@ -29,10 +29,7 @@ const HighRiskCountrySelect = ({ control, question, children }: InputProps) => {
               multiple
               disablePortal
               id={`select-${question.id.toString()}`}
-              options={
-                // eslint-disable-next-line no-nested-ternary
-                countries.map((country) => country.name)
-              }
+              options={countries.map((country) => country.name)}
               getOptionLabel={(option) => option}
               onChange={(e, data) => onChange(data)}
               sx={{ width: '50%' }}

@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import logger from '../../logger'
 import scheduleCronJob from '../schedule'
 import { getCountries, getCountryData } from '../../../routes/country'
@@ -28,6 +27,7 @@ export const getHighRiskCountries = async () => {
   const countries = await getCountries()
   const highRiskCountries = []
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const country of countries) {
     // eslint-disable-next-line no-await-in-loop
     const totalRisk = await calculateTotalRisk(country.iso2Code)

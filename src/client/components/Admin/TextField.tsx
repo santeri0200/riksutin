@@ -15,7 +15,6 @@ export const DialogLocalesField = ({
   value,
   inputlabel,
   control,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   error,
 }: {
   value: string

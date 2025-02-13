@@ -1,7 +1,6 @@
 import path, { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'express-async-errors'
 import express from 'express'
 import session from 'express-session'

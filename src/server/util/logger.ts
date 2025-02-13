@@ -13,9 +13,8 @@ transports.push(new winston.transports.File({ filename: 'debug.log' }))
 
 if (!inProduction) {
   const devFormat = printf(
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    ({ level, message, timestamp, ...rest }) =>
-      `${timestamp} ${level}: ${message} ${JSON.stringify(rest)}`
+    ({ level, message, timestamp: time, ...rest }) =>
+      `${time} ${level}: ${message} ${JSON.stringify(rest)}`
   )
 
   transports.push(

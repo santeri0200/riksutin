@@ -1,6 +1,5 @@
 import { Question } from '@dbmodels'
 
-// eslint-disable-next-line import/prefer-default-export
 export const nextAvailablePriority = async (parentId: number | null) => {
   let result = 1
 
@@ -14,3 +13,5 @@ export const nextAvailablePriority = async (parentId: number | null) => {
 
   return result
 }
+
+export default nextAvailablePriority

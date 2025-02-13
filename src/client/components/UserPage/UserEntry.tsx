@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { useState } from 'react'
 import { Box, Button, Tab, Tabs } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
@@ -85,6 +84,7 @@ const UserEntry = () => {
           {updatedData &&
             updatedData.map((updated, index) => (
               <Tab
+                /* eslint-disable-next-line react/no-array-index-key */
                 key={index}
                 sx={{ color: 'black' }}
                 label={formatDate(updated.createdAt)}
@@ -98,6 +98,7 @@ const UserEntry = () => {
       </TabPanel>
       {updatedData &&
         updatedData.map((updated, index) => (
+          /* eslint-disable-next-line react/no-array-index-key */
           <TabPanel key={index} value={tabValue} index={index + 1}>
             <RiskTable riskData={updated} countryData={country[0]} />
           </TabPanel>

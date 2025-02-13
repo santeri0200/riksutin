@@ -1,7 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unstable-nested-components */
-/* eslint-disable no-nested-ternary */
 import { useMemo, useState } from 'react'
 import {
   MRT_Row,
@@ -122,7 +120,7 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
     writeFile(workbook, fileName, { compression: true })
   }
 
-  const table = useMaterialReactTable({
+  const tableInstance = useMaterialReactTable({
     columns,
     data: tableValues,
     enableColumnOrdering: true,
@@ -154,7 +152,6 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
       columnOrder,
     },
     onColumnOrderChange: setColumnOrder,
-    // eslint-disable-next-line @typescript-eslint/no-shadow
     renderTopToolbarCustomActions: ({ table }) => (
       <Box
         sx={{
@@ -178,7 +175,7 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
     ),
   })
 
-  return <MaterialReactTable table={table} />
+  return <MaterialReactTable table={tableInstance} />
 }
 
 const Summary = () => {

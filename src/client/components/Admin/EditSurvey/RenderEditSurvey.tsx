@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Box, Typography } from '@mui/material'
 

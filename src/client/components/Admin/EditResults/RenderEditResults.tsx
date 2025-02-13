@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import { Outlet } from 'react-router-dom'
 import { Box } from '@mui/material'
 

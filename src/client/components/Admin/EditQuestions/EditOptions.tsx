@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { useState, useEffect } from 'react'
 import MDEditor from '@uiw/react-md-editor'
 import { Box, Typography, Button } from '@mui/material'
