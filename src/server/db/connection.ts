@@ -20,6 +20,7 @@ export type Migration = typeof umzug._types.migration
 const runMigrations = async () => {
   const migrations = await umzug.up()
 
+  console.log('Migrations up to date')
   logger.info('Migrations up to date', {
     migrations,
   })
