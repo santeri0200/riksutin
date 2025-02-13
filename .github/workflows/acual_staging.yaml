@@ -2,8 +2,7 @@ name: Test and deploy to acual_staging
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
   test:
