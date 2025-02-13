@@ -1,10 +1,15 @@
-import fs from 'fs'
+import fs from 'node:fs'
+import path, { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { parse } from 'csv-parse/sync'
 
 const parseHumanDevelopment = (name: string | undefined) => {
   if (!name) return null
 
-  const filePath = './src/server/data/humanDevelopment/humanDevelopment.csv'
+  const filePath = path.resolve(
+    dirname(fileURLToPath(import.meta.url)),
+    'humanDevelopment.csv'
+  )
   const fileContents = fs.readFileSync(filePath, 'utf8')
   const records: any[] = parse(fileContents, { delimiter: ',' })
 

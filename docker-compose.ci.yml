@@ -6,9 +6,11 @@ services:
       context: .
       args:
         - E2E=true
+        - NPM_COMMAND=start:test
     environment:
       - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
-    command: ['npm', 'run', 'start:test']
+    volumes:
+      - ./:/opt/app-root/src
     ports:
       - 8000:8000
     container_name: riksutin_test

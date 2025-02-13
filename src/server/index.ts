@@ -1,5 +1,4 @@
-import path from 'path'
-import { dirname } from 'node:path'
+import path, { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 // eslint-disable-next-line import/no-extraneous-dependencies
