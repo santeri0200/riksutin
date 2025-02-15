@@ -11,9 +11,7 @@ const createRiskData = async (formData: FormValues) => {
   const questions = await getQuestions('1')
 
   const selectedCountry: string = formData['8']
-  const selectedCountryCode = countries?.find(
-    (country) => country.name === selectedCountry
-  )?.iso2Code
+  const selectedCountryCode = countries.find(country => country.name === selectedCountry)?.iso2Code
 
   const countryData = await getCountryData(selectedCountryCode)
 

@@ -6,9 +6,10 @@ import type { Locales } from '@types'
 
 import useSurvey from '../../hooks/useSurvey'
 import useQuestions from '../../hooks/useQuestions'
+import useResults from '../../hooks/useResults'
 
 import sortQuestions from '../../util/questions'
-import useResults from '../../hooks/useResults'
+import sortResults from '../../util/results'
 
 type HandleChange = (event: SelectChangeEvent) => void
 
@@ -40,6 +41,7 @@ export const ResultSelect = () => {
 
   const { resultId } = useParams()
   const { results } = useResults(1)
+  if (!results) return null
 
   const handleResultChange = (event: SelectChangeEvent) => {
     navigate({
@@ -49,14 +51,11 @@ export const ResultSelect = () => {
   }
 
   const language = i18n.language as keyof Locales
-
-  if (!results) return null
-
-  results.sort((a, b) => a.data.title[language].localeCompare(b.data.title[language]))
+  const sortedResults = sortResults(results, language)
 
   return (
     <SelectWrapper label="Valitse tulosteksti" value={resultId ?? ''} handleChange={handleResultChange}>
-      {results.map(({ id, data }) => (
+      {sortedResults.map(({ id, data }) => (
         <MenuItem key={id} value={id}>
           {data.title[language]}
         </MenuItem>
@@ -73,6 +72,7 @@ export const QuestionSelect = () => {
 
   const { survey } = useSurvey()
   const { questions, isSuccess } = useQuestions(survey?.id)
+  if (!isSuccess || !questions) return null
 
   const handleQuestionChange = (event: SelectChangeEvent) => {
     navigate({
@@ -81,11 +81,9 @@ export const QuestionSelect = () => {
     })
   }
 
-  const language = i18n.language as keyof Locales
-
-  if (!isSuccess || !questions) return null
-
   const filteredQuestions = questions.filter(({ optionData }) => !['dimensions'].includes(optionData.type))
+
+  const language = i18n.language as keyof Locales
   const sortedQuestions = sortQuestions(filteredQuestions, language)
 
   return (

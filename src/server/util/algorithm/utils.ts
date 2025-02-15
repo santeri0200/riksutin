@@ -27,7 +27,7 @@ export const totalCountryRisk = (updatedCountryData: UpdatedCountryData | undefi
 
   const { code, createdAt, universities, gdpr, ...numberRisks } = updatedCountryData
 
-  const countryRisksFiltered: number[] = Object.values(numberRisks).concat(gdpr)
+  const countryRisksFiltered: number[] = gdpr ? Object.values(numberRisks).concat(gdpr) : Object.values(numberRisks)
 
   if (!countryRisksFiltered || countryRisksFiltered.length === 0) return null
 

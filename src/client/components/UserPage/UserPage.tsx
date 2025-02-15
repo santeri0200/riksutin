@@ -25,9 +25,7 @@ const UserPage = () => {
   const mutation = useUpdateEntryRisks()
   const [updateButtonClicked, setUpdateButtonClicked] = useState('')
 
-  const entriesWithData = entries?.filter(
-    (entry) => entry.data.answers && entry.data.country && entry.data.risks
-  )
+  const entriesWithData = entries?.filter(entry => entry.data.answers && entry.data.country && entry.data.risks)
 
   const handleUpdateRiskAssessment = async (entryId: string) => {
     setUpdateButtonClicked(entryId)
@@ -67,22 +65,17 @@ const UserPage = () => {
             <TableRow>
               <TableCell>{t('userPage:projectName')}</TableCell>
               <TableCell>{t('userPage:tableDate')}</TableCell>
-              <TableCell align="center">
-                {t('userPage:tableTotalRiskLevel')}
-              </TableCell>
+              <TableCell align="center">{t('userPage:tableTotalRiskLevel')}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {entriesWithData.map((entry) => (
+            {entriesWithData.map(entry => (
               <TableRow key={entry.id} data-testid="entrybox">
                 <TableCell component="th" scope="row">
-                  <Link to={`/user/${entry.id.toString()}`}>
-                    {entry.data.answers['3']}
-                  </Link>
+                  <Link to={`/user/${entry.id.toString()}`}>{entry.data.answers['3']}</Link>
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  {new Date(entry.createdAt).toLocaleDateString()}{' '}
-                  {new Date(entry.createdAt).toLocaleTimeString()}
+                  {new Date(entry.createdAt).toLocaleDateString()} {new Date(entry.createdAt).toLocaleTimeString()}
                 </TableCell>
                 <TableCell
                   align="center"
@@ -97,25 +90,17 @@ const UserPage = () => {
                     sx={[
                       {
                         backgroundColor:
-                          riskColors[
-                            entry.data.risks.find((r) => r.id === 'total')
-                              ?.level > 3
-                              ? 3
-                              : entry.data.risks.find((r) => r.id === 'total')
-                                  ?.level
-                          ],
+                          riskColors[Math.min(3, entry.data.risks.find(r => r.id === 'total')?.level ?? 9000)],
                       },
                       resultStyles.tableCell,
                     ]}
                   >
-                    {entry.data.risks.find((r) => r.id === 'total')?.level}
+                    {entry.data.risks.find(r => r.id === 'total')?.level}
                   </Box>
                 </TableCell>
                 <TableCell colSpan={2}>
                   <Button
-                    onClick={() =>
-                      handleUpdateRiskAssessment(entry.id.toString())
-                    }
+                    onClick={() => handleUpdateRiskAssessment(entry.id.toString())}
                     disabled={updateButtonClicked === entry.id.toString()}
                   >
                     {t('userPage:updateRiskAssessment')}

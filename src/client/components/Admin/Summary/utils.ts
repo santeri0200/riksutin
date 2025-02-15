@@ -2,7 +2,7 @@ import type { Faculty, Question } from '@types'
 import type { Entry } from '@client/types'
 
 export type TableValues = {
-  [key: string]: string
+  [key: string]: string | undefined
 }
 
 const createTableData = (entries: Entry[], questions: Question[], faculties: Faculty[]) => {

@@ -12,7 +12,7 @@ const fetchData = async (countryName: string) => {
   const url = `${baseUrl}/results_institutions.php`
   const key = `${url}?country=${countryName}`
 
-  const cached = await get(key)
+  const cached: string | null = await get(key)
   if (cached) return cached
 
   const formdata = new FormData()
@@ -36,15 +36,16 @@ const parseHTML = (html: string): string[] => {
   const { JSDOM } = jsdom
   const dom = new JSDOM(html)
 
-  const universities = dom.window.document.querySelectorAll('h3')
-
   const filterList = ['Sort by:', 'Results per page:']
+  const universities = dom.window.document.querySelectorAll('h3')
 
   const universityNames = [...universities]
     .map(university => university?.textContent?.trim())
-    .filter(name => name && !filterList.includes(name))
+    .filter(name => !!name) as string[]
 
-  return universityNames
+  const filteredUniversityNames = universityNames.filter(name => !filterList.includes(name))
+
+  return filteredUniversityNames
 }
 
 const getCountryUniversities = async (countryName: string | undefined) => {

@@ -21,7 +21,10 @@ const calculateTotalRisk = async (countryCode: string) => {
 export const getHighRiskCountries = async () => {
   logger.info('Calculating risk level 3 countries')
   const countries = await getCountries()
-  const highRiskCountries = []
+  const highRiskCountries: {
+    name: string
+    iso2Code: string
+  }[] = []
 
   for (const country of countries) {
     const totalRisk = await calculateTotalRisk(country.iso2Code)

@@ -7,14 +7,13 @@ import { inProduction } from '@config'
 
 const { combine, timestamp, printf, splat } = winston.format
 
-const transports = []
+const transports: winston.transport[] = []
 
 transports.push(new winston.transports.File({ filename: 'debug.log' }))
 
 if (!inProduction) {
   const devFormat = printf(
-    ({ level, message, timestamp: time, ...rest }) =>
-      `${time} ${level}: ${message} ${JSON.stringify(rest)}`
+    ({ level, message, timestamp: time, ...rest }) => `${time} ${level}: ${message} ${JSON.stringify(rest)}`
   )
 
   transports.push(

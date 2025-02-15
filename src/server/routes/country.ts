@@ -63,10 +63,12 @@ export const getCountryData = async (code: string | undefined): Promise<CountryD
 const countryRouter = express.Router()
 
 countryRouter.get('/highrisk', async (req, res: any) => {
-  const cached: {
-    name: string
-    code: string
-  }[] = await get('high risk countries')
+  const cached = await get<
+    {
+      name: string
+      code: string
+    }[]
+  >('high risk countries')
 
   if (cached) return res.status(200).send(cached)
 
