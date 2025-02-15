@@ -12,7 +12,6 @@
     "noEmit": true,
     "strict": true,
     "useDefineForClassFields": true,
-    "strictNullChecks": false,
     "noImplicitAny": false,
 
     "baseUrl": ".",
