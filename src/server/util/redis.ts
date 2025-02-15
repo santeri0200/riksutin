@@ -1,5 +1,5 @@
 import Redis from 'ioredis'
-import RedisStore from 'connect-redis'
+import { RedisStore } from 'connect-redis'
 
 import { REDIS_HOST } from '@server/config'
 
@@ -10,7 +10,7 @@ export const redis = new Redis({
   port: 6379,
 })
 
-export const redisStore = new (RedisStore as any)({
+export const redisStore = new RedisStore({
   client: redis,
 })
 
