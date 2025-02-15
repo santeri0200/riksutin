@@ -1,12 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-unstable-nested-components */
 import { useMemo, useState } from 'react'
-import {
-  MRT_Row,
-  MaterialReactTable,
-  useMaterialReactTable,
-  type MRT_ColumnDef,
-} from 'material-react-table'
+import { MRT_Row, MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef } from 'material-react-table'
 import { Box, Button, IconButton, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
@@ -43,10 +36,8 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
   const columns = useMemo<MRT_ColumnDef<TableValues>[]>(
     () =>
       tableValues.length
-        ? Object.keys(tableValues[0]).map((columnId) => ({
-            header:
-              (questionTitles[columnId] || additionalColumnNames[columnId]) ??
-              columnId,
+        ? Object.keys(tableValues[0]).map(columnId => ({
+            header: (questionTitles[columnId] || additionalColumnNames[columnId]) ?? columnId,
             accessorKey: columnId,
             id: columnId,
             Cell: ({ cell, row }) => (
@@ -54,8 +45,7 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
                 component="span"
                 sx={() => ({
                   ...(columnId === 'total' && {
-                    backgroundColor:
-                      riskColors[cell.getValue<number>()] ?? riskColors[3],
+                    backgroundColor: riskColors[cell.getValue<number>()] ?? riskColors[3],
                     borderRadius: '0.25rem',
                     fontWeight: 'bold',
                     p: '0.75rem',
@@ -63,9 +53,7 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
                 })}
               >
                 {columnId === '3' ? (
-                  <Link to={`/admin/entry/${row.getValue('id')}`}>
-                    {cell.getValue<string>()}
-                  </Link>
+                  <Link to={`/admin/entry/${row.getValue('id')}`}>{cell.getValue<string>()}</Link>
                 ) : (
                   cell.getValue<number>()
                 )}
@@ -78,16 +66,7 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
 
   const columnIds = Object.keys(tableValues[0])
 
-  const [columnOrder, setColumnOrder] = useState([
-    '3',
-    'date',
-    'total',
-    '1',
-    'faculty',
-    ...columnIds,
-  ])
-
-  if (!columnOrder) return null
+  const [columnOrder, setColumnOrder] = useState(['3', 'date', 'total', '1', 'faculty', ...columnIds])
 
   const handleDeleteRiskAssessment = (row: MRT_Row<TableValues>) => {
     // eslint-disable-next-line no-alert
@@ -108,12 +87,8 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
     }${date.getFullYear()}_${date.getHours()}${date.getMinutes()}${date.getSeconds()}`
     const fileName = `risk_i_summary_${timeStamp}.xlsx`
 
-    const data = rows.map((r) => Object.values(r.original))
-    const sheetData = [
-      Object.values(questionTitles).concat(
-        Object.values(additionalColumnNames)
-      ),
-    ].concat(data)
+    const data = rows.map(r => Object.values(r.original))
+    const sheetData = [Object.values(questionTitles).concat(Object.values(additionalColumnNames))].concat(data)
     const worksheet = utils.json_to_sheet(sheetData)
     const workbook = utils.book_new()
     utils.book_append_sheet(workbook, worksheet, 'Riskiarviot')
@@ -163,9 +138,7 @@ const Table = ({ tableValues, questionTitles }: TableProps) => {
       >
         <Button
           disabled={table.getPrePaginationRowModel().rows.length === 0}
-          onClick={() =>
-            handleExportRows(table.getPrePaginationRowModel().rows)
-          }
+          onClick={() => handleExportRows(table.getPrePaginationRowModel().rows)}
           startIcon={<FileDownloadIcon />}
           variant="outlined"
         >
@@ -187,9 +160,7 @@ const Summary = () => {
 
   const organisations = faculties.concat(extraOrganisations)
 
-  const entriesWithData = entries.filter(
-    (entry) => entry.data.answers && entry.data.country && entry.data.risks
-  )
+  const entriesWithData = entries.filter(entry => entry.data.answers && entry.data.country && entry.data.risks)
 
   if (entriesWithData.length === 0)
     return (
@@ -202,9 +173,7 @@ const Summary = () => {
 
   const tableData = createTableData(entriesWithData, questions, organisations)
 
-  const questionTitles = Object.fromEntries(
-    questions.map((q) => [q.id.toString(), q.title.fi])
-  )
+  const questionTitles = Object.fromEntries(questions.map(q => [q.id.toString(), q.title.fi]))
 
   return (
     <>

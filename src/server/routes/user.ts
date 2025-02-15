@@ -4,12 +4,8 @@ import type { RequestWithUser } from '@server/types'
 
 const userRouter = express.Router()
 
-userRouter.get('/', async (req: RequestWithUser, res: any) => {
-  const { user } = req
-
-  if (!user) return res.send({})
-
-  return res.send({ ...user, newUser: false })
+userRouter.get('/', (req: RequestWithUser, res: any) => {
+  return res.send({ ...req?.user })
 })
 
 export default userRouter

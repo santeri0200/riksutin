@@ -11,13 +11,7 @@ import useCountry from '../../hooks/useCountryData'
 import LoadingProgress from '../Common/LoadingProgress'
 import ShowMore from '../Common/ShowMore'
 
-const AdditionalTextField = ({
-  question,
-  control,
-}: {
-  question: Question
-  control: Control<any> | undefined
-}) => {
+const AdditionalTextField = ({ question, control }: { question: Question; control: Control<any> | undefined }) => {
   const { t } = useTranslation()
   return (
     <Controller
@@ -46,11 +40,7 @@ const AdditionalTextField = ({
   )
 }
 
-const UniversitySelect = ({
-  control,
-  question,
-  selectedCountry,
-}: InputProps) => {
+const UniversitySelect = ({ control, question, selectedCountry }: InputProps) => {
   const { country, isLoading } = useCountry(selectedCountry)
   const { t, i18n } = useTranslation()
   const [showUniversityList, setShowUniversityList] = useState(true)
@@ -77,9 +67,7 @@ const UniversitySelect = ({
         {!showUniversityList ? (
           <ShowMore text={t('universitySelect:textFieldInfo')} />
         ) : (
-          question.text[language as keyof Locales] && (
-            <ShowMore text={question.text[language as keyof Locales]} />
-          )
+          question.text[language as keyof Locales] && <ShowMore text={question.text[language as keyof Locales]} />
         )}
       </Typography>
       <Box>
@@ -96,20 +84,16 @@ const UniversitySelect = ({
                 <Autocomplete
                   disablePortal
                   id={`select-${question.id.toString()}`}
-                  options={country?.universities || question.optionData.options}
-                  getOptionLabel={(option) => option}
+                  options={country?.universities ?? question.optionData.options}
+                  getOptionLabel={option => option}
                   onChange={(e, data) => onChange(data)}
                   sx={{ width: '50%' }}
-                  renderInput={(params) => (
+                  renderInput={params => (
                     <TextField
                       helperText={error ? error.message : null}
                       error={!!error}
                       {...params}
-                      label={
-                        question.optionData.label
-                          ? question.optionData.label[language as keyof Locales]
-                          : ''
-                      }
+                      label={question.optionData.label ? question.optionData.label[language as keyof Locales] : ''}
                     />
                   )}
                 />
@@ -119,10 +103,7 @@ const UniversitySelect = ({
             )
           }
         />
-        <Button
-          onClick={() => setShowUniversityList(!showUniversityList)}
-          sx={{ m: 2 }}
-        >
+        <Button onClick={() => setShowUniversityList(!showUniversityList)} sx={{ m: 2 }}>
           {showUniversityList ? 'Lisää yliopisto itse' : 'Palaa listaukseen'}
         </Button>
       </Box>

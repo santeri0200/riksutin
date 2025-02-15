@@ -1,10 +1,10 @@
 import { Question } from '@dbmodels'
 import getQuestionData from '../../data/questions'
 
-const seedQuestions = async () => {
-  const questions: any[] = await getQuestionData()
+const seedQuestions = () => {
+  const questions: any[] = getQuestionData()
 
-  questions.forEach(async (question) => {
+  questions.forEach(async question => {
     await Question.upsert({
       ...question,
     })

@@ -30,14 +30,16 @@ const NavBar = () => {
   const anchorRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    if (user?.language === 'en') i18n.changeLanguage('en')
+    // HACK:
+    if (user?.language === 'en') i18n.changeLanguage('en').catch(_ => {})
   }, [user, i18n])
 
   const { language } = i18n
   const languages = ['fi', 'en']
 
   const handleLanguageChange = (newLanguage: string) => {
-    i18n.changeLanguage(newLanguage)
+    // HACK:
+    i18n.changeLanguage(newLanguage).catch(_ => {})
     setOpenLanguageSelect(false)
   }
 
@@ -66,16 +68,12 @@ const NavBar = () => {
             {user?.isAdmin && (
               <Link to="/admin/summary" style={{ textDecoration: 'none' }}>
                 <Button sx={{ marginRight: '25px' }}>
-                  <AdminPanelSettingsOutlined sx={navStyles.icon} />{' '}
-                  {t('admin')}
+                  <AdminPanelSettingsOutlined sx={navStyles.icon} /> {t('admin')}
                 </Button>
               </Link>
             )}
             <Button variant="outlined" sx={{ marginRight: '25px' }}>
-              <Link
-                to="/user"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
+              <Link to="/user" style={{ textDecoration: 'none', color: 'inherit' }}>
                 {t('userPage:userPageButton')}
               </Link>
             </Button>
@@ -83,9 +81,7 @@ const NavBar = () => {
               ref={anchorRef}
               id="composition-button"
               data-cy="language-select"
-              aria-controls={
-                openLanguageSelect ? 'composition-menu' : undefined
-              }
+              aria-controls={openLanguageSelect ? 'composition-menu' : undefined}
               aria-expanded={openLanguageSelect ? 'true' : undefined}
               aria-haspopup="true"
               onClick={() => setOpenLanguageSelect(!openLanguageSelect)}
@@ -104,28 +100,20 @@ const NavBar = () => {
                 <Grow
                   {...TransitionProps}
                   style={{
-                    transformOrigin:
-                      placement === 'bottom-start' ? 'left top' : 'left bottom',
+                    transformOrigin: placement === 'bottom-start' ? 'left top' : 'left bottom',
                   }}
                 >
                   <Paper>
-                    <ClickAwayListener
-                      onClickAway={() =>
-                        setOpenLanguageSelect(!openLanguageSelect)
-                      }
-                    >
+                    <ClickAwayListener onClickAway={() => setOpenLanguageSelect(!openLanguageSelect)}>
                       <MenuList
                         autoFocusItem={openLanguageSelect}
                         id="composition-menu"
                         aria-labelledby="composition-button"
                       >
-                        {languages.map((l) => (
+                        {languages.map(l => (
                           <MenuItem
                             key={l}
-                            sx={[
-                              navStyles.item,
-                              language === l && navStyles.activeItem,
-                            ]}
+                            sx={[navStyles.item, language === l && navStyles.activeItem]}
                             onClick={() => {
                               handleLanguageChange(l)
                             }}

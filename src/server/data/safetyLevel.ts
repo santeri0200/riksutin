@@ -28,8 +28,7 @@ const fetchSafetyLevelData = async (code: string) => {
       ['Poistu välittömästi maasta', 3],
     ]
 
-    const safetyLevelRisk =
-      safetyLevels.find((level) => level[0] === safetyLevel)?.[1] || null
+    const safetyLevelRisk = safetyLevels.find(level => level[0] === safetyLevel)?.[1] ?? null
 
     return safetyLevelRisk
   } catch (error) {

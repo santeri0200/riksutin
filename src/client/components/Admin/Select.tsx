@@ -1,13 +1,6 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  Select,
-  SelectChangeEvent,
-  MenuItem,
-} from '@mui/material'
+import { Box, FormControl, InputLabel, Select, SelectChangeEvent, MenuItem } from '@mui/material'
 
 import type { Locales } from '@types'
 
@@ -33,12 +26,7 @@ const SelectWrapper = ({
   <Box sx={{ width: '20vw', mx: 4 }}>
     <FormControl fullWidth>
       <InputLabel>{label}</InputLabel>
-      <Select
-        label={label}
-        value={value}
-        defaultValue=""
-        onChange={handleChange}
-      >
+      <Select label={label} value={value} defaultValue="" onChange={handleChange}>
         {children}
       </Select>
     </FormControl>
@@ -64,16 +52,10 @@ export const ResultSelect = () => {
 
   if (!results) return null
 
-  results.sort((a, b) =>
-    a.data.title[language].localeCompare(b.data.title[language])
-  )
+  results.sort((a, b) => a.data.title[language].localeCompare(b.data.title[language]))
 
   return (
-    <SelectWrapper
-      label="Valitse tulosteksti"
-      value={resultId || ''}
-      handleChange={handleResultChange}
-    >
+    <SelectWrapper label="Valitse tulosteksti" value={resultId ?? ''} handleChange={handleResultChange}>
       {results.map(({ id, data }) => (
         <MenuItem key={id} value={id}>
           {data.title[language]}
@@ -103,17 +85,11 @@ export const QuestionSelect = () => {
 
   if (!isSuccess || !questions) return null
 
-  const filteredQuestions = questions.filter(
-    ({ optionData }) => !['dimensions'].includes(optionData.type)
-  )
+  const filteredQuestions = questions.filter(({ optionData }) => !['dimensions'].includes(optionData.type))
   const sortedQuestions = sortQuestions(filteredQuestions, language)
 
   return (
-    <SelectWrapper
-      label={t('admin:selectQuestion')}
-      value={questionId || ''}
-      handleChange={handleQuestionChange}
-    >
+    <SelectWrapper label={t('admin:selectQuestion')} value={questionId ?? ''} handleChange={handleQuestionChange}>
       {sortedQuestions.map(({ id, title }) => (
         <MenuItem key={id} value={id}>
           {title[language]}

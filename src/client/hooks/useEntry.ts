@@ -26,7 +26,7 @@ export const useEntries = () => {
   const queryKey = 'entries'
 
   const query = async (): Promise<Entry[]> => {
-    const { data } = await apiClient.get(`/entries`)
+    const { data } = await apiClient.get('/entries')
 
     return data
   }
@@ -43,7 +43,7 @@ export const useUserEntries = () => {
   const queryKey = 'userEntries'
 
   const query = async (): Promise<Entry[]> => {
-    const { data } = await apiClient.get(`/entries/user`)
+    const { data } = await apiClient.get('/entries/user')
 
     return data
   }

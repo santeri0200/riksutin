@@ -1,6 +1,6 @@
 import type { Question } from '@types'
 
-const getQuestionData = async (): Promise<Question[]> => [
+const getQuestionData = (): Question[] => [
   {
     id: 1,
     surveyId: 1,

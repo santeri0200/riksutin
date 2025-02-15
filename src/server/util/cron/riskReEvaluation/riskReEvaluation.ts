@@ -31,20 +31,17 @@ export const riskReEvaluation = async (entry: Entry) => {
 const run = async () => {
   logger.info('Recalculating data')
   const entries = await Entry.findAll()
-  entries.forEach(async (entry) => {
+  entries.forEach(async entry => {
     const updatedRisks = await riskReEvaluation(entry)
 
     if (!updatedRisks) return null
 
-    const updatedTotalRiskLevel = updatedRisks.risks.find(
-      (risk) => risk.id === 'total'
-    )?.level
+    const updatedTotalRiskLevel = updatedRisks.risks.find(risk => risk.id === 'total')?.level
 
     try {
       if (
         updatedTotalRiskLevel === 3 &&
-        updatedTotalRiskLevel >
-          entry.data.risks.find((risk) => risk.id === 'total')?.level
+        updatedTotalRiskLevel > entry.data.risks.find(risk => risk.id === 'total')?.level
       ) {
         await entry.update({
           data: updatedRisks,
@@ -55,11 +52,7 @@ const run = async () => {
         const user = await User.findByPk(entry.userId)
 
         if (user) {
-          await sendAlertEmail(
-            user.email,
-            entry.data.answers[3],
-            entry.id.toString()
-          )
+          await sendAlertEmail(user.email, entry.data.answers[3], entry.id.toString())
         }
         return updatedObject
       }
@@ -71,7 +64,7 @@ const run = async () => {
   })
 }
 
-const startRiskCron = async () => {
+const startRiskCron = () => {
   const cronTime = '0 12 * * 1'
   logger.info('Cron job scheduled')
   return scheduleCronJob(cronTime, run)

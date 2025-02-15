@@ -1,7 +1,7 @@
 import { Result } from '@dbmodels'
 import getResultData from '../../data/results'
 
-const seedResults = async () => {
+const seedResults = () => {
   const results: any = getResultData()
 
   results.forEach(async (result: any) => {

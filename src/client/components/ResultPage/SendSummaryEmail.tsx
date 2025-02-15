@@ -5,14 +5,7 @@ import { enqueueSnackbar } from 'notistack'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 import { zodResolver } from '@hookform/resolvers/zod'
-import {
-  Autocomplete,
-  Box,
-  Button,
-  Chip,
-  TextField,
-  Typography,
-} from '@mui/material'
+import { Autocomplete, Box, Button, Chip, TextField, Typography } from '@mui/material'
 
 import { ShareResultEmails, ShareResultsZod } from '@validators/emails'
 
@@ -87,9 +80,7 @@ const SendSummaryEmail = () => {
 
   return (
     <Box sx={cardStyles.nestedSubSection}>
-      <Typography variant="body1">
-        {t('results:proceedEmailInfoText')}
-      </Typography>
+      <Typography variant="body1">{t('results:proceedEmailInfoText')}</Typography>
       <Box sx={cardStyles.content}>
         <Box>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -117,24 +108,18 @@ const SendSummaryEmail = () => {
                         key={option as unknown as string}
                         variant="outlined"
                         label={option}
-                        color={
-                          errors.emails && errors?.emails[index]
-                            ? 'error'
-                            : 'success'
-                        }
+                        color={errors.emails?.[index] ? 'error' : 'success'}
                       />
                     ))
                   }
-                  renderInput={(params) => (
+                  renderInput={params => (
                     <TextField
                       {...params}
                       data-cy="share-results-input"
                       size="small"
                       margin="dense"
                       variant="outlined"
-                      placeholder={
-                        t('results:summaryEmailSharePlaceholder') ?? ''
-                      }
+                      placeholder={t('results:summaryEmailSharePlaceholder') ?? ''}
                       error={!!errors?.emails}
                       disabled={isSent}
                     />

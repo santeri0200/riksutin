@@ -11,9 +11,9 @@ import initializeSentry from './util/sentry'
 import initializeI18n from './util/il18n'
 
 initializeSentry()
-initializeI18n()
+await initializeI18n()
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+const root = ReactDOM.createRoot(document.getElementById('root')!)
 root.render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>

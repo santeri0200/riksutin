@@ -7,7 +7,6 @@ import { set, get } from '../../util/redis'
 const baseUrl = 'https://whed.net'
 
 const fetchData = async (countryName: string) => {
-  // eslint-disable-next-line no-param-reassign
   if (countryName === 'United States') countryName = 'United States of America'
 
   const url = `${baseUrl}/results_institutions.php`
@@ -42,8 +41,8 @@ const parseHTML = (html: string): string[] => {
   const filterList = ['Sort by:', 'Results per page:']
 
   const universityNames = [...universities]
-    .map((university) => university?.textContent?.trim())
-    .filter((name) => name && !filterList.includes(name))
+    .map(university => university?.textContent?.trim())
+    .filter(name => name && !filterList.includes(name))
 
   return universityNames
 }

@@ -16,9 +16,7 @@ interface TabPanelProps {
 }
 
 const formatDate = (dateString: string) =>
-  `${new Date(dateString).toLocaleDateString()} ${new Date(
-    dateString
-  ).toLocaleTimeString()}`
+  `${new Date(dateString).toLocaleDateString()} ${new Date(dateString).toLocaleTimeString()}`
 
 const TabPanel = (props: TabPanelProps) => {
   const { children, value, index } = props
@@ -62,16 +60,12 @@ const UserEntry = () => {
 
   const { answers, country, updatedData } = entry.data
 
-  const parentPage =
-    location.pathname.split('/')[1] === 'admin' ? '/admin/summary' : '/user'
+  const parentPage = location.pathname.split('/')[1] === 'admin' ? '/admin/summary' : '/user'
 
   return (
     <Box sx={{ m: 3 }}>
       <Box sx={{ width: '100%', my: 2 }}>
-        <Link
-          to={parentPage}
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
+        <Link to={parentPage} style={{ textDecoration: 'none', color: 'inherit' }}>
           <Button variant="outlined">
             <ArrowBackIcon sx={{ mr: 1 }} />
             {t('userPage:backButton')}
@@ -81,29 +75,26 @@ const UserEntry = () => {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={tabValue} onChange={handleChange}>
           <Tab sx={{ color: 'black' }} label={formatDate(entry.createdAt)} />
-          {updatedData &&
-            updatedData.map((updated, index) => (
-              <Tab
-                /* eslint-disable-next-line react/no-array-index-key */
-                key={index}
-                sx={{ color: 'black' }}
-                label={formatDate(updated.createdAt)}
-              />
-            ))}
+          {updatedData?.map((updated, index) => (
+            <Tab
+              /* eslint-disable-next-line react/no-array-index-key */
+              key={index}
+              sx={{ color: 'black' }}
+              label={formatDate(updated.createdAt)}
+            />
+          ))}
         </Tabs>
       </Box>
 
       <TabPanel value={tabValue} index={0}>
         <RiskTable riskData={entry.data} countryData={country[0]} />
       </TabPanel>
-      {updatedData &&
-        updatedData.map((updated, index) => (
-          /* eslint-disable-next-line react/no-array-index-key */
-          <TabPanel key={index} value={tabValue} index={index + 1}>
-            <RiskTable riskData={updated} countryData={country[0]} />
-          </TabPanel>
-        ))}
-
+      {updatedData?.map((updated, index) => (
+        /* eslint-disable-next-line react/no-array-index-key */
+        <TabPanel key={index} value={tabValue} index={index + 1}>
+          <RiskTable riskData={updated} countryData={country[0]} />
+        </TabPanel>
+      ))}
       <RenderAnswers survey={survey} resultData={answers} />
     </Box>
   )

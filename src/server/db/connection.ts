@@ -30,8 +30,7 @@ const testConnection = async () => {
   await runMigrations()
 }
 
-// eslint-disable-next-line no-promise-executor-return
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 export const connectToDatabase = async (attempt = 0): Promise<void | null> => {
   try {
@@ -44,9 +43,7 @@ export const connectToDatabase = async (attempt = 0): Promise<void | null> => {
 
       return process.exit(1)
     }
-    logger.info(
-      `Connection to database failed! Attempt ${attempt} of ${DB_CONNECTION_RETRY_LIMIT}`
-    )
+    logger.info(`Connection to database failed! Attempt ${attempt} of ${DB_CONNECTION_RETRY_LIMIT}`)
     logger.error('Database error: ', err)
     await sleep(5000)
 

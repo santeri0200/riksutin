@@ -11,7 +11,7 @@ const Admin = () => {
 
   if (isLoading) return null
 
-  if (!user || !user.isAdmin) return <Navigate to="/" />
+  if (!user?.isAdmin) return <Navigate to="/" />
 
   const pathParts = location.pathname.split('/').filter(Boolean)
 
@@ -26,36 +26,11 @@ const Admin = () => {
         m: 3,
       }}
     >
-      <Tabs
-        value={tab}
-        variant="scrollable"
-        scrollButtons
-        allowScrollButtonsMobile
-      >
-        <Tab
-          component={Link}
-          to="./summary"
-          label={t('admin:summaryTab')}
-          value="summary"
-        />
-        <Tab
-          component={Link}
-          to="./edit-survey"
-          label={t('admin:surveyTab')}
-          value="edit-survey"
-        />
-        <Tab
-          component={Link}
-          to="./edit-questions"
-          label={t('admin:questionTab')}
-          value="edit-questions"
-        />
-        <Tab
-          component={Link}
-          to="./edit-results"
-          label={t('admin:resultTab')}
-          value="edit-results"
-        />
+      <Tabs value={tab} variant="scrollable" scrollButtons allowScrollButtonsMobile>
+        <Tab component={Link} to="./summary" label={t('admin:summaryTab')} value="summary" />
+        <Tab component={Link} to="./edit-survey" label={t('admin:surveyTab')} value="edit-survey" />
+        <Tab component={Link} to="./edit-questions" label={t('admin:questionTab')} value="edit-questions" />
+        <Tab component={Link} to="./edit-results" label={t('admin:resultTab')} value="edit-results" />
       </Tabs>
       <Outlet />
     </Box>

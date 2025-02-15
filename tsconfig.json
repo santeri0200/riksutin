@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "moduleDetection": "force",
-    "allowJs": true,
+    "allowJs": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,

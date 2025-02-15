@@ -17,7 +17,7 @@ import parseHumanDevelopment from '../data/humanDevelopment/parseHumanDevelopmen
 type Response = [Info, FullCountry[]]
 
 export const getCountries = async () => {
-  const [_, data]: Response = await fetchData(`countries`)
+  const [_, data]: Response = await fetchData('countries')
 
   const filtered = data.filter(({ region }) => region.value !== 'Aggregates')
 
@@ -29,15 +29,11 @@ export const getCountries = async () => {
   return countries
 }
 
-export const getCountryData = async (
-  code: string | undefined
-): Promise<CountryData> => {
+export const getCountryData = async (code: string | undefined): Promise<CountryData> => {
   if (!code) return null
   const countries = await getCountries()
 
-  const countryName = countries.find(
-    (country) => country.iso2Code === code.toUpperCase()
-  )?.name
+  const countryName = countries.find(country => country.iso2Code === code.toUpperCase())?.name
 
   const corruption = await getCountryIndicator(code, 'CC.PER.RNK')
   const stability = await getCountryIndicator(code, 'PV.PER.RNK')

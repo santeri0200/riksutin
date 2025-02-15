@@ -5,7 +5,7 @@ export const inE2EMode = process.env.REACT_APP_E2E === 'true'
 
 export const inDevelopment = process.env.NODE_ENV === 'development'
 export const inStaging = process.env.REACT_APP_STAGING === 'true'
-export const inAcualStaging = process.env.ACUAL_STAGING || false
+export const inAcualStaging = process.env.ACUAL_STAGING === 'true'
 export const inProduction = !inStaging && process.env.NODE_ENV === 'production'
 
 const DEFAULT_URL = 'http://localhost:3000'
@@ -19,8 +19,8 @@ const config = {
   supportEmail: 'grp-int-risks@helsinki.fi',
 
   // Constants
-  DEFAULT_SURVEY_NAME: process.env.DEFAULT_SURVEY_NAME || 'testSurvey',
-  PUBLIC_URL: process.env.PUBLIC_URL || '',
+  DEFAULT_SURVEY_NAME: process.env.DEFAULT_SURVEY_NAME ?? 'testSurvey',
+  PUBLIC_URL: process.env.PUBLIC_URL ?? '',
 
   FORM_DATA_KEY: 'riksutin_local_save',
   SESSION_TOKEN: 'riksutin_session_token',
@@ -56,22 +56,11 @@ export const {
   SENTRY_GIT_SHA,
 } = config
 
-// eslint-disable-next-line no-nested-ternary
-export const FULL_URL = inProduction
-  ? config.PRODUCTION_URL
-  : inStaging
-  ? config.STAGING_URL
-  : config.DEVELOPMENT_URL
+export const FULL_URL = inProduction ? config.PRODUCTION_URL : inStaging ? config.STAGING_URL : config.DEVELOPMENT_URL
 
 // Internal tools
-export const JAMI_URL = inProduction
-  ? config.JAMI_PRODUCTION_URL
-  : config.JAMI_DEVELOPMENT_URL
+export const JAMI_URL = inProduction ? config.JAMI_PRODUCTION_URL : config.JAMI_DEVELOPMENT_URL
 
-export const PATE_URL = inProduction
-  ? config.PATE_PRODUCTION_URL
-  : config.PATE_DEVELOPMENT_URL
+export const PATE_URL = inProduction ? config.PATE_PRODUCTION_URL : config.PATE_DEVELOPMENT_URL
 
-export const OIDC_ISSUER = inProduction
-  ? config.OIDC_PRODUCTION_ISSUER
-  : config.OIDC_DEVELOPMENT_ISSUER
+export const OIDC_ISSUER = inProduction ? config.OIDC_PRODUCTION_ISSUER : config.OIDC_DEVELOPMENT_ISSUER

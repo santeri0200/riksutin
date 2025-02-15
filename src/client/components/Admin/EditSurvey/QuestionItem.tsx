@@ -1,13 +1,6 @@
 import { enqueueSnackbar } from 'notistack'
 import { useTranslation } from 'react-i18next'
-import {
-  Badge,
-  Box,
-  Chip,
-  IconButton,
-  InputLabel,
-  Tooltip,
-} from '@mui/material'
+import { Badge, Box, Chip, IconButton, InputLabel, Tooltip } from '@mui/material'
 
 import FingerprintIcon from '@mui/icons-material/Fingerprint'
 import LowPriorityIcon from '@mui/icons-material/LowPriority'
@@ -35,20 +28,13 @@ interface QuestionsProps {
   language: keyof Locales
 }
 
-const QuestionItemPositionHandles = ({
-  question,
-  questions,
-}: PositionHandleProps) => {
+const QuestionItemPositionHandles = ({ question, questions }: PositionHandleProps) => {
   const { t } = useTranslation()
   const mutation = useEditQuestionPriorityMutation(question.id)
 
-  const parentChildQuestions = questions.filter(
-    (q) => q.parentId === question.parentId
-  )
+  const parentChildQuestions = questions.filter(q => q.parentId === question.parentId)
 
-  const handleChangePosition = async (
-    destinationData: UpdatedQuestionLocation
-  ) => {
+  const handleChangePosition = async (destinationData: UpdatedQuestionLocation) => {
     try {
       await mutation.mutateAsync(destinationData)
 
@@ -64,7 +50,8 @@ const QuestionItemPositionHandles = ({
       priority: question.priority - 1,
     }
 
-    handleChangePosition(destination)
+    // HACK:
+    handleChangePosition(destination).catch(_ => {})
   }
 
   const onMoveDown = () => {
@@ -73,11 +60,12 @@ const QuestionItemPositionHandles = ({
       priority: question.priority + 1,
     }
 
-    handleChangePosition(destination)
+    // HACK:
+    handleChangePosition(destination).catch(_ => {})
   }
 
   const onMoveLeft = () => {
-    const parentQuestion = questions.find((q) => q.id === question.parentId)
+    const parentQuestion = questions.find(q => q.id === question.parentId)
 
     if (!parentQuestion) return
 
@@ -86,19 +74,16 @@ const QuestionItemPositionHandles = ({
       priority: parentQuestion.priority + 1,
     }
 
-    handleChangePosition(destination)
+    // HACK:
+    handleChangePosition(destination).catch(_ => {})
   }
 
   const onMoveRight = () => {
-    const precedingQuestion = parentChildQuestions.find(
-      (q) => q.priority === question.priority - 1
-    )
+    const precedingQuestion = parentChildQuestions.find(q => q.priority === question.priority - 1)
 
     if (!precedingQuestion) return
 
-    const precedingChilds = questions.filter(
-      (q) => q.parentId === precedingQuestion.id
-    )
+    const precedingChilds = questions.filter(q => q.parentId === precedingQuestion.id)
 
     const priority = precedingChilds.length >= 1 ? precedingChilds.length : 0
 
@@ -107,7 +92,8 @@ const QuestionItemPositionHandles = ({
       priority,
     }
 
-    handleChangePosition(destination)
+    // HACK:
+    handleChangePosition(destination).catch(_ => {})
   }
 
   return (
@@ -124,7 +110,7 @@ const QuestionItemPositionHandles = ({
         </IconButton>
       )}
 
-      {(question.parentId || parentChildQuestions.length <= 1) && (
+      {(question.parentId ?? parentChildQuestions.length <= 1) && (
         <IconButton size="small" onClick={onMoveLeft}>
           <KeyboardArrowLeftIcon />
         </IconButton>
@@ -178,11 +164,7 @@ const QuestionItem = ({ question, questions, language }: QuestionsProps) => (
 
       {question.parentId && (
         <Tooltip title="This badge represents that the question is a child question. The number represents the ID number of the parent question">
-          <Badge
-            sx={{ mr: 1 }}
-            badgeContent={question.parentId}
-            color="primary"
-          >
+          <Badge sx={{ mr: 1 }} badgeContent={question.parentId} color="primary">
             <ChildCareIcon />
           </Badge>
         </Tooltip>
