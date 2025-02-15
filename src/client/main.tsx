@@ -11,7 +11,8 @@ import initializeSentry from './util/sentry'
 import initializeI18n from './util/il18n'
 
 initializeSentry()
-await initializeI18n()
+// HACK:
+initializeI18n().catch(_ => {})
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 root.render(
