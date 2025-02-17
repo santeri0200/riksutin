@@ -18,11 +18,13 @@ The object includes the following data. The source for data is in the brackets:
 
 - Academic freedom ([CSV](../src/server/data/academicfreedom/academicfreedom.csv))
 - Corruption ([Worldbank API](https://api.worldbank.org/v2))
-- Human development index ([CSV](../src/server/data/humanDevelopment/humanDevelopment.csv)) source [https://hdr.undp.org/](https://hdr.undp.org/data-center/human-development-index#/indicies/HDI) current data 2022
+- Human development index ([CSV](../src/server/data/humanDevelopment/humanDevelopment.csv)) source [https://hdr.undp.org/] current data 2022
+  - for data, go to https://hdr.undp.org/data-center/human-development-index#/indicies/HDI
 - Political stability ([Worldbank API](https://api.worldbank.org/v2))
 - Safety level ([Ministry for Foreign Affairs of Finland's matkustustiedotteet](https://um.fi/o/rss?dctype=matkustustiedotteet), RSS feed)
 - Sanctions ([EU sanctions map API](https://sanctionsmap.eu/api/v1/regime))
-- Rule of Law ([CSV](../src/server/data/ruleOfLaw/ruleOfLaw.csv))
+- Rule of Law ([CSV](../src/server/data/ruleOfLaw/ruleOfLaw.csv)) https://worldjusticeproject.org/, current data 2023
+  - go to https://worldjusticeproject.org/rule-of-law-index/global/2024/table open network tab, there is 2024.csv and other years 
 - Universities ([WHED](https://whed.net/results_institutions.php), scraper)
 
 Risk levels of sanctions, safety level and universities are calculated based on the form data.
