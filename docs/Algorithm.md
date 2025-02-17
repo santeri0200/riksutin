@@ -18,7 +18,7 @@ The object includes the following data. The source for data is in the brackets:
 
 - Academic freedom ([CSV](../src/server/data/academicfreedom/academicfreedom.csv))
 - Corruption ([Worldbank API](https://api.worldbank.org/v2))
-- Human development index ([CSV](../src/server/data/humanDevelopment/humanDevelopment.csv))
+- Human development index ([CSV](../src/server/data/humanDevelopment/humanDevelopment.csv)) source [https://hdr.undp.org/](https://hdr.undp.org/data-center/human-development-index#/indicies/HDI) current data 2022
 - Political stability ([Worldbank API](https://api.worldbank.org/v2))
 - Safety level ([Ministry for Foreign Affairs of Finland's matkustustiedotteet](https://um.fi/o/rss?dctype=matkustustiedotteet), RSS feed)
 - Sanctions ([EU sanctions map API](https://sanctionsmap.eu/api/v1/regime))
