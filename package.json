@@ -22,10 +22,6 @@
     "build": "npm run build --workspace=client",
     "prepare": "husky install"
   },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": "eslint",
-    "*.{ts,tsx,json,css,md}": "prettier --write"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
