@@ -6,7 +6,8 @@
   "workspaces": [
     "src/client",
     "src/server",
-    "src/validators"
+    "src/validators",
+    "tests"
   ],
   "scripts": {
     "start": "docker compose up",
@@ -15,7 +16,7 @@
     "start:dev": "NODE_ENV=development concurrently \"npm run start:dev:server\" \"npm run start:dev:client\"",
     "start:dev:server": "npm run watch --workspace=server",
     "start:dev:client": "npm run watch --workspace=client",
-    "test": "npx playwright test",
+    "test": "npm run test --workspaces --if-present",
     "lint": "eslint",
     "format": "prettier --write \"*.{ts,tsx,json,css,md}\"",
     "build": "npm run build --workspace=client",
@@ -39,10 +40,6 @@
   },
   "devDependencies": {
     "@eslint/js": "9.20.0",
-    "@playwright/test": "^1.40.1",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "@types/eslint": "^8.4.10",
     "@types/jest": "^27.5.2",
     "@types/prettier": "^2.7.2",
